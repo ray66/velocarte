@@ -1,0 +1,18 @@
+"/usr/bin/gwenview(5481)" Soprano: "org.freedesktop.DBus.Error.ServiceUnknown - The name org.kde.nepomuk.services.nepomukstorage was not provided by any .service files"
+"/usr/bin/gwenview(5481)" Soprano: "QLocalSocket::connectToServer: Invalid name"
+"/usr/bin/gwenview(5481)" Soprano: "org.freedesktop.DBus.Error.ServiceUnknown - The name org.kde.nepomuk.services.nepomukstorage was not provided by any .service files"
+"/usr/bin/gwenview(5481)" Soprano: "QLocalSocket::connectToServer: Invalid name"
+"/usr/bin/gwenview(5481)" Soprano: "org.freedesktop.DBus.Error.ServiceUnknown - The name org.kde.nepomuk.services.nepomukstorage was not provided by any .service files"
+"/usr/bin/gwenview(5481)" Soprano: "QLocalSocket::connectToServer: Invalid name"
+"/usr/bin/gwenview(5481)" Soprano: "org.freedesktop.DBus.Error.ServiceUnknown - The name org.kde.nepomuk.services.nepomukstorage was not provided by any .service files"
+"/usr/bin/gwenview(5481)" Soprano: "QLocalSocket::connectToServer: Invalid name"
+"/usr/bin/gwenview(5481)" Soprano: "org.freedesktop.DBus.Error.ServiceUnknown - The name org.kde.nepomuk.services.nepomukstorage was not provided by any .service files"
+"/usr/bin/gwenview(5481)" Soprano: "QLocalSocket::connectToServer: Invalid name"
+gwenview(5481)/kdeui (kdelibs): Attempt to use QAction "edit_redo" with KXMLGUIFactory! 
+gwenview(5481)/kdeui (kdelibs): Attempt to use QAction "edit_undo" with KXMLGUIFactory! 
+gwenview(5481) Gwenview::ViewMainPagePrivate::setCurrentView: No index found for current view 
+gwenview(5481) KXMLGUI::ActionList::plug: Index  20  is not within range (0 -  19 
+gwenview(5481) KXMLGUI::ActionList::plug: Index  20  is not within range (0 -  19 
+gwenview(5481) KXMLGUI::ActionList::plug: Index  20  is not within range (0 -  19 
+gwenview(5481): Invalid url KUrl("") 
+gwenview(5481) KXMLGUI::ActionList::plug: Index  20  is not within range (0 -  19 

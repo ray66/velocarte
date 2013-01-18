@@ -1,0 +1,117 @@
+{
+  "bounds": [
+    2.656,
+    42.569,
+    3.046,
+    42.801
+  ],
+  "center": [
+    2.8956,
+    42.6966,
+    14
+  ],
+  "format": "png8 z=9",
+  "interactivity": false,
+  "minzoom": 12,
+  "maxzoom": 18,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss",
+    "overlay.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "unknown",
+      "extent": [
+        2.2127417961103704,
+        42.495165869656354,
+        3.039710365082324,
+        42.82292402773798
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM planet_osm_line WHERE (highway='path' and bicycle='yes') ORDER BY z_order ASC) AS paths\n",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "246321.29,5235443.92,338379.01,5285057.8",
+        "dbname": "osm",
+        "host": "localhost",
+        "port": "5432",
+        "user": "rainer",
+        "password": "osm"
+      },
+      "id": "path",
+      "class": "path ovl",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "path"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        2.2127417961103704,
+        42.495165869656354,
+        3.039710365082324,
+        42.82292402773798
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way,osm_id,highway,name,cycleway,oneway,tunnel,tracktype\n FROM planet_osm_line\n               WHERE (highway = 'track' and tracktype in('grade1','grade2','grade3')) or (highway='unclassified' and in_agglo != 'yes')\n               ORDER BY z_order ASC, priority DESC) AS minor_roads",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "246321.29,5235443.92,338379.01,5285057.8",
+        "dbname": "osm",
+        "host": "localhost",
+        "port": "5432",
+        "user": "rainer",
+        "password": "osm",
+        "id": "road_outline",
+        "project": "SmallWayOverlay",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "road_outline",
+      "class": "road ovl",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "road_outline"
+    },
+    {
+      "geometry": "unknown",
+      "extent": [
+        2.2127417961103704,
+        42.495165869656354,
+        3.039710365082324,
+        42.82292402773798
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select osm_id,way,highway, bicycle_access, bicycle_shared\n          from planet_osm_line\n          where      (   highway = 'cycleway'\n                     or (highway in ('path','track','pedestrian','footway','unclassified') and bicycle = 'designated')\n                    )\n          order by z_order\n         ) as cycleways",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "246321.29,5235443.92,338379.01,5285057.8",
+        "dbname": "osm",
+        "host": "localhost",
+        "port": "5432",
+        "user": "rainer",
+        "password": "osm"
+      },
+      "id": "cycleway",
+      "class": "cycleway",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "cycleway",
+      "status": "off"
+    }
+  ],
+  "scale": 1,
+  "metatile": 1,
+  "name": "Carte Velo Chemins",
+  "description": "",
+  "attribution": ""
+}
