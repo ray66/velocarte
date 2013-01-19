@@ -36,6 +36,11 @@
   	[ground='orchard']{
     	polygon-fill: lighten(#CBD8C3,10%);
   	}
+	[ground='grassland']{
+  		polygon-fill: #DCF5D7;
+   		line-width: 1;
+    	line-color: lighten(#DCF5D7,15%);
+    }
 	[ground='park'],
 	[ground='village_green']{
     	polygon-fill: #B5D29C;
@@ -76,43 +81,82 @@
 /* ------------------------------------------------------------------ */
 .place
 {
-	.place[place='town'][zoom<17],
-	.place[place='city'][zoom<16] {
+	[place='town'][zoom<17],
+	[place='city'][zoom<16], 
+    [place='village'][zoom>=12][zoom<=16],
+    [place='suburb'][zoom>=14][zoom<=16],
+    [place='neighbourhood'][zoom>=12][zoom<=16],
+    [place='hamlet'][zoom>=14][zoom<=17],
+    [place='isolated_dwelling'][zoom>=14][zoom<=17],
+    [place='farm'][zoom>=14][zoom<=17],
+    [place='locality'][zoom>=14][zoom<=17]
+    {
 		text-name:"[name]";
    		text-face-name: "DejaVu Sans Bold";
     	text-halo-radius: 1;
     	text-fill: #000;
+		text-placement-type: simple;
     }
 	[place='city'][zoom<16]{ 
   		text-size: 15;   	
-		text-placement-type: simple;
   		text-placements: 'X,E,W,15,14,13,12,10';
 	}
 	[place='town'][zoom<17]{ 
-	  	text-size: 12;
     	text-wrap-width: 20;
-		text-placement-type: simple;
+	  	text-size: 12;
   		text-placements: 'X,E,W,12,11,10';
 	}
+    [place='peak']{
+		text-name:"[name]";
+   		text-face-name: "DejaVu Sans Oblique";
+    	text-fill: brown;
+    	text-halo-radius: 1;
+  		text-size: 10;   	
+        text-placement: interior;
+  	    ele/text-name: "[ele]";
+    	ele/text-size: 9;
+      	ele/text-fill: brown;
+      	ele/text-dy: 6;
+      	ele/text-face-name: "DejaVu Sans Oblique";
+      	ele/text-halo-radius: 1;
+      	ele/text-placement: interior;
+      	[name != ''] {
+        	ele/text-dy: 9;
+      	}
+    }	
   /*text-allow-overlap: true;*/
+	[place='village'][zoom>=12][zoom<=16],
+	[place='suburb'][zoom=14][zoom<=16],
+  	[place='neighbourhood'][zoom>=12][zoom<=16],
+    [place='hamlet'][zoom>=14][zoom<=17],
+    [place='isolated_dwelling'][zoom>=14][zoom<=17],
+    [place='farm'][zoom>=14][zoom<=17]
+	{
+	    text-wrap-character: '-';
+    	text-wrap-width: 45;
+    }
+	[place='village'][zoom>=12][zoom<=16],
+	[place='suburb'][zoom=14][zoom<=16]{
+		text-face-name: "DejaVu Sans Book";
+  		text-size: 14;
+  		text-placements: 'X,E,W,11,10,9,8';
+	}
+  	[place='village'][zoom>=12][zoom<=13]  { text-size: 11; }
+	[place='village'][zoom>=14][zoom<=16]  { text-size: 13; }
+	[place='suburb'][zoom=14]  			   { text-size: 12; }
+	[place='suburb'][zoom>=15][zoom<=16]   { text-size: 14; }
+
+	[place='neighbourhood'][zoom>=12][zoom<=16],
+    [place='hamlet'][zoom>=14][zoom<=17],
+    [place='isolated_dwelling'][zoom>=14][zoom<=17],
+    [place='farm'][zoom>=14][zoom<=17],
+    [place='locality'][zoom>=14][zoom<=17]
+	{
+	    text-face-name: "DejaVu Sans Oblique";
+	  	text-size: 11;
+  		text-placements: 'X,E,W,11,10,9,8';
+    }
 }
-
-.place[place='village'][zoom>=12][zoom<=16],
-.place[place='suburb'][zoom>=14][zoom<=16]
-{
-    text-name:"[name]";
-    text-face-name: "DejaVu Sans Book";
-    text-fill: #000;
-  	text-halo-radius: 1;
-    text-wrap-character: '-';
-    text-wrap-width: 45;
-}
-.place[place='village'][zoom>=12][zoom<=13]  { text-size: 10; }
-.place[place='village'][zoom>=14][zoom<=16]  { text-size: 12; }
-
-.place[place='suburb'][zoom=14]  { text-size: 12; }
-.place[place='suburb'][zoom>=15][zoom<=16]  { text-size: 14; }
-
 /* ------------------------------------------------------------------ */
 /* "Ground" labels
 /* ------------------------------------------------------------------ */
