@@ -1,13 +1,13 @@
 {
   "bounds": [
-    2.1911,
-    42.5138,
-    2.5242,
-    42.6705
+    2.656,
+    42.569,
+    3.046,
+    42.801
   ],
   "center": [
-    2.3515,
-    42.5972,
+    2.8941,
+    42.6962,
     12
   ],
   "format": "png8",
@@ -43,6 +43,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "",
         "dbname": "osm",
         "host": "localhost",
         "password": "osm",
@@ -66,6 +67,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192055.25,5211463.69,353337.41,5297733.29",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -89,6 +91,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192055.25,5211463.69,353337.41,5297733.29",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -112,6 +115,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192055.25,5211463.69,353337.41,5297733.29",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -136,6 +140,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192109.36,5211076.76,353417.19,5299522.67",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -160,6 +165,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192055.25,5211463.69,353337.41,5297733.29",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -181,6 +187,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192109.36,5211076.76,353417.19,5299522.67",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -202,6 +209,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192109.36,5211076.76,353417.19,5299522.67",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -226,6 +234,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "312068.15,5239863.01,338226.43,5287811.11",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -250,6 +259,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "312068.15,5239863.01,338226.43,5287811.11",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -274,6 +284,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "312068.15,5239863.01,338226.43,5287811.11",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -298,6 +309,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "312068.15,5239863.01,338226.43,5287811.11",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -322,6 +334,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192109.36,5211076.76,353417.19,5299522.67",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -346,6 +359,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "246321.29,5235443.92,338812.53,5292326.17",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -370,6 +384,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192109.36,5211076.76,353417.19,5299522.67",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -391,6 +406,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192109.36,5211076.76,353417.19,5299522.67",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -412,6 +428,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192109.36,5211076.76,353417.19,5299522.67",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -433,6 +450,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192109.36,5211076.76,353417.19,5299522.67",
         "dbname": "osm",
         "host": "localhost",
         "password": "osm",
@@ -453,6 +471,7 @@
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
+        "extent": "192055.25,5211463.69,353337.41,5297733.29",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -478,6 +497,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "193647.17,5213931.21,353334.5,5299180.87",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -502,6 +522,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "193647.17,5213931.21,353334.5,5299180.87",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -509,21 +530,14 @@
         "password": "osm",
         "id": "poi_label",
         "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": ""
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "poi_label",
       "class": "poi label ",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "poi_label",
-      "extent": [
-        1.7395621253749127,
-        42.35251225521269,
-        3.17405781756729,
-        42.91590758192279
-      ]
+      "name": "poi_label"
     },
     {
       "Datasource": {
@@ -532,6 +546,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "285891.86,5241926.11,335980.86,5279540.8",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -553,41 +568,36 @@
       "geometry": "point",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,name, left(ele, position(',' in ele)-1) as ele,COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' or \"natural\" in ('peak') THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority,\n                (case when \"natural\" in ('peak') then \"natural\" else place end) as place\n                FROM planet_osm_point \n                     where place  in ('city','metropolis','town') or \"natural\" in ('peak')\n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
+        "table": "(SELECT way,osm_id,place,name, COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority FROM planet_osm_point \n                     where place  in ('city','metropolis','town') \n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
         "password": "osm",
         "id": "place_label_major",
-        "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": ""
+        "project": "CarteVelo",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "place_label_major",
       "class": "place label major",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "place_label_major",
-      "extent": [
-        1.7395621253749127,
-        42.35251225521269,
-        3.17405781756729,
-        42.91590758192279
-      ]
+      "name": "place_label_major"
     },
     {
-      "geometry": "point",
+      "geometry": "unknown",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,place,name,ele, COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority FROM planet_osm_point \n                     where place in ('suburb','village','large_village',\n'hamlet','locality','isolated_dwelling','farm')\n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
+        "table": "(SELECT way,osm_id,place,name, COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority FROM planet_osm_point \n                     where place in ('suburb','village','large_village',\n'hamlet','locality','isolated_dwelling','farm')\n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
+        "extent": "246321.290398703,5215727.57308613,338882.43397306,5286983.2547873",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -595,21 +605,14 @@
         "password": "osm",
         "id": "place_label_small",
         "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": ""
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "place_label_small",
       "class": "place label small",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "place_label_small",
-      "extent": [
-        1.7395621253749127,
-        42.35251225521269,
-        3.17405781756729,
-        42.91590758192279
-      ]
+      "name": "place_label_small"
     },
     {
       "geometry": "linestring",
@@ -619,6 +622,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "246321.29,5235443.92,338379.01,5285057.8",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -643,6 +647,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "246321.29,5235443.92,338379.01,5285057.8",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -666,6 +671,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "260108.4,5241926.11,338924.82,5289716.69",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -691,6 +697,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "246321.29,5235443.92,338812.53,5292326.17",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -711,10 +718,11 @@
       "geometry": "point",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,place,name,ele, COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority FROM planet_osm_point \n                     where place not in ('city','metropolis','town','suburb','village','large_village',\n'hamlet','locality','isolated_dwelling','farm')\n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
+        "table": "(SELECT way,osm_id,place,name, COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority FROM planet_osm_point \n                     where place not in ('city','metropolis','town','suburb','village','large_village',\n'hamlet','locality','isolated_dwelling','farm')\n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "246321.290398703,5235443.92385237,334767.085982394,5285057.81023177",
         "dbname": "osm",
         "host": "localhost",
         "password": "osm",
@@ -722,21 +730,14 @@
         "user": "rainer",
         "id": "place_label",
         "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": ""
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "place_label_minor",
       "class": "place label minor",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "place_label_minor",
-      "extent": [
-        1.7395621253749127,
-        42.35251225521269,
-        3.17405781756729,
-        42.91590758192279
-      ]
+      "name": "place_label_minor"
     },
     {
       "geometry": "point",
@@ -746,6 +747,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "246321.290398703,5215727.57308613,338882.43397306,5286983.2547873",
         "dbname": "osm",
         "id": "transport_point",
         "project": "CarteVeloTest",
@@ -766,6 +768,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192109.36,5211076.76,353417.19,5299522.67",
         "dbname": "osm"
       },
       "id": "cycleway_bridge",
@@ -783,9 +786,10 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "192109.36,5211076.76,353417.19,5299522.67",
         "dbname": "osm",
         "id": "cycleroute",
-        "project": "CarteVeloBase",
+        "project": "CarteVelo",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "cycleroute",
@@ -793,13 +797,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cycleroute",
-      "extent": [
-        1.725747743104194,
-        42.33355963170475,
-        3.174800634475729,
-        42.91815619073096
-      ]
+      "name": "cycleroute"
     }
   ],
   "scale": 1,

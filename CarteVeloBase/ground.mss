@@ -107,12 +107,16 @@
   		text-placements: 'X,E,W,12,11,10';
 	}
     [place='peak']{
+        point-file: url('img/peak.png');
+        point-allow-overlap: true;
+    	point-placement: interior;
 		text-name:"[name]";
    		text-face-name: "DejaVu Sans Oblique";
     	text-fill: brown;
     	text-halo-radius: 1;
   		text-size: 10;   	
         text-placement: interior;
+    	text-dy: 6;
   	    ele/text-name: "[ele]";
     	ele/text-size: 9;
       	ele/text-fill: brown;
@@ -121,7 +125,7 @@
       	ele/text-halo-radius: 1;
       	ele/text-placement: interior;
       	[name != ''] {
-        	ele/text-dy: 9;
+        	ele/text-dy: 18;
       	}
     }	
   /*text-allow-overlap: true;*/
