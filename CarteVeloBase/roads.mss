@@ -4,7 +4,7 @@
 
 
 .road.label.major[zoom>=14],
-.road.label.minor[zoom>=16],
+.road.label.minor[zoom>=15],
 {
     text-name:"[name]";
     text-face-name: "DejaVu Sans Book";
@@ -36,7 +36,7 @@
   	text-placement-type: simple;
   	text-placements: 'X,12,11,10';
 }
-.road.label.minor[zoom=16],
+.road.label.minor[zoom>=15],
 {
     text-size: 10;
     /*[junction!='roundabout']{text-dy: 9;}*/
@@ -798,8 +798,7 @@
 /** Road Refs **/
 /**===================================================================================*/
 
-.road.ref[zoom>=12][highway='motorway']
-{
+.road.ref[zoom>=12][highway='motorway']{
     shield-name:"[ref_content]";
     shield-file: url('img/cartouche_autoroute-3.png');
     shield-face-name: "DejaVu Sans Bold";
@@ -809,10 +808,16 @@
    shield-size: 10;
    shield-fill: #000;
   shield-avoid-edges: true;
+  	[ref_length=2] { shield-file: url('img/cartouche_autoroute-2.png');}
+	[ref_length=3] { shield-file: url('img/cartouche_autoroute-3.png');}
+	[ref_length=4] { shield-file: url('img/cartouche_autoroute-4.png');}
+	[ref_length=5] { shield-file: url('img/cartouche_autoroute-5.png');}
+	[ref_length=6] { shield-file: url('img/cartouche_autoroute-6.png');}
 }
-.road.ref[zoom>=15][highway='trunk'],
-.road.ref[zoom>=15][highway='primary']
-{
+
+.road.ref[zoom>=14][highway='trunk'],
+.road.ref[zoom>=14][highway='primary'],
+.road.ref[zoom>=15][highway='secondary']{
     shield-name:"[ref_content]";
     shield-file: url('img/cartouche_autoroute-3.png');
     shield-face-name: "DejaVu Sans Bold";
@@ -822,31 +827,35 @@
    shield-size: 10;
    shield-fill: #000;
   shield-avoid-edges: true;
+	[ref_length=2] { shield-file: url('img/horizontal-shield-2.png'); }
+	[ref_length=3] { shield-file: url('img/horizontal-shield-3.png'); }
+	[ref_length=4] { shield-file: url('img/horizontal-shield-4.png'); }
+	[ref_length=5] { shield-file: url('img/horizontal-shield-5.png'); }
+	[ref_length=6] { shield-file: url('img/horizontal-shield-6.png'); }
+	[ref_length=7] { shield-file: url('img/horizontal-shield-7.png'); }
+	[ref_length=8] { shield-file: url('img/horizontal-shield-8.png'); }
+	[ref_length=9] { shield-file: url('img/horizontal-shield-9.png'); }
 }
 
-.road.ref[zoom>=12][highway='motorway']		[ref_length=2] { shield-file: url('img/cartouche_autoroute-2.png');}
-.road.ref[zoom>=12][highway='motorway']		[ref_length=3] { shield-file: url('img/cartouche_autoroute-3.png');}
-.road.ref[zoom>=12][highway='motorway']		[ref_length=4] { shield-file: url('img/cartouche_autoroute-4.png');}
-.road.ref[zoom>=12][highway='motorway']		[ref_length=5] { shield-file: url('img/cartouche_autoroute-5.png');}
-.road.ref[zoom>=12][highway='motorway']		[ref_length=6] { shield-file: url('img/cartouche_autoroute-6.png');}
-
-.road.ref[zoom>=15][highway='trunk']  	[ref_length=2] { shield-file: url('img/horizontal-shield-2.png'); }
-.road.ref[zoom>=15][highway='trunk']	[ref_length=3] { shield-file: url('img/horizontal-shield-3.png'); }
-.road.ref[zoom>=15][highway='trunk']  	[ref_length=4] { shield-file: url('img/horizontal-shield-4.png'); }
-.road.ref[zoom>=15][highway='trunk']  	[ref_length=5] { shield-file: url('img/horizontal-shield-5.png'); }
-.road.ref[zoom>=15][highway='trunk']  	[ref_length=6] { shield-file: url('img/horizontal-shield-6.png'); }
-.road.ref[zoom>=15][highway='trunk']  	[ref_length=7] { shield-file: url('img/horizontal-shield-7.png'); }
-.road.ref[zoom>=15][highway='trunk']  	[ref_length=8] { shield-file: url('img/horizontal-shield-8.png'); }
-.road.ref[zoom>=15][highway='trunk']  	[ref_length=9] { shield-file: url('img/horizontal-shield-9.png'); }
-
-.road.ref[zoom>=15][highway='primary']  	[ref_length=2] { shield-file: url('img/horizontal-shield-2.png'); }
-.road.ref[zoom>=15][highway='primary']	[ref_length=3] { shield-file: url('img/horizontal-shield-3.png'); }
-.road.ref[zoom>=15][highway='primary']  	[ref_length=4] { shield-file: url('img/horizontal-shield-4.png'); }
-.road.ref[zoom>=15][highway='primary']  	[ref_length=5] { shield-file: url('img/horizontal-shield-5.png'); }
-.road.ref[zoom>=15][highway='primary']  	[ref_length=6] { shield-file: url('img/horizontal-shield-6.png'); }
-.road.ref[zoom>=15][highway='primary']  	[ref_length=7] { shield-file: url('img/horizontal-shield-7.png'); }
-.road.ref[zoom>=15][highway='primary']  	[ref_length=8] { shield-file: url('img/horizontal-shield-8.png'); }
-.road.ref[zoom>=15][highway='primary']  	[ref_length=9] { shield-file: url('img/horizontal-shield-9.png'); }
+.road.ref[zoom>=15][highway='tertiary']{
+    shield-name:"[ref_content]";
+    shield-file: url('img/cartouche_autoroute-3.png');
+    shield-face-name: "DejaVu Sans Bold";
+    shield-min-distance: 100;
+    shield-size: 10;
+	shield-fill: #000;
+   shield-size: 10;
+   shield-fill: #000;
+  shield-avoid-edges: true;
+	[ref_length=2] { shield-file: url('img/horizontal-shield-2.png'); }
+	[ref_length=3] { shield-file: url('img/horizontal-shield-3.png'); }
+	[ref_length=4] { shield-file: url('img/horizontal-shield-4.png'); }
+	[ref_length=5] { shield-file: url('img/horizontal-shield-5.png'); }
+	[ref_length=6] { shield-file: url('img/horizontal-shield-6.png'); }
+	[ref_length=7] { shield-file: url('img/horizontal-shield-7.png'); }
+	[ref_length=8] { shield-file: url('img/horizontal-shield-8.png'); }
+	[ref_length=9] { shield-file: url('img/horizontal-shield-9.png'); }
+}
 
 /**===================================================================================*/
 /** Cycle lanes

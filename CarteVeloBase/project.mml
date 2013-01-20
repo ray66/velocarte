@@ -1,13 +1,13 @@
 {
   "bounds": [
-    2.1911,
-    42.5138,
-    2.5242,
-    42.6705
+    2.656,
+    42.569,
+    3.046,
+    42.801
   ],
   "center": [
-    2.3515,
-    42.5972,
+    2.8822,
+    42.6977,
     12
   ],
   "format": "png8",
@@ -49,7 +49,7 @@
         "port": "5432",
         "user": "rainer",
         "id": "citylike_area",
-        "project": "CarteVelo",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "citylike_area",
@@ -57,7 +57,13 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "citylike_area"
+      "name": "citylike_area",
+      "extent": [
+        2.3365935124787414,
+        42.51879184661731,
+        3.0524930322492305,
+        42.85361273824522
+      ]
     },
     {
       "Datasource": {
@@ -553,7 +559,7 @@
       "geometry": "point",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,name, left(ele, position(',' in ele)-1) as ele,COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' or \"natural\" in ('peak') THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority,\n                (case when \"natural\" in ('peak') then \"natural\" else place end) as place\n                FROM planet_osm_point \n                     where place  in ('city','metropolis','town') or \"natural\" in ('peak')\n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
+        "table": "(SELECT way,osm_id,name, \n           case when ele is not null and ele != '' then '('||left(ele, position('.' in ele)-1)||' m)' else '' end as ele,COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' or \"natural\" in ('peak') THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority,\n                (case when \"natural\" in ('peak') then \"natural\" else place end) as place\n                FROM planet_osm_point \n                     where place  in ('city','metropolis','town') or \"natural\" in ('peak')\n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -574,10 +580,10 @@
       "advanced": {},
       "name": "place_label_major",
       "extent": [
-        1.7395621253749127,
-        42.35251225521269,
-        3.17405781756729,
-        42.91590758192279
+        2.21274179969198,
+        42.36443659518098,
+        3.0442326995762437,
+        42.835609095151945
       ]
     },
     {
@@ -625,7 +631,7 @@
         "user": "rainer",
         "password": "osm",
         "id": "road_label_major",
-        "project": "CarteVelo",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "road_label_major",
@@ -633,7 +639,13 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_label_major"
+      "name": "road_label_major",
+      "extent": [
+        2.2127417961103704,
+        42.364436574697045,
+        3.055185283155737,
+        42.87655207203728
+      ]
     },
     {
       "geometry": "linestring",
@@ -649,7 +661,7 @@
         "user": "rainer",
         "password": "osm",
         "id": "road_label_minor",
-        "project": "CarteVelo",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "road_label_minor",
@@ -657,7 +669,13 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_label_minor"
+      "name": "road_label_minor",
+      "extent": [
+        2.2127417961103704,
+        42.364436574697045,
+        3.055185283155737,
+        42.87655207203728
+      ]
     },
     {
       "Datasource": {
@@ -672,7 +690,7 @@
         "user": "rainer",
         "password": "osm",
         "id": "road_area_label",
-        "project": "CarteVelo",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "road_area_label",
@@ -681,7 +699,13 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "road_area_label",
-      "geometry": "unknown"
+      "geometry": "unknown",
+      "extent": [
+        2.3365935124787414,
+        42.51879184661731,
+        3.0524930322492305,
+        42.85361273824522
+      ]
     },
     {
       "geometry": "linestring",
@@ -697,7 +721,7 @@
         "user": "rainer",
         "password": "osm",
         "id": "road_ref",
-        "project": "CarteVelo",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "road_ref",
@@ -705,7 +729,13 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_ref"
+      "name": "road_ref",
+      "extent": [
+        2.2127417961103704,
+        42.364436574697045,
+        3.055185283155737,
+        42.87655207203728
+      ]
     },
     {
       "geometry": "point",
@@ -748,7 +778,7 @@
         "extent_cache": "dynamic",
         "dbname": "osm",
         "id": "transport_point",
-        "project": "CarteVeloTest",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "transport_point",
@@ -756,7 +786,13 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "transport_point"
+      "name": "transport_point",
+      "extent": [
+        2.21274179969198,
+        42.36443659518098,
+        3.0442326995762437,
+        42.835609095151945
+      ]
     },
     {
       "geometry": "linestring",
@@ -766,14 +802,23 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm"
+        "dbname": "osm",
+        "id": "cycleway_bridge",
+        "project": "CarteVeloBase",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "cycleway_bridge",
       "class": "cycleway",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cycleway_bridge"
+      "name": "cycleway_bridge",
+      "extent": [
+        2.2127417961103704,
+        42.364436574697045,
+        3.055185283155737,
+        42.87655207203728
+      ]
     },
     {
       "geometry": "linestring",
@@ -786,7 +831,8 @@
         "dbname": "osm",
         "id": "cycleroute",
         "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "cycleroute",
       "class": "cycleroute",
@@ -795,10 +841,10 @@
       "advanced": {},
       "name": "cycleroute",
       "extent": [
-        1.725747743104194,
-        42.33355963170475,
-        3.174800634475729,
-        42.91815619073096
+        2.2127417961103704,
+        42.364436574697045,
+        3.055185283155737,
+        42.87655207203728
       ]
     }
   ],
