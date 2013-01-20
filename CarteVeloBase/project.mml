@@ -532,6 +532,53 @@
       ]
     },
     {
+      "extent": [
+        2.3365935124787414,
+        42.51879184661731,
+        3.0524930322492305,
+        42.85361273824522
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT osm_id,way,name,waterway,round(way_area) as size  FROM planet_osm_polygon   WHERE landuse IN ('reservoir', 'water','basin')      OR (\"natural\" = 'water' and way_area>200)      OR \"natural\" IN ('lake', 'land')      OR waterway IN ('canal',  'river','riverbank','stream')   ORDER BY z_order ASC) AS water",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm"
+      },
+      "id": "water_area_label",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "water_area_label"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        2.2127417961103704,
+        42.364436574697045,
+        3.055185283155737,
+        42.87655207203728
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT osm_id,way,name,waterway,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway FROM planet_osm_line   WHERE \"natural\" = 'water' OR waterway IN ('canal', 'riverbank', 'river','stream')   ORDER BY z_order ASC) AS water",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm"
+      },
+      "id": "water_line_label",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "water_line_label"
+    },
+    {
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT osm_id,way,name,poi_category,poi_type,religion,\nround(way_area) as size  FROM planet_osm_polygon\n                 WHERE name is not null and building = ''\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','theatre')\n                       OR leisure IN ('park','sports_centre')\n                        OR landuse IN ('industrial', 'commercial', 'cemetery')\n                        OR aeroway != '' OR power !='')\n                 ORDER BY z_order ASC, way_area DESC) as ground_label",
