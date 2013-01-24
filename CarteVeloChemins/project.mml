@@ -17,25 +17,17 @@
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
     "style.mss",
-    "overlay.mss",
-    "roads.mss"
+    "overlay.mss"
   ],
   "Layer": [
     {
       "geometry": "unknown",
-      "extent": [
-        2.2127417961103704,
-        42.495165869656354,
-        3.039710365082324,
-        42.82292402773798
-      ],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT * FROM planet_osm_line WHERE (highway='path' and bicycle='yes') ORDER BY z_order ASC) AS paths\n",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "extent": "246321.29,5235443.92,338379.01,5285057.8",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -51,19 +43,12 @@
     },
     {
       "geometry": "linestring",
-      "extent": [
-        2.2127417961103704,
-        42.495165869656354,
-        3.039710365082324,
-        42.82292402773798
-      ],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way,osm_id,highway,name,cycleway,oneway,tunnel,tracktype\n FROM planet_osm_line\n               WHERE (highway = 'track' and tracktype in('grade1','grade2','grade3')) or (highway='unclassified' and in_agglo != 'yes')\n               ORDER BY z_order ASC, priority DESC) AS minor_roads",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "extent": "246321.29,5235443.92,338379.01,5285057.8",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -71,30 +56,30 @@
         "password": "osm",
         "id": "road_outline",
         "project": "SmallWayOverlay",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "road_outline",
-      "class": "road ovl",
+      "class": "road ovl inline",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_outline"
+      "name": "road_outline",
+      "extent": [
+        0.6406395635822403,
+        41.620114228554,
+        3.4479999617748223,
+        43.24007555980199
+      ]
     },
     {
       "geometry": "linestring",
-      "extent": [
-        2.2127417961103704,
-        42.495165869656354,
-        3.039710365082324,
-        42.82292402773798
-      ],
       "Datasource": {
         "type": "postgis",
         "table": "(select osm_id,way,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway, bicycle_access, bicycle_shared,tunnel         from planet_osm_line          where      (   highway = 'cycleway'   or (highway in ('path','track','pedestrian','footway','unclassified') and bicycle = 'designated')                   )         order by z_order        ) as cycleways\n",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "extent": "246321.29,5235443.92,338379.01,5285057.8",
         "dbname": "osm",
         "host": "localhost",
         "port": "5432",
@@ -110,19 +95,12 @@
     },
     {
       "geometry": "linestring",
-      "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.055185283155737,
-        42.87655207203728
-      ],
       "Datasource": {
         "type": "postgis",
         "table": "(select osm_id,way,route_name,\"network\" from planet_osm_line where route='bicycle' and network in ('ncn','rcn','lcn')) as cycleroutes\n",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "extent": "",
         "dbname": "osm"
       },
       "id": "cycleroute",

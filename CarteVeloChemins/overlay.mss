@@ -7,9 +7,9 @@
 .road {
   line-color: #00428a;
   line-cap: butt;
-  line-opacity: 0.8;
-  [zoom>=12]{ line-width: 3; }
-  [zoom>=14]{ line-width: 3; }   
+  line-opacity: 0.9;
+  [zoom>=12]{ line-width: 1.5; }
+  [zoom>=14]{ line-width: 2; }   
   [zoom>=15]{ line-width: 5; }   
   [zoom>=16]{ line-width: 6; }   
   [zoom>=17]{ line-width: 7; }   
@@ -26,6 +26,7 @@
        line-width: 2;
   }
 }
+
 .road[tracktype='grade2'],
 .road[tracktype='grade3']
 {

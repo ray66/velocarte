@@ -57,13 +57,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "citylike_area",
-      "extent": [
-        2.3365935124787414,
-        42.51879184661731,
-        3.0524930322492305,
-        42.85361273824522
-      ]
+      "name": "citylike_area"
     },
     {
       "Datasource": {
@@ -515,36 +509,22 @@
         "password": "osm",
         "id": "poi_label",
         "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": ""
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "poi_label",
       "class": "poi label ",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "poi_label",
-      "extent": [
-        1.7395621253749127,
-        42.35251225521269,
-        3.17405781756729,
-        42.91590758192279
-      ]
+      "name": "poi_label"
     },
     {
-      "extent": [
-        2.3365935124787414,
-        42.51879184661731,
-        3.0524930322492305,
-        42.85361273824522
-      ],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT osm_id,way,name,waterway,round(way_area) as size  FROM planet_osm_polygon   WHERE landuse IN ('reservoir', 'water','basin')      OR (\"natural\" = 'water' and way_area>200)      OR \"natural\" IN ('lake', 'land')      OR waterway IN ('canal',  'river','riverbank','stream')   ORDER BY z_order ASC) AS water",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "extent": "",
         "dbname": "osm"
       },
       "id": "water_area_label",
@@ -556,19 +536,12 @@
     },
     {
       "geometry": "linestring",
-      "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.055185283155737,
-        42.87655207203728
-      ],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT osm_id,way,name,waterway,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway FROM planet_osm_line   WHERE \"natural\" = 'water' OR waterway IN ('canal', 'riverbank', 'river','stream')   ORDER BY z_order ASC) AS water",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "extent": "",
         "dbname": "osm"
       },
       "id": "water_line_label",
@@ -617,21 +590,14 @@
         "password": "osm",
         "id": "place_label_major",
         "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": ""
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "place_label_major",
       "class": "place label major",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "place_label_major",
-      "extent": [
-        2.21274179969198,
-        42.36443659518098,
-        3.0442326995762437,
-        42.835609095151945
-      ]
+      "name": "place_label_major"
     },
     {
       "geometry": "point",
@@ -648,21 +614,14 @@
         "password": "osm",
         "id": "place_label_small",
         "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": ""
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "place_label_small",
       "class": "place label small",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "place_label_small",
-      "extent": [
-        1.7395621253749127,
-        42.35251225521269,
-        3.17405781756729,
-        42.91590758192279
-      ]
+      "name": "place_label_small"
     },
     {
       "geometry": "linestring",
@@ -686,13 +645,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_label_major",
-      "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.055185283155737,
-        42.87655207203728
-      ]
+      "name": "road_label_major"
     },
     {
       "geometry": "linestring",
@@ -716,13 +669,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_label_minor",
-      "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.055185283155737,
-        42.87655207203728
-      ]
+      "name": "road_label_minor"
     },
     {
       "Datasource": {
@@ -746,13 +693,7 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "road_area_label",
-      "geometry": "unknown",
-      "extent": [
-        2.3365935124787414,
-        42.51879184661731,
-        3.0524930322492305,
-        42.85361273824522
-      ]
+      "geometry": "unknown"
     },
     {
       "geometry": "linestring",
@@ -776,13 +717,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_ref",
-      "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.055185283155737,
-        42.87655207203728
-      ]
+      "name": "road_ref"
     },
     {
       "geometry": "point",
@@ -799,21 +734,14 @@
         "user": "rainer",
         "id": "place_label",
         "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": ""
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "place_label_minor",
       "class": "place label minor",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "place_label_minor",
-      "extent": [
-        1.7395621253749127,
-        42.35251225521269,
-        3.17405781756729,
-        42.91590758192279
-      ]
+      "name": "place_label_minor"
     },
     {
       "geometry": "point",
@@ -833,13 +761,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "transport_point",
-      "extent": [
-        2.21274179969198,
-        42.36443659518098,
-        3.0442326995762437,
-        42.835609095151945
-      ]
+      "name": "transport_point"
     },
     {
       "geometry": "linestring",
@@ -859,13 +781,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cycleway_bridge",
-      "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.055185283155737,
-        42.87655207203728
-      ]
+      "name": "cycleway_bridge"
     },
     {
       "geometry": "linestring",
@@ -878,21 +794,14 @@
         "dbname": "osm",
         "id": "cycleroute",
         "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": ""
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "cycleroute",
       "class": "cycleroute",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cycleroute",
-      "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.055185283155737,
-        42.87655207203728
-      ]
+      "name": "cycleroute"
     }
   ],
   "scale": 1,
