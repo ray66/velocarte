@@ -1,0 +1,56 @@
+{
+  "bounds": [
+    1.851,
+    42.327,
+    3.189,
+    42.942
+  ],
+  "center": [
+    2.7772,
+    42.6633,
+    14
+  ],
+  "format": "png8",
+  "interactivity": false,
+  "minzoom": 12,
+  "maxzoom": 18,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss",
+    "contour.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "linestring",
+      "extent": [
+        0.999583333333333,
+        41.9995833333337,
+        3.32166833000653,
+        43.0004166666667
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select gid,way,height::integer as height,\ncase when height::integer % 100 = 0 then 100\nwhen height::integer % 50 = 0 then 50\nwhen height::integer % 20 = 0 then 20\nwhen height::integer % 10 = 0 then 10\nelse 0 end as step\nfrom contours where contours.height::integer > 0) as contour",
+        "key_field": "gid",
+        "geometry_field": "way",
+        "extent_cache": "auto",
+        "extent": "0.999583333333333,41.9995833333337,3.32166833000653,43.0004166666667",
+        "dbname": "osm",
+        "id": "contours",
+        "project": "CarteVeloContour",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "contours",
+      "class": "contour",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "contours"
+    }
+  ],
+  "scale": 1,
+  "metatile": 8,
+  "name": "",
+  "description": "",
+  "attribution": ""
+}

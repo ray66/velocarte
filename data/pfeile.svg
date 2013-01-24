@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="78.858696"
+   height="40"
+   id="svg3019"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="pfeile.svg"
+   inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_mini.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs3021">
+    <filter
+       inkscape:collect="always"
+       id="filter4093">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.16"
+         id="feGaussianBlur4095" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4303">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.0625"
+         id="feGaussianBlur4305" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4333">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.085"
+         id="feGaussianBlur4335" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4337">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.0525"
+         id="feGaussianBlur4339" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.098901"
+     inkscape:cx="93.026301"
+     inkscape:cy="6.0557659"
+     inkscape:current-layer="g3853"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:snap-grids="true"
+     inkscape:window-width="1672"
+     inkscape:window-height="990"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3027"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       originx="35.858699px"
+       originy="32px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata3024">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(35.858699,-8)">
+    <g
+       id="g3828"
+       transform="translate(0,7)">
+      <path
+         sodipodi:nodetypes="ccccccccccccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path3029"
+         d="m 5,4 7,0 0,-3 1,0 0,1 1,0 0,1 1,0 0,1 1,0 0,2 -1,0 0,1 -1,0 0,1 -1,0 0,1 -1,0 0,-3 -7,0 z"
+         style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3807"
+         d="M 0,4 1,4 1,3 2,3 2,2 3,2 3,1 4,1 4,2 4,4 5,4 5,6 4,6 4,9 3,9 3,8 2,8 2,7 1,7 1,6 0,6 0,5 z"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:nodetypes="ccccccccccccccccccccccc" />
+      <g
+         id="g3853"
+         transform="translate(-13,2)">
+        <path
+           style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+           d="m 25,12 0,0 0,-3 1,0 0,1 1,0 0,1 1,0 0,1 1,0 0,1 c 0,0 0.416263,0.05464 1,0 l 0,1 c -0.794984,-0.148641 -1,0 -1,0 l 0,1 -1,0 0,1 -1,0 0,1 -1,0 0,1 -1,0 c 0,-1.643154 0,-4.478655 0,-6 z"
+           id="path3029-0"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccccccccccccccccccc"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_medium.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:nodetypes="cccccccccccccccccccccccccc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 13,13 0,-1 1,0 0,-1 1,0 0,-1 1,0 0,-1 1,0 0,1 0,3 8,0 0,1 -8,0 0,4 -1,0 0,-1 -1,0 0,-1 -1,0 0,-1 -1,0 0,-1 -1,0 0,-1 z"
+           id="path3807-2"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_medium.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <text
+           xml:space="preserve"
+           style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+           x="-10.904016"
+           y="33.015358"
+           id="text3857"
+           sodipodi:linespacing="125%"
+           transform="scale(1.1005119,0.90866805)"><tspan
+             sodipodi:role="line"
+             id="tspan3859"
+             x="-10.904016"
+             y="33.015358">Small</tspan></text>
+        <path
+           style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+           d="m 25,23 1,0 0,1 1,0 0,1 1,0 0,1 c 0,0 0.416263,0.05464 1,0 l 0,1 c -0.794984,-0.148641 -1,0 -1,0 l 0,1 -1,0 0,1 -1,0 0,1 -1,0 z"
+           id="path3029-0-6"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccccccccccccc"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_small.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:nodetypes="ccccccccccccccccccccc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 14,26 0,-1 1,0 0,-1 1,0 0,-1 1,0 0,3 8,0 0,1 -8,0 0,3 -1,0 0,-1 -1,0 0,-1 -1,0 0,-1 -1,0 0,-1 z"
+           id="path3807-2-1"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_small.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <text
+           xml:space="preserve"
+           style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+           x="-11.812685"
+           y="42.919964"
+           id="text3857-9"
+           sodipodi:linespacing="125%"
+           transform="scale(1.1005119,0.90866805)"><tspan
+             sodipodi:role="line"
+             id="tspan3859-3"
+             x="-11.812685"
+             y="42.919964">Mini</tspan></text>
+        <path
+           style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+           d="m 23,34 0,0 0,0 1,0 0,1 1,0 0,1 c 0,0 0.416263,0.05464 1,0 l 0,1 c -0.794984,-0.148641 -1,0 -1,0 l 0,1 -1,0 0,1 -1,0 0,0 0,0 z"
+           id="path3029-0-6-5"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccccccccccccc"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_mini.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:nodetypes="ccccccccccccccccccccc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 16,36 0,-1 1,0 0,-1 1,0 0,0 0,0 0,2 5,0 0,1 -5,0 0,2 0,0 0,0 -1,0 0,-1 -1,0 0,-1 -1,0 0,-1 z"
+           id="path3807-2-1-0"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_mini.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <text
+           xml:space="preserve"
+           style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+           x="-21.556126"
+           y="18.558882"
+           id="text3857-6"
+           sodipodi:linespacing="125%"
+           transform="scale(1.1005119,0.90866805)"><tspan
+             sodipodi:role="line"
+             id="tspan3859-0"
+             x="-21.556126"
+             y="18.558882">Medium</tspan></text>
+        <path
+           style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+           d="m 50,12 0,0 0,-3 1,0 0,1 2,0 0,1 2,0 0,1 2,0 0,1 c 0,0 0.416263,0.05464 1,0 l 0,1 c -0.794984,-0.148641 -1,0 -1,0 l 0,1 -2,0 0,1 c -0.666667,0 -1.333333,0 -2,0 l 0,1 -2,0 0,1 -1,0 c 0,-1.643154 0,-4.478655 0,-6 z"
+           id="path3029-0-7"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccccccccccccccccccc"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_medium.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           sodipodi:nodetypes="cccccccccccccccccccccccccc"
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 33,13 0,-1 2,0 0,-1 2,0 0,-1 2,0 0,-1 1,0 0,1 0,3 10,0 0,1 -10,0 0,4 -1,0 0,-1 -2,0 0,-1 -2,0 0,-1 -2,0 0,-1 -1,0 0,-1 z"
+           id="path3807-2-9"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_medium.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <g
+           id="g4001">
+          <path
+             inkscape:export-ydpi="90"
+             inkscape:export-xdpi="90"
+             inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_small.png"
+             sodipodi:nodetypes="ccccccccccccccccc"
+             inkscape:connector-curvature="0"
+             id="path3029-0-6-3"
+             d="m 49,23 2,0 0,1 2,0 0,1 2,0 0,1 c 0,0 -0.167474,0.05464 1,0 l 0,1 c -1.589968,-0.148641 -1,0 -1,0 l 0,1 -2,0 0,1 -2,0 0,1 -2,0 z"
+             style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+          <path
+             inkscape:export-ydpi="90"
+             inkscape:export-xdpi="90"
+             inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_small.png"
+             inkscape:connector-curvature="0"
+             id="path3807-2-1-4"
+             d="m 35,26 0,-1 2,0 0,-1 2,0 0,-1 2,0 0,3 8,0 0,1 -8,0 0,3 -2,0 0,-1 -2,0 0,-1 -2,0 0,-1 -1,0 0,-1 z"
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+             sodipodi:nodetypes="ccccccccccccccccccccc" />
+        </g>
+        <g
+           id="g3121"
+           transform="translate(-10,0)">
+          <path
+             inkscape:export-ydpi="90"
+             inkscape:export-xdpi="90"
+             inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_mini.png"
+             sodipodi:nodetypes="ccccccccccccccccc"
+             inkscape:connector-curvature="0"
+             id="path3029-0-6-5-5"
+             d="m 48,34 0,0 0,0 1,0 0,1 2,0 0,1 c 0,0 0.416263,0.05464 1,0 l 0,1 c -0.794984,-0.148641 -1,0 -1,0 l 0,1 -2,0 0,1 -1,0 0,0 0,0 z"
+             style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+          <path
+             inkscape:export-ydpi="90"
+             inkscape:export-xdpi="90"
+             inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_mini.png"
+             inkscape:connector-curvature="0"
+             id="path3807-2-1-0-4"
+             d="m 40,36 0,-1 2,0 0,-1 1,0 0,0 0,0 0,2 5,0 0,1 -5,0 0,2 0,0 0,0 -1,0 0,-1 -2,0 0,-1 -1,0 0,-1 z"
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+             sodipodi:nodetypes="ccccccccccccccccccccc" />
+        </g>
+        <path
+           style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+           d="m 121,15 0,-4 10,0 0,-3 2,0 0,1 2,0 0,1 2,0 0,1 2,0 0,1 2,0 0,2 -2,0 0,1 -2,0 0,1 -2,0 0,1 -2,0 0,1 -2,0 0,-3 z"
+           id="path3029-0-7-3-1"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccccccccccccccccccccc"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_medium.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <path
+           style="fill:none;stroke:none"
+           d="m 77.000001,14 c -7,0 -7,0 -7,0 l 0,3 7,0 z"
+           id="path3023-4"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+           d="m 132,28 0,-3 6,0 0,-2 1,0 0,1 1,0 0,1 1,0 0,1 1,0 c 0,0 0,-2.254263 0,1 l -1.125,0 0,1 -0.875,0 0,1 -1,0 0,1 -1,0 0,-2 z"
+           id="path3029-0-7-3-1-7"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccccccccccccccccc"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/MapBox/project/MyPrj/img/arrow_lane_right_small.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
+        <image
+           y="45"
+           x="-11"
+           id="image3097"
+           xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAAICAYAAAAx3fd+AAAABHNCSVQICAgIfAhkiAAAAJFJREFU
+WIXt1qEOwjAQANDXBj5gBoXHY3AY/hzFV4CfxyBaBCNBkFRtI9yeadKcuPQud021Vou4VnMnMJWc
+civkhBuu74tSy5gp/YTmqwRywQG7uROZUoqyAnLKHfaNsA5r3HEptfSjJzazMCsAD7QK2g1n79UE
+fy/SBGiFbHDE2dAoyx8glq2P4kcRZgIsvnsCwj0ix2uY31sAAAAASUVORK5CYII=
+"
+           height="8"
+           width="128" />
+        <g
+           id="g4278"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/MapBox/project/MyPrj/img/arrow_contresens_small.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90"
+           transform="translate(30,-10)"
+           style="filter:url(#filter4303)">
+          <g
+             id="g4291"
+             inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/MapBox/project/MyPrj/img/arrow_contresens_small.png"
+             inkscape:export-xdpi="90"
+             inkscape:export-ydpi="90">
+            <path
+               style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+               d="m 57,34 0,0 0,-1 2,0 0,1 2,0 0,1 c 0,0 1.416263,0.05464 2,0 l 0,2 c -0.794984,-0.148641 -2,0 -2,0 l 0,1 -2,0 0,1 -2,0 0,0 0,0 z"
+               id="path3029-0-6-5-5-0"
+               inkscape:connector-curvature="0"
+               sodipodi:nodetypes="ccccccccccccccccc"
+               inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_mini.png"
+               inkscape:export-xdpi="90"
+               inkscape:export-ydpi="90" />
+            <path
+               sodipodi:nodetypes="ccccccccccccccccccc"
+               style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+               d="m 46,35 0,-1 2,0 0,-1 2,0 0,2 7,0 0,2 -7,0 0,2 0,0 0,0 -2,0 0,-1 -2,0 0,-1 -2,0 0,-2 z"
+               id="path3807-2-1-0-4-5"
+               inkscape:connector-curvature="0"
+               inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_mini.png"
+               inkscape:export-xdpi="90"
+               inkscape:export-ydpi="90" />
+          </g>
+        </g>
+        <g
+           id="g4209"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/MapBox/project/MyPrj/img/arrow_contresens_medium.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90"
+           transform="translate(11,-13)"
+           style="stroke:none;filter:url(#filter4333)">
+          <path
+             inkscape:export-ydpi="90"
+             inkscape:export-xdpi="90"
+             inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_small.png"
+             sodipodi:nodetypes="ccccccccccccccccc"
+             inkscape:connector-curvature="0"
+             id="path3029-0-6-3-1"
+             d="m 75,22 2,0 0,1 2,0 0,1 2,0 0,1 2,0 0,2 -2,0 0,1 -2,0 0,1 -2,0 0,1 -2,0 z"
+             style="fill:#388b00;fill-opacity:1;stroke:none" />
+          <path
+             inkscape:export-ydpi="90"
+             inkscape:export-xdpi="90"
+             inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_small.png"
+             inkscape:connector-curvature="0"
+             id="path3807-2-1-4-5"
+             d="m 59,25 0,-1 2,0 0,-1 2,0 0,-1 2,0 0,3 10,0 0,2 -10,0 0,3 -2,0 0,-1 -2,0 0,-1 -2,0 0,-1 -2,0 0,-2 z"
+             style="fill:#000000;fill-opacity:1;stroke:none"
+             sodipodi:nodetypes="ccccccccccccccccccccc" />
+        </g>
+        <g
+           id="g4287"
+           transform="translate(29,-10)"
+           style="filter:url(#filter4337)"
+           inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/MapBox/project/MyPrj/img/arrow_contresens_mini.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90">
+          <g
+             id="g4295"
+             inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/MapBox/project/MyPrj/img/arrow_contresens_mini.png"
+             inkscape:export-xdpi="90"
+             inkscape:export-ydpi="90">
+            <path
+               style="fill:#388b00;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+               d="m 56,42 1,0 0,1 2,0 0,1 2,0 0,1 -2,0 0,1 -2,0 0,1 -1,0 z"
+               id="path3029-0-6-5-5-0-2"
+               inkscape:connector-curvature="0"
+               sodipodi:nodetypes="ccccccccccccc"
+               inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_mini.png"
+               inkscape:export-xdpi="90"
+               inkscape:export-ydpi="90" />
+            <path
+               sodipodi:nodetypes="ccccccccccccccccc"
+               style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+               d="m 47,44 0,-1 2,0 0,-1 1,0 0,2 6,0 0,1 -6,0 c 0,0.880627 0,4.205385 0,2 l -1,0 0,-1 -2,0 0,-1 -2,0 0,-1 z"
+               id="path3807-2-1-0-4-5-9"
+               inkscape:connector-curvature="0"
+               inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/Cascadenik/img/arrow_contresens_mini.png"
+               inkscape:export-xdpi="90"
+               inkscape:export-ydpi="90" />
+          </g>
+        </g>
+        <rect
+           style="fill:none;stroke:none"
+           id="rect4317"
+           width="42.999996"
+           height="8"
+           x="63"
+           y="9" />
+        <rect
+           style="fill:none;stroke:none"
+           id="rect4319"
+           width="36"
+           height="9"
+           x="88.858696"
+           y="9"
+           transform="translate(-22.858699,-1)" />
+      </g>
+    </g>
+  </g>
+</svg>
