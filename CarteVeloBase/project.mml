@@ -12,7 +12,7 @@
   ],
   "format": "png8",
   "interactivity": false,
-  "minzoom": 12,
+  "minzoom": 11,
   "maxzoom": 18,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
@@ -198,7 +198,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway,name,cycleway,oneway,tunnel \n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path') and not(highway='service' and service='parking_aisle')\n               ORDER BY z_order ASC, priority DESC)\n               \n               AS minor_roads",
+        "table": "(SELECT way,osm_id,\n(CASE WHEN highway='track' THEN \n         case when tracktype is null or tracktype='' then 'grade3' else tracktype end\n      ELSE highway END) as highway,name,cycleway,oneway,tunnel \n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path') and not(highway='service' and service='parking_aisle')\n               ORDER BY z_order ASC, priority DESC)\n               \n               AS minor_roads",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -208,15 +208,22 @@
         "user": "rainer",
         "password": "osm",
         "id": "road_outline",
-        "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "project": "CarteVeloBase",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "road_outline",
       "class": "road outline",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_outline"
+      "name": "road_outline",
+      "extent": [
+        0.6406395635822403,
+        41.620114228554,
+        3.4479999617748223,
+        43.24007555980199
+      ]
     },
     {
       "geometry": "linestring",
@@ -232,7 +239,7 @@
         "user": "rainer",
         "password": "osm",
         "id": "lane_left",
-        "project": "CarteVelo",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "lane_left",
@@ -240,7 +247,13 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "lane_left"
+      "name": "lane_left",
+      "extent": [
+        2.8033558883190346,
+        42.6529891452568,
+        3.0336746745198533,
+        42.75996739100462
+      ]
     },
     {
       "geometry": "linestring",
@@ -318,7 +331,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway,name,cycleway,oneway,cycleway_left\n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path') and not(highway='service' and service='parking_aisle')\n        \n               ORDER BY z_order ASC, priority asc)               \n               AS minor_roads",
+        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN case when tracktype is null or tracktype='' then 'grade3' else tracktype end ELSE highway END) as highway,name,cycleway,oneway,cycleway_left\n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path') and not(highway='service' and service='parking_aisle')\n        \n               ORDER BY z_order ASC, priority asc)               \n               AS minor_roads",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -329,20 +342,27 @@
         "password": "osm",
         "id": "road_inline",
         "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "road_inline",
       "class": "road inline",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_inline"
+      "name": "road_inline",
+      "extent": [
+        0.6406395635822403,
+        41.620114228554,
+        3.4479999617748223,
+        43.24007555980199
+      ]
     },
     {
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway,name,cycleway,oneway,cycleway_left,access,bicycle,tunnel\n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path')  and not(highway='service' and service='parking_aisle')\n               ORDER BY z_order ASC, priority DESC) as access",
+        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN case when tracktype is null or tracktype='' then 'grade3' else tracktype end ELSE highway END) as highway,name,cycleway,oneway,cycleway_left,access,bicycle,tunnel\n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path')  and not(highway='service' and service='parking_aisle')\n               ORDER BY z_order ASC, priority DESC) as access",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -353,14 +373,21 @@
         "password": "osm",
         "id": "road_access",
         "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "road_access",
       "class": "road inline access",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_access"
+      "name": "road_access",
+      "extent": [
+        0.6406395635822403,
+        41.620114228554,
+        3.4479999617748223,
+        43.24007555980199
+      ]
     },
     {
       "geometry": "linestring",
@@ -449,7 +476,7 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,name,religion,relevance,poi_category,poi_type,\nround(way_area) as size,CHAR_LENGTH(name)  as label_length,\n                          \t                        REGEXP_REPLACE(UPPER(name), '(.)', E'\\\\1\\xC2\\xA0\\xC2\\xA0', 'g') AS name_stretched,\n                           (CASE WHEN leisure is null THEN ''::text  ELSE leisure END) as leisure\n\t                 FROM planet_osm_polygon\n\t                 WHERE building is not null and building != '' and building !='no'\n                                    and name is not null and name !=''\n                           and relevance in ('high','medium','low')\n\t                 ORDER BY z_order ASC, way_area DESC) AS building_label\n\n",
+        "table": "(SELECT way,name,religion,relevance,poi_category,poi_type,\nround(way_area) as size,case when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom,\n                           (CASE WHEN leisure is null THEN ''::text  ELSE leisure END) as leisure,\nCHAR_LENGTH(name)  as label_length\n\t                 FROM planet_osm_polygon\n\t                 WHERE building is not null and building != '' and building !='no'\n                                    and name is not null and name !=''\n                           and relevance in ('high','medium','low')\n\t                 ORDER BY z_order ASC, way_area DESC) AS building_label\n\n",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -460,7 +487,8 @@
         "password": "osm",
         "id": "building_label",
         "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "building_label",
       "class": "building label",
@@ -468,7 +496,13 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "building_label",
-      "geometry": "unknown"
+      "geometry": "unknown",
+      "extent": [
+        2.5444950204274144,
+        42.53808647998357,
+        3.0470986489680927,
+        42.85361273824522
+      ]
     },
     {
       "geometry": "point",
@@ -498,7 +532,7 @@
       "geometry": "point",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,name,poi_category,poi_type,religion,relevance,\n                st_y(st_astext(way)) AS latitude,\n               CHAR_LENGTH(name)  as label_length \n                FROM planet_osm_point \n               WHERE name is not null and name !='' and relevance in ('high','medium','low')\n                ORDER BY z_order ASC, latitude DESC) AS poi_label_major",
+        "table": "(SELECT way,osm_id,name,poi_category,poi_type,religion,relevance,\n                st_y(st_astext(way)) AS latitude,\n               CHAR_LENGTH(name)  as label_length ,\ncase when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom\n                FROM planet_osm_point \n               WHERE name is not null and name !='' and relevance in ('high','medium','low')\n                ORDER BY z_order ASC, latitude DESC) AS poi_label_major",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -509,14 +543,21 @@
         "password": "osm",
         "id": "poi_label",
         "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "poi_label",
       "class": "poi label ",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "poi_label"
+      "name": "poi_label",
+      "extent": [
+        2.21274179969198,
+        42.36443659518098,
+        3.041617499576599,
+        42.835609095151945
+      ]
     },
     {
       "Datasource": {
@@ -554,7 +595,7 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,name,poi_category,poi_type,religion,\nround(way_area) as size  FROM planet_osm_polygon\n                 WHERE name is not null and building = ''\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','theatre')\n                       OR leisure IN ('park','sports_centre')\n                        OR landuse IN ('industrial', 'commercial', 'cemetery')\n                        OR aeroway != '' OR power !='')\n                 ORDER BY z_order ASC, way_area DESC) as ground_label",
+        "table": "(SELECT osm_id,way,name,poi_category,poi_type,religion,\nround(way_area) as size ,\ncase when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom\n FROM planet_osm_polygon\n                 WHERE name is not null and building = ''\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','theatre')\n                       OR leisure IN ('park','sports_centre')\n                        OR landuse IN ('industrial', 'commercial', 'cemetery')\n                        OR aeroway != '' OR power !='')\n                 ORDER BY z_order ASC, way_area DESC) as ground_label",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -564,8 +605,9 @@
         "user": "rainer",
         "password": "osm",
         "id": "ground_label",
-        "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "project": "CarteVeloBase",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "ground_label",
       "class": "ground label",
@@ -573,13 +615,19 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "ground_label",
-      "geometry": "unknown"
+      "geometry": "unknown",
+      "extent": [
+        2.5444950204274144,
+        42.53808647998357,
+        3.0470986489680927,
+        42.85361273824522
+      ]
     },
     {
       "geometry": "point",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,name, \n           case when ele is not null and ele != '' then '('||left(ele, position('.' in ele)-1)||' m)' else '' end as ele,COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' or \"natural\" in ('peak') THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority,\n                (case when \"natural\" in ('peak') then \"natural\" else place end) as place\n                FROM planet_osm_point \n                     where place  in ('city','metropolis','town') or \"natural\" in ('peak')\n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
+        "table": "(SELECT way,osm_id,name, \n           case when ele is not null and ele != '' then '('||left(ele, position('.' in ele)-1)||' m)' else '' end as ele_text,COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' or \"natural\" in ('peak') THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority,\n                (case when \"natural\" in ('peak') then \"natural\" else place end) as place\n                FROM planet_osm_point \n                     where place  in ('city','metropolis','town') or \"natural\" in ('peak')\n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -590,14 +638,21 @@
         "password": "osm",
         "id": "place_label_major",
         "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "place_label_major",
       "class": "place label major",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "place_label_major"
+      "name": "place_label_major",
+      "extent": [
+        0.8295317998845283,
+        41.834398695214674,
+        3.4479999995200363,
+        43.24007559512768
+      ]
     },
     {
       "geometry": "point",
@@ -761,7 +816,13 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "transport_point"
+      "name": "transport_point",
+      "extent": [
+        0.8295317998845283,
+        41.834398695214674,
+        3.4479999995200363,
+        43.24007559512768
+      ]
     },
     {
       "geometry": "linestring",
@@ -801,7 +862,37 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cycleroute"
+      "name": "cycleroute",
+      "extent": [
+        2.2127417961103704,
+        42.364436574697045,
+        3.044510063645374,
+        42.85361273824522
+      ]
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        1.76026362143439,
+        42.279278778252504,
+        3.4479999617748223,
+        43.02256256367234
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select osm_id,way,admin_level   from planet_osm_roads  where \"boundary\"='administrative'  and admin_level in ('5','6','7','8')       ) as admin\n",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm"
+      },
+      "id": "admin",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "admin"
     }
   ],
   "scale": 1,

@@ -3,7 +3,8 @@
 /*-----------------------------------------------------------*/
 .olImageLoadError { 
          display: none;
-}
+   background-image: url('../img/empty.png');
+    background-repeat: no-repeat;}
 h3 {
    margin-top: 0.1em;
    margin-bottom: 0.5em;
@@ -26,6 +27,7 @@ h2.olMap  {
 /*-----------------------------------------------------------*/       
 body {
 	color: black; 
+   background-color: black;
 	font-family: "DejaVu";
    font-size: 87%;
 }
@@ -78,21 +80,37 @@ body {
     font-size: 100%;
     /*height: 100%;*/
     left: 170px;
+    max-width: 800px;
     margin: 0;
     position: absolute;
     top: 0;
     left: 170px;
     right: 0;
 	background-color:  #F0ECE5;    
-	padding: 5px 5px 5px 5px;
+	padding: 5px 50px 5px 25px;
 }
 .content h1,h2,h3{
-	color: #063D5B;
+   color: #063D5B;
+   margin-bottom: 0.3em;
+}
+.content h3{
+   margin-top: 0.8em;
+}
+.content .sommaire{
+   text-indent:2em;
+   margin: 0 0 0.2em 0;
+}
+.content p{
+   margin-top: 0;
+    margin-bottom: 0.2em;
 }
 .content dt{
    font-weight: bold;
    margin-top: 0.5em;
    
+}
+.content ul{
+   margin-top: 0.3em;
 }
 .content li{
    margin-bottom: 0.5em;
@@ -101,13 +119,14 @@ body {
    margin-left: 2em;
 }
 .content .legende_img{
-	clear: both;
+	clear: left;
 	float: left;
 }
 .content .legende_img_text{
 	float: left;
 	margin-left: 1em;
-	margin-top: 1em;
+	margin-top: 0.3em;
+   max-width: 500px;
 }
 /*-----------------------------------------------------------*/
 /* Divers, (non utilisés actuellement)

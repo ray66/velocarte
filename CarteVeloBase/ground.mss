@@ -106,27 +106,33 @@
 	  	text-size: 12;
   		text-placements: 'X,E,W,12,11,10';
 	}
-    [place='peak']{
-        point-file: url('img/peak.png');
-        point-allow-overlap: true;
-    	point-placement: interior;
-		text-name:"[name]";
-   		text-face-name: "DejaVu Sans Oblique";
-    	text-fill: brown;
-    	text-halo-radius: 1;
-  		text-size: 10;   	
-        text-placement: interior;
-    	text-dy: 6;
-  	    ele/text-name: "[ele]";
-    	ele/text-size: 9;
-      	ele/text-fill: brown;
-      	ele/text-dy: 6;
-      	ele/text-face-name: "DejaVu Sans Oblique";
-      	ele/text-halo-radius: 1;
-      	ele/text-placement: interior;
-      	[name != ''] {
-        	ele/text-dy: 18;
-      	}
+    .major[place='peak']{
+      	[zoom>=12]{
+        	point-file: url('img/peak.png');
+        	point-allow-overlap: true;
+    		point-placement: interior;
+			text-name:"[name]";
+   			text-face-name: "DejaVu Sans Oblique";
+    		text-fill: brown;
+    		text-halo-radius: 1;
+  			text-size: 10;   	
+        	text-placement: interior;
+    		text-dy: 6;
+  	    	ele/text-name: "[ele_text]";
+    		ele/text-size: 9;
+      		ele/text-fill: brown;
+      		ele/text-dy: 6;
+      		ele/text-face-name: "DejaVu Sans Oblique";
+      		ele/text-halo-radius: 1;
+      		ele/text-placement: interior;
+      		[name != ''] {
+        		ele/text-dy: 18;
+        	}
+			[zoom<=11]{
+        		text-size: 9;
+        		ele/text-size: 9;
+          	}
+         }
     }	
   /*text-allow-overlap: true;*/
 	[place='village'][zoom>=12][zoom<=16],
@@ -149,16 +155,22 @@
 	[place='village'][zoom>=14][zoom<=16]  { text-size: 13; }
 	[place='suburb'][zoom=14]  			   { text-size: 12; }
 	[place='suburb'][zoom>=15][zoom<=16]   { text-size: 14; }
-
 	[place='neighbourhood'][zoom>=12][zoom<=16],
-    [place='hamlet'][zoom>=14][zoom<=17],
+    [place='hamlet'][zoom>=14][zoom<=17]
+	{
+	    text-face-name: "DejaVu Sans Oblique";
+	  	text-size: 11;
+    	text-placement: interior;
+  		text-placements: 'X,E,W,11,10,9,8';
+    }
     [place='isolated_dwelling'][zoom>=14][zoom<=17],
     [place='farm'][zoom>=14][zoom<=17],
     [place='locality'][zoom>=14][zoom<=17]
 	{
 	    text-face-name: "DejaVu Sans Oblique";
-	  	text-size: 11;
-  		text-placements: 'X,E,W,11,10,9,8';
+	  	text-size: 10;
+    	text-placement: interior;
+  		text-placements: 'X,E,W,10,10,9,8';
     }
 }
 /* ------------------------------------------------------------------ */
@@ -168,9 +180,23 @@
 .ground.label[size>80000][zoom=15][poi_type='park'] ,
 .ground.label[size>25000][zoom=16][poi_category!='leisure'] ,
 .ground.label[size>25000][zoom=16][poi_type='park'] ,
-.ground.label[size>25000][zoom=16][poi_type='sports_centre'] ,
-.ground.label[zoom>=17],
-{
+.ground.label[size>25000][zoom=16][poi_type='sports_centre']{
+    text-name: "[name_low_zoom]";
+    text-wrap-width: 40;
+    text-face-name: "DejaVu Sans Book";
+    text-fill: #000;
+    text-halo-fill: #fff;
+    text-halo-radius: 1;
+    text-avoid-edges: false;
+  	text-placement: interior;
+    text-placement-type: simple;
+  	text-size: 12;
+    text-placements: 'X,N,E,S,W,12,11,10';
+    text-dy: -5;
+    text-line-spacing: 0;
+}
+
+.ground.label[zoom>=17]{
     text-name:"[name]";
     text-wrap-width: 40;
     text-face-name: "DejaVu Sans Book";
@@ -184,4 +210,15 @@
     text-placements: 'X,N,E,S,W,12,11,10';
     text-dy: -5;
     text-line-spacing: 0;
+}
+/* ------------------------------------------------------------------ */
+/* Boundaries
+/* ------------------------------------------------------------------ */
+#admin{
+	[admin_level = '6'][zoom >= 11] {
+    	line-color: purple;
+    	line-width: 2;
+    	line-dasharray: 6,3,2,3;
+    	line-opacity: 0.3;
+  	}
 }

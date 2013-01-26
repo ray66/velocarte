@@ -134,7 +134,25 @@ FROM (
         GROUP BY cycleway_left,highway,oneway 
 ) AS subq); 
     
-            
+/*------------------------------------------------------------------------------
+ * Create a table with the segments of unclassified roads and tracks which are
+ * outside of settlements
+ *------------------------------------------------------------------------------*/
+drop table small_roads;
+create table small_roads (id serial PRIMARY KEY,osm_id bigint,name text,ref text,highway text,tracktype text,way geometry);
+
+insert into small_roads (osm_id, name, ref,highway,tracktype,way) 
+ (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,st_difference(l.way,p.way) 
+ from (select * from planet_osm_line where highway in ('unclassified','track')) as l, 
+ (select way from planet_osm_polygon where landuse in ('military','industrial','commercial','landfill','residential','retail','construction','harbour')) as p 
+ where st_isvalid(p.way) and st_intersects(l.way,p.way));
+
+ 
+ insert into small_roads (osm_id, name, ref,highway,tracktype,way) 
+   (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,l.way 
+      from planet_osm_line as l 
+      where highway in ('unclassified','track') and not exists (select * from planet_osm_polygon as p where p.landuse in ('military','industrial','commercial','landfill','residential','retail','construction','harbour') and st_isvalid(p.way) and st_intersects(l.way,p.way)));
+
 /*------------------------------------------------------------------------------
  * Polygons
  *----------------------------------------------------------------------------*/
@@ -260,6 +278,7 @@ Update planet_osm_point Set relevance =
                            'recycling',
                            'school',
                            'telephone') 
+                  or (amenity='recycling' and recycling_type='centre')
                   or leisure in ('swimming_pool')
                   or "power" in ('generator')
              Then 'medium'
@@ -267,7 +286,9 @@ Update planet_osm_point Set relevance =
                               'fountain',
                               'gallery',
                               'pharmacy',
-                              'taxi') 
+                              'taxi',
+                              'waste_transfer_station'
+                              ) 
                or tourism in ('artwork',
                               /*'bed_and_breakfast',*/
                               'caravan_site'
@@ -318,7 +339,10 @@ Update planet_osm_polygon Set relevance =
                            'post_box',
                            'recycling',
                            'school',
-                           'telephone') 
+                           'telephone',
+                           'waste_transfer_station'
+                           ) 
+                  or (amenity='recycling' and recycling_type='centre')
                   or leisure in ('swimming_pool')
                   or "power" in ('generator')
              Then 'medium'

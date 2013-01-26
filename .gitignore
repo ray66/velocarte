@@ -1,3 +1,9 @@
 *~
 .thumb.png
 layers/
+*kate-swp
+www/scripts/OpenLayers.js
+www/scripts/theme/*
+www/scripts/img/*
+www/*mbtiles
+www/files/*

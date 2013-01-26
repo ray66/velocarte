@@ -7,7 +7,12 @@ USAGE=`cat << 'EOF'
 Usage: $0 [-r] [-b bbox] [<area>]
 EOF`
 
-SHARE="$HOME/Dokumente/OSM/Render/share"
+MYPATH=`ls  -l $0|awk '{print $NF}'`
+MYPATH=`dirname $MYPATH`
+
+echo $MYPATH
+
+SHARE="$MYPATH/../data/"
 TILEMILL="/home/rainer/appli/node.js/node_modules/.bin//tilemill"
 TILEMILL_DATA="/home/rainer/Dokumente/OSM/Render/CarteVelo"
 
@@ -90,23 +95,21 @@ if [[ $RENDER_ONLY -eq 0 ]];then
    fi
    export PGPASS="osm"
    # PostGis-Datenbank erstellen
-   cmd="osm2pgsql -c -m -s -d osm -U rainer -W -H localhost $OSMFILE -S $SHARE/osm2pgsql.style"
+   cmd="osm2pgsql -c -m -s -d osm -U rainer -W -H localhost $OSMFILE -S $MYPATH/osm2pgsql.style"
    echo $cmd
    eval $cmd
 
    # Datenbank nachbearbeiten
-   cmd="psql -d osm  -f $SHARE/postproc.sql"
+   cmd="psql -d osm  -f $MYPATH/postproc.sql"
    echo $cmd
    eval $cmd
 fi
 # Tiles generieren
 TMOPTS="--format=mbtiles --files=$TILEMILL_DATA --bbox=$BBOX --metatile=8"
-rm -f CarteVeloChemins.mbtiles
-cmd="$TILEMILL export $TMOPTS CarteVeloChemins CarteVeloChemins.mbtiles"
-echo $cmd
-eval $cmd
-rm -f CarteVeloBase.mbtiles
-cmd="$TILEMILL export $TMOPTS CarteVeloBase CarteVeloBase.mbtiles"
-echo $cmd
-eval $cmd
 
+for LAYER in Chemins Routes Base;do
+   rm -f CarteVelo${LAYER}.mbtiles
+   cmd="$TILEMILL export $TMOPTS CarteVelo${LAYER} CarteVelo${LAYER}.mbtiles"
+   echo $cmd
+   eval $cmd
+done

@@ -8,7 +8,7 @@
   line-color: #00428a;
   line-cap: butt;
   line-opacity: 0.9;
-  [zoom>=12]{ line-width: 1.5; }
+  [zoom>=12]{ line-width: 2; }
   [zoom>=14]{ line-width: 2; }   
   [zoom>=15]{ line-width: 5; }   
   [zoom>=16]{ line-width: 6; }   
@@ -46,7 +46,3 @@
       line-dasharray: 8,8;
   }
 }
-
-.road[highway='unclassified'][zoom>=12]{ line-dasharray: 4,4;}
-.road[highway='unclassified'][zoom>=14]{ line-dasharray: 6,6;}
-.road[highway='unclassified'][zoom>=16]{ line-dasharray: 8,8;}

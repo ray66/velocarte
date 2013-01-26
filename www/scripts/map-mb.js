@@ -11,6 +11,7 @@
    var mousePixelY;
    var currentLayer;
    var currentZoom;
+   
 
 
 OpenLayers.Lang["fr"] = OpenLayers.Util.applyDefaults({
@@ -39,7 +40,7 @@ function GetOsmUrl (bounds) {
       return this.url + z + "/" + x + "/" + y + "." + this.type;
    }
 }
-// See: http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection
+
 function mbtilesURLBase (bounds) {
    var db = "CarteVeloBase.mbtiles";
    var res = this.map.getResolution();
@@ -52,6 +53,20 @@ function mbtilesURLBase (bounds) {
 }
 function mbtilesURLChemins (bounds) {
    var db = "CarteVeloChemins.mbtiles";
+   var res = this.map.getResolution();
+   var x = Math.round ((bounds.left - this.maxExtent.left) / (res * this.tileSize.w));
+   var y = Math.round ((this.maxExtent.top - bounds.top) / (res * this.tileSize.h));
+   var z = this.map.getZoom()+zOffset;
+   // Deal with Bing layers zoom difference...
+   //if (this.map.baseLayer.CLASS_NAME == 'OpenLayers.Layer.VirtualEarth' || this.map.baseLayer.CLASS_NAME == 'OpenLayers.Layer.Bing') {
+   //   console.log(z);
+   //   z = z + 1;
+   //}
+   return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+((1 << z) - y - 1);
+   
+}
+function mbtilesURLRoutes (bounds) {
+   var db = "CarteVeloRoutes.mbtiles";
    var res = this.map.getResolution();
    var x = Math.round ((bounds.left - this.maxExtent.left) / (res * this.tileSize.w));
    var y = Math.round ((this.maxExtent.top - bounds.top) / (res * this.tileSize.h));
@@ -78,6 +93,8 @@ function mbtilesURLContour (bounds) {
    return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+((1 << z) - y - 1);
    
 }
+
+
 function changelayerListener (event) {
 
       console.log("changelayer", map.baseLayer.name,map.getZoom());
@@ -111,8 +128,8 @@ function moveendListener (event) {
    {
       pixel = new OpenLayers.Pixel(mousePixelX, mousePixelY);
       var lonlat = map.getLonLatFromPixel(pixel);
-      if (lonlat.lon < detailExtend.left || lonlat.lon > detailExtend.right
-            || lonlat.lat < detailExtend.bottom || lonlat.lat > detailExtend.top){
+      if (lonlat.lon < detailExtent.left || lonlat.lon > detailExtent.right
+            || lonlat.lat < detailExtent.bottom || lonlat.lat > detailExtent.top){
          if (map.baseLayer.name == "Carte Vélo"){
             var saveCenter = lastCenter; // zoomTo ruft diese Funktion auf und verändert lastCenter!!!
             map.zoomTo (detailZoom-zOffset-1);
@@ -121,7 +138,7 @@ function moveendListener (event) {
       }else{
          restricted = true;
          if (map.baseLayer.name == "Carte Vélo"){
-            map.setOptions({restrictedExtent: detailExtend});
+            map.setOptions({restrictedExtent: detailExtent});
          }
       }
    }
@@ -154,12 +171,12 @@ function movestartListener (event) {
    {
       pixel = new OpenLayers.Pixel(mousePixelX, mousePixelY);
       var lonlat = map.getLonLatFromPixel(pixel);
-      if (lonlat.lon < detailExtend.left || lonlat.lon > detailExtend.right
-            || lonlat.lat < detailExtend.bottom || lonlat.lat > detailExtend.top){
+      if (lonlat.lon < detailExtent.left || lonlat.lon > detailExtent.right
+            || lonlat.lat < detailExtent.bottom || lonlat.lat > detailExtent.top){
             return false;
       }else{
          restricted = true;
-         map.setOptions({restrictedExtent: detailExtend});
+         map.setOptions({restrictedExtent: detailExtent});
       }
    }
    if (zLevel == detailZoom-1){
@@ -181,8 +198,11 @@ function init(bBox, bBoxDetail) {
       zoomLevels = 7;
       zOffset = 12;
       restrExtent  = new OpenLayers.Bounds.fromArray(bBox).transform(proj4326, proj900913);
-      //detailExtend     = new OpenLayers.Bounds(2.86,42.68,2.92,42.71).transform(proj4326, proj900913);
-      detailExtend     = new OpenLayers.Bounds.fromArray(bBoxDetail).transform(proj4326, proj900913);
+      //detailExtent     = new OpenLayers.Bounds(2.86,42.68,2.92,42.71).transform(proj4326, proj900913);
+      detailExtent     = new OpenLayers.Bounds.fromArray(bBoxDetail).transform(proj4326, proj900913);
+      if (bBoxDetail[0] <= bBox[0] || bBoxDetail[1] <= bBox[1] || bBoxDetail[2] >= bBox[2] || bBoxDetail[3] >= bBox[3]){
+         detailExtent     = null;
+      }
       detailZoom = 16;
    }else{
    //            resolutionLevels = [76.43702827453613, 38.218514137268066, 19.1092570678711, 
@@ -191,7 +211,7 @@ function init(bBox, bBoxDetail) {
       zOffset = 12;
       zoomLevels = 7;
       restrExtent  = new OpenLayers.Bounds.fromArray(bBox).transform(proj4326, proj900913);
-      detailExtend     = restrExtent;
+      detailExtent     = restrExtent;
       detailZoom = 12;
    }
    
@@ -220,15 +240,14 @@ function init(bBox, bBoxDetail) {
       projection : proj900913}
    );
 
-
+OpenLayers.Util.onImageLoadErrorColor = "transparent";
+OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    // create TMS layer using MBTiles sqlite database
-
    var layerBase = new OpenLayers.Layer.OSM(
       "Carte Vélo", 
       "mbtiles.php", 
       {
          getURL: mbtilesURLBase,
-         attribution: "Tiles Courtesy of <a href='http://tiles.mapbox.com/mapbox/map/geography-class' target='_blank'>MapBox</a>",
          transitionEffect: "resize",
          maxResolution : maxRes,
          zoomOffset : 0, //zOffset,
@@ -241,7 +260,7 @@ function init(bBox, bBoxDetail) {
    );
 
    /*layerBase.transitionEffect = "resize";*/
-   layerBase.attribution = "Crée avec <a href='http://mapnik.org/' target='_blank'>Mapnik/Tilemill</a><br/>Données cartographiques: <a href='http://www.openstreetmap.org'>OpenStreetMap</a>";
+   layerBase.attribution = "Données cartographiques: © les contributeurs d’<a href='http://www.openstreetmap.org'>OpenStreetMap</a>";
 
    layerOsmMapnik = new OpenLayers.Layer.OSM( 
                   "Openstreetmap Mapnik",
@@ -281,12 +300,11 @@ function init(bBox, bBoxDetail) {
          numZoomLevels: zoomLevels,
    });
 
-   var layerOverlay1 = new OpenLayers.Layer.TMS(
-      "Petites routes et chemins",
+   var layerRoutes = new OpenLayers.Layer.TMS(
+      "Petites routes",
       "mbtiles.php", 
       {
-         getURL: mbtilesURLChemins,
-         attribution: "Tiles Courtesy of <a href='http://tiles.mapbox.com/mapbox/map/geography-class' target='_blank'>MapBox</a>",
+         getURL: mbtilesURLRoutes,
          /*transitionEffect: "resize",*/
          maxResolution : maxRes,
          zoomOffset : zOffset,
@@ -295,28 +313,43 @@ function init(bBox, bBoxDetail) {
       }
       
    );   
-   layerOverlay1.setVisibility(false);
+   layerRoutes.setVisibility(false);
 
-   var layerContour = new OpenLayers.Layer.TMS(
-      "Courbes de niveau",
+   var layerChemins = new OpenLayers.Layer.TMS(
+      "Chemins",
       "mbtiles.php", 
       {
-         getURL: mbtilesURLContour,
-         attribution: "Tiles Courtesy of <a href='http://tiles.mapbox.com/mapbox/map/geography-class' target='_blank'>MapBox</a>",
+         getURL: mbtilesURLChemins,
          /*transitionEffect: "resize",*/
          maxResolution : maxRes,
          zoomOffset : zOffset,
          numZoomLevels: zoomLevels,
          isBaseLayer: false,
       }
+      
+   );   
+   layerChemins.setVisibility(false);
+
+   var layerContour = new OpenLayers.Layer.TMS(
+      "Courbes de niveau",
+      "mbtiles.php", 
+      {
+         getURL: mbtilesURLContour,
+         /*transitionEffect: "resize",*/
+         maxResolution : maxRes,
+         zoomOffset : zOffset,
+         numZoomLevels: zoomLevels-2,
+         isBaseLayer: false,
+      }
    );   
    layerContour.setVisibility(false);
-   var layerBoxes  = new OpenLayers.Layer.Boxes( "Boxes" );
-   box = new OpenLayers.Marker.Box(detailExtend,"red",1);         
-   layerBoxes.addMarker(box);
-   layerBoxes.displayInLayerSwitcher = false;
- 
-   if (deployed){
+   if (detailExtent != null){
+      var layerBoxes  = new OpenLayers.Layer.Boxes( "Boxes" );
+      box = new OpenLayers.Marker.Box(detailExtent,"red",1);         
+      layerBoxes.addMarker(box);
+      layerBoxes.displayInLayerSwitcher = false;
+   }
+   if (detailExtent != null){
       console.log(deployed);
       map.events.on({'moveend': moveendListener});
       //map.events.on({'movestart': moveendListener});
@@ -329,9 +362,13 @@ function init(bBox, bBoxDetail) {
    map.restrictedExtent = restrExtent;
    
    if (deployed){
-      map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerOverlay1, layerContour, layerBoxes ]);
+      if (detailExtent != null){
+         map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerRoutes, layerChemins, layerContour, layerBoxes ]);
+      }else{
+         map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerRoutes, layerChemins, layerContour ]);
+      }
    }else{
-      map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerBingAerial, layerOverlay1, layerContour, layerBoxes ]);
+      map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerBingAerial, layerRoutes, layerChemins, layerContour, layerBoxes ]);
    }
 
    map.addControl(new OpenLayers.Control.LayerSwitcher());

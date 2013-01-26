@@ -3,11 +3,11 @@
 .water.area[size>5000][zoom>=15],
 .water.area[zoom>=16],
 {
-  	line-width: 2;
+  	line-width: 0;
     line-color: #7eaac1;
     /*polygon-fill: #8cb6d3;*/
   	polygon-fill:   #7eaac1;
-    line-join: round;
+    polygon-smooth: 0.5;
 }
 #water_area_label
 { 
@@ -37,6 +37,7 @@
     line-color: #7eaac1;
     line-join: round;
     line-cap: round;
+    line-smooth: 0.5;
 }
 
 .water.line[zoom>=13],
@@ -62,10 +63,10 @@
 .water.line[zoom=15][waterway!='river'] { line-width: 3; }
 
 .water.line[zoom=16] { line-width: 9; }
-.water.line[zoom=16][waterway!='river'] { line-width: 5; }
+.water.line[zoom=16][waterway!='river'] { line-width: 4; }
 
 .water.line[zoom>=17] { line-width: 12; }
-.water.line[zoom>=17][waterway!='river'] { line-width: 8; }
+.water.line[zoom>=17][waterway!='river'] { line-width: 5; }
 
 #water_line_label{
 	[zoom>=14][waterway='river'],

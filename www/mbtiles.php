@@ -18,11 +18,20 @@ $db = $_GET['db'];
 	$q->bindColumn(3, $tile_row);
 	$q->bindColumn(4, $tile_data, PDO::PARAM_LOB);
 
-	while($q->fetch())
+	if($q->fetch())
 	{
-	header("Content-Type: image/png");
-	echo $tile_data;
-	}
+      $data=$tile_data;
+	}else{
+      $fh = fopen("img/empty.png", 'r');
+      if ($fh) {
+         $data= fread($fh, 99999);
+         fclose($fh);
+      }	
+      //header("HTTP/1.0 404 Not Found");
+      //echo "###";
+   }
+   header("Content-Type: image/png");
+   echo $data;
   }
   catch(PDOException $e)
   {

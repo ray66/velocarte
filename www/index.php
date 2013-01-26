@@ -4,6 +4,8 @@
    #phpinfo();
    initData();
 ?>
+<!DOCTYPE html>
+<html>
 <!--<html debug="true">-->
 <head>
     <title>
@@ -34,14 +36,14 @@
               </a>
               <div class="titre">Carte des aménagements cyclables de Perpignan</div>
               <br>
-              <img checked="true" title="Légende" alt="Légende" src="img/legende.png">
+              <img title="Légende" alt="Légende" src="img/legende.png">
               <br>
               <div class="text">
+                <br>
+                <a href="notice.php">Notice de la carte</a>
+                <br><br>
 
-                <a href="notice.html">Notice de la carte</a>
-                <br><br><br>
-
-                <a id'="contact" href="mailto:cvp66@sfr.fr">Contact</a>
+                <a id="contact" href="mailto:cvp66@sfr.fr">Contact</a>
 
             </div>
           </div>
@@ -50,9 +52,6 @@
 
           </div>
 
-        </tbody>
-
       </div>
-    </font>
   </body>
 </html>

@@ -46,8 +46,8 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,highway,name,cycleway,oneway,tunnel,tracktype\n FROM planet_osm_line\n               WHERE (highway = 'track' and tracktype in('grade2','grade3')) \n               ORDER BY z_order ASC, priority DESC) AS tracks",
-        "key_field": "osm_id",
+        "table": "(SELECT way,id,highway,tracktype\n FROM small_roads\n               WHERE (highway = 'track' and tracktype in('grade1')) or (highway='unclassified' )) AS minor_roads",
+        "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
         "dbname": "osm",
@@ -61,16 +61,16 @@
         "extent": ""
       },
       "id": "road_outline",
-      "class": "road ovl inline",
+      "class": "road ovl ",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "road_outline",
       "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.044510063645374,
-        42.85361273824522
+        2.6404037415679635,
+        42.58380332194814,
+        3.0405251370450204,
+        42.797576071612276
       ]
     },
     {
@@ -85,15 +85,17 @@
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
-        "password": "osm"
+        "password": "osm",
+        "id": "cycleway",
+        "project": "CarteVeloRoutes",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "id": "cycleway",
       "class": "cycleway",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cycleway",
-      "status": "off"
+      "name": "cycleway"
     },
     {
       "geometry": "linestring",
@@ -110,13 +112,12 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cycleroute",
-      "status": "off"
+      "name": "cycleroute"
     }
   ],
   "scale": 1,
   "metatile": 1,
-  "name": "Carte Velo Chemins",
+  "name": "Carte Velo Routes",
   "description": "",
   "attribution": ""
 }
