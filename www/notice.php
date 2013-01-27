@@ -1,18 +1,18 @@
+<!DOCTYPE html>
 <?
    ini_set ("display_errors", "");
    require 'functions.php';
    #phpinfo();
    initData();
 ?>
-<!DOCTYPE html>
+
 
 
 
 <html>
 <head>
   <meta name="generator" content="Bluefish 2.2.3" >
-  <meta charset="utf-8">
-
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    <link href = "css/style.css" type = "text/css" rel = "stylesheet">
    <title>
 <?php
@@ -36,7 +36,7 @@
       </div>
    </div>
    <div class="content" >
-        <h1>Notice de la carte</h1>
+        
 			<h4 class="sommaire"><a href="#InfoGen" >Informations générales</a></h4>
 			<h4 class="sommaire"><a href="#Navig" >Naviguer dans la Carte</a></h4>
 			<h4 class="sommaire"><a href="#Calques">Calques supplémentaires</a></h4>
@@ -44,19 +44,60 @@
 			<h4 class="sommaire"><a href="#Licences">Conditions d'utilisations, licences, remerciements</a></h4>
 			<h4 class="sommaire"><a href="#InfoTech">Informations techniques</a></h4>
         <h2 id="InfoGen">Informations générales</h2>
-        <p>Cette carte a été créée grâce au projet <a href="http://www.openstreetmap.fr/" target="_blank">OpenStreetMap</a>. 
+        <dl>
+			<dt>Qu'est-ce que c'est une »<strong>vélocarte</strong>« ?</dt>
+        <dd>
+        	La vélocarte est une carte qui s'adresse particulièrement à ceux qui favorisent le vélo comme moyen de transport dans 
+        	le quotidien et pour les loisirs. Pour cela, elle met en valeur les aménagements et équipements destinés aux cyclistes: 
+        	pistes et bandes cyclables, voies vertes, véloroutes, stations de location, parkings à vélo, magasins de vélo.
+        	En dehors des agglomérations, la carte expose particulièrement les routes de faible densité de trafic automobile 
+        	et les chemins ruraux classés par la qualité de leur revêtement. 
+        </dd> 
+        <dt>Comment est réalisée cette carte ?</dt>
+        <dd><p>Cette carte a été créée grâce au projet <a href="http://www.openstreetmap.fr/" target="_blank">OpenStreetMap</a>. 
     		  OpenStreetMap (OSM) est un projet international fondé en 2004 dans le but de créer une carte libre du monde. 
     		  Des milliers de volontaires dans le monde entier collectent des données sur les routes, voies ferrées, les rivières, 
     		  les forêts, les bâtiments et bien plus encore. Les données cartographiques ainsi collectées sont ré-utilisables sous 
-    		  licence libre ODbL. 
-        </p>
-        <p>Tous les éléments présent sur la carte sont dessinés à partir des données du projet OpenStreetMap. 
+    		  licence libre ODbL. </p>
+           <p>Tous les éléments présent sur la carte sont dessinés à partir des données du projet OpenStreetMap. 
            Ce qui n'existe pas dans la base de données OSM ne peut donc pas être sur la carte. Mais toutes les données OpenStreetMap 
            ne sont pas présent sur la carte, comme c'est le cas pour certains équipements destinés aux automobilistes tel que les 
            parkings et stations-service. Par-contre, vous trouvez des éléments sur cette carte qui ne sont pas présent sur d'autres 
-           cartes basés sur OSM, comme par exemple les parkings à vélo et les bandes cyclables.    
-        </p>
-        <p>Des informations techniques sur la réalisation de cette carte se trouvent <a href="#InfoTech" >ici</a>.</p> 
+           cartes basés sur OSM, comme par exemple les parkings à vélo et les bandes cyclables.    </p>
+         <p>
+            En signalant une erreur ou un élément manquant, vous contribuez non seulement à améliorer la qualité de cette carte
+            mais de toutes les cartes et applications qui utilisent les données OpenStreetMap. Quelques exemples:
+         </p>
+          <ul>
+            <li>Cartes spécialisés:
+              <ul>
+                 <li><a href="http://wheelmap.org/" target="_blank">Wheelmap.org</a>
+                 </li>
+                 <li><a href="http://cycling.waymarkedtrails.org/" target="_blank">Waymarked Trails</a>, la carte des circuits de randonnée cyclistes
+                 </li>
+              </ul>
+            </li>
+            <li>Applications de calcul d'itineraire:
+              <ul>
+                 <li>en ligne: <a href="http://openrouteservice.org/" target="_blank">OpenRouteService</a>
+                 </li>
+                 <li>mobile: <a href="http://osmand.net/" target="_blank">Osmand</a>
+                 </li>
+              </ul>
+            </li>
+            <li>Cartes pour GPS Garmin:
+              <ul>
+                 <li><a href="http://fredericbonifas.free.fr/osm/garmin.html" target="_blank">France</a>
+                 </li>
+                 <li>mobile: <a href="http://garmin.openstreetmap.nl/" target="_blank">Monde</a>
+                 </li>
+              </ul>
+            </li>
+          </ul>
+        </dd>
+        </dl>
+
+
         <h2 id="Navig">Naviguer dans la Carte</h2>
         <dl>
           <dt>Zoom avant/arrière</dt>
@@ -74,7 +115,7 @@
           <dd>Faites simplement glisser la carte avec la souris en
           appuyant sur le bouton gauche.</dd>
 
-<!--
+
          <dt>Zoom dans la zone détaillée</dt>
 
           <dd>Au centre de la carte, entouré d'un cadre
@@ -83,7 +124,7 @@
           carte. Positionnez le curseur à
           l'intérieur du cadre pour accéder
           aux niveaux détaillés.</dd>
--->
+
           <dt>Créer des liens vers la carte</dt>
 
           <dd>Vous pouvez créer un lien à
@@ -103,7 +144,7 @@
 
         <h3>Calques "Routes" et "Chemins"</h3>
 
-        <p>Ces calque met en valeur des routes mineures et des chemins agricoles et forestiers  
+        <p>Ce calque met en valeur des routes mineures et des chemins agricoles et forestiers  
         qui se prêtent particulièrement pour une utilisation avec le vélo.
         </p>
         <div>
@@ -140,7 +181,6 @@
         		  Vous pouvez aussi corriger et saisir vous-même par l'intermédiaire du site <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> (onglet "modifier")
               ou avec un éditeur OSM hors-ligne tel que <a href="http://josm.openstreetmap.de/">JOSM</a>. 
             </p>
-
         <h2 id="Licences">Conditions d'utilisations, licences, remerciements</h2>
         <h3>Licences</h3>
         <table>
@@ -160,8 +200,13 @@
         <h3>Remerciements</h3>
         <p>Cette carte a été inspiré des cartes des associations <a href="http://carte.apicy.fr/" target="_blank">APiCy</a>, 
            <a href="http://carte.velobesancon.info/" target="_blank">AVB</a> et 
-           <a href="http://carte.lavilleavelo.org/" target="_blank">La Ville à Vélo</a>. 
-        </p>        
+           <a href="http://carte.lavilleavelo.org/" target="_blank">La Ville à Vélo</a> et 
+           du <a href ="http://wiki.openstreetmap.org/wiki/File:L%C3%BCbeckerFahrradStadtplan-Ausschnitt.jpg">plan de ville de l'ADFC de Lübeck</a>. 
+        </p>
+        <p>L'association <a href="http://veloentet.free.fr/" target="_blank">Vélo en Têt</a> et ses adhérents fournissent des informations
+        précieuses sur l'état des aménagements cyclables de Perpignan et ses environs et permettent ainsi d'améliorer les données du projet OpenStreetMap
+        et de cette carte.
+        </p>
         <h2 id="InfoTech">Informations techniques</h2>
         <p>Ces informations s'adressent à des personnes qui maîtrisent les outils osmosis, PostGis, Tilemill et Openlayers. 
            Les fichiers de configuration et de style utilisés sont libre de tout droit et peuvent être reprises et modifiées. 

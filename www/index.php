@@ -34,13 +34,13 @@
                             alt="" 
                             src="logo.png">
               </a>
-              <div class="titre">Carte des aménagements cyclables de Perpignan</div>
+              <div class="titre">Vélocarte de Perpignan</div>
               <br>
               <img title="Légende" alt="Légende" src="img/legende.png">
               <br>
               <div class="text">
                 <br>
-                <a href="notice.php">Notice de la carte</a>
+                <a href="notice.php">En savoir plus...</a>
                 <br><br>
 
                 <a id="contact" href="mailto:cvp66@sfr.fr">Contact</a>
