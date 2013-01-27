@@ -2,6 +2,7 @@
 $zoom = $_GET['z'];
 $column = $_GET['x'];
 $row = $_GET['y'];
+$row = (1 << $zoom) - $row -1;
 $db = $_GET['db'];
   try
   {

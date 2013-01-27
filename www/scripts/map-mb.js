@@ -48,7 +48,8 @@ function mbtilesURLBase (bounds) {
    var y = Math.round ((this.maxExtent.top - bounds.top) / (res * this.tileSize.h));
    var z = this.map.getZoom()+zOffset;
 
-   return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+((1 << z) - y - 1);
+   //return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+((1 << z) - y - 1);
+   return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+y;
    
 }
 function mbtilesURLChemins (bounds) {
@@ -62,7 +63,7 @@ function mbtilesURLChemins (bounds) {
    //   console.log(z);
    //   z = z + 1;
    //}
-   return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+((1 << z) - y - 1);
+   return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+y;
    
 }
 function mbtilesURLRoutes (bounds) {
@@ -76,7 +77,7 @@ function mbtilesURLRoutes (bounds) {
    //   console.log(z);
    //   z = z + 1;
    //}
-   return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+((1 << z) - y - 1);
+   return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+y;
    
 }
 function mbtilesURLContour (bounds) {
@@ -90,7 +91,7 @@ function mbtilesURLContour (bounds) {
    //   console.log(z);
    //   z = z + 1;
    //}
-   return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+((1 << z) - y - 1);
+   return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+y;
    
 }
 
