@@ -4,7 +4,7 @@
 #-------------------------------------------------------
 #set -v 
 USAGE=`cat << 'EOF'
-Usage: $0 [-r] [-b bbox] [<area>]
+Usage: $0 [-r] [-i] [-b bbox] [<area>]
 EOF`
 
 MYPATH=`ls  -l $0|awk '{print $NF}'`
@@ -20,6 +20,7 @@ AREA="Perpi-environs"
 BBOX_TILES=""
 YES=0
 RENDER_ONLY=0
+IMPORT_ONLY=0
 
 while [[ $# -gt 0 && ${1:0:1} == "-" ]]; do
   # options
@@ -33,6 +34,9 @@ while [[ $# -gt 0 && ${1:0:1} == "-" ]]; do
   -b )
       shift;
       BBOX_TILES=$1
+      ;;
+  -i )
+      IMPORT_ONLY=1
       ;;
    *)
      echo "invalid option: $1"
@@ -104,6 +108,11 @@ if [[ $RENDER_ONLY -eq 0 ]];then
    echo $cmd
    eval $cmd
 fi
+
+if [[ $IMPORT_ONLY -eq 1 ]];then
+   exit
+fi
+
 # Tiles generieren
 TMOPTS="--format=mbtiles --files=$TILEMILL_DATA --bbox=$BBOX --metatile=8"
 

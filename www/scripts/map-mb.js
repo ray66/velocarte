@@ -246,12 +246,11 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    // create TMS layer using MBTiles sqlite database
    var layerBase = new OpenLayers.Layer.OSM(
       "Carte Vélo", 
-      "mbtiles.php", 
+      "mbtiles.php?db=CarteVeloBase.mbtiles&z=${z}&x=${x}&y=${y}", 
       {
-         getURL: mbtilesURLBase,
          transitionEffect: "resize",
          maxResolution : maxRes,
-         zoomOffset : 0, //zOffset,
+         zoomOffset : 12, //zOffset,
          numZoomLevels: zoomLevels,
          isBaseLayer: true,
             transitionEffect: "resize",
@@ -260,7 +259,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
       
    );
 
-   /*layerBase.transitionEffect = "resize";*/
+   layerBase.transitionEffect = "resize";
    layerBase.attribution = "Données cartographiques: © les contributeurs d’<a href='http://www.openstreetmap.org'>OpenStreetMap</a>";
 
    layerOsmMapnik = new OpenLayers.Layer.OSM( 
@@ -285,7 +284,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
                      maxResolution : maxRes,
                         //resolutions: [38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
                      zoomOffset : zOffset,
-                     numZoomLevels: zoomLevels,
+                     zoomOffset : zOffset,
                      isBaseLayer: true,
                      transitionEffect: "resize",
                      tileOptions: {crossOriginKeyword: null},
@@ -301,11 +300,10 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          numZoomLevels: zoomLevels,
    });
 
-   var layerRoutes = new OpenLayers.Layer.TMS(
+   var layerRoutes = new OpenLayers.Layer.OSM(
       "Petites routes",
-      "mbtiles.php", 
+      "mbtiles.php?db=CarteVeloRoutes.mbtiles&z=${z}&x=${x}&y=${y}", 
       {
-         getURL: mbtilesURLRoutes,
          /*transitionEffect: "resize",*/
          maxResolution : maxRes,
          zoomOffset : zOffset,
@@ -316,11 +314,10 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    );   
    layerRoutes.setVisibility(false);
 
-   var layerChemins = new OpenLayers.Layer.TMS(
+   var layerChemins = new OpenLayers.Layer.OSM(
       "Chemins",
-      "mbtiles.php", 
+      "mbtiles.php?db=CarteVeloChemins.mbtiles&z=${z}&x=${x}&y=${y}", 
       {
-         getURL: mbtilesURLChemins,
          /*transitionEffect: "resize",*/
          maxResolution : maxRes,
          zoomOffset : zOffset,
@@ -331,11 +328,10 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    );   
    layerChemins.setVisibility(false);
 
-   var layerContour = new OpenLayers.Layer.TMS(
+   var layerContour = new OpenLayers.Layer.OSM(
       "Courbes de niveau",
-      "mbtiles.php", 
+      "mbtiles.php?db=CarteVeloContour.mbtiles&z=${z}&x=${x}&y=${y}", 
       {
-         getURL: mbtilesURLContour,
          /*transitionEffect: "resize",*/
          maxResolution : maxRes,
          zoomOffset : zOffset,

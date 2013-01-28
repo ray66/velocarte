@@ -148,10 +148,15 @@ insert into small_roads (osm_id, name, ref,highway,tracktype,way)
  where st_isvalid(p.way) and st_intersects(l.way,p.way));
 
  
- insert into small_roads (osm_id, name, ref,highway,tracktype,way) 
+insert into small_roads (osm_id, name, ref,highway,tracktype,way) 
    (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,l.way 
       from planet_osm_line as l 
       where highway in ('unclassified','track') and not exists (select * from planet_osm_polygon as p where p.landuse in ('military','industrial','commercial','landfill','residential','retail','construction','harbour') and st_isvalid(p.way) and st_intersects(l.way,p.way)));
+
+delete from small_roads as l 
+    where exists (select * from planet_osm_polygon as p where p.landuse in ('military','industrial','commercial','landfill','residential','retail','construction','harbour') 
+           and st_isvalid(p.way) and st_intersects(l.way,p.way));
+
 
 /*------------------------------------------------------------------------------
  * Polygons
