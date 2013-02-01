@@ -29,11 +29,13 @@
 
       <div id="page">
           <div id="sidebar">
+<!--
               <a href="osm">
                        <img title="Carte des aménagements cyclables"
                             alt="" 
                             src="logo.png">
               </a>
+-->
               <div class="titre">Vélocarte de Perpignan</div>
               <br>
               <img title="Légende" alt="Légende" src="img/legende.png">
@@ -49,9 +51,19 @@
           </div>
 
           	<div id="basicMap"> 
-
+      <noscript>
+    <div id="noscript">
+    <p>Vous utilisez soit un navigateur qui ne supporte pas Javascript soit vous avez désactivé Javascript.</p>
+    <p>Désactiver Javascript pour des raisons de securité est une bonne chose, mais ce site utilise Javascript pour ses cartes glissantes. </p>
+    <p>Si vous voulez voir les cartes, activez Javascript dans les préférences de votre navigateur. Si vous utilisez une extension tel que NoScript,
+    autorisez Javascript pour ce site.</p>
+  </div>
+</noscript>
           </div>
 
       </div>
+
+      
+      
   </body>
 </html>

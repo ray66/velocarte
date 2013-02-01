@@ -140,22 +140,79 @@ FROM (
  *------------------------------------------------------------------------------*/
 drop table small_roads;
 create table small_roads (id serial PRIMARY KEY,osm_id bigint,name text,ref text,highway text,tracktype text,way geometry);
+drop table small_roads2;
+create table small_roads2 (id serial PRIMARY KEY,osm_id bigint,name text,ref text,highway text,tracktype text,way geometry);
 
 insert into small_roads (osm_id, name, ref,highway,tracktype,way) 
  (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,st_difference(l.way,p.way) 
  from (select * from planet_osm_line where highway in ('unclassified','track')) as l, 
- (select way from planet_osm_polygon where landuse in ('military','industrial','commercial','landfill','residential','retail','construction','harbour')) as p 
+ (select way from planet_osm_polygon where landuse in ('commercial')) as p 
  where st_isvalid(p.way) and st_intersects(l.way,p.way));
 
  
 insert into small_roads (osm_id, name, ref,highway,tracktype,way) 
    (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,l.way 
       from planet_osm_line as l 
-      where highway in ('unclassified','track') and not exists (select * from planet_osm_polygon as p where p.landuse in ('military','industrial','commercial','landfill','residential','retail','construction','harbour') and st_isvalid(p.way) and st_intersects(l.way,p.way)));
+      where highway in ('unclassified','track') 
+            and not exists (select * from planet_osm_polygon as p where p.landuse in ('commercial') 
+                                     and st_isvalid(p.way) and st_intersects(l.way,p.way)));
 
-delete from small_roads as l 
-    where exists (select * from planet_osm_polygon as p where p.landuse in ('military','industrial','commercial','landfill','residential','retail','construction','harbour') 
-           and st_isvalid(p.way) and st_intersects(l.way,p.way));
+
+insert into small_roads2 (osm_id, name, ref,highway,tracktype,way) 
+ (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,st_difference(l.way,p.way) 
+ from (select * from small_roads) as l, 
+ (select way from planet_osm_polygon where landuse in ('residential')) as p 
+ where st_isvalid(p.way) and st_intersects(l.way,p.way));
+
+insert into small_roads2 (osm_id, name, ref,highway,tracktype,way) 
+   (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,l.way 
+      from small_roads as l 
+      where not exists (select * from planet_osm_polygon as p where p.landuse in ('residential') 
+            and st_isvalid(p.way) and st_intersects(l.way,p.way)));
+
+delete from small_roads;
+
+insert into small_roads (osm_id, name, ref,highway,tracktype,way) 
+ (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,st_difference(l.way,p.way) 
+ from (select * from small_roads2) as l, 
+ (select way from planet_osm_polygon where landuse in ('industrial')) as p 
+ where st_isvalid(p.way) and st_intersects(l.way,p.way));
+
+insert into small_roads (osm_id, name, ref,highway,tracktype,way) 
+   (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,l.way 
+      from small_roads2 as l 
+      where not exists (select * from planet_osm_polygon as p where p.landuse in ('industrial') 
+            and st_isvalid(p.way) and st_intersects(l.way,p.way)));
+
+delete from small_roads2;
+insert into small_roads2 (osm_id, name, ref,highway,tracktype,way) 
+ (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,st_difference(l.way,p.way) 
+ from (select * from small_roads) as l, 
+ (select way from planet_osm_polygon where landuse in ('retail')) as p 
+ where st_isvalid(p.way) and st_intersects(l.way,p.way));
+
+insert into small_roads2 (osm_id, name, ref,highway,tracktype,way) 
+   (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,l.way 
+      from small_roads as l 
+      where not exists (select * from planet_osm_polygon as p where p.landuse in ('retail') 
+            and st_isvalid(p.way) and st_intersects(l.way,p.way)));
+
+delete from small_roads;
+
+insert into small_roads (osm_id, name, ref,highway,tracktype,way) 
+ (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,st_difference(l.way,p.way) 
+ from (select * from small_roads2) as l, 
+ (select way from planet_osm_polygon where landuse in ('military')) as p 
+ where st_isvalid(p.way) and st_intersects(l.way,p.way));
+
+insert into small_roads (osm_id, name, ref,highway,tracktype,way) 
+   (select l.osm_id,l.name,l.ref,l.highway,l.tracktype,l.way 
+      from small_roads2 as l 
+      where not exists (select * from planet_osm_polygon as p where p.landuse in ('military') 
+            and st_isvalid(p.way) and st_intersects(l.way,p.way)));
+
+drop table small_roads2;
+
 
 
 /*------------------------------------------------------------------------------
@@ -267,7 +324,6 @@ Update planet_osm_point Set relevance =
                                  'picnic_table',
                                  'stadium')
                   or (historic!='' and historic != 'memorial')
-                  or ("natural" = 'peak')
              Then 'high'
              When amenity in ('arts_centre',
                            'bus_station',

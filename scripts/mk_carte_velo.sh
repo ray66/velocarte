@@ -4,7 +4,7 @@
 #-------------------------------------------------------
 #set -v 
 USAGE=`cat << 'EOF'
-Usage: $0 [-r] [-i] [-b bbox] [<area>]
+Usage: $0 [-r] [-i] [-o] [-b bbox] [<area>]
 EOF`
 
 MYPATH=`ls  -l $0|awk '{print $NF}'`
@@ -21,6 +21,7 @@ BBOX_TILES=""
 YES=0
 RENDER_ONLY=0
 IMPORT_ONLY=0
+OVERLAY_ONLY=0
 
 while [[ $# -gt 0 && ${1:0:1} == "-" ]]; do
   # options
@@ -37,6 +38,9 @@ while [[ $# -gt 0 && ${1:0:1} == "-" ]]; do
       ;;
   -i )
       IMPORT_ONLY=1
+      ;;
+  -o )
+      OVERLAY_ONLY=1
       ;;
    *)
      echo "invalid option: $1"
@@ -68,7 +72,7 @@ fi
 BBOX=`cat $BBOXFILE | awk -F',' '{if(substr($1,1,1)!="#"){print $0;exit}}'`
 echo "BBOX=$BBOX"
 
-if [[ $RENDER_ONLY -eq 0 ]];then
+if [[ $RENDER_ONLY -eq 0 && $OVERLAY_ONLY -eq 0 ]];then
    # Extrakt aus OSM-Datei erstellen
    ANSW="Y"
    echo $OSMFILE
@@ -116,7 +120,13 @@ fi
 # Tiles generieren
 TMOPTS="--format=mbtiles --files=$TILEMILL_DATA --bbox=$BBOX --metatile=8"
 
-for LAYER in Chemins Routes Base;do
+if [[ $OVERLAY_ONLY -eq 0 ]];then
+   LAYERS="Chemins Routes Base"
+else
+   LAYERS="Chemins Routes"
+fi
+
+for LAYER in $LAYERS;do
    rm -f CarteVelo${LAYER}.mbtiles
    cmd="$TILEMILL export $TMOPTS CarteVelo${LAYER} CarteVelo${LAYER}.mbtiles"
    echo $cmd

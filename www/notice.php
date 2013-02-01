@@ -25,7 +25,7 @@
   <div id = "page">
 
    <div id="sidebar">
-      <h2> <a href="index.php"><img title = "Carte des aménagements cyclables" alt = "Accueil" src="logo.png"></a> </h2>
+      <h2> <a href="index.php">Accueil</a> </h2>
       <div class="titre">
          Carte des aménagements cyclables de Perpignan
       </div>
@@ -64,6 +64,16 @@
            ne sont pas présent sur la carte, comme c'est le cas pour certains équipements destinés aux automobilistes tel que les 
            parkings et stations-service. Par-contre, vous trouvez des éléments sur cette carte qui ne sont pas présent sur d'autres 
            cartes basés sur OSM, comme par exemple les parkings à vélo et les bandes cyclables.    </p>
+
+
+			<dl>
+				<dt class="kleingedruckt">Avis</dt>
+				<dd class="kleingedruckt">Le classement des routes et pistes est donnée à titre indicatif. Il est le résultat d'une évaluation par un ou plusieurs 
+				 contributeurs du projet Openstreetmap. Bien que ceux-ci essayent d'assurer une classification homogène, 
+				 il peut y avoir des erreurs de classifications.   
+           	</dd>
+			  </dl>        
+			<br>
          <p>
             En signalant une erreur ou un élément manquant, vous contribuez non seulement à améliorer la qualité de cette carte
             mais de toutes les cartes et applications qui utilisent les données OpenStreetMap. Quelques exemples:
@@ -149,22 +159,22 @@
         </p>
         <div>
             <div class='legende_img'><img src="img/pr_unclassified.png" alt=""></div>
-            <div class='legende_img_text'>Petite route de campagne </div>
+            <div class='legende_img_text'>Route communale ou intercommunale, chemin agricole ou forestier à revêtement bitumé ou très compact</div>
         </div>
         <div>
             <div class='legende_img'><img src="img/pr_track1.png" alt=""></div>
             <div class='legende_img_text'>
-                  Chemin rural, agricole ou forestier, avec un revêtement dur de type asphalte ou composée de matériaux
-                  très compactés.
+                  Piste agricole ou forestière, non goudronnée avec un revêtement compact en gravier ou en terre/sable, généralement praticable en VTC.
             </div>
         </div>
         <div>
             <div class='legende_img'><img src="img/pr_track2.png" alt=""></div>
             <div class='legende_img_text'>
-                  Chemin rural, agricole ou forestier, avec une surface en gravier ou en terre/sable. 
+                  Chemin rural, agricole ou forestier, revêtement peu compact, praticable en VTT.  
             </div>
         </div>
-        <div style='clear: both;'></div>
+
+			  <div style='clear: both;'></div>
         <h3>Calque "Courbes de niveau"</h3>
         <p>Ce calque a été créé avec les données 
            <a href="http://fr.wikipedia.org/wiki/Shuttle_Radar_Topography_Mission" target="_blank">SRTM</a>
@@ -224,13 +234,13 @@
         <p> La carte a été réalisée avec la chaîne d'outils suivante:</p>
             <ul>
                <li>Import des données OSM dans une base de données PostGIS avec osm2pgsql:
-                  <pre>osm2pgsql -c -m -s -d osm -U &lt;user&gt; -W -H localhost &lt;osmfile&gt; -S osm2pgsql.style</pre>
+                  <div class='pre'><pre>osm2pgsql -c -m -s -d osm -U &lt;user&gt; -W -H localhost &lt;osmfile&gt; -S osm2pgsql.style</pre></div>
                   &lt;osmfile&gt; est le fichier au format OSM (.osm, .osm.bz2 ou .pbf) qui contient les données OSM de la zone à couvrir. 
                   Il peut être créé avec osmosis à partir d'un extrait <a href="http://download.geofabrik.de/">geofabrik.</a>
                   On peut aussi utiliser un extrait "région" ou "pays" et utiliser osm2pgsql avec l'option --bbox pour extraire une zone géographique. 
                </li>
                <li>Traitement de la base de données pour faciliter l'exploitation avec Tilemill/Mapnik:
-                  <pre>psql -d osm -f postproc.sql</pre>
+                  <div class='pre'><pre>psql -d osm -f postproc.sql</pre></div>
                   Actuellement ce traitement consomme beaucoup de temps, plus que le processus de rendu lui-même.  
                </li>
                <li>Si la zone à couvrir comprend la ligne côtiere: création d'un fichier shp pour la ligne côtiere, 
@@ -253,7 +263,7 @@
                 	<ul>
 	                	<li>Un projet pour le calque de base "Carte Velo Base" et un projet pour le calque overlay "Carte Velo Chemins"</li>
                 		<li>Pour la génération des tuiles à déployer, on peut lancer Tilemill en mode "batch":
-                			 <pre>tilemill export --format=mbtiles --files=&lt;répertoire tilemill&gt; --metatile=8 CarteVeloBase CarteVeloBase.mbtiles</pre>
+                			 <div class='pre'><pre >tilemill export --format=mbtiles --files=&lt;répertoire tilemill&gt; --metatile=8 CarteVeloBase CarteVeloBase.mbtiles</pre></div>
                 			 Pour éviter des artefacts aux limites entre deux tuiles, tel que des libellés tronqués, 
                 			 et une répétition des noms de rue non-conforme avec le paramètre text-spacing, 
                 			 il faut choisir une valeur metatile de >= 8 et une buffer-size de 768 ou plus dans le style "Map";

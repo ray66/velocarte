@@ -106,8 +106,33 @@
 	  	text-size: 12;
   		text-placements: 'X,E,W,12,11,10';
 	}
-    .major[place='peak']{
-      	[zoom>=12]{
+
+    .major[place='mountain_pass'][zoom>=13]{
+        	point-file: url('img/poi_mountain_pass.p.12.png');
+        	[zoom>=17]{point-file: url('img/poi_mountain_pass.p.16.png');}
+            point-allow-overlap: true;
+    		point-placement: interior;
+			text-name:"[name]";
+   			text-face-name: "DejaVu Sans Oblique";
+    		text-fill: brown;
+    		text-halo-radius: 1;
+  			text-size: 10;   	
+        	text-placement: interior;
+    		text-dy: 8;
+    		[zoom>=17]{text-dy: 10;}
+  	    	ele/text-name: "[ele_text]";
+    		ele/text-size: 9;
+      		ele/text-fill: brown;
+      		ele/text-dy: 6;
+      		ele/text-face-name: "DejaVu Sans Oblique";
+      		ele/text-halo-radius: 1;
+      		ele/text-placement: interior;
+      		[name != ''] {
+        		ele/text-dy: 18;
+        		[zoom>=17]{ele/text-dy: 22;}
+    		}
+      }
+    .major[place='peak'][zoom>=13]{
         	point-file: url('img/peak.png');
         	point-allow-overlap: true;
     		point-placement: interior;
@@ -132,7 +157,7 @@
         		text-size: 9;
         		ele/text-size: 9;
           	}
-         }
+         
     }	
   /*text-allow-overlap: true;*/
 	[place='village'][zoom>=12][zoom<=16],

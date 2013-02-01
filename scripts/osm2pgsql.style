@@ -117,6 +117,7 @@ way        agricultural    text     linear
 node,way   name:ca         text     linear
 node,way   fixme           text     linear
 node,way   recycling_type  text     linear
+node       mountain_pass   text     linear
 # If you're interested in bicycle routes, you may want the following fields
 # To make these work you need slim mode or the necessary data won't be remembered.
 way       lcn_ref      text     linear

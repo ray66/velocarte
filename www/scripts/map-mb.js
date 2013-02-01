@@ -191,6 +191,17 @@ function mousemoveListener(e) {
       mousePixelY = e.xy.y;
 }
 function init(bBox, bBoxDetail) {
+
+// A quick solution without using regexp (to speed up a little).
+var userAgent = navigator.userAgent.toString().toLowerCase();
+//console.log(userAgent );
+//console.log(userAgent.indexOf('msie 10.0'));
+if (userAgent.indexOf('msie 10.0') > -1 ) {
+   alert('Vous utilisez Internet Explorer 10.0. Cette application ne fonctionne pas correctement avec ce navigateur. Il est conseille d\'utiliser Firefox pour un fonctionnement correct.');
+}
+
+
+
    proj4326 = new OpenLayers.Projection("EPSG:4326");
    proj900913 = new OpenLayers.Projection("EPSG:900913");
 
@@ -247,7 +258,9 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    var layerBase = new OpenLayers.Layer.OSM(
       "Carte Vélo", 
       "mbtiles.php?db=CarteVeloBase.mbtiles&z=${z}&x=${x}&y=${y}", 
+      //"mbtiles.php", 
       {
+         //getURL: mbtilesURLBase,
          transitionEffect: "resize",
          maxResolution : maxRes,
          zoomOffset : 12, //zOffset,
@@ -266,6 +279,8 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
                   "Openstreetmap Mapnik",
                   "",
                   {
+
+
                      maxResolution : maxRes,
                         //resolutions: [38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
                      zoomOffset : zOffset,

@@ -5,17 +5,17 @@
 /** Path Colors **/
 
 .road {
-  line-color: #00428a;
+  line-color: darken(#8B2323,10%);
   line-cap: butt;
-  line-opacity: 0.9;
+  line-opacity: 0.7;
   [zoom>=12]{ line-width: 2; }
-  [zoom>=14]{ line-width: 2; }   
-  [zoom>=15]{ line-width: 5; }   
-  [zoom>=16]{ line-width: 6; }   
-  [zoom>=17]{ line-width: 7; }   
-  [zoom>=18]{ line-width: 8; }   
+  [zoom>=14]{ line-width: 3; }   
+  [zoom>=15]{ line-width: 4; }   
+  [zoom>=16]{ line-width: 5; }   
+  [zoom>=17]{ line-width: 6; }   
+  [zoom>=18]{ line-width: 7; }   
 }
-.path {line-color: brown; 
+.path {line-color: #754C24; 
   line-opacity: 0.8;
   [zoom>=12]{
        line-dasharray: 3,3;
@@ -31,11 +31,12 @@
 .road[tracktype='grade3']
 {
   line-color: brown;
-  [zoom>=12]{ line-width: 1; }  
-  [zoom>=14]{ line-width: 2; }  
-  [zoom>=15]{ line-width: 3; }
+  [zoom>=12]{ line-width: 2; }  
+  [zoom>=14]{ line-width: 3; }  
+  [zoom>=15]{ line-width: 4; }
   [zoom>=16]{ line-width: 5; }
   [zoom>=17]{ line-width: 6; }
+  [zoom>=18]{ line-width: 6; }
 }
 .road[tracktype='grade3']
 {

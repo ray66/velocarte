@@ -5,21 +5,28 @@
 /** Path Colors **/
 
 .road {
-  line-color: #00428a;
+  line-color: #007200;
   line-cap: butt;
-  line-opacity: 0.9;
+  line-opacity: 0.6;
   [zoom>=12]{ line-width: 1.5; }
-  [zoom>=14]{ line-width: 2; }   
-  [zoom>=15]{ line-width: 3; }   
-  [zoom>=16]{ line-width: 5; }   
-  [zoom>=17]{ line-width: 7; }   
-  [zoom>=18]{ line-width: 8; }   
+  [zoom>=13]{ line-width: 3; }
+  [zoom>=14]{ line-width: 4; }   
+  [zoom>=15]{ line-width: 6; }   
+  [zoom>=16]{ line-width: 8; }   
+  [zoom>=17]{ line-width: 10; }   
+  [zoom>=18]{ line-width: 12; }   
 }
 
-.road[highway='unclassified'][zoom>=12]{ line-dasharray: 3,5;}
+.road[highway='unclassified'][zoom>=12]{ line-dasharray: 2,2;}
+.road[highway='unclassified'][zoom>=13]{ line-dasharray: 3,5;}
 .road[highway='unclassified'][zoom>=14]{ line-dasharray: 5,5;}
 .road[highway='unclassified'][zoom>=15]{ line-dasharray: 10,10;}
 .road[highway='unclassified'][zoom>=16]{ line-dasharray: 14,14;}
+.road[highway='track'][zoom>=12]{ line-dasharray: 2,2;}
+.road[highway='track'][zoom>=13]{ line-dasharray: 3,5;}
+.road[highway='track'][zoom>=14]{ line-dasharray: 5,5;}
+.road[highway='track'][zoom>=15]{ line-dasharray: 10,10;}
+.road[highway='track'][zoom>=16]{ line-dasharray: 14,14;}
 /**===================================================================================
  * Cycleways
 /**===================================================================================*/

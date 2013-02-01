@@ -775,7 +775,16 @@
         }
 	}
 }
-
+.road.outline[highway='grade4'],
+.road.outline[highway='grade5']{
+	[zoom>=12]{
+	   		line-color: #888;
+    		line-cap: butt;
+    		line-width: 0.5;
+    }
+    [zoom>=13]{line-width: 1;}
+    [zoom>=12]{line-width: 2;}
+} 
 
   
 /* offset requires mapnik 2.1
@@ -826,9 +835,7 @@
     shield-file: url('img/cartouche_autoroute-3.png');
     shield-face-name: "DejaVu Sans Bold";
     shield-min-distance: 100;
-    shield-size: 10;
-	shield-fill: #000;
-   shield-size: 10;
+   shield-size: 9;
    shield-fill: #000;
   shield-avoid-edges: true;
 	[ref_length=2] { shield-file: url('img/horizontal-shield-2.png'); }
@@ -841,15 +848,14 @@
 	[ref_length=9] { shield-file: url('img/horizontal-shield-9.png'); }
 }
 
+
 .road.ref[zoom>=15][highway='tertiary']{
     shield-name:"[ref_content]";
     shield-file: url('img/cartouche_autoroute-3.png');
     shield-face-name: "DejaVu Sans Bold";
     shield-min-distance: 100;
-    shield-size: 10;
+    shield-size: 9;
 	shield-fill: #000;
-   shield-size: 10;
-   shield-fill: #000;
   shield-avoid-edges: true;
 	[ref_length=2] { shield-file: url('img/horizontal-shield-2.png'); }
 	[ref_length=3] { shield-file: url('img/horizontal-shield-3.png'); }

@@ -627,7 +627,7 @@
       "geometry": "point",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,name, \n           case when ele is not null and ele != '' then '('||left(ele, position('.' in ele)-1)||' m)' else '' end as ele_text,COALESCE(z_order, 0) AS correct_z_order, \n               (CASE WHEN place = 'city' or \"natural\" in ('peak') THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END) AS priority,\n                (case when \"natural\" in ('peak') then \"natural\" else place end) as place\n                FROM planet_osm_point \n                     where place  in ('city','metropolis','town') or \"natural\" in ('peak')\n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
+        "table": "(SELECT way,osm_id,name, \n           case when ele is not null and ele != '' then '('||left(ele, position('.' in ele)-1)||' m)' else '' end as ele_text,COALESCE(z_order, 0) AS correct_z_order, \n               CASE WHEN place = 'city' or \"natural\" in ('peak') THEN 0 \n                     WHEN place = 'town' THEN 1 \n                     WHEN place = 'village' THEN 2 \n                     ELSE 3 \n                     END AS priority,\n                case when \"natural\" in ('peak') then \"natural\" \nwhen mountain_pass='yes' then 'mountain_pass'\nelse place end\n                         as place\n                FROM planet_osm_point \n                     where place  in ('city','metropolis','town') or \"natural\" in ('peak') or  mountain_pass='yes' \n                     ORDER BY priority ASC, correct_z_order DESC) AS places",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -648,9 +648,9 @@
       "advanced": {},
       "name": "place_label_major",
       "extent": [
-        0.8295317998845283,
-        41.834398695214674,
-        3.4479999995200363,
+        2.21274179969198,
+        42.36443659518098,
+        3.0442326995762437,
         43.24007559512768
       ]
     },
