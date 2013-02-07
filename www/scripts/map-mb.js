@@ -400,35 +400,54 @@ $(document).ready(function(){
    $('#poiSelect').click(function(){
       i = 0;
       var a = new Array( ); 
-                     map.removeControl(selectControl);
+      if (selectControl){
+         //console.log("destroy selectControl");
+         selectControl.deactivate();
+         map.removeControl(selectControl);
+         selectControl.destroy();
+      }
       $("input[type=checkbox][class=poi]").each( 
          function() { 
             poiCat =  $(this).attr('id');
             checked = $(this).is(':checked');
             var layers = map.getLayersByName(poiCat);
-            if (layers[0]){
-               if (!checked){
-                     layers[0].destroy();
-               }else{
-                  a[i] = layers[0];
-                  i++;
-               }
-            }else if (checked){
+            if (checked && !layers[0]){
+               // new POI layer
                var pois = new OpenLayers.Layer.Vector(poiCat, {
                               strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1.1})],
                               protocol: new OpenLayers.Protocol.HTTP({
                               url: "./files/"+poiCat+".txt",
-                                 'displayInLayerSwitcher':false,
+                              displayInLayerSwitcher:false,
                      format: new OpenLayers.Format.Text()
                   })
                });
-               map.addLayer(pois);
                pois.events.on({
                   'featureselected': onFeatureSelect,
                   'featureunselected': onFeatureUnselect
                });
+               map.addLayer(pois);
+//                pois.displayInLayerSwitcher = false;
                a[i] = pois;
                i++;
+            }
+            if (checked && layers[0]){
+               // unchanged active layer
+               a[i] = layers[0];
+               i++;
+               layers[0].events.on({
+                  'featureselected': onFeatureSelect,
+                  'featureunselected': onFeatureUnselect
+               });
+              layers[0].setVisibility(true);
+              layers[0].displayInLayerSwitcher = false;
+           }
+            if (!checked && layers[0]){
+               // unchecked POI layer
+               layers[0].events.un({
+               'featureselected': onFeatureSelect,
+               'featureunselected': onFeatureUnselect
+               }); 
+               layers[0].setVisibility(false);
             }
             // Interaction; not needed for initial display.
             selectControl = new OpenLayers.Control.SelectFeature(a);
@@ -443,6 +462,7 @@ $(document).ready(function(){
                 // 'this' is the popup.
                 var feature = this.feature;
                 if (feature.layer) { // The feature is not destroyed
+                  if (selectControl)
                     selectControl.unselect(feature);
                 } else { // After "moveend" or "refresh" events on POIs layer all 
                          //     features have been destroyed by the Strategy.BBOX

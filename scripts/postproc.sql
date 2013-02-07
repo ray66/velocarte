@@ -111,6 +111,10 @@ update planet_osm_line set in_agglo='yes' where exists (select way.osm_id,land.o
       where land.landuse in ('military','industrial','commercial','landfill','residential','retail','construction','harbour')
       and way.osm_id=planet_osm_line.osm_id
             and st_isvalid(land.way) and st_intersects(way.way,land.way)) ;
+
+            
+update planet_osm_point set amenity='' where amenity='bicycle_parking' and  bicycle_parking='ground_slots';
+update planet_osm_polygon set amenity='' where amenity='bicycle_parking' and  bicycle_parking='ground_slots';
             
 /* Join connected cycleways with identical attributes */             
 drop table cycleways;
@@ -139,7 +143,7 @@ insert into cycleways (cycleway_left, way, highway, oneway)
                          WHERE "cycleway:left" !='' 
                          GROUP BY "cycleway:left",highway,oneway);
 
-    
+     
 /*------------------------------------------------------------------------------
  * Create a table with the segments of unclassified roads and tracks which are
  * outside of settlements
