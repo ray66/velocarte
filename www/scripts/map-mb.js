@@ -11,7 +11,7 @@
    var mousePixelY;
    var currentLayer;
    var currentZoom;
-   
+   var selectControl;
 
 
 OpenLayers.Lang["fr"] = OpenLayers.Util.applyDefaults({
@@ -382,11 +382,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    }else{
       map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerBingAerial, layerRoutes, layerChemins, layerContour, layerBoxes ]);
    }
-      $("input[type=checkbox][class=poi]").each( 
-         function() { 
-            setMarkerPoi($(this).attr('id'),$(this).is(':checked'));
-         } 
-      );
+
    map.addControl(new OpenLayers.Control.LayerSwitcher());
    map.setCenter(new OpenLayers.LonLat((bBoxDetail[2] + bBoxDetail[0])/2, (bBoxDetail[3]+bBoxDetail[1])/2).transform(proj4326, proj900913));
 
@@ -395,27 +391,83 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    }
 
 }
+//------------------------------------------------------------------------------
+// jQuery-Code
+//------------------------------------------------------------------------------
+$(document).ready(function(){
 
-//------------------------------------------------------------------------------
-function setMarkerPoi (poi, checked){
-//------------------------------------------------------------------------------
-   var lon, lat, name, type;
-   
-   var layers = map.getLayersByName(poi);
-   //console.log(layers);
-   if (!checked){
-      if (layers[0]){
-         layers[0].destroy();
-      }
-   }else{
-      if (!layers[0]){
-         var pois = new OpenLayers.Layer.Text( poi,
-                        { location:"./files/"+poi+".txt",
-                           projection: new OpenLayers.Projection("EPSG:900913"),
-                           'displayInLayerSwitcher':false,
-                           selectedFeature: OpenLayers.Popup.FramedCloud
-                        });
-         map.addLayer(pois);
-      }
-   }
-}
+      
+   $('#poiSelect').click(function(){
+      i = 0;
+      var a = new Array( ); 
+                     map.removeControl(selectControl);
+      $("input[type=checkbox][class=poi]").each( 
+         function() { 
+            poiCat =  $(this).attr('id');
+            checked = $(this).is(':checked');
+            var layers = map.getLayersByName(poiCat);
+            if (layers[0]){
+               if (!checked){
+                     layers[0].destroy();
+               }else{
+                  a[i] = layers[0];
+                  i++;
+               }
+            }else if (checked){
+               var pois = new OpenLayers.Layer.Vector(poiCat, {
+                              strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1.1})],
+                              protocol: new OpenLayers.Protocol.HTTP({
+                              url: "./files/"+poiCat+".txt",
+                                 'displayInLayerSwitcher':false,
+                     format: new OpenLayers.Format.Text()
+                  })
+               });
+               map.addLayer(pois);
+               pois.events.on({
+                  'featureselected': onFeatureSelect,
+                  'featureunselected': onFeatureUnselect
+               });
+               a[i] = pois;
+               i++;
+            }
+            // Interaction; not needed for initial display.
+            selectControl = new OpenLayers.Control.SelectFeature(a);
+            map.addControl(selectControl);
+            selectControl.activate();
+         }
+      )
+   })
+})
+            // Needed only for interaction, not for the display.
+            function onPopupClose(evt) {
+                // 'this' is the popup.
+                var feature = this.feature;
+                if (feature.layer) { // The feature is not destroyed
+                    selectControl.unselect(feature);
+                } else { // After "moveend" or "refresh" events on POIs layer all 
+                         //     features have been destroyed by the Strategy.BBOX
+                    this.destroy();
+                }
+            }
+            function onFeatureSelect(evt) {
+                feature = evt.feature;
+                popup = new OpenLayers.Popup.FramedCloud("featurePopup",
+                                         feature.geometry.getBounds().getCenterLonLat(),
+                                         new OpenLayers.Size(100,100),
+                                         "<h2>"+feature.attributes.title + "</h2>" +
+                                         feature.attributes.description,
+                                         null, true, onPopupClose);
+                feature.popup = popup;
+                popup.feature = feature;
+                map.addPopup(popup, true);
+            }
+            function onFeatureUnselect(evt) {
+                feature = evt.feature;
+                if (feature.popup) {
+                    popup.feature = null;
+                    map.removePopup(feature.popup);
+                    feature.popup.destroy();
+                    feature.popup = null;
+                }
+            }         
+ 

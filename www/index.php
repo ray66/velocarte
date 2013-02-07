@@ -15,11 +15,11 @@
 </title>
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
     <script src="scripts/OpenLayers.js"></script>
      <script src="scripts/map-mb.js"></script>
     <script src="scripts/OpenStreetMap.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
    <link rel="canonical" href="http://velocarte66.fr" />
    <META NAME="Title" CONTENT="Carte cycliste de Perpignan et ses environs">
@@ -31,22 +31,6 @@
    <META NAME="page-topic" CONTENT="Karte Plan">
    <META NAME="Language" CONTENT="French">
 
-<script type="text/javascript">
-  // jQuery-Code
-  $(document).ready(function(){
-
-      
-      $('#poiSelect').click(function(){
-        $("input[type=checkbox][class=poi]").each( 
-        function() { 
-          setMarkerPoi($(this).attr('id'),$(this).is(':checked'));
-        } 
-       );
-    });
-  });
-
-  
-</script>
    
 </head>
 

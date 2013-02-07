@@ -20,7 +20,8 @@ div.olControlAttribution{
 .olPopup{
    height: auto;
 }
-h2.olPopupContent{
+
+.olPopup h2{
    font-size: 1em;
 }
 
