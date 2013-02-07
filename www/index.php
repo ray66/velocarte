@@ -19,6 +19,8 @@
     <script src="scripts/OpenLayers.js"></script>
      <script src="scripts/map-mb.js"></script>
     <script src="scripts/OpenStreetMap.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
    <link rel="canonical" href="http://velocarte66.fr" />
    <META NAME="Title" CONTENT="Carte cycliste de Perpignan et ses environs">
    <META NAME="Revisit" CONTENT="After 7 days">
@@ -28,6 +30,24 @@
    <META NAME="page-topic" CONTENT="Umwelt">
    <META NAME="page-topic" CONTENT="Karte Plan">
    <META NAME="Language" CONTENT="French">
+
+<script type="text/javascript">
+  // jQuery-Code
+  $(document).ready(function(){
+
+      
+      $('#poiSelect').click(function(){
+        $("input[type=checkbox][class=poi]").each( 
+        function() { 
+          setMarkerPoi($(this).attr('id'),$(this).is(':checked'));
+        } 
+       );
+    });
+  });
+
+  
+</script>
+   
 </head>
 
 <?
@@ -46,6 +66,15 @@
               <br>
               <img title="Légende" alt="Légende" src="img/legende.png">
               <br>
+              <div>
+                  <form id="poiSelect">
+                     <p>Afficher:</p>
+                     <p>
+                     <input type="checkbox" class="poi" id="parkings"> Parkings vélo<br>
+                     <input type="checkbox" class="poi" id="locations"> Location vélo<br>
+                     </p>
+                  </form>
+              </div>
               <div class="text">
                 <br>
                 <a href="notice.php">En savoir plus...</a>

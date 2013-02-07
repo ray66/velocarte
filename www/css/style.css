@@ -16,6 +16,16 @@ h2.olMap  {
 div.olControlAttribution{
    bottom: 2.5em;
 }
+
+.olPopup{
+   height: auto;
+}
+h2.olPopupContent{
+   font-size: 1em;
+}
+
+
+
 #selectItem {
     clear:both;
     float:left;

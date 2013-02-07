@@ -382,7 +382,11 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    }else{
       map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerBingAerial, layerRoutes, layerChemins, layerContour, layerBoxes ]);
    }
-
+      $("input[type=checkbox][class=poi]").each( 
+         function() { 
+            setMarkerPoi($(this).attr('id'),$(this).is(':checked'));
+         } 
+      );
    map.addControl(new OpenLayers.Control.LayerSwitcher());
    map.setCenter(new OpenLayers.LonLat((bBoxDetail[2] + bBoxDetail[0])/2, (bBoxDetail[3]+bBoxDetail[1])/2).transform(proj4326, proj900913));
 
@@ -390,4 +394,28 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
       map.zoomToMaxExtent();
    }
 
+}
+
+//------------------------------------------------------------------------------
+function setMarkerPoi (poi, checked){
+//------------------------------------------------------------------------------
+   var lon, lat, name, type;
+   
+   var layers = map.getLayersByName(poi);
+   //console.log(layers);
+   if (!checked){
+      if (layers[0]){
+         layers[0].destroy();
+      }
+   }else{
+      if (!layers[0]){
+         var pois = new OpenLayers.Layer.Text( poi,
+                        { location:"./files/"+poi+".txt",
+                           projection: new OpenLayers.Projection("EPSG:900913"),
+                           'displayInLayerSwitcher':false,
+                           selectedFeature: OpenLayers.Popup.FramedCloud
+                        });
+         map.addLayer(pois);
+      }
+   }
 }
