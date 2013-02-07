@@ -53,7 +53,7 @@ Update planet_osm_line
                
                   
 /*--- Set cycleway_left ---*/
-Update planet_osm_line SET cycleway_left =
+Update planet_osm_line SET "cycleway:left" =
                   CASE WHEN ((oneway='' or oneway = 'no') and junction != 'roundabout' and cycleway = 'lane') 
                               or "cycleway:left" = 'lane' or "cycleway" = 'opposite_lane' THEN
                             'lane'::text 
@@ -65,7 +65,7 @@ Update planet_osm_line SET cycleway_left =
                             ''::text
                        END;
 /*--- Set cycleway_right ---*/
-Update planet_osm_line SET cycleway_right =
+Update planet_osm_line SET "cycleway:right" =
                   CASE WHEN  cycleway = 'lane' or "cycleway:right" = 'lane' THEN
                            'lane'::text 
                        WHEN  cycleway = 'share_busway' or "cycleway:right" = 'share_busway' THEN
@@ -113,6 +113,7 @@ update planet_osm_line set in_agglo='yes' where exists (select way.osm_id,land.o
             and st_isvalid(land.way) and st_intersects(way.way,land.way)) ;
             
 /* Join connected cycleways with identical attributes */             
+drop table cycleways;
 create table cycleways (id bigserial PRIMARY KEY, 
                         way geometry, 
                         cycleway_right text, 
@@ -121,18 +122,23 @@ create table cycleways (id bigserial PRIMARY KEY,
                         oneway text,
                         priority integer,
                         z_order integer);
-insert into cycleways (cycleway_right, way, highway,oneway)  (  SELECT cycleway_right, (st_dump(merged_geom)).geom,highway,oneway
-FROM (
-        SELECT cycleway_right, ST_Linemerge(ST_union(way)) AS merged_geom,highway,oneway 
-        FROM planet_osm_line where cycleway_right != ''
-        GROUP BY cycleway_right,highway,oneway 
-) AS subq);
-insert into cycleways (cycleway_left, way, highway, oneway)  (  SELECT cycleway_left, (st_dump(merged_geom)).geom,highway,oneway
-FROM (
-        SELECT cycleway_left, ST_Linemerge(ST_union(way)) AS merged_geom,highway,oneway 
-        FROM planet_osm_line where cycleway_left != ''
-        GROUP BY cycleway_left,highway,oneway 
-) AS subq); 
+insert into cycleways (cycleway_right, way, highway, oneway) 
+                      (SELECT "cycleway:right", 
+                              (st_dump(ST_Linemerge(ST_union(way)))).geom,
+                              highway,
+                              oneway 
+                         FROM planet_osm_line 
+                         WHERE "cycleway:right" !='' 
+                         GROUP BY "cycleway:right",highway,oneway);
+insert into cycleways (cycleway_left, way, highway, oneway) 
+                      (SELECT "cycleway:left", 
+                              (st_dump(ST_Linemerge(ST_union(way)))).geom,
+                              highway,
+                              oneway 
+                         FROM planet_osm_line 
+                         WHERE "cycleway:left" !='' 
+                         GROUP BY "cycleway:left",highway,oneway);
+
     
 /*------------------------------------------------------------------------------
  * Create a table with the segments of unclassified roads and tracks which are

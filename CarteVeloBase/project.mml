@@ -198,7 +198,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,\n(CASE WHEN highway='track' THEN \n         case when tracktype is null or tracktype='' then 'grade3' else tracktype end\n      ELSE highway END) as highway,name,cycleway,oneway,tunnel \n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path') and not(highway='service' and service='parking_aisle')\n               ORDER BY z_order ASC, priority DESC)\n               \n               AS minor_roads",
+        "table": "(SELECT way,osm_id,\n(CASE WHEN highway='track' THEN \n         case when tracktype is null or tracktype='' then 'grade3' else tracktype end\n      ELSE highway END) as highway,name,cycleway,oneway,tunnel \n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path') and not(highway='service' and service='parking_aisle')\n               ORDER BY z_order ASC, priority DESC)\n               \n               AS road_outline",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -229,7 +229,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(select way,id,highway,cycleway_left,cycleway_right,oneway  FROM cycleways\n               WHERE cycleway_left !='' and cycleway_left !='opposite' \n               ORDER BY priority DESC, z_order ASC) as cyclelane",
+        "table": "(select way,id,highway,cycleway_left,cycleway_right,oneway  FROM cycleways\n               WHERE cycleway_left !='' and cycleway_left !='opposite' \n               ORDER BY priority DESC, z_order ASC) as cyclelane_left",
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -240,7 +240,8 @@
         "password": "osm",
         "id": "lane_left",
         "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "lane_left",
       "class": "lane left outline",
@@ -251,8 +252,8 @@
       "extent": [
         2.8033558883190346,
         42.6529891452568,
-        3.0336746745198533,
-        42.75996739100462
+        3.038339715621814,
+        42.80022565227563
       ]
     },
     {
@@ -331,7 +332,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN case when tracktype is null or tracktype='' then 'grade3' else tracktype end ELSE highway END) as highway,name,cycleway,oneway,cycleway_left\n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path') and not(highway='service' and service='parking_aisle')\n        \n               ORDER BY z_order ASC, priority asc)               \n               AS minor_roads",
+        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN case when tracktype is null or tracktype='' then 'grade3' else tracktype end ELSE highway END) as highway,name,oneway\n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path') and not(highway='service' and service='parking_aisle')\n        \n               ORDER BY z_order ASC, priority asc)               \n               AS road_inline",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -352,9 +353,9 @@
       "advanced": {},
       "name": "road_inline",
       "extent": [
-        0.6406395635822403,
-        41.620114228554,
-        3.4479999617748223,
+        2.2127417961103704,
+        42.364436574697045,
+        3.055185283155737,
         43.24007555980199
       ]
     },
@@ -362,7 +363,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN case when tracktype is null or tracktype='' then 'grade3' else tracktype end ELSE highway END) as highway,name,cycleway,oneway,cycleway_left,access,bicycle,tunnel\n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path')  and not(highway='service' and service='parking_aisle')\n               ORDER BY z_order ASC, priority DESC) as access",
+        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN case when tracktype is null or tracktype='' then 'grade3' else tracktype end ELSE highway END) as highway,name,cycleway,\"cycleway:left\",oneway,access,bicycle,tunnel\n FROM planet_osm_line where highway!='' and highway not IN ('footpath', 'footway', 'steps', 'path')  and not(highway='service' and service='parking_aisle')\n               ORDER BY z_order ASC, priority DESC) as access",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -383,9 +384,9 @@
       "advanced": {},
       "name": "road_access",
       "extent": [
-        0.6406395635822403,
-        41.620114228554,
-        3.4479999617748223,
+        2.2127417961103704,
+        42.364436574697045,
+        3.055185283155737,
         43.24007555980199
       ]
     },
@@ -414,7 +415,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT *   FROM planet_osm_line\n               WHERE bridge='yes' and highway not IN ('footpath', 'footway', 'steps', 'path')\n               ORDER BY z_order ASC, priority DESC)               \n               AS minor_roads",
+        "table": "(SELECT *   FROM planet_osm_line\n               WHERE bridge='yes' and highway not IN ('footpath', 'footway', 'steps', 'path')\n               ORDER BY z_order ASC, priority DESC)               \n               AS road_bridge_outline",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -435,7 +436,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT *  FROM planet_osm_line\n               WHERE bridge='yes' and highway not IN ('footpath', 'footway', 'steps', 'path')\n               ORDER BY z_order ASC, priority DESC)               \n               AS minor_roads",
+        "table": "(SELECT *  FROM planet_osm_line\n               WHERE bridge='yes' and highway not IN ('footpath', 'footway', 'steps', 'path')\n               ORDER BY z_order ASC, priority DESC)               \n               AS road_bridge_inline",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -706,7 +707,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway,name,priority, cycleway,oneway,junction,\n                      st_length(way) AS length, \n                      CHAR_LENGTH(name)  as label_length\n                      FROM planet_osm_line \n                      WHERE highway IN ('residential', 'pedestrian', 'unclassified', 'service', 'minor', 'road', 'tertiary') \n          ORDER BY priority ASC, z_order ASC, length desc     ) AS minor_roads",
+        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway,name,priority, oneway,junction,\n                      st_length(way) AS length, \n                      CHAR_LENGTH(name)  as label_length\n                      FROM planet_osm_line \n                      WHERE highway IN ('residential', 'pedestrian', 'unclassified', 'service', 'minor', 'road', 'tertiary') \n          ORDER BY priority ASC, z_order ASC, length desc     ) AS road_label_minor",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -717,14 +718,21 @@
         "password": "osm",
         "id": "road_label_minor",
         "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "road_label_minor",
       "class": "road label minor",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_label_minor"
+      "name": "road_label_minor",
+      "extent": [
+        2.2127417961103704,
+        42.364436574697045,
+        3.055185283155737,
+        43.24007555980199
+      ]
     },
     {
       "Datasource": {

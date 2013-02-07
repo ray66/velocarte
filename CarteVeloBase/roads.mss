@@ -629,23 +629,23 @@
  * Oneway arrows
 /**===================================================================================*/
 
-#road_access[zoom>=15][cycleway_left!='opposite'][oneway='yes'][highway!='motorway'][highway!='trunk'][highway!='motorway_link'][highway!='trunk_link']
+#road_access[zoom>=15]["cycleway:left"!='opposite'][oneway='yes'][highway!='motorway'][highway!='trunk'][highway!='motorway_link'][highway!='trunk_link']
 {
     line-pattern-file: url('img/oneway-arrow.png');
 }
 
 /* Vélos à contresens */
 
-#road_access[zoom>=15][cycleway_left='opposite']{
+#road_access[zoom>=15]["cycleway:left"='opposite']{
     line-pattern-file: url('img/arrow_contresens_mini.png');
   
 }
 
-#road_access[zoom>=19][cycleway_left='opposite']
+#road_access[zoom>=19]["cycleway:left"='opposite']
 {
     line-pattern-file: url('img/arrow_contresens_small.png');
 }
-#road_access[zoom=20][cycleway_left='opposite']
+#road_access[zoom=20]["cycleway:left"='opposite']
 {
     line-pattern-file: url('img/arrow_contresens_medium.png');
 }
@@ -896,36 +896,36 @@
    line-cap: butt;
 }
 
-.lane.inline[zoom>=14][cycleway_right='lane'],
-.lane.inline[zoom>=14][cycleway_left='lane']
+.lane.inline[zoom>=14]["cycleway_right"='lane'],
+.lane.inline[zoom>=14]["cycleway_left"='lane']
 {
    line-dasharray: 2,2;
 }
-.lane.inline[zoom>=15][cycleway_right='lane'],
-.lane.inline[zoom>=15][cycleway_left='lane']
+.lane.inline[zoom>=15]["cycleway_right"='lane'],
+.lane.inline[zoom>=15]["cycleway_left"='lane']
 {
    line-dasharray: 3,3;
 }
-.lane.inline[zoom>=17][cycleway_right='lane'],
-.lane.inline[zoom>=17][cycleway_left='lane']
+.lane.inline[zoom>=17]["cycleway_right"='lane'],
+.lane.inline[zoom>=17]["cycleway_left"='lane']
 {
    line-dasharray: 4,4;
 }
 
 
 
-.lane.inline[zoom>=14][cycleway_right='share_busway'],
-.lane.inline[zoom>=14][cycleway_left='share_busway']
+.lane.inline[zoom>=14]["cycleway_right"='share_busway'],
+.lane.inline[zoom>=14]["cycleway_left"='share_busway']
 {
    line-dasharray: 4,2;
 }
-.lane.inline[zoom>=15][cycleway_right='share_busway'],
-.lane.inline[zoom>=15][cycleway_left='share_busway']
+.lane.inline[zoom>=15]["cycleway_right"='share_busway'],
+.lane.inline[zoom>=15]["cycleway_left"='share_busway']
 {
    line-dasharray: 8,4;
 }
-.lane.inline[zoom>=17][cycleway_right='share_busway'],
-.lane.inline[zoom>=17][cycleway_left='share_busway']
+.lane.inline[zoom>=17]["cycleway_right"='share_busway'],
+.lane.inline[zoom>=17]["cycleway_left"='share_busway']
 {
    line-dasharray: 12,6;
 }

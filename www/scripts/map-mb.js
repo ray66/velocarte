@@ -22,7 +22,7 @@ OpenLayers.Lang["fr"] = OpenLayers.Util.applyDefaults({
     'W': "O",
     'E': "E",
     'N': "N",
-    'S': "S",
+    'S': "S"
    });
 
 function GetOsmUrl (bounds) {
@@ -98,7 +98,7 @@ function mbtilesURLContour (bounds) {
 
 function changelayerListener (event) {
 
-      console.log("changelayer", map.baseLayer.name,map.getZoom());
+      //console.log("changelayer", map.baseLayer.name,map.getZoom());
       if (map.baseLayer.name == "Carte Vélo"){
             //map.zoomTo (currentZoom);
       } 
@@ -106,7 +106,7 @@ function changelayerListener (event) {
 }
 function zoomendListener (event) {
 
-   console.log("zoomend", map.baseLayer.name, map.getZoom(),map.baseLayer.zoomOffset);
+   //console.log("zoomend", map.baseLayer.name, map.getZoom(),map.baseLayer.zoomOffset);
    currentZoom = map.getZoom();
 }
 function moveendListener (event) {
@@ -156,7 +156,7 @@ function moveendListener (event) {
 function movestartListener (event) {
 
    if (map.baseLayer.name == "Aerial"){
-      console.log(map.baseLayer.name);
+      //console.log(map.baseLayer.name);
       return;
    }
 
@@ -245,7 +245,7 @@ if (userAgent.indexOf('msie 10.0') > -1 ) {
                dragPanOptions: {
                   enableKinetic: true
                }
-            }),
+            })
       ],
       displayProjection : proj4326,
       resolutions: [38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
@@ -267,7 +267,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          numZoomLevels: zoomLevels,
          isBaseLayer: true,
             transitionEffect: "resize",
-         tileOptions: {crossOriginKeyword: null},
+         tileOptions: {crossOriginKeyword: null}
       }
       
    );
@@ -287,7 +287,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
                      numZoomLevels: zoomLevels,
                      isBaseLayer: true,
                      transitionEffect: "resize",
-                     tileOptions: {crossOriginKeyword: null},
+                     tileOptions: {crossOriginKeyword: null}
                   }
                );
     layerOsmCycle = new OpenLayers.Layer.OSM(
@@ -302,7 +302,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
                      zoomOffset : zOffset,
                      isBaseLayer: true,
                      transitionEffect: "resize",
-                     tileOptions: {crossOriginKeyword: null},
+                     tileOptions: {crossOriginKeyword: null}
                   }
    ); 
       
@@ -312,7 +312,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          type: "Aerial",
          maxResolution : maxRes,
          zoomOffset : zOffset,
-         numZoomLevels: zoomLevels,
+         numZoomLevels: zoomLevels
    });
 
    var layerRoutes = new OpenLayers.Layer.OSM(
@@ -323,7 +323,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          maxResolution : maxRes,
          zoomOffset : zOffset,
          numZoomLevels: zoomLevels,
-         isBaseLayer: false,
+         isBaseLayer: false
       }
       
    );   
@@ -337,7 +337,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          maxResolution : maxRes,
          zoomOffset : zOffset,
          numZoomLevels: zoomLevels,
-         isBaseLayer: false,
+         isBaseLayer: false
       }
       
    );   
@@ -351,7 +351,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          maxResolution : maxRes,
          zoomOffset : zOffset,
          numZoomLevels: zoomLevels-2,
-         isBaseLayer: false,
+         isBaseLayer: false
       }
    );   
    layerContour.setVisibility(false);
@@ -362,7 +362,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
       layerBoxes.displayInLayerSwitcher = false;
    }
    if (detailExtent != null){
-      console.log(deployed);
+      //console.log(deployed);
       map.events.on({'moveend': moveendListener});
       //map.events.on({'movestart': moveendListener});
       map.events.on({"mousemove": mousemoveListener});

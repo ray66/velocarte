@@ -13,6 +13,9 @@ h3 {
 h2.olMap  {
    font-size: 5em;
 }
+div.olControlAttribution{
+   bottom: 2.5em;
+}
 #selectItem {
     clear:both;
     float:left;

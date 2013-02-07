@@ -19,14 +19,20 @@
     <script src="scripts/OpenLayers.js"></script>
      <script src="scripts/map-mb.js"></script>
     <script src="scripts/OpenStreetMap.js"></script>
-
-
+   <link rel="canonical" href="http://velocarte66.fr" />
+   <META NAME="Title" CONTENT="Carte cycliste de Perpignan et ses environs">
+   <META NAME="Revisit" CONTENT="After 7 days">
+   <META NAME="Keywords" CONTENT="openstreetmap, carte, velocarte, map, karte, velo, cyclisme, cycliste, bicycle, perpignan, roussillon, pyrenees-orientales">
+   <META NAME="Description" CONTENT="La vélocarte est une carte qui s'adresse particulièrement à ceux qui favorisent le vélo comme moyen de transport dans le quotidien et pour les loisirs.">
+   <META NAME="Abstract" CONTENT="La vélocarte est une carte qui s'adresse particulièrement à ceux qui favorisent le vélo comme moyen de transport dans le quotidien et pour les loisirs.">
+   <META NAME="page-topic" CONTENT="Umwelt">
+   <META NAME="page-topic" CONTENT="Karte Plan">
+   <META NAME="Language" CONTENT="French">
 </head>
+
 <?
       print "<body onload='init([".getBbox()."],[".getBboxDetail()."]);' >";
 ?>    
-    
-
       <div id="page">
           <div id="sidebar">
 <!--
@@ -49,17 +55,18 @@
 
             </div>
           </div>
+ 
+          <div id="basicMap"> 
 
-          	<div id="basicMap"> 
       <noscript>
-    <div id="noscript">
+    <div style="position: absolute;top: 15px;left: 15px;z-index: 20000000;" id="noscript">
     <p>Vous utilisez soit un navigateur qui ne supporte pas Javascript soit vous avez désactivé Javascript.</p>
     <p>Désactiver Javascript pour des raisons de securité est une bonne chose, mais ce site utilise Javascript pour ses cartes glissantes. </p>
     <p>Si vous voulez voir les cartes, activez Javascript dans les préférences de votre navigateur. Si vous utilisez une extension tel que NoScript,
     autorisez Javascript pour ce site.</p>
   </div>
 </noscript>
-          </div>
+</div>
 
       </div>
 

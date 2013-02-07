@@ -46,7 +46,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,highway,name,cycleway,oneway,tunnel,tracktype\n FROM planet_osm_line\n               WHERE (highway = 'track' and tracktype in('grade2','grade3')) \n               ORDER BY z_order ASC, priority DESC) AS tracks",
+        "table": "(SELECT way,osm_id,highway,name,cycleway,oneway,tunnel,\ncase when tracktype='' then 'grade3'  else tracktype end\n FROM planet_osm_line\n               WHERE (highway = 'track' and tracktype in('grade2','grade3','')) \n               ORDER BY z_order ASC, priority DESC) AS tracks",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -69,8 +69,8 @@
       "extent": [
         2.2127417961103704,
         42.364436574697045,
-        3.044510063645374,
-        42.85361273824522
+        3.055185283155737,
+        43.24007555980199
       ]
     },
     {
