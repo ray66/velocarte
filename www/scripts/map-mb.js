@@ -411,98 +411,83 @@ $(document).ready(function(){
 		};
 		return false;
 	});
-      
+   // POI Layer      
    $('#poiSelect').click(function(){
-      i = 0;
-      var a = new Array( ); 
-      if (selectControl){
-         //console.log("destroy selectControl");
-         selectControl.deactivate();
-         map.removeControl(selectControl);
-         selectControl.destroy();
-      }
-      $("input[type=checkbox][class=poi]").each( 
-         function() { 
-            poiCat =  $(this).attr('id');
-            checked = $(this).is(':checked');
-            var layers = map.getLayersByName(poiCat);
-            if (checked && !layers[0]){
-               // new POI layer
-               var pois = new OpenLayers.Layer.Vector(poiCat, {
-                              strategies: [new OpenLayers.Strategy.BBOX({resFactor: 1.1})],
-                              protocol: new OpenLayers.Protocol.HTTP({
-                              url: "./files/"+poiCat+".txt",
-                              displayInLayerSwitcher:false,
-                     format: new OpenLayers.Format.Text()
-                  })
-               });
-               pois.events.on({
-                  'featureselected': onFeatureSelect,
-                  'featureunselected': onFeatureUnselect
-               });
-               map.addLayer(pois);
-//                pois.displayInLayerSwitcher = false;
-               a[i] = pois;
-               i++;
-            }
-            if (checked && layers[0]){
-               // unchanged active layer
-               a[i] = layers[0];
-               i++;
-               layers[0].events.on({
-                  'featureselected': onFeatureSelect,
-                  'featureunselected': onFeatureUnselect
-               });
-              layers[0].setVisibility(true);
-              layers[0].displayInLayerSwitcher = false;
-           }
-            if (!checked && layers[0]){
-               // unchecked POI layer
-               layers[0].events.un({
-               'featureselected': onFeatureSelect,
-               'featureunselected': onFeatureUnselect
-               }); 
-               layers[0].setVisibility(false);
-            }
-            // Interaction; not needed for initial display.
-            selectControl = new OpenLayers.Control.SelectFeature(a);
-            map.addControl(selectControl);
-            selectControl.activate();
-         }
-      )
-   })
+        $("input[type=checkbox][class=poi]").each( 
+        function() { 
+          setMarkerPoi($(this).attr('id'),$(this).is(':checked'));
+        } 
+       );
+    });
+    // Track Layer
+    $('#trackSelect').click(function(){
+        $("input[type=checkbox][class=track]").each( 
+        function() { 
+          showTrack($(this).attr('id'),$(this).is(':checked'));
+        } 
+       );
+    });
+
 })
-            // Needed only for interaction, not for the display.
-            function onPopupClose(evt) {
-                // 'this' is the popup.
-                var feature = this.feature;
-                if (feature.layer) { // The feature is not destroyed
-                  if (selectControl)
-                    selectControl.unselect(feature);
-                } else { // After "moveend" or "refresh" events on POIs layer all 
-                         //     features have been destroyed by the Strategy.BBOX
-                    this.destroy();
-                }
-            }
-            function onFeatureSelect(evt) {
-                feature = evt.feature;
-                popup = new OpenLayers.Popup.FramedCloud("featurePopup",
-                                         feature.geometry.getBounds().getCenterLonLat(),
-                                         new OpenLayers.Size(100,100),
-                                         "<h2>"+feature.attributes.title + "</h2>" +
-                                         feature.attributes.description,
-                                         null, true, onPopupClose);
-                feature.popup = popup;
-                popup.feature = feature;
-                map.addPopup(popup, true);
-            }
-            function onFeatureUnselect(evt) {
-                feature = evt.feature;
-                if (feature.popup) {
-                    popup.feature = null;
-                    map.removePopup(feature.popup);
-                    feature.popup.destroy();
-                    feature.popup = null;
-                }
-            }         
- 
+//------------------------------------------------------------------------------
+function setMarkerPoi (poi, checked){
+//------------------------------------------------------------------------------
+
+   var layers = map.getLayersByName(poi);
+   //console.log(layers);
+   if (!checked){
+      if (layers[0]){
+         layers[0].destroy();
+      }
+   }else{
+      if (!layers[0]){
+         var pois = new OpenLayers.Layer.Text( poi,
+                        { location:"./files/"+poi+".txt",
+                           projection: new OpenLayers.Projection("EPSG:900913"),
+                           'displayInLayerSwitcher':false,
+                           selectedFeature: OpenLayers.Popup.FramedCloud
+                        });
+			// Darstellung der Markierungen so aehnlich wie bei Google-Maps (runde
+			// Ecken, Pfeil auf die Markierung...)
+         AutoSizeFramedCloud = new OpenLayers.Class(OpenLayers.Popup.FramedCloud,
+            {'closeBox': true, 'autoSize': true, 'minSize': new OpenLayers.Size(120,40)}); 
+            OpenLayers.Feature.prototype.popupClass = AutoSizeFramedCloud;
+         map.addLayer(pois);
+      }
+   }
+}
+//------------------------------------------------------------------------------
+// Overlay mit Track
+//------------------------------------------------------------------------------
+function showTrack (track, checked) {
+   var layers = map.getLayersByName(track);
+   console.log("showTracks: ", track, checked);
+   if (!checked){
+      if (layers[0]){
+         layers[0].destroy();
+      }
+   }else{
+      if (!layers[0]){
+      	console.log("add track layer");
+         var trackLayer = new OpenLayers.Layer.Vector(track,
+                             {protocol:   new OpenLayers.Protocol.HTTP({   
+                                                       url:    "files/"+track+".gpx",
+                                                       format: new OpenLayers.Format.GPX,
+                                                       format: new OpenLayers.Format.GPX({
+                                                       	                  extractWaypoints: true, 
+                                                                           extractAttributes: true})
+                                                       }),
+                              styleMap:   new OpenLayers.StyleMap({ 
+                                                       strokeColor:     "darkblue", 
+                                                       strokeWidth:     3, 
+                                                        pointRadius:    2,
+                                                       strokeDashstyle: "solid",
+                                                       strokeOpacity:   0.8}),
+                              strategies: [new OpenLayers.Strategy.Fixed()],
+                             'displayInLayerSwitcher':false,
+                              projection: new OpenLayers.Projection("EPSG:4326")
+                              });
+         map.addLayer (trackLayer)  
+      }
+   }
+}

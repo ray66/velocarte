@@ -61,6 +61,15 @@
                	      </p>
                   	</form>
               		</div>
+              <div class="trigger">Circuits</div>
+						<div class="toggle_container">
+	                  <form id="trackSelect">
+      	               <p>
+         	            <input type="checkbox" class="track" id="PerpignanCorneilla"> Perpignan - Corneilla<br>
+            	         <input type="checkbox" class="track" id="PerpignanCanet"> Perpignan - Canet<br>
+               	      </p>
+                  	</form>
+              		</div>
               <div class="text">
                 <br>
                 <a href="notice.php">En savoir plus...</a>
