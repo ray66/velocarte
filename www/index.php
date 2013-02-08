@@ -48,7 +48,7 @@
 -->
               <div class="titre">Vélocarte de Perpignan</div>
               <br>
-              <div class="trigger">Légende</div>
+              <div class="trigger trigger_active">Légende</div>
 						<div class="toggle_container">
               			<img title="Légende" alt="Légende" src="img/legende.png">
 						</div>
