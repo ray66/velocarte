@@ -396,6 +396,21 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
 //------------------------------------------------------------------------------
 $(document).ready(function(){
 
+   // Sidebar Container
+	$('.trigger').not('.trigger_active').next('.toggle_container').hide();
+	$('.trigger').click( function() {
+		var trig = $(this);
+		if ( trig.hasClass('trigger_active') ) {
+			trig.next('.toggle_container').slideToggle('800');
+			trig.removeClass('trigger_active');
+		} else {
+			$('.trigger_active').next('.toggle_container').slideToggle('800');
+			$('.trigger_active').removeClass('trigger_active');
+			trig.next('.toggle_container').slideToggle('800');
+			trig.addClass('trigger_active');
+		};
+		return false;
+	});
       
    $('#poiSelect').click(function(){
       i = 0;

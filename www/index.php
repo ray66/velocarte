@@ -48,17 +48,19 @@
 -->
               <div class="titre">Vélocarte de Perpignan</div>
               <br>
-              <img title="Légende" alt="Légende" src="img/legende.png">
-              <br>
-              <div>
-                  <form id="poiSelect">
-                     <p>Afficher:</p>
-                     <p>
-                     <input type="checkbox" class="poi" id="parkings"> Parkings vélo<br>
-                     <input type="checkbox" class="poi" id="locations"> Location vélo<br>
-                     </p>
-                  </form>
-              </div>
+              <div class="trigger">Légende</div>
+						<div class="toggle_container">
+              			<img title="Légende" alt="Légende" src="img/legende.png">
+						</div>
+              <div class="trigger">Points d'interêt</div>
+						<div class="toggle_container">
+	                  <form id="poiSelect">
+      	               <p>
+         	            <input type="checkbox" class="poi" id="parkings"> Parkings vélo<br>
+            	         <input type="checkbox" class="poi" id="locations"> Location vélo<br>
+               	      </p>
+                  	</form>
+              		</div>
               <div class="text">
                 <br>
                 <a href="notice.php">En savoir plus...</a>
