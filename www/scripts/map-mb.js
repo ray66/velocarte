@@ -463,14 +463,12 @@ function setMarkerPoi (poi, checked){
 function showTrack (track, checked) {
 
    var layers = map.getLayersByName(track);
-   console.log("showTracks: ", track, checked,layers.length);
+   //console.log("showTracks: ", track, checked,layers.length);
    if (!checked){
       if (layers[0]){
       	currentLayer = layers[0];
          for (var i = (currentLayer.selectedFeatures.length - 1); i >= 0; i--) {
            	var selectedFeature = currentLayer.selectedFeatures[i];
-
-
             currentLayer.selectedFeatures = OpenLayers.Util.removeItem(currentLayer.selectedFeatures, selectedFeature);
             currentLayer.renderer.eraseGeometry(selectedFeature.geometry);
          }
@@ -482,8 +480,10 @@ function showTrack (track, checked) {
        		} //if (currentLayer.selectedFeatures...
   	
       	
-      	if (curPopup)
+      	if (curPopup){
       	   curPopup.destroy();
+				feature.popup = null;
+			}
       	//map.removeControl(selcontrol);
       	map.removeLayer(layers[0]);
       	//layers[0].destroyFeatures(); 
@@ -491,34 +491,42 @@ function showTrack (track, checked) {
       }
    }else{
       if (!layers[0]){
-      	console.log("add track layer");
+      	//console.log("add track layer");
          var trackLayer = new OpenLayers.Layer.Vector(track,
                              {protocol:   new OpenLayers.Protocol.HTTP({   
                                                        url:    "files/"+track+".gpx",
-                                                       format: new OpenLayers.Format.GPX,
                                                        format: new OpenLayers.Format.GPX({
-                                                       	                  extractWaypoints: true, 
-                                                                           extractAttributes: true})
+                                                         extractWaypoints: true, 
+                                                         extractAttributes: true})
                                                        }),
                               styleMap:   new OpenLayers.StyleMap({ 
                                                        strokeColor:     "darkblue", 
                                                        strokeWidth:     3, 
-                                                        pointRadius:    2,
+                                                        pointRadius:    8,
+                                                       externalGraphic: "img/iconPointRouge.png",
                                                        strokeDashstyle: "solid",
                                                        strokeOpacity:   0.8}),
                               strategies: [new OpenLayers.Strategy.Fixed()],
                              //'displayInLayerSwitcher':false,
                               projection: new OpenLayers.Projection("EPSG:4326")
                               });
+         // This will perform the autozoom as soon as the GPX file is loaded.
+         //trackLayer.events.register("loadend", trackLayer, setExtent);
          map.addLayer (trackLayer);
 			// This function creates a popup window. In this case, the popup is a cloud containing the "name" and "desc" elements from the GPX file.
 			function createPopup(feature) {
+            //console.log (feature.attributes);
 				var lonlat = feature.geometry.getBounds().getCenterLonLat().clone();
 				lonlat.transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
+				content = '<div><h3>' + feature.attributes.desc + '</h3>';
+				if (feature.attributes.cmt){
+               content = content + '<p>' + feature.attributes.cmt + '</p>'
+            }
+            content = content + '</div>'
 				feature.popup = new OpenLayers.Popup.FramedCloud("gpx",
 					feature.geometry.getBounds().getCenterLonLat(),
 					null,
-					'<div><h1>' + feature.attributes.name + '</h1><p>' + feature.attributes.desc + '</p><p>' + lonlat.lat + '° N</p><p>' + lonlat.lon + '° E</p></div>',
+					content,
 					null,
 					true,
 					function() { selcontrol.unselectAll(); }
@@ -531,6 +539,7 @@ function showTrack (track, checked) {
 			function destroyPopup(feature) {
 				feature.popup.destroy();
 				feature.popup = null;
+            curPopup = feature.popup;
 			}
  
 			// This feature connects the click events to the functions defined above, such that they are invoked when the user clicks on the map.

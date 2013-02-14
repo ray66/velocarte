@@ -64,11 +64,15 @@ body {
     top: 0;
     width: 170px;
     padding: 1px;
+    font-size:100%;
 }
 
+#sidebar h1{
+   font-size:140%;
+}
 	
-
 .trigger {
+   clear:left;
     border-radius: 5px 5px 5px 5px;
     border-top: 1px solid #DDDDDD;
     box-shadow: 0 1px 1px #FFFFFF inset;
@@ -101,8 +105,23 @@ body {
 	padding:1px 1px;
 	width:170px;
 }
-h3.trigger{
-	color: white;
+.toggle-container-bottom {
+   clear: both;
+   height: 20px;
+}
+/*----------------------------------------------------------------------------------
+ * Checkboxen
+ *--------------------------------------------------------------------------------*/
+div.checkbox{
+   width: 15%;
+   clear: left;
+   float:left;
+}
+div.checkbox-text{
+   width: 85%;
+   float: left;
+   text-align: left;
+   font-size: 0.9em;
 }
 
 #sidebar a{color: white}
@@ -151,6 +170,13 @@ h3.trigger{
 }
 .content h3{
    margin-top: 0.8em;
+}
+.content h3{
+   margin-top: 0.8em;
+}
+
+.olFramedCloudPopupContent h3{
+   font-size: 0.7em
 }
 .content .sommaire{
    text-indent:0em;

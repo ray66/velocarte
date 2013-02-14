@@ -46,28 +46,27 @@
                             src="logo.png">
               </a>
 -->
-              <div class="titre">Vélocarte de Perpignan</div>
+              <h1 class="titre">Vélocarte de Perpignan</h1>
               <br>
               <div class="trigger trigger_active">Légende</div>
 						<div class="toggle_container">
               			<img title="Légende" alt="Légende" src="img/legende.png">
+                     <div class="toggle-container-bottom"></div>
 						</div>
               <div class="trigger">Points d'interêt</div>
 						<div class="toggle_container">
 	                  <form id="poiSelect">
-      	               <p>
-         	            <input type="checkbox" class="poi" id="parkings"> Parkings vélo<br>
-            	         <input type="checkbox" class="poi" id="locations"> Location vélo<br>
-               	      </p>
+         	            <div class="checkbox"><input type="checkbox" class="poi" id="parkings"></div><div class="checkbox-text"> Parkings vélo</div>
+            	         <div class="checkbox"><input type="checkbox" class="poi" id="locations"></div><div class="checkbox-text"> Location vélo</div>
                   	</form>
+              <div class="toggle-container-bottom"></div>
               		</div>
               <div class="trigger">Circuits</div>
 						<div class="toggle_container">
 	                  <form id="trackSelect">
-      	               <p>
-         	            <input type="checkbox" class="track" id="PerpignanCorneilla"> Perpignan - Corneilla<br>
-            	         <input type="checkbox" class="track" id="PerpignanCanet"> Perpignan - Canet<br>
-               	      </p>
+         	            <div class="checkbox"><input type="checkbox" class="track" id="PerpignanCorneilla"></div><div class="checkbox-text"> Perpignan - Corneilla</div>
+            	         <div class="checkbox"><input type="checkbox" class="track" id="PerpignanCanet"></div><div class="checkbox-text"> Perpignan - Canet</div>
+                     <div class="toggle-container-bottom"></div>
                   	</form>
               		</div>
               <div class="text">
