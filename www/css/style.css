@@ -53,35 +53,47 @@ body {
 	height: 100%;
 	width:  100% 
 	}
+/*-----------------------------------------------------------
+ * Sidebar
+ *----------------------------------------------------------*/
 #sidebar {
     background-color: black;
     color: #FFFFFF;
-    font-weight: bold;
     height: 100%;
     left: 0;
     position: absolute;
     text-align: center;
     top: 0;
-    width: 170px;
+    width: 200px;
     padding: 1px;
     font-size:100%;
 }
 
 #sidebar h1{
    font-size:140%;
+   font-weight: bold;
+}
+#sidebar a{color: white}
+#sidebar a:visited{color: white}
+.div .text {
+	text-align: center;
 }
 	
 .trigger {
    clear:left;
-    border-radius: 5px 5px 5px 5px;
+   margin-left: 1px;
+    border-radius: 5px 0px 5px 0px;
     border-top: 1px solid #DDDDDD;
-    box-shadow: 0 1px 1px #FFFFFF inset;
+    box-shadow: -1px -1px 1px #ddd;
     color: #FFFFFF;
     cursor: pointer;
     margin-bottom: 5px;
     padding: 5px;
-    text-shadow: 0 1px 0 #FFFFFF;
+    /*text-shadow: 0 1px 0 #FFFFFF;*/
     width: 157px;	
+    text-align: left;
+    font-size: 10pt;
+    font-weight: bold;    
 	/*-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
@@ -102,18 +114,35 @@ body {
 	color:#aaa;
 }
 .toggle_container {
-	padding:1px 1px;
-	width:170px;
+    background: none repeat scroll 0 0 black;
+    border-radius: 10px 10px 10px 10px;
+    color: white;
+    font-weight: bold;
+    margin: 0px;
+    padding: 1px;
+    width: 100%;
+    margin: 0;
+ }
+.toggle_container p{
+	margin-top: 0; 
+	font-weight: normal;
+
 }
+.toggle_container form{
+	clear: both;
+}
+
 .toggle-container-bottom {
    clear: both;
    height: 20px;
 }
+
+
 /*----------------------------------------------------------------------------------
  * Checkboxen
  *--------------------------------------------------------------------------------*/
 div.checkbox{
-   width: 15%;
+   width: 12%;
    clear: left;
    float:left;
 }
@@ -121,14 +150,26 @@ div.checkbox-text{
    width: 85%;
    float: left;
    text-align: left;
-   font-size: 0.9em;
+   font-size: 0.7em;
+   padding-top: 2px;
 }
 
-#sidebar a{color: white}
-#sidebar a:visited{color: white}
-.div .text {
-	text-align: center;
+/*----------------------------------------------------------------------------------
+ * temporäre Sidebar
+ *--------------------------------------------------------------------------------*/
+
+#sidebar2 {
+    display: block;
+    height: 100%;
+    left:   200px;
+    position: absolute;
+    top:   0;
+    width: 200px;
+    background-color: white;
+    margin: 2px;
 }
+
+
 #mapFrame{    position: absolute;
     right: 0;
     top: 0;
@@ -139,11 +180,11 @@ div.checkbox-text{
     border-width: 1px;
     font-size: 100%;
     height: 100%;
-    left: 170px;
+    left: 200px;
     margin: 0.2%;
     position: absolute;
     top: 0;
-    left: 170px;
+    left: 200px;
     right: 0;
 	 max-width: 1540px;
     background-color: white;
@@ -154,12 +195,12 @@ div.checkbox-text{
     border-width: 0;
     font-size: 0.9em;
     /*height: 100%;*/
-    left: 170px;
+    left: 200px;
     max-width: 800px;
     margin: 0;
     position: absolute;
     top: 0;
-    left: 170px;
+    left: 200px;
     right: 0;
 	background-color:  white;    
 	padding: 5px 50px 5px 25px;

@@ -11,7 +11,7 @@
    var mousePixelY;
    var currentLayer;
    var currentZoom;
-   var selControl;
+   //var selControl;
    var curPopup;
 
 
@@ -395,6 +395,9 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
 //------------------------------------------------------------------------------
 // jQuery-Code
 //------------------------------------------------------------------------------
+
+var selectedTrack;
+
 $(document).ready(function(){
 
    // Sidebar Container
@@ -412,7 +415,9 @@ $(document).ready(function(){
 		};
 		return false;
 	});
-   // POI Layer      
+   //--------------------------------------------------------    
+   // POI Selector      
+   //--------------------------------------------------------    
    $('#poiSelect').click(function(){
         $("input[type=checkbox][class=poi]").each( 
         function() { 
@@ -420,15 +425,56 @@ $(document).ready(function(){
         } 
        );
     });
-    // Track Layer
-    $('#trackSelect').click(function(){
-        $("input[type=checkbox][class=track]").each( 
-        function() { 
-          showTrack($(this).attr('id'),$(this).is(':checked'));
-        } 
-       );
+	//--------------------------------------------------------    
+   // Overlay Selection
+	//--------------------------------------------------------    
+   $("input[type=checkbox][class=overlay]").each( 
+      function() { 
+		$(this).attr('checked', false);  
+     } 
+    );  
+   selectedOverlay = null;  
+   $('#overlaySelect').click(function(){
+   	$("input[type=checkbox][class=overlay]").each(function() { 
+   		console.log($(this).attr('id'), $(this).is(':checked'))
+      	if ($(this).attr('id') == selectedOverlay){
+      		if ($(this).is(':checked')){
+        			$(this).attr('checked', false);
+        		}
+            destroyOverlay($(this).attr('id'),$(this).is(':checked'));
+        		selectedOverlay = null;  
+        	}
+      });
+    	$("input[type=checkbox][class=overlay]").each(function() { 
+      	if ($(this).is(':checked')){
+            createOverlay($(this).attr('id'),$(this).is(':checked'));
+  			   selectedOverlay = $(this).attr('id');
+         }
+       });
     });
+    
+	 //--------------------------------------------------------    
+	 // Optional sidebar
+	 //--------------------------------------------------------    
+    $("#sidebar2").hide();
+	 
+    $(".trackInfo a").click(function () {
+    	if($("#sidebar2").is(':hidden')){ 
+    		$("#basicMap").css("left", "340px");
+    		$("#sidebar2Content").html("test text text Text");
+	   	$("#sidebar2").slideToggle("slow");
+	   }else{
+	   	$("#sidebar2").slideToggle("slow");
+	      $("#basicMap").css("left", "170px");
+	   }
+    });
+    
+    $("a.sidebar2Close").click(function () {
+	   $("#sidebar2").slideToggle("slow");
+	   $("#basicMap").css("left", "170px");
 
+    });
+	
 })
 //------------------------------------------------------------------------------
 function setMarkerPoi (poi, checked){
@@ -458,14 +504,12 @@ function setMarkerPoi (poi, checked){
    }
 }
 //------------------------------------------------------------------------------
-// Overlay mit Track
+// Overlays mit Track
 //------------------------------------------------------------------------------
-function showTrack (track, checked) {
+function destroyOverlay (overlay) {
 
-   var layers = map.getLayersByName(track);
-   //console.log("showTracks: ", track, checked,layers.length);
-   if (!checked){
-      if (layers[0]){
+   var layers = map.getLayersByName(overlay);
+   if (layers[0]){
       	currentLayer = layers[0];
          for (var i = (currentLayer.selectedFeatures.length - 1); i >= 0; i--) {
            	var selectedFeature = currentLayer.selectedFeatures[i];
@@ -482,28 +526,40 @@ function showTrack (track, checked) {
       	
       	if (curPopup){
       	   curPopup.destroy();
-				feature.popup = null;
+				curPopup = null;
 			}
       	//map.removeControl(selcontrol);
       	map.removeLayer(layers[0]);
       	//layers[0].destroyFeatures(); 
          //layers[0].destroy();
-      }
-   }else{
-      if (!layers[0]){
-      	//console.log("add track layer");
-         var trackLayer = new OpenLayers.Layer.Vector(track,
+   }
+}   
+   
+function createOverlay (overlay) {   
+	if (overlay == "astuces"){
+		addTracklayer(overlay, "PerpignanCanet", "darkred");
+		addTracklayer(overlay, "PerpignanMillas", "darkblue");		
+	}else if (overlay == "propositions"){
+		addTracklayer(overlay, "RecDelMoli", "darkgreen");
+	}
+}
+		
+		
+function addTracklayer(overlay, track, trackcolor){	
+	console.log("addTracklayer",overlay, track, trackcolor);	
+		var trackLayer = new OpenLayers.Layer.Vector(overlay+"_"+track,
                              {protocol:   new OpenLayers.Protocol.HTTP({   
-                                                       url:    "files/"+track+".gpx",
+                                                       url:    "files/tracks/"+track+".gpx",
                                                        format: new OpenLayers.Format.GPX({
                                                          extractWaypoints: true, 
                                                          extractAttributes: true})
                                                        }),
                               styleMap:   new OpenLayers.StyleMap({ 
-                                                       strokeColor:     "darkblue", 
+                                                       strokeColor:     trackcolor, 
                                                        strokeWidth:     3, 
-                                                        pointRadius:    8,
-                                                       externalGraphic: "img/iconPointRouge.png",
+                                                       pointRadius:    12,
+                                                       graphicYOffset: -16,
+                                                       externalGraphic: "img/iconInfo.png",
                                                        strokeDashstyle: "solid",
                                                        strokeOpacity:   0.8}),
                               strategies: [new OpenLayers.Strategy.Fixed()],
@@ -515,23 +571,39 @@ function showTrack (track, checked) {
          map.addLayer (trackLayer);
 			// This function creates a popup window. In this case, the popup is a cloud containing the "name" and "desc" elements from the GPX file.
 			function createPopup(feature) {
-            //console.log (feature.attributes);
-				var lonlat = feature.geometry.getBounds().getCenterLonLat().clone();
-				lonlat.transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
-				content = '<div><h3>' + feature.attributes.desc + '</h3>';
-				if (feature.attributes.cmt){
-               content = content + '<p>' + feature.attributes.cmt + '</p>'
-            }
-            content = content + '</div>'
-				feature.popup = new OpenLayers.Popup.FramedCloud("gpx",
-					feature.geometry.getBounds().getCenterLonLat(),
-					null,
-					content,
-					null,
-					true,
-					function() { selcontrol.unselectAll(); }
-				);
-				map.addPopup(feature.popup);
+            console.log (feature.name, feature.attributes);            
+            if (feature.attributes.desc){
+				 	content = '<div><h3>' + feature.attributes.desc + '</h3>';
+					if (feature.attributes.cmt){
+               	content = content + '<p>' + feature.attributes.cmt + '</p>'
+           	 	}
+            	content = content + '</div>'
+					feature.popup = new OpenLayers.Popup.FramedCloud("gpx",
+						feature.geometry.getBounds().getCenterLonLat(),
+						null,
+						content,
+						null,
+						true,
+						function() { selcontrol.unselectAll(); }
+					);
+					map.addPopup(feature.popup);
+				}else{
+					// Track selektiert
+				 	content = '<div><h3>' + feature.layer.name + '</h3>';
+            	content = content + '</div>'
+            	pixel = new OpenLayers.Pixel(mousePixelX, mousePixelY);
+      			var lonlat = map.getLonLatFromPixel(pixel);
+
+					feature.popup = new OpenLayers.Popup.FramedCloud("gpx",
+						lonlat,
+						null,
+						content,
+						null,
+						true,
+						function() { selcontrol.unselectAll(); }
+					);
+					map.addPopup(feature.popup);
+				}
 				curPopup = feature.popup;
 			}
  
@@ -546,10 +618,9 @@ function showTrack (track, checked) {
 			selcontrol = new OpenLayers.Control.SelectFeature(trackLayer, {
 				onSelect: createPopup,
 				onUnselect: destroyPopup
+				//hover: true
 			});
 			map.addControl(selcontrol);
 			selcontrol.activate();
           
-      }
-   }
 }

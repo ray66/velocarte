@@ -61,12 +61,23 @@
                   	</form>
               <div class="toggle-container-bottom"></div>
               		</div>
-              <div class="trigger">Circuits</div>
-						<div class="toggle_container">
-	                  <form id="trackSelect">
-         	            <div class="checkbox"><input type="checkbox" class="track" id="PerpignanCorneilla"></div><div class="checkbox-text"> Perpignan - Corneilla</div>
-            	         <div class="checkbox"><input type="checkbox" class="track" id="PerpignanCanet"></div><div class="checkbox-text"> Perpignan - Canet</div>
-                     <div class="toggle-container-bottom"></div>
+              <div class="trigger">Circuits  </div>
+              <div class="toggle_container">
+         	        <form id="overlaySelect">
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="astuces"></div>
+         	            <div class="checkbox-text"> <em>Les »Astuces«</em> 
+         	                                        <p>Quand on circule à vélo, il faut parfois chercher longtemps un itinéraire pour traverser 
+         	                                        une autoroute, une route dangereuse, emmener des enfants avec soi. Voici quelques itinéraires
+         	                                        qui empruntent de très petites routes ou des pistes, et qui devraient vous aider à rejoindre 
+         	                                        à bicyclette, et souvent avec le plaisir d'une balade,des endroits parfois difficiles à 
+         	                                        atteindre en toute sécurité<br>Une partie de ces itinéraires a été repris des "Astuces cyclables" de 
+         	                                        l'association <a href="http://veloentet.free.fr/spip.php?breve55&var_recherche=astuces" target="_blank">Vélo En Tet</a></p>
+        	               </div>
+
+            	         <div class="checkbox"><input type="checkbox" class="overlay" id="propositions"></div>
+            	         <div class="checkbox-text"> Propositions d'aménagement</div>
+                   	   
+                   	   <div class="toggle-container-bottom"></div>
                   	</form>
               		</div>
               <div class="text">
@@ -78,18 +89,20 @@
 
             </div>
           </div>
- 
+ 			 <div id="sidebar2" > <a class="sidebar2Close" href="#">Fermer</a> 
+ 			 	<div id="sidebar2Content"></div>
+ 			 </div>
           <div id="basicMap"> 
 
-      <noscript>
-    <div style="position: absolute;top: 15px;left: 15px;z-index: 20000000;" id="noscript">
-    <p>Vous utilisez soit un navigateur qui ne supporte pas Javascript soit vous avez désactivé Javascript.</p>
-    <p>Désactiver Javascript pour des raisons de securité est une bonne chose, mais ce site utilise Javascript pour ses cartes glissantes. </p>
-    <p>Si vous voulez voir les cartes, activez Javascript dans les préférences de votre navigateur. Si vous utilisez une extension tel que NoScript,
-    autorisez Javascript pour ce site.</p>
-  </div>
-</noscript>
-</div>
+             <noscript>
+      			<div style="position: absolute;top: 15px;left: 15px;z-index: 20000000;" id="noscript">
+    					<p>Vous utilisez soit un navigateur qui ne supporte pas Javascript soit vous avez désactivé Javascript.</p>
+    					<p>Désactiver Javascript pour des raisons de securité est une bonne chose, mais ce site utilise Javascript pour ses cartes glissantes. </p>
+    					<p>Si vous voulez voir les cartes, activez Javascript dans les préférences de votre navigateur. Si vous utilisez une extension tel que NoScript,
+    					   autorisez Javascript pour ce site.</p>
+  					</div>
+            </noscript>
+			</div>
 
       </div>
 

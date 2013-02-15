@@ -777,13 +777,14 @@
 }
 .road.outline[highway='grade4'],
 .road.outline[highway='grade5']{
-	[zoom>=12]{
-	   		line-color: #888;
-    		line-cap: butt;
-    		line-width: 0.5;
-    }
-    [zoom>=13]{line-width: 1;}
-    [zoom>=12]{line-width: 2;}
+	line-color: #aaa;
+	line-cap: butt;
+	line-width: 0;
+   [zoom>=14]{
+    	line-width: 0.5;
+   }
+   [zoom>=15]{line-width: 1;}
+   [zoom>=17]{line-width: 2;}
 } 
 
   
