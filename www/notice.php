@@ -23,14 +23,14 @@
 
 <body>
   <div id = "page">
+	<div id="topbar">
+		  <h1 class="titre">Vélocarte de Perpignan</h1>
+   </div>
 
    <div id="sidebar">
       <h2> <a href="index.php">Accueil</a> </h2>
-      <div class="titre">
-         Carte des aménagements cyclables de Perpignan
-      </div>
       <br>
-      <img title = "Légende" alt ="Légende" src = "img/legende.png"><br><br>
+      <!--<img title = "Légende" alt ="Légende" src = "img/legende.png"><br><br>-->
       <div class = "text">  
        <a id="contact" href="mailto:cvp66@sfr.fr" >Contact</a>
       </div>

@@ -37,18 +37,18 @@
 <?
       print "<body onload='init([".getBbox()."],[".getBboxDetail()."]);' >";
 ?>    
-      <div id="page">
-          <div id="sidebar">
-<!--
-              <a href="osm">
-                       <img title="Carte des aménagements cyclables"
-                            alt="" 
-                            src="logo.png">
-              </a>
--->
-              <h1 class="titre">Vélocarte de Perpignan</h1>
-              <br>
-              <div class="trigger trigger_active">Légende</div>
+<div id="mapPage">
+	<div id="topbar">
+		  <h1 class="titre">Vélocarte de Perpignan</h1>
+   </div>
+   <div id="sidebarMini">
+      <div class="left"><a id="openSidebar" href="#"><img src="img/openSidebar.png" alt=">>" title="Ouvrir la barre d'outils"></a></div>
+   </div>
+   <div id="sidebar">
+      <div class="content">
+   	   <div class="right"> <a id="closeSidebar" href="#">Fermer</a></div>
+         <!--<div class="trigger trigger_active">Légende</div>-->
+         <div class="trigger">Légende</div>
 						<div class="toggle_container">
               			<img title="Légende" alt="Légende" src="img/legende.png">
                      <div class="toggle-container-bottom"></div>
@@ -56,12 +56,12 @@
               <div class="trigger">Points d'interêt</div>
 						<div class="toggle_container">
 	                  <form id="poiSelect">
-         	            <div class="checkbox"><input type="checkbox" class="poi" id="parkings"></div><div class="checkbox-text"> Parkings vélo</div>
-            	         <div class="checkbox"><input type="checkbox" class="poi" id="locations"></div><div class="checkbox-text"> Location vélo</div>
+         	            <div class="checkbox"><input type="checkbox" class="poi" id="parkings"></div><div class="checkbox-text"> <h3>Parkings vélo</h3></div>
+            	         <div class="checkbox"><input type="checkbox" class="poi" id="locations"></div><div class="checkbox-text"> <h3>Location vélo</h3></div>
                   	</form>
               <div class="toggle-container-bottom"></div>
               		</div>
-              <div class="trigger">Circuits  </div>
+              <div class="trigger">Itinéraires  </div>
               <div class="toggle_container">
 						<p>Quand on circule à vélo, il faut parfois chercher longtemps un itinéraire pour traverser 
          	         une autoroute, une route dangereuse, emmener des enfants avec soi. Voici quelques itinéraires
@@ -71,10 +71,12 @@
          	         l'association <a href="http://veloentet.free.fr/spip.php?breve55&var_recherche=astuces" target="_blank">Vélo En Tet</a>
          	       </p>
          	         <form id="circuitSelect">
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="astuces"></div>
-         	            <div class="checkbox-text"> <em>afficher</em> 
-         	                                        
-        	               </div>
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanCanet"></div>
+         	            <div class="checkbox-text"> <h3>Perpignan - Canet par le Mas LLaro</h3> </div>
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanCanetParJardinsStJacques"></div>
+         	            <div class="checkbox-text"> <h3>Perpignan - Canet par les Jardins St.Jacques</h3> </div>
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanMillas"></div>
+         	            <div class="checkbox-text"> <h3>Perpignan - Millas</h3> </div>
                    	   <div class="toggle-container-bottom"></div>
                   	</form>
               		</div>
@@ -84,8 +86,12 @@
                    l'association <a href="http://veloentet.free.fr" target="_blank">Vélo En Tet</a>
                 </p>
          	        <form id="propositionsSelect">
-             	         <div class="checkbox"><input type="checkbox" class="overlay" id="propositions"></div>
-            	         <div class="checkbox-text"> afficher</div>
+             	         <div class="checkbox"><input type="checkbox" class="overlay" id="RecDelMoli"></div>
+            	         <div class="checkbox-text"> <h3>Le Rec del Molí</h3>
+            	                      <p>Le “Rec del Molí” est un ancien canal d’irrigation qui prend son eau dans la Basse, et la mène jusqu’à Canet-en-Roussillon. 
+                                        Vélo en Têt propose qu’il soit aménagé en itinéraire piéton et cyclable du centre de Perpignan jusqu’au littoral. 
+       											 </p><p>Plus d'informations sur le site de <a href=http://veloentet.free.fr/spip.php?article200 target=_blank>Vélo en Têt</a>.</p>
+       						</div>
                    	   
                    	   <div class="toggle-container-bottom"></div>
                   	</form>
@@ -99,9 +105,8 @@
 
             </div>
           </div>
- 			 <div id="sidebar2" > <a class="sidebar2Close" href="#">Fermer</a> 
- 			 	<div id="sidebar2Content"></div>
- 			 </div>
+       </div>
+
           <div id="basicMap"> 
 
              <noscript>

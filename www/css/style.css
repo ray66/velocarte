@@ -54,11 +54,24 @@ div.olControlAttribution{
 /*-----------------------------------------------------------*/
 /* Style des pages 
 /*-----------------------------------------------------------*/       
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 body {
 	color: black; 
    background-color: black;
 	font-family: verdana,arial,sans-serif;
    font-size: 100%;
+}
+#mapPage{
+	border: 1px solid black;
+	margin: 0;
+	border: 0;
+
+	height: 100%;
+	width:  100% 
 }
 #page{
 	border: 1px solid black;
@@ -67,29 +80,74 @@ body {
 
 	height: 100%;
 	width:  100% 
-	}
+}
+/*-----------------------------------------------------------
+ * Top-Bar
+ *----------------------------------------------------------*/
+#topbar {
+    background-color: black;
+    color: white;
+    height: 30px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    top: 0;
+    padding: 0px;
+    font-size:100%;
+} 
+#topbar h1{
+	margin: 0;
+	padding: 0;
+   font-size:140%;
+   font-weight: bold;
+}   
+#topbar div.left{
+	float:left;
+	font-size: 120%;
+	font-weight: bold;
+}
+#topbar a{
+	color: white;
+}
 /*-----------------------------------------------------------
  * Sidebar
  *----------------------------------------------------------*/
-#sidebar {
-    background-color: black;
-    color: #FFFFFF;
+#sidebarMini {
+    background-color: white;
+    color: black;
     height: 100%;
     left: 0;
     position: absolute;
-    text-align: center;
-    top: 0;
-    width: 200px;
-    padding: 1px;
+    text-align: left;
+    top: 30px;
+    width: 40px;
+    padding: 0px;
     font-size:100%;
+    margin-right: 3px;
 }
-
-#sidebar h1{
-   font-size:140%;
-   font-weight: bold;
+#sidebar {
+    background-color: white;
+    color: black;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    top: 30px;
+    width: 400px;
+    padding: 0px;
+    font-size:100%;
+    margin-right: 3px;
 }
-#sidebar a{color: white}
-#sidebar a:visited{color: white}
+#sidebar div.content{
+	margin: 3px;
+	}
+#sidebar div.right{
+	float: right;
+	font-size: 0.8em;
+}
+#sidebar a{color: black;}
+#sidebar a:visited{color: black;}
 .div .text {
 	text-align: center;
 }
@@ -98,17 +156,18 @@ body {
    clear:left;
    margin-left: 1px;
     border-radius: 5px 0px 5px 0px;
-    border-top: 1px solid #DDDDDD;
-    box-shadow: -1px -1px 1px #ddd;
-    color: #FFFFFF;
+    border-top: 1px solid #DDDDDD;    
+    border-left: 1px solid #DDDDDD;
+    /*box-shadow: -1px -1px 1px #ddd;*/
     cursor: pointer;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     padding: 5px;
     /*text-shadow: 0 1px 0 #FFFFFF;*/
-    width: 157px;	
+    width: 250px;	
     text-align: left;
     font-size: 10pt;
-    font-weight: bold;    
+    font-weight: bold; 
+    color: #063D5B;   
 	/*-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
@@ -129,9 +188,9 @@ body {
 	color:#aaa;
 }
 .toggle_container {
-    background: none repeat scroll 0 0 black;
+    background: none repeat scroll 0 0 white;
     border-radius: 10px 10px 10px 10px;
-    color: white;
+    color: black;
     font-weight: bold;
     margin: 0px;
     padding: 1px;
@@ -159,7 +218,7 @@ body {
  * Checkboxen
  *--------------------------------------------------------------------------------*/
 div.checkbox{
-   width: 12%;
+   width: 25px;
    clear: left;
    float:left;
 }
@@ -167,42 +226,32 @@ div.checkbox-text{
    width: 85%;
    float: left;
    text-align: left;
-   font-size: 0.7em;
    padding-top: 2px;
 }
-
+.checkbox-text h3{
+   color: #063D5B;
+   margin-top: 0px;
+   font-size: 0.8em;
+}
+.checkbox-text p{
+   margin-top: 0px;
+}
 /*----------------------------------------------------------------------------------
- * temporäre Sidebar
+ * Map Frame
  *--------------------------------------------------------------------------------*/
 
-#sidebar2 {
-    display: block;
-    height: 100%;
-    left:   200px;
-    position: absolute;
-    top:   0;
-    width: 200px;
-    background-color: white;
-    margin: 2px;
-}
 
-
-#mapFrame{    position: absolute;
-    right: 0;
-    top: 0;
-
-	}
 #basicMap{
     border-style: solid;
-    border-width: 1px;
+    border-width: 0 0px 0 1px;
     font-size: 100%;
     height: 100%;
-    left: 200px;
-    margin: 0.2%;
+    /*margin: 0.2%;*/
     position: absolute;
-    top: 0;
-    left: 200px;
-    right: 0;
+    padding-top: 0px;
+    top: 30px;
+    left: 400px;
+    right: 0px;
 	 max-width: 1540px;
     background-color: white;
     
@@ -216,60 +265,58 @@ div.checkbox-text{
     max-width: 800px;
     margin: 0;
     position: absolute;
-    top: 0;
+    top: 30px;
     left: 200px;
     right: 0;
 	background-color:  white;    
 	padding: 5px 50px 5px 25px;
 }
-.content h1,h2,h3{
+#page .content h1,
+#page .content h2,
+#page .content h3{
    color: #063D5B;
    margin-bottom: 0.3em;
 }
-.content h3{
+#page .content h3{
    margin-top: 0.8em;
 }
-.content h3{
-   margin-top: 0.8em;
-}
-
-.content .sommaire{
+#page .content .sommaire{
    text-indent:0em;
    margin: 0 0 0.2em 0;
 }
-.content p{
+#page .content p{
    margin-top: 0;
     margin-bottom: 0.2em;
 }
-.content dt{
+#page .content dt{
    font-weight: bold;
    margin-top: 0.5em;
    margin-bottom: 0.2em;
 }
-.content ul{
+#page .content ul{
    margin-top: 0.3em;
 }
-.content li{
+#page .content li{
    margin-bottom: 0.5em;
 }
-.content .pre{
+#page .content .pre{
    font-family: courier new;
    margin-left: 2em;
    width: 100%;;overflow:auto;
 }
-.content .legende_img{
+#page .content .legende_img{
 	clear: left;
 	float: left;
 	margin-top: 0em;
 	
 }
-.content .legende_img_text{
+#page .content .legende_img_text{
 	float: left;
 	margin-left: 1em;
 	margin-top: 0.3em;
    max-width: 500px;
 }
-.content .kleingedruckt{
+#page .content .kleingedruckt{
 
 }
 

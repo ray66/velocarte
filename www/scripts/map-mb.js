@@ -399,6 +399,31 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
 var selectedTrack;
 
 $(document).ready(function(){
+	
+   var winHeight = $(window).height();
+   var divHeight = winHeight - 30;
+
+   $('#basicMap').height(divHeight);	   
+   $('#sidebar').height(divHeight);	
+	$('#sidebarMini').height(divHeight);	
+	$(window).bind('resize', function() {
+	   $('#basicMap').height(divHeight);	   
+   	$('#sidebar').height(divHeight);	
+		$('#sidebarMini').height(divHeight);	
+	});	
+	
+   // Sidebar Open/Close
+   $("#closeSidebar").click(function(){
+   	$("#sidebar").css("visibility", "hidden");
+   	$("#basicMap").css("left", "20px");
+   	map.updateSize();
+   });
+
+   $("#openSidebar").click(function(){
+   	$("#sidebar").css("visibility", "visible");
+   	$("#basicMap").css("left", "400px");
+   	map.updateSize();
+   });
 
    // Sidebar Container
 	$('.trigger').not('.trigger_active').next('.toggle_container').hide();
@@ -418,6 +443,11 @@ $(document).ready(function(){
    //--------------------------------------------------------    
    // POI Selector      
    //--------------------------------------------------------    
+   $("input[type=checkbox][class=poi]").each( 
+      function() { 
+		$(this).attr('checked', false);  
+     } 
+    );
    $('#poiSelect').click(function(){
         $("input[type=checkbox][class=poi]").each( 
         function() { 
@@ -440,13 +470,13 @@ $(document).ready(function(){
       		if ($(this).is(':checked')){
         			$(this).attr('checked', false);
         		}
-            destroyOverlay($(this).attr('id'),$(this).is(':checked'));
+            destroyOverlay($(this).attr('id'));
         		selectedOverlay = null;  
         	}
       });
     	$("input[type=checkbox][class=overlay]").each(function() { 
       	if ($(this).is(':checked')){
-            createOverlay($(this).attr('id'),$(this).is(':checked'));
+            createOverlay("itin", $(this).attr('id'));
   			   selectedOverlay = $(this).attr('id');
          }
        });
@@ -458,13 +488,13 @@ $(document).ready(function(){
       		if ($(this).is(':checked')){
         			$(this).attr('checked', false);
         		}
-            destroyOverlay($(this).attr('id'),$(this).is(':checked'));
+            destroyOverlay($(this).attr('id'));
         		selectedOverlay = null;  
         	}
       });
     	$("input[type=checkbox][class=overlay]").each(function() { 
       	if ($(this).is(':checked')){
-            createOverlay($(this).attr('id'),$(this).is(':checked'));
+            createOverlay("prop", $(this).attr('id'));
   			   selectedOverlay = $(this).attr('id');
          }
        });
@@ -552,7 +582,10 @@ function destroyOverlay (overlay) {
    }
 }   
    
-function createOverlay (overlay) {   
+function createOverlay (overlay, id) {   
+	
+	layer1 = addTracklayer(overlay, id, "red");
+	/*
 	if (overlay == "astuces"){
 		layer1 = addTracklayer(overlay, "PerpignanCanet", "darkred");
 		layer2 = addTracklayer(overlay, "PerpignanMillas", "darkblue");	
@@ -561,11 +594,11 @@ function createOverlay (overlay) {
 	}else if (overlay == "propositions"){
 		layer1 = addTracklayer(overlay, "RecDelMoli", "red");
 		layers = [layer1];	
-	}
-
+	}*/
+	layers = [layer1]; // vorläufig
 			// This function creates a popup window. In this case, the popup is a cloud containing the "name" and "desc" elements from the GPX file.
 		function createPopup(feature) {
-			console.log(feature.attributes)
+			
          empty=true;          
 		   content = '<div>';
 			if (feature.attributes.desc){
@@ -621,19 +654,19 @@ function addTracklayer(overlay, track, trackcolor){
                                                        }),
                               styleMap:   new OpenLayers.StyleMap({ 
                                                        strokeColor:     trackcolor, 
-                                                       strokeWidth:     3, 
+                                                       strokeWidth:     5, 
                                                        pointRadius:    12,
                                                        graphicYOffset: -16,
                                                        externalGraphic: "img/iconInfo.png",
                                                        strokeDashstyle: "solid",
-                                                       strokeOpacity:   0.8}),
+                                                       strokeOpacity:   0.6}),
                               strategies: [new OpenLayers.Strategy.Fixed()],
                               'displayInLayerSwitcher':false,
                               projection: new OpenLayers.Projection("EPSG:4326")
                               });
-         // This will perform the autozoom as soon as the GPX file is loaded.
-         //trackLayer.events.register("loadend", trackLayer, setExtent);
          map.addLayer (trackLayer);
+         // This will perform the autozoom as soon as the GPX file is loaded.(merci à Nicolas Dumoulin)
+         trackLayer.events.register("loadend", trackLayer, function() { this.map.zoomToExtent(this.getDataExtent()) } );
 
 		return trackLayer;
 		
