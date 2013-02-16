@@ -434,9 +434,8 @@ $(document).ready(function(){
      } 
     );  
    selectedOverlay = null;  
-   $('#overlaySelect').click(function(){
-   	$("input[type=checkbox][class=overlay]").each(function() { 
-   		console.log($(this).attr('id'), $(this).is(':checked'))
+   $('#circuitSelect').click(function(){
+      $("input[type=checkbox][class=overlay]").each(function() {
       	if ($(this).attr('id') == selectedOverlay){
       		if ($(this).is(':checked')){
         			$(this).attr('checked', false);
@@ -453,6 +452,23 @@ $(document).ready(function(){
        });
     });
     
+    $('#propositionsSelect').click(function(){
+      $("input[type=checkbox][class=overlay]").each(function() {
+      	if ($(this).attr('id') == selectedOverlay){
+      		if ($(this).is(':checked')){
+        			$(this).attr('checked', false);
+        		}
+            destroyOverlay($(this).attr('id'),$(this).is(':checked'));
+        		selectedOverlay = null;  
+        	}
+      });
+    	$("input[type=checkbox][class=overlay]").each(function() { 
+      	if ($(this).is(':checked')){
+            createOverlay($(this).attr('id'),$(this).is(':checked'));
+  			   selectedOverlay = $(this).attr('id');
+         }
+       });
+    });   
 	 //--------------------------------------------------------    
 	 // Optional sidebar
 	 //--------------------------------------------------------    
@@ -508,11 +524,12 @@ function setMarkerPoi (poi, checked){
 //------------------------------------------------------------------------------
 function destroyOverlay (overlay) {
 
-   var layers = map.getLayersByName(overlay);
-   if (layers[0]){
-      	currentLayer = layers[0];
-         for (var i = (currentLayer.selectedFeatures.length - 1); i >= 0; i--) {
-           	var selectedFeature = currentLayer.selectedFeatures[i];
+   var layers = map.getLayersByName(new RegExp(overlay+'.*'));
+
+   for (i=0; i<layers.length; i++){
+      	currentLayer = layers[i];
+         for (var j = (currentLayer.selectedFeatures.length - 1); j >= 0; j--) {
+           	var selectedFeature = currentLayer.selectedFeatures[j];
             currentLayer.selectedFeatures = OpenLayers.Util.removeItem(currentLayer.selectedFeatures, selectedFeature);
             currentLayer.renderer.eraseGeometry(selectedFeature.geometry);
          }
@@ -529,7 +546,7 @@ function destroyOverlay (overlay) {
 				curPopup = null;
 			}
       	//map.removeControl(selcontrol);
-      	map.removeLayer(layers[0]);
+      	map.removeLayer(currentLayer);
       	//layers[0].destroyFeatures(); 
          //layers[0].destroy();
    }
@@ -537,16 +554,64 @@ function destroyOverlay (overlay) {
    
 function createOverlay (overlay) {   
 	if (overlay == "astuces"){
-		addTracklayer(overlay, "PerpignanCanet", "darkred");
-		addTracklayer(overlay, "PerpignanMillas", "darkblue");		
+		layer1 = addTracklayer(overlay, "PerpignanCanet", "darkred");
+		layer2 = addTracklayer(overlay, "PerpignanMillas", "darkblue");	
+		layer3 = addTracklayer(overlay, "PerpignanCanetParJardinsStJacques", "red");	
+		layers = [layer1, layer2, layer3];	
 	}else if (overlay == "propositions"){
-		addTracklayer(overlay, "RecDelMoli", "darkgreen");
+		layer1 = addTracklayer(overlay, "RecDelMoli", "red");
+		layers = [layer1];	
 	}
+
+			// This function creates a popup window. In this case, the popup is a cloud containing the "name" and "desc" elements from the GPX file.
+		function createPopup(feature) {
+			console.log(feature.attributes)
+         empty=true;          
+		   content = '<div>';
+			if (feature.attributes.desc){
+				content = '<h3>' + feature.attributes.desc + '</h3>';
+				empty = false;
+			}
+			if (feature.attributes.cmt){
+           	content = content + '<p>' + feature.attributes.cmt + '</p>'
+           	empty = false;
+         }
+         content = content + '</div>';
+         if (!empty){
+			   feature.popup = new OpenLayers.Popup.FramedCloud("gpx",
+						feature.geometry.getBounds().getCenterLonLat(),
+						null,
+						content,
+						null,
+						true,
+						function() { selcontrol.unselectAll(); }
+					);
+				 map.addPopup(feature.popup);
+ 				 curPopup = feature.popup;
+ 			}
+		}
+ 
+			// This function destroys the popup when the user clicks the X.
+			function destroyPopup(feature) {
+				feature.popup.destroy();
+				feature.popup = null;
+            curPopup = feature.popup;
+			}
+ 
+			// This feature connects the click events to the functions defined above, such that they are invoked when the user clicks on the map.
+			selcontrol = new OpenLayers.Control.SelectFeature(layers, {
+				onSelect: createPopup,
+				onUnselect: destroyPopup
+				//hover: true
+			});
+			map.addControl(selcontrol);
+			selcontrol.activate();
+
 }
 		
 		
 function addTracklayer(overlay, track, trackcolor){	
-	console.log("addTracklayer",overlay, track, trackcolor);	
+	//console.log("addTracklayer",overlay, track, trackcolor);	
 		var trackLayer = new OpenLayers.Layer.Vector(overlay+"_"+track,
                              {protocol:   new OpenLayers.Protocol.HTTP({   
                                                        url:    "files/tracks/"+track+".gpx",
@@ -563,64 +628,14 @@ function addTracklayer(overlay, track, trackcolor){
                                                        strokeDashstyle: "solid",
                                                        strokeOpacity:   0.8}),
                               strategies: [new OpenLayers.Strategy.Fixed()],
-                             //'displayInLayerSwitcher':false,
+                              'displayInLayerSwitcher':false,
                               projection: new OpenLayers.Projection("EPSG:4326")
                               });
          // This will perform the autozoom as soon as the GPX file is loaded.
          //trackLayer.events.register("loadend", trackLayer, setExtent);
          map.addLayer (trackLayer);
-			// This function creates a popup window. In this case, the popup is a cloud containing the "name" and "desc" elements from the GPX file.
-			function createPopup(feature) {
-            console.log (feature.name, feature.attributes);            
-            if (feature.attributes.desc){
-				 	content = '<div><h3>' + feature.attributes.desc + '</h3>';
-					if (feature.attributes.cmt){
-               	content = content + '<p>' + feature.attributes.cmt + '</p>'
-           	 	}
-            	content = content + '</div>'
-					feature.popup = new OpenLayers.Popup.FramedCloud("gpx",
-						feature.geometry.getBounds().getCenterLonLat(),
-						null,
-						content,
-						null,
-						true,
-						function() { selcontrol.unselectAll(); }
-					);
-					map.addPopup(feature.popup);
-				}else{
-					// Track selektiert
-				 	content = '<div><h3>' + feature.layer.name + '</h3>';
-            	content = content + '</div>'
-            	pixel = new OpenLayers.Pixel(mousePixelX, mousePixelY);
-      			var lonlat = map.getLonLatFromPixel(pixel);
 
-					feature.popup = new OpenLayers.Popup.FramedCloud("gpx",
-						lonlat,
-						null,
-						content,
-						null,
-						true,
-						function() { selcontrol.unselectAll(); }
-					);
-					map.addPopup(feature.popup);
-				}
-				curPopup = feature.popup;
-			}
- 
-			// This function destroys the popup when the user clicks the X.
-			function destroyPopup(feature) {
-				feature.popup.destroy();
-				feature.popup = null;
-            curPopup = feature.popup;
-			}
- 
-			// This feature connects the click events to the functions defined above, such that they are invoked when the user clicks on the map.
-			selcontrol = new OpenLayers.Control.SelectFeature(trackLayer, {
-				onSelect: createPopup,
-				onUnselect: destroyPopup
-				//hover: true
-			});
-			map.addControl(selcontrol);
-			selcontrol.activate();
+		return trackLayer;
+		
           
 }

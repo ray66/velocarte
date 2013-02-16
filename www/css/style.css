@@ -36,6 +36,21 @@ div.olControlAttribution{
    border-style: solid; 
    border-width: 1px 0px 1px 1px; 
 }
+
+.olFramedCloudPopupContent {
+   max-width: 200px;
+}
+
+.olFramedCloudPopupContent h3{
+   font-size: 0.7em
+}
+
+.olFramedCloudPopupContent p{
+   font-size: 0.7em
+}
+
+
+
 /*-----------------------------------------------------------*/
 /* Style des pages 
 /*-----------------------------------------------------------*/       
@@ -126,7 +141,9 @@ body {
 .toggle_container p{
 	margin-top: 0; 
 	font-weight: normal;
-
+	font-size: 0.7em;
+	text-align: left;
+	margin: 0 2px 5px;
 }
 .toggle_container form{
 	clear: both;
@@ -216,9 +233,6 @@ div.checkbox-text{
    margin-top: 0.8em;
 }
 
-.olFramedCloudPopupContent h3{
-   font-size: 0.7em
-}
 .content .sommaire{
    text-indent:0em;
    margin: 0 0 0.2em 0;

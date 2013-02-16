@@ -63,24 +63,34 @@
               		</div>
               <div class="trigger">Circuits  </div>
               <div class="toggle_container">
-         	        <form id="overlaySelect">
+						<p>Quand on circule à vélo, il faut parfois chercher longtemps un itinéraire pour traverser 
+         	         une autoroute, une route dangereuse, emmener des enfants avec soi. Voici quelques itinéraires
+         	         qui empruntent de très petites routes ou des pistes, et qui devraient vous aider à rejoindre 
+         	         à bicyclette, et souvent avec le plaisir d'une balade,des endroits parfois difficiles à 
+         	         atteindre en toute sécurité<br>Une partie de ces itinéraires a été repris des "Astuces cyclables" de 
+         	         l'association <a href="http://veloentet.free.fr/spip.php?breve55&var_recherche=astuces" target="_blank">Vélo En Tet</a>
+         	       </p>
+         	         <form id="circuitSelect">
          	            <div class="checkbox"><input type="checkbox" class="overlay" id="astuces"></div>
-         	            <div class="checkbox-text"> <em>Les »Astuces«</em> 
-         	                                        <p>Quand on circule à vélo, il faut parfois chercher longtemps un itinéraire pour traverser 
-         	                                        une autoroute, une route dangereuse, emmener des enfants avec soi. Voici quelques itinéraires
-         	                                        qui empruntent de très petites routes ou des pistes, et qui devraient vous aider à rejoindre 
-         	                                        à bicyclette, et souvent avec le plaisir d'une balade,des endroits parfois difficiles à 
-         	                                        atteindre en toute sécurité<br>Une partie de ces itinéraires a été repris des "Astuces cyclables" de 
-         	                                        l'association <a href="http://veloentet.free.fr/spip.php?breve55&var_recherche=astuces" target="_blank">Vélo En Tet</a></p>
+         	            <div class="checkbox-text"> <em>afficher</em> 
+         	                                        
         	               </div>
-
-            	         <div class="checkbox"><input type="checkbox" class="overlay" id="propositions"></div>
-            	         <div class="checkbox-text"> Propositions d'aménagement</div>
-                   	   
                    	   <div class="toggle-container-bottom"></div>
                   	</form>
               		</div>
-              <div class="text">
+              <div class="trigger">Propositions d'aménagement</div>
+              <div class="toggle_container">
+                <p>Vous trouvez ici quelques propositions d'aménagements cyclables faites par 
+                   l'association <a href="http://veloentet.free.fr" target="_blank">Vélo En Tet</a>
+                </p>
+         	        <form id="propositionsSelect">
+             	         <div class="checkbox"><input type="checkbox" class="overlay" id="propositions"></div>
+            	         <div class="checkbox-text"> afficher</div>
+                   	   
+                   	   <div class="toggle-container-bottom"></div>
+                  	</form>
+              	</div>
+               <div class="text">
                 <br>
                 <a href="notice.php">En savoir plus...</a>
                 <br><br>

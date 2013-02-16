@@ -1,0 +1,11 @@
+lat	lon	title	description	icon	iconSize	iconOffset	id
+5266157.75827643	321538.267316581	bip 	Location vélos<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5265713.70864029	321699.001529315	Conservatoire National de Région de Musique 	Location vélos<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5267526.19370701	321849.783779573	BIP 	Location vélos<br>Capacité: 30<br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5266605.82783549	322136.587315613	BIP 	Location vélos<br>Capacité: 30<br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5265514.50882043	322156.502372513	BIP 	Location vélos<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5266823.66754522	322683.833932277	Palais des congrès Georges Pompidou 	Location vélos<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5264954.49397163	323012.204166173	Boulevard Kennedy 	Location vélos<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5262755.86147803	337417.981544082	 	Location vélos<br>Capacité: <br>Réseau: 	img/bicycle_rental.png	21,25	-10,-25	103
+5263315.62432215	337707.979949507	 	Location vélos<br>Capacité: <br>Réseau: 	img/bicycle_rental.png	21,25	-10,-25	103
+5267625.55685949	323113.471506933	BIP 	Location vélos<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
