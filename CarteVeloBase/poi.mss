@@ -26,7 +26,8 @@
    [poi_type='police'],
    [poi_type='courthouse'],
    [poi_type='bicycle'],
-   [poi_type='picnic_site']{
+   [poi_type='picnic_site'],
+   [poi_type='castle']{
     text-dy: -8;
    }
    [zoom>=16][relevance='high']{
@@ -63,6 +64,18 @@
          point-file: url('img/parking_bicycle.p.20.png');
          point-allow-overlap: true;
          point-ignore-placement: false;
+      }
+   }
+   [poi_type='parking_space']["capacity:disabled"!='0'],
+   [poi_type='parking_space'][wheelchair='yes'] {
+      [zoom>=17]{
+         /*point-file: url('img/parking_wheelchair_only_12.png');*/
+      	 point-file: url('img/parking_disabled.png');
+         point-allow-overlap: true;
+         point-ignore-placement: false;
+      }
+      [zoom>=18]{
+         point-file: url('img/parking_disabled.png');
       }
    }
    [poi_type='toilets']{
@@ -135,6 +148,16 @@
       }
       [zoom>=17]{
          point-file: url('img/tourist_picnic.p.20.png');
+      }
+   }
+   [poi_type='castle']{
+      [zoom>=15]{
+         point-file: url('img/citywalls_18.png');
+         point-ignore-placement: true;
+         point-allow-overlap: false;
+      }
+      [zoom>=17]{
+         point-file: url('img/citywalls_22.png');
       }
    }
 } 

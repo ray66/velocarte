@@ -22,7 +22,7 @@ div.olControlAttribution{
 }
 
 .olPopup h2{
-   font-size: 1em;
+   font-size: 0.8em;
 }
 
 
@@ -102,10 +102,18 @@ body {
    font-size:140%;
    font-weight: bold;
 }   
-#topbar div.left{
-	float:left;
-	font-size: 120%;
-	font-weight: bold;
+#topbar td.left{
+	width:20%;
+}
+#topbar table{
+	width: 100%;
+}
+#topbar td.center{
+	width: 60%;
+}
+#topbar td.right{
+	width: 20%;
+	text-align: right;
 }
 #topbar a{
 	color: white;
@@ -138,6 +146,7 @@ body {
     padding: 0px;
     font-size:100%;
     margin-right: 3px;
+    overflow: auto;
 }
 #sidebar div.content{
 	margin: 3px;
@@ -163,9 +172,9 @@ body {
     margin-bottom: 0px;
     padding: 5px;
     /*text-shadow: 0 1px 0 #FFFFFF;*/
-    width: 250px;	
+    width: 320px;	
     text-align: left;
-    font-size: 10pt;
+    font-size: 0.85em;
     font-weight: bold; 
     color: #063D5B;   
 	/*-moz-border-radius:5px;
@@ -191,16 +200,15 @@ body {
     background: none repeat scroll 0 0 white;
     border-radius: 10px 10px 10px 10px;
     color: black;
-    font-weight: bold;
     margin: 0px;
     padding: 1px;
     width: 100%;
     margin: 0;
+    font-size: 0.77em;
  }
 .toggle_container p{
 	margin-top: 0; 
 	font-weight: normal;
-	font-size: 0.7em;
 	text-align: left;
 	margin: 0 2px 5px;
 }
@@ -213,7 +221,46 @@ body {
    height: 20px;
 }
 
+#sidebar h3{
+	font-size: 1.0em;
+	font-weight: bold;
+    color: #063D5B;
+}
+#sidebar dl{
+   margin-top: 0em;
+}
+#sidebar dt{
+   font-weight: bold;
+   margin-top: 0.5em;
+   margin-bottom: 0.2em;
+   font-size: 1.1em;
+    color: #063D5B;
+}
+#sidebar dd{
 
+}
+#sidebar li{
+
+}
+#sidebar .legende_img{
+	clear: left;
+	float: left;
+	margin-top: 0em;
+	
+}
+#sidebar .legende_img_text{
+	float: left;
+		font-size: 0.77em;
+	margin-left: 1em;
+	margin-top: 0.3em;
+   max-width: 250px;
+}
+#sidebar .pre{
+   font-family: courier new;
+   font-size: 1.2em;
+   margin-left: 2em;
+   width: 100%;;overflow:auto;
+}
 /*----------------------------------------------------------------------------------
  * Checkboxen
  *--------------------------------------------------------------------------------*/
@@ -229,9 +276,7 @@ div.checkbox-text{
    padding-top: 2px;
 }
 .checkbox-text h3{
-   color: #063D5B;
    margin-top: 0px;
-   font-size: 0.8em;
 }
 .checkbox-text p{
    margin-top: 0px;
@@ -316,9 +361,7 @@ div.checkbox-text{
 	margin-top: 0.3em;
    max-width: 500px;
 }
-#page .content .kleingedruckt{
 
-}
 
 #noscript{
    max-width: 450px;

@@ -216,7 +216,7 @@ if (userAgent.indexOf('msie 10.0') > -1 ) {
       if (bBoxDetail[0] <= bBox[0] || bBoxDetail[1] <= bBox[1] || bBoxDetail[2] >= bBox[2] || bBoxDetail[3] >= bBox[3]){
          detailExtent     = null;
       }
-      detailZoom = 16;
+      detailZoom = 17;
    }else{
    //            resolutionLevels = [76.43702827453613, 38.218514137268066, 19.1092570678711, 
    //                                9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834];

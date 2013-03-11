@@ -5,6 +5,9 @@
 #set -v 
 USAGE=`cat << 'EOF'
 Usage: $0 [-r] [-i] [-o] [-b bbox] [<area>]
+   -i import only
+   -o overlay layers only
+   -r render only
 EOF`
 
 MYPATH=`ls  -l $0|awk '{print $NF}'`

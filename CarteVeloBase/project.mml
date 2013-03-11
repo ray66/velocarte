@@ -1,13 +1,13 @@
 {
   "bounds": [
-    2.656,
-    42.569,
-    3.046,
-    42.801
+    2.596,
+    42.7398,
+    2.7429,
+    42.8426
   ],
   "center": [
-    2.8822,
-    42.6977,
+    2.6568,
+    42.8001,
     12
   ],
   "format": "png8",
@@ -477,7 +477,7 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,name,religion,relevance,poi_category,poi_type,\nround(way_area) as size,case when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom,\n                           (CASE WHEN leisure is null THEN ''::text  ELSE leisure END) as leisure,\nCHAR_LENGTH(name)  as label_length\n\t                 FROM planet_osm_polygon\n\t                 WHERE building is not null and building != '' and building !='no'\n                                    and name is not null and name !=''\n                           and relevance in ('high','medium','low')\n\t                 ORDER BY z_order ASC, way_area DESC) AS building_label\n\n",
+        "table": "(SELECT way,name,religion,relevance,poi_category,poi_type,\"capacity:disabled\",wheelchair,\nround(way_area) as size,case when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom,\n                           (CASE WHEN leisure is null THEN ''::text  ELSE leisure END) as leisure,\nCHAR_LENGTH(name)  as label_length\n\t                 FROM planet_osm_polygon\n\t                 WHERE building is not null and building != '' and building !='no'\n                                    and name is not null and name !=''\n                           and relevance in ('high','medium','low')\n\t                 ORDER BY z_order ASC, way_area DESC) AS building_label\n\n",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -499,17 +499,17 @@
       "name": "building_label",
       "geometry": "unknown",
       "extent": [
-        2.5444950204274144,
-        42.53808647998357,
-        3.0470986489680927,
-        42.85361273824522
+        1.7224746415349763,
+        42.332754975741686,
+        3.8347919754030575,
+        43.56466715142901
       ]
     },
     {
       "geometry": "point",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,name,religion,relevance,poi_type,\n                st_y(st_astext(way)) AS latitude \n                FROM planet_osm_point \n               WHERE relevance in ('high' ,'medium','low')\n                ORDER BY z_order ASC, latitude DESC) AS poi_points",
+        "table": "(SELECT way,osm_id,name,religion,relevance,poi_type,\"capacity:disabled\",wheelchair,\n                st_y(st_astext(way)) AS latitude \n                FROM planet_osm_point \n               WHERE relevance in ('high' ,'medium','low')\n                ORDER BY z_order ASC, latitude DESC) AS poi_points",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -519,21 +519,28 @@
         "user": "rainer",
         "password": "osm",
         "id": "poi_point",
-        "project": "CarteVeloTest",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "project": "CarteVeloBase",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "poi_point",
       "class": "poi point",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "poi_point"
+      "name": "poi_point",
+      "extent": [
+        1.7268100997596305,
+        42.34710999518212,
+        4.765335599336659,
+        44.88349869503554
+      ]
     },
     {
       "geometry": "point",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,name,poi_category,poi_type,religion,relevance,\n                st_y(st_astext(way)) AS latitude,\n               CHAR_LENGTH(name)  as label_length ,\ncase when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom\n                FROM planet_osm_point \n               WHERE name is not null and name !='' and relevance in ('high','medium','low')\n                ORDER BY z_order ASC, latitude DESC) AS poi_label_major",
+        "table": "(SELECT way,osm_id,name,poi_category,poi_type,religion,relevance,\n                st_y(st_astext(way)) AS latitude,\n               CHAR_LENGTH(name)  as label_length ,\ncase when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom\n                FROM planet_osm_point \n               WHERE name is not null and name !='' and relevance in ('high','medium','low')\n                ORDER BY z_order ASC, latitude DESC) AS poi_label_major\n",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -543,7 +550,7 @@
         "user": "rainer",
         "password": "osm",
         "id": "poi_label",
-        "project": "CarteVelo",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
         "extent": ""
       },
@@ -554,10 +561,10 @@
       "advanced": {},
       "name": "poi_label",
       "extent": [
-        2.21274179969198,
-        42.36443659518098,
-        3.041617499576599,
-        42.835609095151945
+        1.7268100997596305,
+        42.34710999518212,
+        4.765335599336659,
+        44.88349869503554
       ]
     },
     {
@@ -596,7 +603,7 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,name,poi_category,poi_type,religion,\nround(way_area) as size ,\ncase when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom\n FROM planet_osm_polygon\n                 WHERE name is not null and building = ''\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','theatre')\n                       OR leisure IN ('park','sports_centre')\n                        OR landuse IN ('industrial', 'commercial', 'cemetery')\n                        OR aeroway != '' OR power !='')\n                 ORDER BY z_order ASC, way_area DESC) as ground_label",
+        "table": "(SELECT osm_id,way,name,poi_category,poi_type,religion,\"capacity:disabled\",wheelchair,\nround(way_area) as size ,\ncase when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom\n FROM planet_osm_polygon\n                 WHERE name is not null and building = ''\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','theatre')\n                       OR leisure IN ('park','sports_centre')\n                        OR landuse IN ('industrial', 'commercial', 'cemetery')\n                        OR aeroway != '' OR power !='')\n                 ORDER BY z_order ASC, way_area DESC) as ground_label",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -618,10 +625,10 @@
       "name": "ground_label",
       "geometry": "unknown",
       "extent": [
-        2.5444950204274144,
-        42.53808647998357,
-        3.0470986489680927,
-        42.85361273824522
+        1.7224746415349763,
+        42.332754975741686,
+        3.8347919754030575,
+        43.56466715142901
       ]
     },
     {

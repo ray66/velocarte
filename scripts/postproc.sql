@@ -242,6 +242,8 @@ Update planet_osm_polygon SET  railway  = '' where railway is null;
 Update planet_osm_polygon SET  aeroway = '' where aeroway is null;
 Update planet_osm_polygon SET  "power" = '' where "power" is null;
 Update planet_osm_polygon SET  "natural" = '' where "natural" is null;
+Update planet_osm_polygon SET  "wheelchair" = '' where "wheelchair" is null;
+Update planet_osm_polygon SET  "capacity:disabled" = '0' where "capacity:disabled" is null;
 
 /*------------------------------------------------------------------------------
  * Points
@@ -253,9 +255,11 @@ Update planet_osm_point SET  historic = '' where historic is null;
 Update planet_osm_point SET  amenity = '' where amenity is null;
 Update planet_osm_point SET  shop    = '' where shop is null;
 Update planet_osm_point SET  tourism = '' where tourism is null;
-Update planet_osm_point   SET  highway = '' where highway is null;
-Update planet_osm_point   SET  aeroway = '' where aeroway is null;
+Update planet_osm_point SET  highway = '' where highway is null;
+Update planet_osm_point SET  aeroway = '' where aeroway is null;
 Update planet_osm_point SET  place = '' where place is null;
+Update planet_osm_point SET  "wheelchair" = '' where "wheelchair" is null;
+Update planet_osm_point SET  "capacity:disabled" = '0' where "capacity:disabled" is null;
 
 /*------------------------------------------------------------------------------
  * POI
@@ -334,6 +338,7 @@ Update planet_osm_point Set relevance =
                                  'picnic_table',
                                  'stadium')
                   or (historic!='' and historic != 'memorial')
+                  or (amenity='parking_space' and ("capacity:disabled"!='0' or wheelchair='yes'))
              Then 'high'
              When amenity in ('arts_centre',
                            'bus_station',
@@ -397,6 +402,7 @@ Update planet_osm_polygon Set relevance =
                                  'picnic_table',
                                  'stadium')
                   or (historic!='' and historic != 'memorial')
+                  or (amenity='parking_space' and ("capacity:disabled"!='0' or wheelchair='yes'))
              Then 'high'
              When amenity in ('arts_centre',
                            'bus_station',

@@ -21,7 +21,7 @@
     		text-face-name: "DejaVu Sans Book";
     		text-fill: #2F4F4F;
 	    	text-halo-fill: #fff;
-    		text-halo-radius: 0.5;
+    		text-halo-radius: 0;
     		text-avoid-edges: false;
 	    	text-placement: interior;
   			text-size: 12;
