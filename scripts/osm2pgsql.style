@@ -115,6 +115,7 @@ way        motor_vehicle   text     linear
 way        motorcycle      text     linear
 way        agricultural    text     linear
 node,way   name:ca         text     linear
+node,way   name:fr         text     linear
 node,way   fixme           text     linear
 node,way   recycling_type  text     linear
 node       mountain_pass   text     linear
@@ -140,6 +141,7 @@ way       ncn          text     linear
 #way       nwn              text     linear
 way       route_pref_color text     linear
 way       route_name       text     linear
+way       route_name:fr       text     linear
 
 # The following entries can be used with the --extra-attributes option
 # to include the username, userid, version & timstamp in the DB

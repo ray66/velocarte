@@ -5,7 +5,7 @@
    initData();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <!--<html debug="true">-->
 <head>
     <title>
@@ -22,16 +22,11 @@
     <script src="scripts/OpenStreetMap.js"></script>
 
    <link rel="canonical" href="http://velocarte66.fr" />
-   <META NAME="Title" CONTENT="Carte cycliste de Perpignan et ses environs">
-   <META NAME="Revisit" CONTENT="After 7 days">
+   <META NAME="description" CONTENT="Carte cycliste de Perpignan et ses environs. La vélocarte est une carte qui s'adresse particulièrement à ceux qui favorisent le vélo comme moyen de transport dans le quotidien et pour les loisirs.">
+   <META NAME="revisit-after" CONTENT="After 7 days">
    <META NAME="Keywords" CONTENT="openstreetmap, carte, velocarte, map, karte, velo, cyclisme, cycliste, bicycle, perpignan, roussillon, pyrenees-orientales">
    <META NAME="Description" CONTENT="La vélocarte est une carte qui s'adresse particulièrement à ceux qui favorisent le vélo comme moyen de transport dans le quotidien et pour les loisirs.">
-   <META NAME="Abstract" CONTENT="La vélocarte est une carte qui s'adresse particulièrement à ceux qui favorisent le vélo comme moyen de transport dans le quotidien et pour les loisirs.">
-   <META NAME="page-topic" CONTENT="Umwelt">
-   <META NAME="page-topic" CONTENT="Karte Plan">
-   <META NAME="Language" CONTENT="French">
-
-   
+  
 </head>
 
 <?
@@ -54,7 +49,56 @@
          <!--<div class="trigger trigger_active">Légende</div>-->
          <div class="trigger">Légende</div>
 						<div class="toggle_container">
-              			<img title="Légende" alt="Légende" src="img/legende.png">
+        							<div>
+           						 <div class='legende_img'><img src="img/piste_cyclable.png" alt=""></div>
+            					 <div class='legende_img_text'>Piste cyclable</div>
+       						 </div>
+        						 <div>
+            					<div class='legende_img'><img src="img/bande_cyclable.png" alt=""></div>
+           						 <div class='legende_img_text'>Bande cyclable</div>
+        						</div>
+        						<div>
+          					  <div class='legende_img'><img src="img/voie_bus_velo.png" alt=""></div>
+         					   <div class='legende_img_text'>Voie bus-vélo</div>
+         					</div>
+        						<div>
+          					  <div class='legende_img'><img src="img/double_sens.png" alt=""></div>
+         					   <div class='legende_img_text'>Double-sens cyclable</div>
+         					</div>
+        						<div>
+          					  <div class='legende_img'><img src="img/aire_pietonne.png" alt=""></div>
+         					   <div class='legende_img_text'>Aire piétonne</div>
+         					</div>
+        						<div>
+          					  <div class='legende_img'><img src="img/route_bitume.png" alt=""></div>
+         					   <div class='legende_img_text'>Route bitumée</div>
+         					</div>
+        						<div>
+          					  <div class='legende_img'><img src="img/grade2.png" alt=""></div>
+         					   <div class='legende_img_text'>Chemin non bitumée à revêtement compact, généralement  praticable avec le VTC par tout temps</div>
+         					</div>
+        						<div>
+          					  <div class='legende_img'><img src="img/grade3.png" alt=""></div>
+         					   <div class='legende_img_text'>Chemin avec surface en terre ou gravier, généralement praticable avec un VTC par temps sec</div>
+         					</div>
+        						<div>
+          					  <div class='legende_img'><img src="img/grade4.png" alt=""></div>
+         					   <div class='legende_img_text'>Chemin avec surface en terre ou gravier, généralement praticable avec un VTT</div>
+          					  <div class='legende_img'><img src="img/voies_vertes.png" alt=""></div>
+         					  <div class='legende_img_text'>Itinéraires de tourisme à vélo: voies vertes, véloroutes, EuroVélo</div>
+         					</div>
+        						<div>
+          					  <div class='legende_img'><img src="img/parking_bicycle.p.20.png" alt=""></div>
+         					   <div class='legende_img_text'>Parking vélos</div>
+         					</div>
+        						<div>
+          					  <div class='legende_img'><img src="img/rental_bicycle.p.20.png" alt=""></div>
+         					   <div class='legende_img_text'>Location vélos</div>
+         					</div>
+        						<div>
+          					  <div class='legende_img'><img src="img/zone_detail.png" alt=""></div>
+         					   <div class='legende_img_text'>Zone détaillée de la carte</div>
+         					</div>
                      <div class="toggle-container-bottom"></div>
 						</div>
               <div class="trigger">Points d'interêt</div>
@@ -73,7 +117,7 @@
          	         qui empruntent de très petites routes ou des pistes, et qui devraient vous aider à rejoindre 
          	         à bicyclette, et souvent avec le plaisir d'une balade,des endroits parfois difficiles à 
          	         atteindre en toute sécurité<br>Une partie de ces itinéraires a été repris des "Astuces cyclables" de 
-         	         l'association <a href="http://veloentet.free.fr/spip.php?breve55&var_recherche=astuces" target="_blank">Vélo En Tet</a>
+         	         l'association <a href="http://veloentet.free.fr/spip.php?breve55&amp;var_recherche=astuces" target="_blank">Vélo En Tet</a>
          	       </p>
          	         <form id="circuitSelect">
          	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanCanet"></div>
@@ -89,7 +133,7 @@
          	            </div>
          	            <div class="checkbox"><input type="checkbox" class="overlay" id="Arcades"></div>
          	            <div class="checkbox-text"> <h3>Le Serrat d'en Vaquer par l'aqueduc des Arcades</h3> 
-									<p>Voici un chemin calme à deux pas de la bruyante Avenue d'Espagne, le long du Canal de Perpignan et <a href="http://www.culture.gouv.fr/public/mistral/merimee_fr?ACTION=CHERCHER&FIELD_1=REF&VALUE_1=PA00104064" target=_blank>l'aqueduc des Arcades</a> 
+									<p>Voici un chemin calme à deux pas de la bruyante Avenue d'Espagne, le long du Canal de Perpignan et <a href="http://www.culture.gouv.fr/public/mistral/merimee_fr?ACTION=CHERCHER&amp;FIELD_1=REF&amp;VALUE_1=PA00104064" target=_blank>l'aqueduc des Arcades</a> 
 									 </p>
          	            </div>
          	            <div class="checkbox"><input type="checkbox" class="overlay" id="ThuirParLeCanal"></div>
@@ -109,7 +153,31 @@
             	         <div class="checkbox-text"> <h3>Le Rec del Molí</h3>
             	                      <p>Le “Rec del Molí” est un ancien canal d’irrigation qui prend son eau dans la Basse, et la mène jusqu’à Canet-en-Roussillon. 
                                         Vélo en Têt propose qu’il soit aménagé en itinéraire piéton et cyclable du centre de Perpignan jusqu’au littoral. 
-       											 </p><p>Plus d'informations sur le site de <a href=http://veloentet.free.fr/spip.php?article200 target=_blank>Vélo en Têt</a>.</p>
+       											 </p>
+       											 <p>Plus d'informations sur le site de <a href=http://veloentet.free.fr/spip.php?article200 target=_blank>Vélo en Têt</a>.</p>
+       						</div>
+                   	   <div class="toggle-container-bottom"></div>
+                  	</form>
+              	</div>
+              <div class="trigger">Projets Voies Vertes et Véloroutes</div>
+              <div class="toggle_container">
+                <p>
+                </p>
+         	        <form id="projetsSelect">             	         
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="V81"></div>
+            	         <div class="checkbox-text"> <h3>Véloroute du Piémont Pyrénéen V81</h3>
+            	                      <p>Cette véĺoroute n'est pas encore aménagé entre les Gorges de Galamus et Rivesaltes. Voici le tracé 
+            	                         proposé par le Conseil Général des P.O. 
+       											 </p>
+       						</div>
+             	         <div class="checkbox"><input type="checkbox" class="overlay" id="VvPaysPyreneesMediterranee"></div>
+            	         <div class="checkbox-text"> <h3>Voie Verte en Pays Pyrénées Méditerranée</h3>
+            	                      <p>Projet à l'étude par le Conseil Général 66, tracé arrêté, enquête publique terminée.
+       											 </p>
+       						</div>
+             	         <div class="checkbox"><input type="checkbox" class="overlay" id="Pirinexus"></div>
+            	         <div class="checkbox-text"> <h3>Pirinexus</h3>
+            	                      <p>Itinéraire cyclotouristique transfronatlier de 353 km</p>
        						</div>
                    	   
                    	   <div class="toggle-container-bottom"></div>
@@ -139,9 +207,8 @@
           				</dd>
         				</dl>
         				<h3 id="Calques">Calques supplémentaires</h3>
-        				<p><p>L'onglet <img src="scripts/img/layer-switcher-maximize.png" height="14" alt=""> en haut à droite de la
+        				<p>L'onglet <img src="scripts/img/layer-switcher-maximize.png" height="14" alt=""> en haut à droite de la
        					 carte permet de changer de carte et de superposer la carte avec des calques supplémentaires</p>
-        				</p>
         				<dl>
         					<dt>Calques "Routes" et "Chemins"</dt>
 							<dd><p>Ce calque met en valeur des routes mineures et des chemins agricoles et forestiers  
@@ -171,6 +238,7 @@
            				Ce calque n'est pas disponible dans les niveaux de zoom détaillés. 
         					</p>
         				</dd>
+        				</dl>
         		  </div>
               <div class="trigger">En savoir plus...</div>
               <div class="toggle_container">
@@ -222,7 +290,7 @@
                <li>Import des données OSM dans une base de données PostGIS avec osm2pgsql:
                   <div class='pre'><pre>osm2pgsql -c -m -s -d osm -U &lt;user&gt; -W -H localhost &lt;osmfile&gt; -S osm2pgsql.style</pre></div>
                   &lt;osmfile&gt; est le fichier au format OSM (.osm, .osm.bz2 ou .pbf) qui contient les données OSM de la zone à couvrir. 
-                  Il peut être créé avec osmosis à partir d'un extrait <a href="http://download.geofabrik.de/">geofabrik.</a>
+                  Il peut être créé avec osmosis à partir d'un extrait <a href="http://download.geofabrik.de/" target="_blank">geofabrik.</a>
                   On peut aussi utiliser un extrait "région" ou "pays" et utiliser osm2pgsql avec l'option --bbox pour extraire une zone géographique. 
                </li>
                <li>Traitement de la base de données pour faciliter l'exploitation avec Tilemill/Mapnik:
@@ -283,13 +351,13 @@
 		   
         			<h3>Conditions d'utilisation</h3>
         			<p>Les tuiles de la carte vélo, du calque "OpenStreetMap Mapnik" et du calque "OpenCycleMap" sont disponibles sous la licence 
-          			 <a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons paternité – partage à l’identique 2.0</a> (CC-BY-SA).
+          			 <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">Creative Commons paternité – partage à l’identique 2.0</a> (CC-BY-SA).
         			</p>
         <h3>Remerciements</h3>
         <p>Cette carte a été inspiré des cartes des associations <a href="http://carte.apicy.fr/" target="_blank">APiCy</a>, 
            <a href="http://carte.velobesancon.info/" target="_blank">AVB</a> et 
            <a href="http://carte.lavilleavelo.org/" target="_blank">La Ville à Vélo</a> et 
-           du <a href ="http://wiki.openstreetmap.org/wiki/File:L%C3%BCbeckerFahrradStadtplan-Ausschnitt.jpg">plan de ville de l'ADFC de Lübeck</a>. 
+           du <a href ="http://wiki.openstreetmap.org/wiki/File:L%C3%BCbeckerFahrradStadtplan-Ausschnitt.jpg" target="_blank">plan de ville de l'ADFC de Lübeck</a>. 
         </p>
         <p>L'association <a href="http://veloentet.free.fr/" target="_blank">Vélo en Têt</a> et ses adhérents fournissent des informations
         précieuses sur l'état des aménagements cyclables de Perpignan et ses environs et permettent ainsi d'améliorer les données du projet OpenStreetMap

@@ -777,14 +777,23 @@
 }
 .road.outline[highway='grade4'],
 .road.outline[highway='grade5']{
-	line-color: #aaa;
-	line-cap: butt;
-	line-width: 0;
    [zoom>=14]{
+	line-cap: butt;
     	line-width: 0.5;
+       	line-color: darken(@color-track,20%);
    }
-   [zoom>=15]{line-width: 1;}
-   [zoom>=17]{line-width: 2;}
+   [zoom>=15]{
+    	line-width: 1.5;
+       	line-color: lighten(@color-track,15%);
+  	}
+   [zoom>=16]{
+    	line-width: 2;
+       	line-color: lighten(@color-track,15%);
+  	}
+   [zoom>=17]{
+    	line-width: 2;
+       	line-color: lighten(@color-track,15%);
+  	}
 } 
 
   
@@ -968,14 +977,28 @@
 
     line-cap: round;
     line-join: round;
-    line-color: darken(orange,10%);
+    line-color: red;
     line-opacity: 1;
-  	line-dasharray: 4,16;
   	
-	[zoom>=12]{line-width: 3;}
-	[zoom>=14]{line-width: 3;}
-	[zoom>=16]{line-width: 3;}
-	[zoom>=18]{line-width: 4;}
+	[zoom>=12]{
+	  	line-dasharray: 3,8;
+    	line-width: 2.5;
+  	}
+	[zoom>=14]{
+	  	line-dasharray: 4,10;
+    	line-width: 3;
+  	}
+	[zoom>=16]{
+	  	line-dasharray: 8,16;
+    	line-width: 3.5;
+  	}
+	[zoom>=17]{
+    	line-width: 4;
+  	}
+	[zoom>=18]{
+	  	line-dasharray: 8,16;
+    	line-width: 5;
+  	}
  
 }
   

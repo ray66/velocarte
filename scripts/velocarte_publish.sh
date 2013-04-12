@@ -4,7 +4,8 @@
 #---------------------------------------------------------------------
 
 # Tiles ausserhalb des Kernbereichs löschen (nur Basiskarte):
-for f in CarteVeloBase CarteVeloContour;do
+#for f in CarteVeloBase CarteVeloContour;do
+for f in CarteVeloBase;do
    rm -rf $f
    mb-util ${f}.mbtiles $f
    osm_clear_tiles.pl ~/Dokumente/OSM/Render/CarteVelo/project/data/Perpi-ville.bbox $f 17 19

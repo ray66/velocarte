@@ -307,6 +307,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
                   }
    ); 
       
+   /*
    var layerBingAerial = new OpenLayers.Layer.Bing({
          name: "Bing Aerial",
          key: "AtNt88v-17pJquFnJ65g7-4PH4Q3k9LdZCobdttQ5VpaxOLfnG0UTmuBi5e620T0",
@@ -315,7 +316,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          zoomOffset : zOffset,
          numZoomLevels: zoomLevels
    });
-
+   */
    var layerRoutes = new OpenLayers.Layer.OSM(
       "Petites routes",
       "mbtiles.php?db=CarteVeloRoutes.mbtiles&z=${z}&x=${x}&y=${y}", 
@@ -498,6 +499,23 @@ $(document).ready(function(){
   			   selectedOverlay = $(this).attr('id');
          }
        });
+    });
+    $('#projetsSelect').click(function(){
+      $("input[type=checkbox][class=overlay]").each(function() {
+      	if ($(this).attr('id') == selectedOverlay){
+      		if ($(this).is(':checked')){
+        			$(this).attr('checked', false);
+        		}
+            destroyOverlay($(this).attr('id'));
+        		selectedOverlay = null;  
+        	}
+      });
+    	$("input[type=checkbox][class=overlay]").each(function() { 
+      	if ($(this).is(':checked')){
+            createOverlay("proj", $(this).attr('id'));
+  			   selectedOverlay = $(this).attr('id');
+         }
+       });
     });   
 	 //--------------------------------------------------------    
 	 // Optional sidebar
@@ -585,24 +603,14 @@ function destroyOverlay (overlay) {
 function createOverlay (overlay, id) {   
 	
 	layer1 = addTracklayer(overlay, id, "red");
-	/*
-	if (overlay == "astuces"){
-		layer1 = addTracklayer(overlay, "PerpignanCanet", "darkred");
-		layer2 = addTracklayer(overlay, "PerpignanMillas", "darkblue");	
-		layer3 = addTracklayer(overlay, "PerpignanCanetParJardinsStJacques", "red");	
-		layers = [layer1, layer2, layer3];	
-	}else if (overlay == "propositions"){
-		layer1 = addTracklayer(overlay, "RecDelMoli", "red");
-		layers = [layer1];	
-	}*/
+
 	layers = [layer1]; // vorläufig
-			// This function creates a popup window. In this case, the popup is a cloud containing the "name" and "desc" elements from the GPX file.
-		function createPopup(feature) {
-			
+	// This function creates a popup window. In this case, the popup is a cloud containing the "name" and "desc" elements from the GPX file.
+	function createPopup(feature) {
          empty=true;          
 		   content = '<div>';
 			if (feature.attributes.desc){
-				content = '<h3>' + feature.attributes.desc + '</h3>';
+				content = content + '<h3>' + feature.attributes.desc + '</h3>';
 				empty = false;
 			}
 			if (feature.attributes.cmt){

@@ -863,14 +863,15 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(select osm_id,way,route_name,\"network\" from planet_osm_line where route='bicycle' and network in ('ncn','rcn','lcn')) as cycleroutes",
+        "table": "(select osm_id,way,\"network\" ,\n(case when \"route_name:fr\" !='' then  \"route_name:fr\" else route_name end) as route_name\nfrom planet_osm_line where route='bicycle' and network in ('ncn','rcn','lcn')) as cycleroutes",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
         "dbname": "osm",
         "id": "cycleroute",
         "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "cycleroute",
       "class": "cycleroute",
@@ -879,10 +880,10 @@
       "advanced": {},
       "name": "cycleroute",
       "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.044510063645374,
-        42.85361273824522
+        1.6622390983051543,
+        41.508594568161854,
+        7.500332996945854,
+        44.97577695958966
       ]
     },
     {
