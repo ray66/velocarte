@@ -1002,3 +1002,72 @@
  
 }
   
+/*===================================================================================*/
+/* Points on roads
+/*===================================================================================*/
+#barrier{
+
+   
+ 
+  
+  [barrier='cycle_barrier']{
+     [zoom>=16]{
+         point-file: url('img/cycle-barrier.svg');
+         point-ignore-placement: true;
+         point-allow-overlap: true;
+      	 point-transform: 'rotate([angle]) scale(0.75)';
+      }
+     [zoom>=18]{
+      	 point-transform: 'rotate([angle]) ';
+      }
+    }
+  [barrier='gate']{
+     [zoom>=16]{
+         point-file: url('img/gate.svg');
+         point-ignore-placement: true;
+         point-allow-overlap: true;
+      	 point-transform: 'rotate([angle]) scale(0.75)';
+      }
+     [zoom>=18]{
+         point-file: url('img/gate.svg');
+      	 point-transform: 'rotate([angle])';
+      }
+    }
+  [barrier='lift_gate']{
+     [zoom>=16]{
+         point-file: url('img/lift-gate.svg');
+         point-ignore-placement: true;
+         point-allow-overlap: true;
+      	 point-transform: 'rotate([angle]) scale(0.75)';
+      }
+     [zoom>=17]{
+         point-file: url('img/lift-gate.svg');
+      	 point-transform: 'rotate([angle])';
+      }
+    }
+  [barrier='bollard']{
+     [zoom>=16]{
+         point-file: url('img/bollard.svg');
+         point-ignore-placement: true;
+         point-allow-overlap: true;
+      	 point-transform: 'scale(0.75)';
+      }
+     [zoom>=17]{
+         point-file: url('img/bollard.svg');
+         point-transform: 'scale(1)';
+      }
+    }
+  [barrier='block']{
+     [zoom>=16]{
+         point-file: url('img/barrier.svg');
+         point-ignore-placement: true;
+         point-allow-overlap: true;
+      	 point-transform: 'rotate([angle]) scale(0.75)';
+      }
+     [zoom>=17]{
+         point-file: url('img/barrier.svg');
+      	 point-transform: 'rotate([angle])';
+      }
+    }
+}
+

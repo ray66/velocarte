@@ -11,6 +11,9 @@
 	text-name:"[name]";
     text-wrap-width: 40;
     text-fill: #000;
+    [poi_category='historic']{
+    	text-fill: brown;
+    }
     text-face-name: "DejaVu Sans Book";
     text-halo-fill: #fff;
     text-halo-radius: 0;

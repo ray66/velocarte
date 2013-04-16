@@ -12,7 +12,7 @@
   ],
   "format": "png8",
   "interactivity": false,
-  "minzoom": 11,
+  "minzoom": 12,
   "maxzoom": 18,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
@@ -31,10 +31,16 @@
       "Datasource": {
         "file": "/home/rainer/Dokumente/OSM/Render/share/coast.shp"
       },
-      "srs-name": "autodetect",
-      "srs": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "land"
+      "name": "land",
+      "extent": [
+        -1.6565535625,
+        41.269769,
+        3.7325447246093746,
+        43.9048344
+      ]
     },
     {
       "Datasource": {
@@ -860,31 +866,31 @@
       "name": "cycleway_bridge"
     },
     {
-      "geometry": "linestring",
+      "geometry": "point",
+      "extent": [
+        1.726810090759194,
+        42.347109933758674,
+        4.765529524251605,
+        44.883498639999395
+      ],
       "Datasource": {
         "type": "postgis",
-        "table": "(select osm_id,way,\"network\" ,\n(case when \"route_name:fr\" !='' then  \"route_name:fr\" else route_name end) as route_name\nfrom planet_osm_line where route='bicycle' and network in ('ncn','rcn','lcn')) as cycleroutes",
+        "table": "(select angles.osm_id, barriers.barrier,angles.way, angles.angle_diff, angles.angle from (select osm_id, ST_GeometryN(st_union(way),1) as way, max(angle)-min(angle) as angle_diff, avg(angle) as angle from\n  (select p.osm_id, p.way as way, cast(90+degrees(ST_Azimuth(st_line_interpolate_point(ST_Intersection(st_buffer(p.way,0.1), h.way),0),st_line_interpolate_point(ST_Intersection(st_buffer(p.way,0.1), h.way),1))) as integer) % 180 as angle\n   from planet_osm_point  p join planet_osm_line h on (st_intersects(p.way,h.way) and h.highway is not null and h.highway != '' )\n   where (p.barrier is not null and p.barrier not in ('entrance','toll_booth')) and p.way && !bbox!) as crossing group by osm_id ) as angles,\n(select osm_id,barrier from planet_osm_point) as barriers where barriers.osm_id=angles.osm_id\n) as highway_crossings",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
+        "extent": "",
         "dbname": "osm",
-        "id": "cycleroute",
+        "id": "barrier",
         "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": ""
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
-      "id": "cycleroute",
-      "class": "cycleroute",
+      "id": "barrier",
+      "class": "barrier",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cycleroute",
-      "extent": [
-        1.6622390983051543,
-        41.508594568161854,
-        7.500332996945854,
-        44.97577695958966
-      ]
+      "name": "barrier"
     },
     {
       "geometry": "linestring",

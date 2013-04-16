@@ -442,6 +442,33 @@ Update planet_osm_polygon Set relevance =
              End;
 
 Update planet_osm_polygon Set name = network where amenity = 'bicycle_rental';
-          
-                           
+/*------------------------------------------------------------------------------
+ * Pseudo-References VVV
+ *----------------------------------------------------------------------------*/
+CREATE or REPLACE FUNCTION smoosh(text, text) RETURNS text  VOLATILE STRICT
+AS $$
+  DECLARE
+     s1 text;
+     s2 text;
+  BEGIN
+    s1 = substring($1 from 2 for 1);
+    s2 = substring($2 from 2 for 1);
+    IF s1 = lower(s1) THEN s1 = ''; END IF;
+    IF s2 = lower(s2) THEN s2 = ''; END IF;
+    IF  substring($1 from 1 for 1) != '(' THEN
+       RETURN $1||s2 ;
+    else
+       RETURN s1||s2;
+    END IF;
+  END;
+$$ LANGUAGE plpgsql;                           
 
+DROP AGGREGATE smoosh(text);
+CREATE AGGREGATE smoosh(text)                                                                                    (                
+  SFUNC = smoosh,
+  STYPE = text
+);
+
+update planet_osm_line 
+   set ref = (select smoosh(i::text) from (select regexp_split_to_table(tags->'route_name','[ '']')) as i) 
+   where route='bicycle' and ref is null;

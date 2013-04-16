@@ -106,7 +106,7 @@ if [[ $RENDER_ONLY -eq 0 && $OVERLAY_ONLY -eq 0 ]];then
    fi
    export PGPASS="osm"
    # PostGis-Datenbank erstellen
-   cmd="osm2pgsql -c -m -s -d osm -U rainer -W -H localhost $OSMFILE -S $MYPATH/osm2pgsql.style"
+   cmd="osm2pgsql -k -c -m -s -d osm -U rainer -W -H localhost $OSMFILE -S $MYPATH/osm2pgsql.style"
    echo $cmd
    eval $cmd
 
@@ -124,9 +124,9 @@ fi
 TMOPTS="--format=mbtiles --files=$TILEMILL_DATA --bbox=$BBOX --metatile=8"
 
 if [[ $OVERLAY_ONLY -eq 0 ]];then
-   LAYERS="Chemins Routes Base"
+   LAYERS="Itin Chemins Routes Base"
 else
-   LAYERS="Chemins Routes"
+   LAYERS="Itin Chemins Routes"
 fi
 
 for LAYER in $LAYERS;do

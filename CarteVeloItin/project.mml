@@ -1,0 +1,190 @@
+{
+  "bounds": [
+    2.4537,
+    42.3314,
+    3.1829,
+    42.8511
+  ],
+  "center": [
+    2.8358,
+    42.4868,
+    12
+  ],
+  "format": "png8",
+  "interactivity": false,
+  "minzoom": 12,
+  "maxzoom": 18,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "linestring",
+      "extent": [
+        1.6622390983051543,
+        41.508594568161854,
+        7.500332996945854,
+        44.97577695958966
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select osm_id,way,\"network\" ,ref,\n(case when exist(tags,'route_name:fr') then  tags->'route_name:fr' else  tags->'route_name' end) as route_name,\nCASE WHEN ref is not null THEN CHAR_LENGTH(ref) ELSE 0 END AS ref_length\nfrom planet_osm_line where route='bicycle' and network in ('ncn')) as cycleroutes",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm",
+        "id": "cycleroute_ncn",
+        "project": "CarteVeloItin",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "cycleroute_ncn",
+      "class": "cycleroute ncn line",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "cycleroute_ncn"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        1.6622390983051543,
+        41.508594568161854,
+        7.500332996945854,
+        44.97577695958966
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select osm_id,way,\"network\" ,ref,\n(case when exist(tags,'route_name:fr')  then  tags->'route_name:fr' else  tags->'route_name' end) as route_name,\nCASE WHEN ref is not null THEN CHAR_LENGTH(ref) ELSE 0 END AS ref_length\nfrom planet_osm_line where route='bicycle' and network in ('rcn')) as cycleroutes",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm",
+        "id": "cycleroute_rcn",
+        "project": "CarteVeloItin",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "cycleroute_rcn",
+      "class": "cycleroute rcn line",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "cycleroute_rcn"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        1.6622390983051543,
+        41.508594568161854,
+        7.500332996945854,
+        44.97577695958966
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select osm_id,way,\"network\" ,ref,\n(case when exist(tags,'route_name:fr')  then  tags->'route_name:fr' else  tags->'route_name' end) as route_name,\nCASE WHEN ref is not null THEN CHAR_LENGTH(ref) ELSE 0 END AS ref_length\nfrom planet_osm_line where route='bicycle' and network in ('lcn')) as cycleroutes",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm",
+        "id": "cycleroute",
+        "project": "CarteVeloItin",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "cycleroute_lcn",
+      "class": "cycleroute lcn line",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "cycleroute_lcn"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        1.6622390983051543,
+        41.508594568161854,
+        7.500332996945854,
+        44.97577695958966
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select osm_id,way,\"network\" ,ref,\n(case when exist(tags,'route_name:fr')  then  tags->'route_name:fr' else tags->'route_name' end) as route_name,\nCASE WHEN ref is not null THEN CHAR_LENGTH(ref) ELSE 0 END AS ref_length\nfrom planet_osm_line where route='bicycle' and network in ('ncn')) as cycleroutes",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm",
+        "id": "cycleroute",
+        "project": "CarteVeloItin",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "cycleroute_ncn_shield",
+      "class": "cycleroute ncn shield",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "cycleroute_ncn_shield"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        1.6622390983051543,
+        41.508594568161854,
+        7.500332996945854,
+        44.97577695958966
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select osm_id,way,\"network\" ,ref,\n(case when exist(tags,'route_name:fr')  then  tags->'route_name:fr' else tags->'route_name' end) as route_name,\nCASE WHEN ref is not null THEN CHAR_LENGTH(ref) ELSE 0 END AS ref_length\nfrom planet_osm_line where route='bicycle' and network in ('rcn')) as cycleroutes",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm",
+        "id": "cycleroute_rcn",
+        "project": "CarteVeloItin",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "cycleroute_rcn_shield",
+      "class": "cycleroute rcn shield",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "cycleroute_rcn_shield"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        1.6622390983051543,
+        41.508594568161854,
+        7.500332996945854,
+        44.97577695958966
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select osm_id,way,\"network\" ,ref,\n(case when exist(tags,'route_name:fr')  then  tags->'route_name:fr' else tags->'route_name' end) as route_name,\nCASE WHEN ref is not null THEN CHAR_LENGTH(ref) ELSE 0 END AS ref_length\nfrom planet_osm_line where route='bicycle' and network in ('lcn')) as cycleroutes",
+        "key_field": "osm_id",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm",
+        "id": "cycleroute",
+        "project": "CarteVeloItin",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "cycleroute_lcn_shield",
+      "class": "cycleroute lcn shield",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "cycleroute_lcn_shield"
+    }
+  ],
+  "scale": 1,
+  "metatile": 10,
+  "name": "Carte Velo Itinéraires",
+  "description": "",
+  "attribution": ""
+}

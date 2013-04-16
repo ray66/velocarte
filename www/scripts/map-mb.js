@@ -53,6 +53,14 @@ function mbtilesURLBase (bounds) {
    return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+y;
    
 }
+function mbtilesURLItin (bounds) {
+   var db = "CarteVeloItin.mbtiles";
+   var res = this.map.getResolution();
+   var x = Math.round ((bounds.left - this.maxExtent.left) / (res * this.tileSize.w));
+   var y = Math.round ((this.maxExtent.top - bounds.top) / (res * this.tileSize.h));
+   var z = this.map.getZoom()+zOffset;
+   return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+y;
+}
 function mbtilesURLChemins (bounds) {
    var db = "CarteVeloChemins.mbtiles";
    var res = this.map.getResolution();
@@ -280,8 +288,6 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
                   "Openstreetmap Mapnik",
                   "",
                   {
-
-
                      maxResolution : maxRes,
                         //resolutions: [38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
                      zoomOffset : zOffset,
@@ -300,7 +306,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
                      maxResolution : maxRes,
                         //resolutions: [38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
                      zoomOffset : zOffset,
-                     zoomOffset : zOffset,
+                     numZoomLevels: zoomLevels,
                      isBaseLayer: true,
                      transitionEffect: "resize",
                      tileOptions: {crossOriginKeyword: null}
@@ -330,6 +336,20 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
       
    );   
    layerRoutes.setVisibility(false);
+
+   var layerItin = new OpenLayers.Layer.OSM(
+      "Itinéraires cyclables",
+      "mbtiles.php?db=CarteVeloItin.mbtiles&z=${z}&x=${x}&y=${y}", 
+      {
+         /*transitionEffect: "resize",*/
+         maxResolution : maxRes,
+         zoomOffset : zOffset,
+         numZoomLevels: zoomLevels,
+         isBaseLayer: false
+      }
+      
+   );   
+   layerItin.setVisibility(true);
 
    var layerChemins = new OpenLayers.Layer.OSM(
       "Chemins",
@@ -377,9 +397,9 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    
    if (deployed){
       if (detailExtent != null){
-         map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerRoutes, layerChemins, layerContour, layerBoxes ]);
+         map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerItin, layerRoutes, layerChemins, layerContour, layerBoxes ]);
       }else{
-         map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerRoutes, layerChemins, layerContour ]);
+         map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerItin, layerRoutes, layerChemins, layerContour ]);
       }
    }else{
       map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerBingAerial, layerRoutes, layerChemins, layerContour, layerBoxes ]);
