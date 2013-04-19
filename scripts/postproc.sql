@@ -279,6 +279,7 @@ Update planet_osm_point Set poi_category =
            WHEN tourism != '' THEN 'tourism'
            WHEN aeroway != '' THEN 'aeroway'
            WHEN shop != '' THEN 'shop'
+           WHEN tags->'office' != '' THEN 'office'
            WHEN "natural" != '' THEN 'natural'
            ELSE ''
        END;
@@ -289,6 +290,7 @@ Update planet_osm_polygon Set poi_category =
            WHEN tourism != '' THEN 'tourism'
            WHEN aeroway != '' THEN 'aeroway'
            WHEN shop != '' THEN 'shop'
+           WHEN tags->'office' != '' THEN 'office'
            WHEN "natural" != '' THEN 'natural'
            ELSE ''
        END;
@@ -299,6 +301,7 @@ Update planet_osm_point Set poi_type =
            WHEN tourism != '' THEN tourism
            WHEN aeroway != '' THEN aeroway
            WHEN shop != '' THEN shop
+           WHEN tags->'office' != '' THEN 'office'
            WHEN "natural" != '' THEN "natural"
            ELSE ''
        END;
@@ -309,6 +312,7 @@ Update planet_osm_polygon Set poi_type =
            WHEN tourism != '' THEN tourism
            WHEN aeroway != '' THEN aeroway
            WHEN shop != '' THEN shop
+           WHEN tags->'office' != '' THEN tags->'office'
            WHEN "natural" != '' THEN "natural"
            ELSE ''
        END;
@@ -357,6 +361,7 @@ Update planet_osm_point Set relevance =
                   or (amenity='recycling' and recycling_type='centre')
                   or leisure in ('swimming_pool')
                   or "power" in ('generator')
+                  or poi_type in ('ngo', 'administrative','foundation','government')
              Then 'medium'
              When amenity in ('cinema',
                               'fountain',
@@ -422,6 +427,7 @@ Update planet_osm_polygon Set relevance =
                   or (amenity='recycling' and recycling_type='centre')
                   or leisure in ('swimming_pool')
                   or "power" in ('generator')
+                  or poi_type in ('ngo', 'administrative','foundation','government')
              Then 'medium'
              When amenity in ('cinema',
                               'fountain',

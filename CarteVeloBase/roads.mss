@@ -840,7 +840,7 @@
 
 .road.ref[zoom>=14][highway='trunk'],
 .road.ref[zoom>=14][highway='primary'],
-.road.ref[zoom>=15][highway='secondary']{
+.road.ref[zoom>=14][highway='secondary']{
     shield-name:"[ref_content]";
     shield-file: url('img/cartouche_autoroute-3.png');
     shield-face-name: "DejaVu Sans Bold";
@@ -859,7 +859,8 @@
 }
 
 
-.road.ref[zoom>=15][highway='tertiary']{
+.road.ref[zoom>=14][highway='tertiary'],
+.road.ref[zoom>=15][highway='unclassified']{
     shield-name:"[ref_content]";
     shield-file: url('img/cartouche_autoroute-3.png');
     shield-face-name: "DejaVu Sans Bold";

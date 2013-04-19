@@ -120,23 +120,23 @@
          	         l'association <a href="http://veloentet.free.fr/spip.php?breve55&amp;var_recherche=astuces" target="_blank">Vélo En Tet</a>
          	       </p>
          	         <form id="circuitSelect">
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanCanet"></div>
-         	            <div class="checkbox-text"> <h3>Perpignan - Canet par le Mas LLaro</h3> </div>
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanCanetParJardinsStJacques"></div>
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanCanet" data-color="blue"></div>
+         	            <div class="checkbox-text"> <h3>Perpignan - Canet par le Mas LLaro</h3></div>
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanCanetParJardinsStJacques" data-color="brown"></div>
          	            <div class="checkbox-text"> <h3>Perpignan - Canet par les Jardins St.Jacques</h3> </div>
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanMillas"></div>
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanMillas" data-color="darkmagenta"></div>
          	            <div class="checkbox-text"> <h3>Perpignan - Millas</h3> </div>
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="AlenyaStNazaire"></div>
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="AlenyaStNazaire" data-color="darkcyan"></div>
          	            <div class="checkbox-text"> <h3>Perpignan - Alenya / St.Nazaire</h3> 
 									<p>Itinéraires presque sans prendre de route pour rejoindre Alenya et St.Nazaire. 
 									   Attention certaines parties sont un peu caillouteuses, mais le VTC passe partout.</p>
          	            </div>
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="Arcades"></div>
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="Arcades" data-color="DeepPink"></div>
          	            <div class="checkbox-text"> <h3>Le Serrat d'en Vaquer par l'aqueduc des Arcades</h3> 
 									<p>Voici un chemin calme à deux pas de la bruyante Avenue d'Espagne, le long du Canal de Perpignan et <a href="http://www.culture.gouv.fr/public/mistral/merimee_fr?ACTION=CHERCHER&amp;FIELD_1=REF&amp;VALUE_1=PA00104064" target=_blank>l'aqueduc des Arcades</a> 
 									 </p>
          	            </div>
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="ThuirParLeCanal"></div>
+         	            <div class="checkbox"><input type="checkbox" class="overlay" id="ThuirParLeCanal" data-color="MidnightBlue"></div>
          	            <div class="checkbox-text"> <h3>Las Canals - De Perpignan à Thuir le long du Canal de Perpignan</h3> 
          	            <p>Au début ce chemin qui longe le Canal de Perpignan est assez cahoteux à cause des racines des chênes. </p>
          	            </div>
@@ -149,7 +149,7 @@
                    l'association <a href="http://veloentet.free.fr" target="_blank">Vélo En Tet</a>
                 </p>
          	        <form id="propositionsSelect">
-             	         <div class="checkbox"><input type="checkbox" class="overlay" id="RecDelMoli"></div>
+             	         <div class="checkbox"><input type="checkbox" class="overlay" id="RecDelMoli" data-color="blue"></div>
             	         <div class="checkbox-text"> <h3>Le Rec del Molí</h3>
             	                      <p>Le “Rec del Molí” est un ancien canal d’irrigation qui prend son eau dans la Basse, et la mène jusqu’à Canet-en-Roussillon. 
                                         Vélo en Têt propose qu’il soit aménagé en itinéraire piéton et cyclable du centre de Perpignan jusqu’au littoral. 
@@ -159,23 +159,25 @@
                    	   <div class="toggle-container-bottom"></div>
                   	</form>
               	</div>
-              <div class="trigger">Projets Voies Vertes et Véloroutes</div>
+              <div class="trigger">Voies Vertes et Véloroutes</div>
               <div class="toggle_container">
                 <p>
                 </p>
-         	        <form id="projetsSelect">             	         
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="V81"></div>
-            	         <div class="checkbox-text"> <h3>Véloroute du Piémont Pyrénéen V81</h3>
-            	                      <p>Cette véĺoroute n'est pas encore aménagé entre les Gorges de Galamus et Rivesaltes. Voici le tracé 
-            	                         proposé par le Conseil Général des P.O. 
-       											 </p>
-       						</div>
-             	         <div class="checkbox"><input type="checkbox" class="overlay" id="VvPaysPyreneesMediterranee"></div>
+         	        <form id="projetsSelect">   
+                        <h3>Véloroute du Piémont Pyrénéen - V81</h3>
+                        <p>Cette véĺoroute n'est pas encore aménagé entre les Gorges de Galamus et Rivesaltes. </p>
+                        <div style='margin-left: 20px'>
+                        <div class="checkbox"><input type="checkbox" class="overlay" id="V81-AF3V" data-color="red"></div>
+                        <div class="checkbox-text"> <h4>proposition AF3V</h4></div>
+                        <div class="checkbox"><input type="checkbox" class="overlay" id="V81-CG66" data-color="blue"></div>
+                        <div class="checkbox-text"> <h4>proposition du CG66</h4> </div>
+                        </div><div style='clear:both;padding-top: 1em'></div>
+             	         <div class="checkbox"><input type="checkbox" class="overlay" id="VvPaysPyreneesMediterranee" data-color="darkmagenta"></div>
             	         <div class="checkbox-text"> <h3>Voie Verte en Pays Pyrénées Méditerranée</h3>
             	                      <p>Projet à l'étude par le Conseil Général 66, tracé arrêté, enquête publique terminée.
        											 </p>
        						</div>
-             	         <div class="checkbox"><input type="checkbox" class="overlay" id="Pirinexus"></div>
+             	         <div class="checkbox"><input type="checkbox" class="overlay" id="Pirinexus" data-color="darkcyan"></div>
             	         <div class="checkbox-text"> <h3>Pirinexus</h3>
             	                      <p>Itinéraire cyclotouristique transfronatlier de 353 km</p>
        						</div>

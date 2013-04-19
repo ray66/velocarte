@@ -5,6 +5,7 @@
  </metadata>
  <trk>
   <name>Pirinexus</name>
+  <desc>Pirinexus</desc>
   <extensions>
    <gpxx:TrackExtension>
     <gpxx:DisplayColor>Red</gpxx:DisplayColor>

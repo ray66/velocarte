@@ -7,12 +7,6 @@
   <name>Canet par les Jardins St.Jacques</name>
   <desc>Canet par les Jardins St.Jacques</desc> 
   <cmt>Itinéraire calme et très agréable dans sa première partie qui traverse les Jardins St.Jacques. Après Château-Roussillon et une petite côte bien raide il longe la D617a et puis la voie rapide jusqu'à Canet-Plage. Si vous préférez le calme, combinez cet itinéraire avec un de ceux qui passent par le Mas Llaro.</cmt>
-  <extensions>
-   <gpxx:TrackExtension>
-    <gpxx:DisplayColor>DarkBlue</gpxx:DisplayColor>
-   </gpxx:TrackExtension>
-   <ql:key>1360945625ACTIVE LOG_11_2_15</ql:key>
-  </extensions>
   <trkseg>
    <trkpt lon="2.90966463" lat="42.70268631">
     <ele>22</ele>

@@ -5,6 +5,8 @@
  </metadata>
  <trk>
   <name>Véloroute du Piémont Pyrénéen V81</name>
+  <desc>Véloroute du Piémont Pyrénéen V81</desc>
+  <cmt>Tracé proposé par le Conseil Général</cmt>
   <extensions>
    <gpxx:TrackExtension>
     <gpxx:DisplayColor>DarkBlue</gpxx:DisplayColor>

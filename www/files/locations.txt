@@ -1,0 +1,18 @@
+lat	lon	title	description	icon	iconSize	iconOffset	id
+5262755.86	337417.98	Location vélos	<br>Capacité: <br>Réseau: 	img/bicycle_rental.png	21,25	-10,-25	103
+5265843.63	320392.22	Location vélos	Centre del Mon<br>Capacité: 9<br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5265514.5	322156.5	Location vélos	Palais des Rois de Majorque<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5266206.66	321881.26	Location vélos	Place Gabriel Péri<br>Capacité: 22<br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5266157.75	321538.26	Location vélos	Place de Catalogne<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5267625.55	323113.47	Location vélos	Parc des Expositions<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5267526.19	321849.78	Location vélos	Annexe Mairie de Quartier Nord<br>Capacité: 30<br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5263315.62	337707.97	Location vélos	<br>Capacité: <br>Réseau: 	img/bicycle_rental.png	21,25	-10,-25	103
+5244361.96	338710.18	Location vélos	Velocation<br>Capacité: <br>Réseau: 	img/bicycle_rental.png	21,25	-10,-25	103
+5265713.7	321699	Location vélos	Conservatoire National de Région de Musique<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5263874.96	323045.38	Location vélos	Université<br>Capacité: 20<br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5269979.43	321369.68	Location vélos	Hôpital St Jean<br>Capacité: 19<br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5264954.49	323012.2	Location vélos	Boulevard Kennedy<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5266823.66	322683.83	Location vélos	Palais des congrès Georges Pompidou<br>Capacité: <br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5265892.9	320579.6	Location vélos	Gare SNCF<br>Capacité: 10<br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5266605.82	322136.58	Location vélos	Place de la Victoire<br>Capacité: 30<br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103
+5266153.38	322348.62	Location vélos	Place de la République<br>Capacité: 12<br>Réseau: BIP	img/bicycle_rental.png	21,25	-10,-25	103

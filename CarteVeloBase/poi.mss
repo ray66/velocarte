@@ -3,8 +3,8 @@
 /* ------------------------------------------------------------------ */
 .building.label[zoom>=16][relevance='high'][label_length<=40],
 .poi.label[zoom>=16][relevance='high'][label_length<=40],
-.building.label[zoom>=17][relevance='medium'][label_length<=30],
-.poi.label[zoom>=17][relevance='medium'][label_length<=30],
+.building.label[zoom>=17][relevance='medium'][label_length<=50],
+.poi.label[zoom>=17][relevance='medium'][label_length<=50],
 .building.label[zoom>=18][relevance='low'][label_length<=30],
 .poi.label[zoom>=18][relevance='low'][label_length<=30],
 {

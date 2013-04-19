@@ -16,7 +16,7 @@
  <wpt lon="2.82086658" lat="42.47053146">
   <time>2013-03-12T08:09:11Z</time>
   <name>Section transfrontalière</name>
-  <cmt>Connexion avec le réseau Vies verdes de Girona</cmt>
+  <cmt>Connexion avec le réseau Vies verdes de Girona, tracé final défini dans la DUP</cmt>
   <desc>Section transfrontalière</desc>
   <sym>Flag, Red</sym>
   <extensions>
@@ -25,6 +25,8 @@
  </wpt>
  <trk>
   <name>Section transfrontalière</name>
+  <cmt>Connexion avec le réseau Vies verdes de Girona, tracé final défini dans la DUP</cmt>
+  <desc>Section transfrontalière</desc>
   <extensions>
    <gpxx:TrackExtension>
     <gpxx:DisplayColor>DarkBlue</gpxx:DisplayColor>
@@ -696,6 +698,8 @@
  </trk>
  <trk>
   <name>VoieVerteArgelesCeretCG66</name>
+  <desc>Voie Verte en Pays Pyrénées Méditerranée</desc>
+  <cmt>Tracé final défini dans la DUP</cmt>
   <extensions>
    <gpxx:TrackExtension>
     <gpxx:DisplayColor>DarkBlue</gpxx:DisplayColor>

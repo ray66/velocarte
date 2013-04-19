@@ -3,36 +3,9 @@
  <metadata>
   <time>2013-02-15T09:37:28Z</time>
  </metadata>
- <wpt lon="2.95315695" lat="42.68569946">
-  <time>2013-02-10T13:25:31Z</time>
-  <name>Avis 1</name>
-  <desc>Passage de 200m sur un sentier</desc>
-  <sym>Flag, Red</sym>
-  <extensions>
-   <ql:key>1360502731Avis2</ql:key>
-  </extensions>
- </wpt>
- <wpt lon="2.94865084" lat="42.68752670">
-  <time>2013-02-10T13:29:59Z</time>
-  <name>Avis 2</name>
-  <desc>600 m sur chemin non goudronnée</desc>
-  <sym>Flag, Red</sym>
-  <extensions>
-   <ql:key>1360502999Avis 24</ql:key>
-  </extensions>
- </wpt>
- <wpt lon="2.95385432" lat="42.69429398">
-  <time>2013-02-14T16:53:39Z</time>
-  <name>Avis 3</name>
-  <cmt></cmt>
-  <desc>petit passage terreux en bord d'une vigne </desc>
-  <sym>Flag, Red</sym>
-  <extensions>
-   <ql:key>1360860819Avis 31</ql:key>
-  </extensions>
- </wpt>
  <trk>
   <name>Perpignan Canet par Mas Llaro</name>
+  <desc>Perpignan Canet par Mas Llaro</desc>
   <extensions>
    <gpxx:TrackExtension>
     <gpxx:DisplayColor>DarkBlue</gpxx:DisplayColor>
@@ -852,6 +825,7 @@
  </trk>
  <trk>
   <name>Variante Canet</name>
+  <desc>Perpignan Canet par Mas Llaro</desc>
   <extensions>
    <gpxx:TrackExtension>
     <gpxx:DisplayColor>DarkGreen</gpxx:DisplayColor>
@@ -1216,5 +1190,32 @@
    </trkpt>
   </trkseg>
  </trk>
- <extensions/>
-</gpx>
+ <wpt lon="2.95315695" lat="42.68569946">
+  <time>2013-02-10T13:25:31Z</time>
+  <name>Avis 1</name>
+  <desc>Passage de 200m sur un sentier</desc>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1360502731Avis2</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.94865084" lat="42.68752670">
+  <time>2013-02-10T13:29:59Z</time>
+  <name>Avis 2</name>
+  <desc>600 m sur chemin non goudronnée</desc>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1360502999Avis 24</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.95385432" lat="42.69429398">
+  <time>2013-02-14T16:53:39Z</time>
+  <name>Avis 3</name>
+  <cmt></cmt>
+  <desc>petit passage terreux en bord d'une vigne </desc>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1360860819Avis 31</ql:key>
+  </extensions>
+ </wpt>
+ </gpx>

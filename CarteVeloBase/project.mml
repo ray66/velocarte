@@ -483,7 +483,7 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,name,religion,relevance,poi_category,poi_type,\"capacity:disabled\",wheelchair,\nround(way_area) as size,case when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom,\n                           (CASE WHEN leisure is null THEN ''::text  ELSE leisure END) as leisure,\nCHAR_LENGTH(name)  as label_length\n\t                 FROM planet_osm_polygon\n\t                 WHERE building is not null and building != '' and building !='no'\n                                    and name is not null and name !=''\n                           and relevance in ('high','medium','low')\n\t                 ORDER BY z_order ASC, way_area DESC) AS building_label\n\n",
+        "table": "(SELECT way,name,religion,relevance,poi_category,poi_type,\"capacity:disabled\",wheelchair,\nround(way_area) as size,case when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom,\n                           (CASE WHEN leisure is null THEN ''::text  ELSE leisure END) as leisure,\nCHAR_LENGTH(name)  as label_length\n\t                 FROM planet_osm_polygon\n\t                 WHERE building is not null and building != '' \n                                        and name is not null and name !=''\n                           and relevance in ('high','medium','low')\n\t                 ORDER BY z_order ASC, way_area DESC) AS building_label\n\n",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -493,7 +493,7 @@
         "user": "rainer",
         "password": "osm",
         "id": "building_label",
-        "project": "CarteVelo",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
         "extent": ""
       },
@@ -505,10 +505,10 @@
       "name": "building_label",
       "geometry": "unknown",
       "extent": [
-        1.7224746415349763,
-        42.332754975741686,
-        3.8347919754030575,
-        43.56466715142901
+        1.9567017280424142,
+        42.446890579083934,
+        3.044510063645374,
+        42.91851689468234
       ]
     },
     {
@@ -775,7 +775,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,highway,name, priority, cycleway,oneway, st_length(way) AS length, CHAR_LENGTH(ref) as ref_length,\n\t                        (CASE WHEN CHAR_LENGTH(ref) BETWEEN 2 AND 9 THEN ref ELSE NULL END) AS ref_content,\n                      CHAR_LENGTH(name)  as label_length\n\t                 FROM planet_osm_line WHERE highway IN ('secondary', 'trunk', 'primary', 'motorway', 'motorway_link')  and ref is not null\n\t                 ORDER BY priority ASC, z_order ASC, length DESC) AS major_roads",
+        "table": "(SELECT way,osm_id,highway,name, priority, cycleway,oneway, st_length(way) AS length, CHAR_LENGTH(ref) as ref_length,\n\t                        (CASE WHEN CHAR_LENGTH(ref) BETWEEN 2 AND 9 THEN ref ELSE NULL END) AS ref_content,\n                      CHAR_LENGTH(name)  as label_length\n\t                 FROM planet_osm_line WHERE highway is not null and highway != '' and ref is not null\n\t                 ORDER BY priority ASC, z_order ASC, length DESC) AS major_roads",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -786,14 +786,21 @@
         "password": "osm",
         "id": "road_ref",
         "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "road_ref",
       "class": "road ref",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_ref"
+      "name": "road_ref",
+      "extent": [
+        1.7224746415349763,
+        42.332754975741686,
+        4.770333085570378,
+        44.90431507270263
+      ]
     },
     {
       "geometry": "point",
