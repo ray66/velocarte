@@ -24,7 +24,7 @@
    <link rel="canonical" href="http://velocarte66.fr" />
    <META NAME="description" CONTENT="Carte cycliste de Perpignan et ses environs. La vélocarte est une carte qui s'adresse particulièrement à ceux qui favorisent le vélo comme moyen de transport dans le quotidien et pour les loisirs.">
    <META NAME="revisit-after" CONTENT="After 7 days">
-   <META NAME="Keywords" CONTENT="openstreetmap, carte, velocarte, map, karte, velo, cyclisme, cycliste, bicycle, perpignan, roussillon, pyrenees-orientales">
+   <META NAME="Keywords" CONTENT="openstreetmap, carte, velocarte, map, karte, velo, cyclisme, cycliste, bicycle, perpignan, roussillon, pyrenees, orientales, 66">
    <META NAME="Description" CONTENT="La vélocarte est une carte qui s'adresse particulièrement à ceux qui favorisent le vélo comme moyen de transport dans le quotidien et pour les loisirs.">
   
 </head>
@@ -252,6 +252,7 @@
         						pistes et bandes cyclables, voies vertes, véloroutes, stations de location, parkings à vélo, magasins de vélo.
         						En dehors des agglomérations, la carte expose particulièrement les routes de faible densité de trafic automobile 
         						et les chemins ruraux classés par la qualité de leur revêtement. </p>
+        						<p>La carte couvre la partie est du département des Pyrénées-Orientales (66).</p>
         					</dd> 
         					<dt>Comment est réalisée cette carte ?</dt>
         					<dd><p>Cette carte a été créée grâce au projet <a href="http://www.openstreetmap.fr/" target="_blank">OpenStreetMap</a>. 

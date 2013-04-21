@@ -25,6 +25,7 @@ YES=0
 RENDER_ONLY=0
 IMPORT_ONLY=0
 OVERLAY_ONLY=0
+LIGHT=0
 
 while [[ $# -gt 0 && ${1:0:1} == "-" ]]; do
   # options
@@ -45,6 +46,10 @@ while [[ $# -gt 0 && ${1:0:1} == "-" ]]; do
   -o )
       OVERLAY_ONLY=1
       ;;
+  -l )
+      LIGHT=1
+      ;;
+   
    *)
      echo "invalid option: $1"
      echo $USAGE
@@ -100,7 +105,11 @@ if [[ $RENDER_ONLY -eq 0 && $OVERLAY_ONLY -eq 0 ]];then
          ;;
    esac
    if [[ "$ANSW" == "Y" ]];then
-      cmd="osm_extract.sh -y -s  /data/OSM/Maps/osm/languedoc-roussillon.osm.pbf -p $BBOXFILE"
+      cmd="osm_extract.sh"
+      if [[ $LIGHT -eq 1 ]];then
+         cmd="$cmd -b"
+      fi
+      cmd="$cmd -y -s  /data/OSM/Maps/osm/languedoc-roussillon.osm.pbf -p $BBOXFILE"
       echo $cmd
       eval $cmd
    fi
