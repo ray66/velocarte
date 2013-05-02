@@ -1,6 +1,11 @@
 /*------------------------------------------------------------------------------
  * Ways
  *----------------------------------------------------------------------------*/
+ALTER TABLE planet_osm_line DROP IF EXISTS priority;
+ALTER TABLE planet_osm_line DROP IF EXISTS cycleway_left;
+ALTER TABLE planet_osm_line DROP IF EXISTS cycleway_right;
+ALTER TABLE planet_osm_line DROP IF EXISTS bicycle_access;
+ALTER TABLE planet_osm_line DROP IF EXISTS bicycle_shared;
 ALTER TABLE planet_osm_line ADD priority        integer;
 ALTER TABLE planet_osm_line ADD cycleway_left   text;
 ALTER TABLE planet_osm_line ADD cycleway_right  text;
@@ -28,6 +33,32 @@ Update planet_osm_line SET  oneway  = 'no' where oneway is null;
 Update planet_osm_line SET  railway  = '' where railway is null;
 Update planet_osm_line SET  "power"  = '' where "power" is null;
 Update planet_osm_line SET  "bridge" = 'no' where "bridge" is null;
+/*------------------------------------------------------------------------------
+ * Pseudo-References VVV
+ *----------------------------------------------------------------------------*/
+CREATE or REPLACE FUNCTION agg_initials(text, text) RETURNS text  VOLATILE STRICT
+AS $$
+  DECLARE
+     s1 text;
+     s2 text;
+  BEGIN
+    s1 = substring($1 from 2 for 1);
+    s2 = substring($2 from 2 for 1);
+    IF s1 = lower(s1) THEN s1 = ''; END IF;
+    IF s2 = lower(s2) THEN s2 = ''; END IF;
+    IF  substring($1 from 1 for 1) != '(' THEN
+       RETURN $1||s2 ;
+    else
+       RETURN s1||s2;
+    END IF;
+  END;
+$$ LANGUAGE plpgsql;                           
+
+DROP AGGREGATE IF EXISTS agg_initials(text);
+CREATE AGGREGATE agg_initials(text)                                                                                    (                
+  SFUNC = agg_initials,
+  STYPE = text
+);
 
 /*--- Fix booleans ---*/
 Update planet_osm_line SET  tunnel = (case when tunnel in ('yes','true','1') then 'yes'::text else tunnel::text end);
@@ -79,7 +110,8 @@ Update planet_osm_line SET "cycleway:right" =
 Update planet_osm_line SET bicycle_access =
                   CASE WHEN highway='cycleway' THEN 'designated'
                        WHEN bicycle!='' THEN bicycle
-                       WHEN access IN ('yes', 'vehicle') and vehicle in ('', 'yes', 'designated', 'destination') THEN 'yes'
+                       WHEN highway in ('path', 'footway') and bicycle = '' THEN 'no'
+                       WHEN access IN ('', 'yes', 'vehicle') and vehicle in ('', 'yes', 'designated', 'destination') THEN 'yes'
                        WHEN access ='no' and vehicle in ('yes', 'designated', 'destination') THEN 'yes'
                        ELSE 'no'
                   END;
@@ -87,14 +119,16 @@ Update planet_osm_line SET bicycle_access = 'yes' where bicycle_access='';
 
 
 Update planet_osm_line SET bicycle_shared =
-                  CASE WHEN access in ('yes','designated', 'destination', 'vehicle', 'motor_vehicle','motorcar','motorcycle') 
-                            and (   motor_vehicle in ('', 'yes', 'designated', 'destination') 
-                                 or motorcar      in ('', 'yes', 'designated', 'destination') 
-                                 or motorcycle    in ('', 'yes', 'designated', 'destination') )
+                  CASE WHEN highway in ('path', 'footway')
+                       THEN 'no'
+                       WHEN coalesce(access,'yes') in ('','yes','designated', 'destination', 'vehicle','motor_vehicle','motorcar','motorcycle')
+                            and coalesce(motor_vehicle,'yes') != 'no' 
+                            and coalesce(motorcar,'yes')      != 'no' 
+                            and coalesce(motorcycle,'yes')    != 'no'
                        THEN 'motor_vehicle'
-                       WHEN     motor_vehicle in ('yes', 'designated', 'destination') 
-                             or motorcar      in ('yes', 'designated', 'destination') 
-                             or motorcycle    in ('yes', 'designated', 'destination') 
+                        WHEN    motor_vehicle not in ('', 'no') 
+                             or motorcar      not in ('', 'no') 
+                             or motorcycle    not in ('', 'no') 
                        THEN 'motor_vehicle'
                        WHEN access='agricultural' or agricultural='yes'
                        THEN 'agricultural'
@@ -102,6 +136,8 @@ Update planet_osm_line SET bicycle_shared =
                        THEN 'psv'
                        ELSE 'no'
                    END;
+
+ALTER TABLE planet_osm_line DROP IF EXISTS in_agglo;
 ALTER TABLE planet_osm_line ADD in_agglo text;
 
 update planet_osm_line set in_agglo='no';
@@ -116,8 +152,10 @@ update planet_osm_line set in_agglo='yes' where exists (select way.osm_id,land.o
 update planet_osm_point set amenity='' where amenity='bicycle_parking' and  bicycle_parking='ground_slots';
 update planet_osm_polygon set amenity='' where amenity='bicycle_parking' and  bicycle_parking='ground_slots';
             
-/* Join connected cycleways with identical attributes */             
-drop table cycleways;
+/*------------------------------------------------------------------------------
+ * Join connected cycleways with identical attributes
+ *------------------------------------------------------------------------------*/
+drop table if exists cycleways;
 create table cycleways (id bigserial PRIMARY KEY, 
                         way geometry, 
                         cycleway_right text, 
@@ -128,7 +166,7 @@ create table cycleways (id bigserial PRIMARY KEY,
                         z_order integer);
 insert into cycleways (cycleway_right, way, highway, oneway) 
                       (SELECT "cycleway:right", 
-                              (st_dump(ST_Linemerge(ST_union(way)))).geom,
+                              ST_Linemerge(ST_union(way)),
                               highway,
                               oneway 
                          FROM planet_osm_line 
@@ -136,14 +174,38 @@ insert into cycleways (cycleway_right, way, highway, oneway)
                          GROUP BY "cycleway:right",highway,oneway);
 insert into cycleways (cycleway_left, way, highway, oneway) 
                       (SELECT "cycleway:left", 
-                              (st_dump(ST_Linemerge(ST_union(way)))).geom,
+                              ST_Linemerge(ST_union(way)),
                               highway,
                               oneway 
                          FROM planet_osm_line 
                          WHERE "cycleway:left" !='' 
                          GROUP BY "cycleway:left",highway,oneway);
+/*------------------------------------------------------------------------------
+ * Join connected cycleways with identical attributes
+ *------------------------------------------------------------------------------*/
+drop table if exists cycleroutes;
+create table cycleroutes (id bigserial PRIMARY KEY, 
+                        way geometry, 
+                        "network" text, 
+                        ref text,
+                        route text,
+                        route_name text,
+                        ref_length integer);
 
-     
+update planet_osm_line 
+   set ref = (select agg_initials(i::text) from (select regexp_split_to_table(tags->'route_name','[ '']')) as i) 
+   where route='bicycle' and ref is null;                        
+   
+insert into cycleroutes ("network", ref, way, route, route_name, ref_length) 
+                        (select "network",
+                                ref,
+                                ST_Linemerge(ST_union(way)),
+                                route, 
+                                case when exist(tags,'route_name:fr') then  tags->'route_name:fr' else  tags->'route_name' end as route_name,
+                                CASE WHEN ref is not null THEN CHAR_LENGTH(ref) ELSE 0 END AS ref_length
+                         from planet_osm_line where route='bicycle' and network in ('ncn','rcn','lcn')
+                         group by "network",ref,route,route_name
+                        );
 /*------------------------------------------------------------------------------
  * Create a table with the segments of unclassified roads and tracks which are
  * outside of settlements
@@ -448,33 +510,4 @@ Update planet_osm_polygon Set relevance =
              End;
 
 Update planet_osm_polygon Set name = network where amenity = 'bicycle_rental';
-/*------------------------------------------------------------------------------
- * Pseudo-References VVV
- *----------------------------------------------------------------------------*/
-CREATE or REPLACE FUNCTION smoosh(text, text) RETURNS text  VOLATILE STRICT
-AS $$
-  DECLARE
-     s1 text;
-     s2 text;
-  BEGIN
-    s1 = substring($1 from 2 for 1);
-    s2 = substring($2 from 2 for 1);
-    IF s1 = lower(s1) THEN s1 = ''; END IF;
-    IF s2 = lower(s2) THEN s2 = ''; END IF;
-    IF  substring($1 from 1 for 1) != '(' THEN
-       RETURN $1||s2 ;
-    else
-       RETURN s1||s2;
-    END IF;
-  END;
-$$ LANGUAGE plpgsql;                           
 
-DROP AGGREGATE smoosh(text);
-CREATE AGGREGATE smoosh(text)                                                                                    (                
-  SFUNC = smoosh,
-  STYPE = text
-);
-
-update planet_osm_line 
-   set ref = (select smoosh(i::text) from (select regexp_split_to_table(tags->'route_name','[ '']')) as i) 
-   where route='bicycle' and ref is null;

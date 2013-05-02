@@ -9,6 +9,10 @@ Map {
 @color-track: #888; /*#adadad #736200;*/
 @color-building: #d7d5cf;
 
+@color_cycleway:    #008B00; /*#034ad8*/
+@color_cycleway_outline: #004400;
+
+
 #land {
   ::outline {
     line-color: #85c5d3;

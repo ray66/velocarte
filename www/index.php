@@ -36,7 +36,7 @@
 	<div id="topbar">
 		<table>
 		<tr><td class="left"></td>
-		<td class="center"><h1 class="titre">Vélocarte de Perpignan</h1></td>
+		<td class="center"><h1 class="titre">Vélocarte des Pyrénées-Orientales</h1></td>
 		<td class="right"><a id="contact" href="mailto:cvp66@sfr.fr">Contact</a></td></tr>
 		</table>
    </div>

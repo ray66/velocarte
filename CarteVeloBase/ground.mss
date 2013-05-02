@@ -83,7 +83,7 @@
 {
 	[place='town'][zoom<17],
 	[place='city'][zoom<16], 
-    [place='village'][zoom>=12][zoom<=16],
+    [place='village'][zoom>=11][zoom<=16],
     [place='suburb'][zoom>=14][zoom<=16],
     [place='neighbourhood'][zoom>=12][zoom<=16],
     [place='hamlet'][zoom>=14][zoom<=17],
@@ -160,7 +160,7 @@
          
     }	
   /*text-allow-overlap: true;*/
-	[place='village'][zoom>=12][zoom<=16],
+	[place='village'][zoom>=11][zoom<=16],
 	[place='suburb'][zoom=14][zoom<=16],
   	[place='neighbourhood'][zoom>=12][zoom<=16],
     [place='hamlet'][zoom>=14][zoom<=17],
@@ -170,17 +170,18 @@
 	    text-wrap-character: '-';
     	text-wrap-width: 45;
     }
-	[place='village'][zoom>=12][zoom<=16],
+	[place='village'][zoom>=11][zoom<=16],
 	[place='suburb'][zoom=14][zoom<=16]{
 		text-face-name: "DejaVu Sans Book";
-  		text-size: 14;
   		text-placements: 'X,E,W,11,10,9,8';
 	}
+  	[place='village'][zoom=11]            { text-size: 10; }
   	[place='village'][zoom>=12][zoom<=13]  { text-size: 11; }
 	[place='village'][zoom>=14][zoom<=16]  { text-size: 13; }
 	[place='suburb'][zoom=14]  			   { text-size: 12; }
 	[place='suburb'][zoom>=15][zoom<=16]   { text-size: 14; }
-	[place='neighbourhood'][zoom>=12][zoom<=16],
+
+    [place='neighbourhood'][zoom>=12][zoom<=16],
     [place='hamlet'][zoom>=14][zoom<=17]
 	{
 	    text-face-name: "DejaVu Sans Oblique";

@@ -146,7 +146,7 @@
       }
    }
    [poi_type='picnic_site']{
-      [zoom>=13]{
+      [zoom>=14]{
          point-file: url('img/tourist_picnic.p.16.png');
       }
       [zoom>=17]{

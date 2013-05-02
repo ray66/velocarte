@@ -9,7 +9,7 @@ Map {
 /* Bicycle Routes
 /*===================================================================================*/
 .cycleroute .ncn .line{
-  [zoom>=14]{
+  [zoom>=13]{
     text-name:"[route_name]";
 
     text-face-name: "DejaVu Sans Bold";
@@ -26,7 +26,7 @@ Map {
     line-color: @color-ncn;
     line-opacity: 0.7;
   	
-	[zoom>=12]{ line-width: 5; 	}
+	[zoom>=11]{ line-width: 5; 	}
 	[zoom>=14]{ line-width: 8;  	}
 	[zoom>=16]{ line-width: 11;  	}
 	[zoom>=17]{ line-width: 13;  	}
@@ -34,7 +34,7 @@ Map {
 }
 
 .cycleroute .rcn .line {
-  [zoom>=14]{
+  [zoom>=13]{
     text-name:"[route_name]";
     text-face-name: "DejaVu Sans Bold";
     text-fill: @color-rcn;
@@ -50,42 +50,57 @@ Map {
     line-color: @color-rcn;
     line-opacity: 0.7;
   	
-	[zoom>=12]{ line-width: 2; 	}
+	[zoom>=11]{ line-width: 2; 	}
 	[zoom>=14]{ line-width: 4;  	}
 	[zoom>=16]{ line-width: 6;  	}
 	[zoom>=17]{ line-width: 7;  	}
 	[zoom>=18]{ line-width: 8;  	}
 }
 
-.cycleroute .rcn .shield{
+.cycleroute .shield{
+  ::ncn["network"='ncn'],
+  ::rcn["network"='rcn'],
+  ::lcn["network"='lcn'] {
     shield-name:"[ref]";
     shield-face-name: "DejaVu Sans Bold";
-   shield-size: 10;
-   shield-fill: #fff;
-   shield-avoid-edges: false;
-  shield-placement: line;
-  shield-min-padding: 20;
-  shield-dx: 5;
-  shield-dy: 5;
+    shield-size: 10;
+    shield-fill: #fff;
+    shield-avoid-edges: false;
+    shield-placement: line;
+    shield-dx: 5;
+    shield-dy: 5;
+  }
+
+  ::ncn["network"='ncn']{
+    [zoom>=11]{shield-min-distance: 50;}
+    [zoom>=13]{shield-min-distance: 0;}
+    shield-spacing: 870;
+    shield-file: url('img/cartouche_ncn-2.png');
+	[ref_length=3] { shield-file: url('img/cartouche_ncn-3.png');}
+	[ref_length=4] { shield-file: url('img/cartouche_ncn-4.png');}
+	[ref_length=5] { shield-file: url('img/cartouche_ncn-5.png');}
+	[ref_length=6] { shield-file: url('img/cartouche_ncn-6.png');}
+   }
+  ::rcn["network"='rcn']{
+    [zoom>=11]{shield-min-distance: 0;}
+    [zoom>=13]{shield-min-distance: 0;}
   	shield-file: url('img/cartouche_rcn-2.png');
 	[ref_length=3] { shield-file: url('img/cartouche_rcn-3.png');}
 	[ref_length=4] { shield-file: url('img/cartouche_rcn-4.png');}
 	[ref_length=5] { shield-file: url('img/cartouche_rcn-5.png');}
 	[ref_length>=6] { shield-file: url('img/cartouche_rcn-6.png');}
+  }
+  ::lcn["network"='lcn']{
+    [zoom>=11]{shield-min-distance: 00;}
+    [zoom>=13]{shield-min-distance: 00;}
+    shield-min-padding: 10;
+    shield-spacing: 310;
+  	shield-file: url('img/cartouche_rcn-2.png');
+	[ref_length=3] { shield-file: url('img/cartouche_rcn-3.png');}
+	[ref_length=4] { shield-file: url('img/cartouche_rcn-4.png');}
+	[ref_length=5] { shield-file: url('img/cartouche_rcn-5.png');}
+	[ref_length>=6] { shield-file: url('img/cartouche_rcn-6.png');}
+  }
 }
 
-.cycleroute .ncn .shield{
-    shield-name:"[ref]";
-    shield-file: url('img/cartouche_ncn-2.png');
-    shield-face-name: "DejaVu Sans Bold";
-   shield-size: 10;
-   shield-fill: #fff;
-  shield-placement: line;
-  shield-min-padding: 15;
-  shield-avoid-edges: false;
-	[ref_length=3] { shield-file: url('img/cartouche_ncn-3.png');}
-	[ref_length=4] { shield-file: url('img/cartouche_ncn-4.png');}
-	[ref_length=5] { shield-file: url('img/cartouche_ncn-5.png');}
-	[ref_length=6] { shield-file: url('img/cartouche_ncn-6.png');}
-}
 

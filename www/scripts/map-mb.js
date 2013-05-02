@@ -217,9 +217,9 @@ if (userAgent.indexOf('msie 10.0') > -1 ) {
    proj900913 = new OpenLayers.Projection("EPSG:900913");
 
    if (deployed){
-      maxRes = 38.218514137268066;
-      zoomLevels = 7;
-      zOffset = 12;
+      maxRes = 76.43702827453613;
+      zoomLevels = 8;
+      zOffset = 11;
       restrExtent  = new OpenLayers.Bounds.fromArray(bBox).transform(proj4326, proj900913);
       //detailExtent     = new OpenLayers.Bounds(2.86,42.68,2.92,42.71).transform(proj4326, proj900913);
       detailExtent     = new OpenLayers.Bounds.fromArray(bBoxDetail).transform(proj4326, proj900913);
@@ -230,12 +230,12 @@ if (userAgent.indexOf('msie 10.0') > -1 ) {
    }else{
    //            resolutionLevels = [76.43702827453613, 38.218514137268066, 19.1092570678711, 
    //                                9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834];
-      maxRes = 38.218514137268066;
-      zOffset = 12;
-      zoomLevels = 7;
+      maxRes = 76.43702827453613;
+      zOffset = 11;
+      zoomLevels = 8;
       restrExtent  = new OpenLayers.Bounds.fromArray(bBox).transform(proj4326, proj900913);
       detailExtent     = restrExtent;
-      detailZoom = 12;
+      detailZoom = 11;
    }
    
 
@@ -259,7 +259,7 @@ if (userAgent.indexOf('msie 10.0') > -1 ) {
             })
       ],
       displayProjection : proj4326,
-      resolutions: [38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
+      resolutions: [76.43702827453613, 38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
       projection : proj900913}
    );
 
@@ -274,8 +274,8 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          //getURL: mbtilesURLBase,
          transitionEffect: "resize",
          maxResolution : maxRes,
-         zoomOffset : 12, //zOffset,
-         numZoomLevels: zoomLevels,
+         zoomOffset :    zOffset,
+         numZoomLevels:  zoomLevels,
          isBaseLayer: true,
             transitionEffect: "resize",
          tileOptions: {crossOriginKeyword: null}

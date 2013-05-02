@@ -51,21 +51,35 @@
 /*===================================================================================*/
 
 
-.rail[zoom>=12][tunnel!='yes']
+.rail[zoom>=11]
 {
-    ::bridge[bridge='yes']{
-      		line-color: #d2d2d2;
-    		line-width: 6;
+  ::bridge-out[bridge='yes'][zoom>=13]{
+      		/*line-color: k#d2d2d2;*/
+      		line-color: #6f6f6f;
+    		line-width: 7;
+      	}
+  ::bridge-in[bridge='yes'][zoom>=13]{
+      		/*line-color: k#d2d2d2;*/
+      		line-color: white;
+    		line-width: 5;
       	}
   ::outline{
    		line-join: round;
-   		line-color: #999999;
+   		line-color: darken(#999999,15%);
+		[tunnel='yes']{
+			line-color: lighten(#999999,10%);
+        }
    		line-width: 3;
    }
    line-join: round;
    line-color: #fff;
    line-width: 1;
    line-dasharray: 0,11,8,1;
+   [zoom=11]{
+      line-dasharray: 0,5,4,1;
+   }
+   
+    
 }
 
 /*===================================================================================*/
