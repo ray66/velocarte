@@ -548,7 +548,7 @@
          line-color: #d2d2d2;
          line-width: 6;
     }
-    line-color: #8B4513;
+    line-color: @color-path;
     line-opacity: 1;
 }
 
@@ -785,19 +785,19 @@
    [zoom>=14]{
 	line-cap: butt;
     	line-width: 0.5;
-       	line-color: darken(@color-track,20%);
+       	line-color: @color-track-4-5;
    }
    [zoom>=15]{
     	line-width: 1.5;
-       	line-color: lighten(@color-track,15%);
+       	line-color: @color-track-4-5;
   	}
    [zoom>=16]{
     	line-width: 2;
-       	line-color: lighten(@color-track,15%);
+       	line-color: @color-track-4-5;
   	}
    [zoom>=17]{
     	line-width: 2;
-       	line-color: lighten(@color-track,15%);
+       	line-color: @color-track-4-5;
   	}
 } 
 
@@ -948,31 +948,36 @@
 /* Access (to be improved !!!!!!!!)
 /*===================================================================================*/
 #road_access[zoom>=14]{
-   [access='no'],
-   [access='private'],
-   [vehicle='no'],
-   [vehicle='private'] {
-      [bicycle!='yes']{
-         line-opacity:   1;
-         line-color:     #efa9a9;
-         line-cap:       butt;
-         line-dasharray: 1,3;
-      }
-      [bicycle='yes']{
-         line-opacity:   0.5;
-         line-color:     #cf9;
-         line-cap:       butt;
-         line-dasharray: 6,8;
-      }
+  
+   /* roads other than track grade 2-5 get their width through inline style */
+   [highway='grade2'],
+   [highway='grade3'],
+   [highway='grade4'],
+    [highway='grade5']
+    {
+    	line-width: 4;
    }
+   line-color: transparent;
    [bicycle='no'],
    [bicycle='private']{
       line-opacity:   1;
       line-color:     #efa9a9;
       line-cap:       butt;
-      line-dasharray: 1,3;
+      line-dasharray: 2,5;
    }
    
+   [bicycle!='yes']
+   [bicycle!='permissive']{
+     [access='no'],
+     [access='private'],
+     [vehicle='no'],
+     [vehicle='private'] {
+         line-opacity:   1;
+         line-color:     #efa9a9;
+         line-cap:       butt;
+         line-dasharray: 5,3;
+      }
+   }
 }
 /*===================================================================================*/
 /* Bicycle Routes

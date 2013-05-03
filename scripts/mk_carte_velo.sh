@@ -23,11 +23,11 @@ TILEMILL="/home/rainer/appli/node.js/node_modules/.bin//tilemill"
 TILEMILL_DATA="/home/rainer/Dokumente/OSM/Render/CarteVelo"
 
 AREA="PyreneesOrientales"
-BBOX_TILES=""
 YES=0
 RENDER_ONLY=0
 IMPORT_ONLY=0
 OVERLAY_ONLY=0
+BASE_ONLY=0
 LIGHT=0
 DB=osm
 
@@ -41,8 +41,7 @@ while [[ $# -gt 0 && ${1:0:1} == "-" ]]; do
       RENDER_ONLY=1
       ;;
   -b )
-      shift;
-      BBOX_TILES=$1
+      BASE_ONLY=1
       ;;
   -d )
       shift;
@@ -78,6 +77,29 @@ if [[ $# -ne 0 ]];then
      exit
 fi
 
+IMPORT=1
+OVERLAY=1
+BASE=1
+
+if [[ $IMPORT_ONLY -ne 0 || $RENDER_ONLY -ne 0 || $OVERLAY_ONLY -ne 0 || $BASE_ONLY -ne 0 ]];then
+   IMPORT=0
+   OVERLAY=0
+   BASE=0
+   if [[ $IMPORT_ONLY -eq 1 ]];then
+      IMPORT=1
+   fi
+   if [[ $RENDER_ONLY -eq 1 ]];then
+      OVERLAY=1
+      BASE=1
+   fi
+   if [[ $OVERLAY_ONLY -eq 1 ]];then
+      OVERLAY=1
+   fi
+   if [[ $BASE_ONLY -eq 1 ]];then
+      BASE=1
+   fi
+fi
+
 OSMFILE="${AREA}.pbf"
 
 BBOXFILE="${SHARE}/${AREA}.bbox" 
@@ -96,7 +118,7 @@ fi
 BBOX_DETAIL=`cat $BBOXFILE | awk -F',' '{if(substr($1,1,1)!="#"){print $0;exit}}'`
 echo "BBOX_DETAIL=$BBOX_DETAIL"
 
-if [[ $RENDER_ONLY -eq 0 && $OVERLAY_ONLY -eq 0 ]];then
+if [[ $IMPORT -eq 1 ]];then
    # Extrakt aus OSM-Datei erstellen
    ANSW="Y"
    echo $OSMFILE
@@ -141,62 +163,68 @@ if [[ $RENDER_ONLY -eq 0 && $OVERLAY_ONLY -eq 0 ]];then
    eval $cmd 2>> $LOG | tee -a $LOG
 fi
 
-if [[ $IMPORT_ONLY -eq 1 ]];then
+if [[ $BASE -eq 0 && $OVERLAY -eq 0 ]];then
    exit
 fi
 
-# Tiles generieren
-TMOPTS="--format=mbtiles --files=$TILEMILL_DATA --bbox=$BBOX --metatile=8"
-LAYERS="Itin Chemins Routes"
-
+LAYERS="Itin Chemins Routes Base"
 for LAYER in $LAYERS;do
-   TMP=`mktemp`
-   awk '{if($1=="\"dbname\":"){print $1" \"$DB\","}else{print $0}}' $TILEMILL_DATA/project/CarteVelo${LAYER}/project.mml > $TMP
-   mv -f $TMP $TILEMILL_DATA/project/CarteVelo${LAYER}/project.mml
-   rm -f CarteVelo${LAYER}.mbtiles
-   cmd="$TILEMILL export $TMOPTS --minzoom=11 --maxzoom=18 CarteVelo${LAYER} CarteVelo${LAYER}.mbtiles"
-   echo $cmd | tee >> $LOG
-   eval $cmd 2>> $LOG
+      TMP=`mktemp`
+      awk -v DB=$DB '{if($1=="\"dbname\":"){printf "        "$1" \""DB"\"";if(substr($2,length($2),1)==","){print ","}else{print ""}}else{print $0}}' $TILEMILL_DATA/project/CarteVelo${LAYER}/project.mml > $TMP
+      mv -f $TMP $TILEMILL_DATA/project/CarteVelo${LAYER}/project.mml
 done
 
-if [[ $OVERLAY_ONLY -eq 0 ]];then
+# Tiles generieren
+
+if [[ $OVERLAY -eq 1 ]];then
+   TMOPTS="--format=mbtiles --files=$TILEMILL_DATA --bbox=$BBOX --metatile=8"
+   LAYERS="Itin Chemins Routes"
+   for LAYER in $LAYERS;do
+      rm -f CarteVelo${LAYER}.mbtiles
+      cmd="$TILEMILL export $TMOPTS --minzoom=11 --maxzoom=18 CarteVelo${LAYER} CarteVelo${LAYER}.mbtiles"
+      echo $LAYER | tee -a  $LOG
+      echo $cmd >> $LOG
+      eval $cmd 2>> $LOG
+   done
+fi
+
+if [[ $BASE -eq 1 ]];then
    LAYERS="Base"
    for LAYER in $LAYERS;do
-      TMP=`mktemp`
-      awk '{if($1=="\"dbname\":"){print $1" \"$DB\","}else{print $0}}' $TILEMILL_DATA/project/CarteVelo${LAYER}/project.mml > $TMP
-      mv -f $TMP $TILEMILL_DATA/project/CarteVelo${LAYER}/project.mml
       rm -f CarteVelo${LAYER}_zoom_high.mbtiles
       cmd="$TILEMILL export --format=mbtiles --files=$TILEMILL_DATA --bbox=$BBOX_DETAIL --metatile=8"
       cmd="$cmd --minzoom=17 --maxzoom=18"
       cmd="$cmd CarteVelo${LAYER} CarteVelo${LAYER}_zoom_high.mbtiles"
-      echo $cmd | tee >> $LOG
+      echo CarteVelo${LAYER}_zoom_high | tee -a  $LOG
+      echo $cmd >> $LOG
       eval $cmd 2>> $LOG
       
       rm -f CarteVelo${LAYER}_zoom_low.mbtiles
       cmd="$TILEMILL export --format=mbtiles --files=$TILEMILL_DATA --bbox=$BBOX --metatile=8"
       cmd="$cmd --minzoom=11 --maxzoom=16"
       cmd="$cmd CarteVelo${LAYER} CarteVelo${LAYER}_zoom_low.mbtiles"
-      echo $cmd | tee >> $LOG
+      echo CarteVelo${LAYER}_zoom_low | tee -a  $LOG
+      echo $cmd >> $LOG
       eval $cmd 2>> $LOG
    done
+
+   rm -rf CarteVeloBase_zoom_high
+   rm -rf CarteVeloBase
+
+   cmd="mb-util CarteVeloBase_zoom_high.mbtiles CarteVeloBase_zoom_high"
+   echo $cmd >> $LOG
+   eval $cmd 2>> $LOG
+   cmd="mb-util CarteVeloBase_zoom_low.mbtiles CarteVeloBase"
+   echo $cmd >> $LOG
+   eval $cmd 2>> $LOG
+
+   cp -rf CarteVeloBase_zoom_high/* CarteVeloBase
+
+   rm -f CarteVeloBase.mbtiles
+
+   cmd="mb-util CarteVeloBase CarteVeloBase.mbtiles"
+   echo $cmd >> $LOG
+   eval $cmd 2>> $LOG
 fi
-
-rm -rf CarteVeloBase_zoom_high
-rm -rf CarteVeloBase
-
-cmd="mb-util CarteVeloBase_zoom_high.mbtiles CarteVeloBase_zoom_high"
-echo $cmd | tee >> $LOG
-eval $cmd 2>> $LOG
-cmd="mb-util CarteVeloBase_zoom_low.mbtiles CarteVeloBase"
-echo $cmd | tee >> $LOG
-eval $cmd 2>> $LOG
-
-cp -rf CarteVeloBase_zoom_high/* CarteVeloBase
-
-rm -f CarteVeloBase.mbtiles
-
-cmd="mb-util CarteVeloBase CarteVeloBase.mbtiles"
-echo $cmd | tee >> $LOG
-eval $cmd 2>> $LOG
 
 # rm -f CarteVeloBase_zoom*

@@ -61,15 +61,20 @@ CREATE AGGREGATE agg_initials(text)                                             
 );
 
 /*--- Fix booleans ---*/
-Update planet_osm_line SET  tunnel = (case when tunnel in ('yes','true','1') then 'yes'::text else tunnel::text end);
-Update planet_osm_line SET  oneway = (case when oneway in ('yes','true','1') then 'yes'::text else oneway::text end);
+Update planet_osm_line SET  tunnel = (case when tunnel in ('yes','true','1') then 'yes'::text else tunnel::text end)
+         WHERE coalesce(highway,'') != '' and tunnel in ('yes','true','1') ;
+
+Update planet_osm_line SET  oneway = (case when oneway in ('yes','true','1') then 'yes'::text else oneway::text end)
+         WHERE coalesce(highway,'') != '' and oneway in ('yes','true','1');
+
 Update planet_osm_line SET  access = (case when access in ('yes','true','1') then 
                                                 'yes'::text 
                                            when access in ('no','false','0') then 
                                                 'no'::text 
                                            else 
                                                 access 
-                                           end);
+                                           end)
+         WHERE coalesce(highway,'') != '';
 
 /*--- Set priority ---*/
 Update planet_osm_line 
@@ -79,9 +84,8 @@ Update planet_osm_line
                         WHEN highway = 'tertiary' THEN 3 
                         WHEN highway IN ('residential', 'unclassified','service') THEN 4
                         ELSE 5
-                        END);
-
-               
+                        END)
+         WHERE coalesce(highway,'') != '';
                   
 /*--- Set cycleway_left ---*/
 Update planet_osm_line SET "cycleway:left" =
@@ -94,7 +98,9 @@ Update planet_osm_line SET "cycleway:left" =
                             'share_busway'::text 
                        ELSE 
                             ''::text
-                       END;
+                       END
+         WHERE coalesce(highway,'') != '';
+                       
 /*--- Set cycleway_right ---*/
 Update planet_osm_line SET "cycleway:right" =
                   CASE WHEN  cycleway = 'lane' or "cycleway:right" = 'lane' THEN
@@ -105,7 +111,9 @@ Update planet_osm_line SET "cycleway:right" =
                            'share_busway'
                        ELSE 
                            ''::text
-                       END;
+                       END
+         WHERE coalesce(highway,'') != '';
+                       
  /*--- Set bicycle_access ---*/
 Update planet_osm_line SET bicycle_access =
                   CASE WHEN highway='cycleway' THEN 'designated'
@@ -114,9 +122,10 @@ Update planet_osm_line SET bicycle_access =
                        WHEN access IN ('', 'yes', 'vehicle') and vehicle in ('', 'yes', 'designated', 'destination') THEN 'yes'
                        WHEN access ='no' and vehicle in ('yes', 'designated', 'destination') THEN 'yes'
                        ELSE 'no'
-                  END;
-Update planet_osm_line SET bicycle_access = 'yes' where bicycle_access='';
-
+                  END
+         WHERE coalesce(highway,'') != '';
+                  
+Update planet_osm_line SET bicycle_access = 'yes' where bicycle_access=''          WHERE coalesce(highway,'') != '';
 
 Update planet_osm_line SET bicycle_shared =
                   CASE WHEN highway in ('path', 'footway')
@@ -135,7 +144,8 @@ Update planet_osm_line SET bicycle_shared =
                        WHEN access='psv' or access='no' and psv='yes'
                        THEN 'psv'
                        ELSE 'no'
-                   END;
+                   END
+         WHERE coalesce(highway,'') != '';
 
 ALTER TABLE planet_osm_line DROP IF EXISTS in_agglo;
 ALTER TABLE planet_osm_line ADD in_agglo text;
@@ -344,7 +354,8 @@ Update planet_osm_point Set poi_category =
            WHEN tags->'office' != '' THEN 'office'
            WHEN "natural" != '' THEN 'natural'
            ELSE ''
-       END;
+       END 
+    where name != '';
 Update planet_osm_polygon Set poi_category = 
       CASE WHEN amenity != '' THEN 'amenity'
            WHEN leisure != '' THEN 'leisure'
@@ -355,7 +366,8 @@ Update planet_osm_polygon Set poi_category =
            WHEN tags->'office' != '' THEN 'office'
            WHEN "natural" != '' THEN 'natural'
            ELSE ''
-       END;
+       END
+    where name != '';
 Update planet_osm_point Set poi_type = 
       CASE WHEN amenity != '' THEN amenity
            WHEN leisure != '' THEN leisure
@@ -366,7 +378,8 @@ Update planet_osm_point Set poi_type =
            WHEN tags->'office' != '' THEN 'office'
            WHEN "natural" != '' THEN "natural"
            ELSE ''
-       END;
+       END
+    where name != '';
 Update planet_osm_polygon Set poi_type = 
       CASE WHEN amenity != '' THEN amenity
            WHEN leisure != '' THEN leisure
@@ -377,7 +390,8 @@ Update planet_osm_polygon Set poi_type =
            WHEN tags->'office' != '' THEN tags->'office'
            WHEN "natural" != '' THEN "natural"
            ELSE ''
-       END;
+       END
+    where name != '';
       
 
 Update planet_osm_point Set relevance =
@@ -443,7 +457,8 @@ Update planet_osm_point Set relevance =
                or historic != ''
              Then 'low' 
              Else ''
-             End;
+             End
+    where name != '';
 
 Update planet_osm_polygon Set relevance =
      CASE When amenity in (
@@ -507,7 +522,8 @@ Update planet_osm_polygon Set relevance =
                or historic != ''
              Then 'low' 
              Else ''
-             End;
+             End
+    where name != '';
 
 Update planet_osm_polygon Set name = network where amenity = 'bicycle_rental';
 
