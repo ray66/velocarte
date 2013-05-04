@@ -110,7 +110,7 @@ fi
 BBOX=`cat $BBOXFILE | awk -F',' '{if(substr($1,1,1)!="#"){print $0;exit}}'`
 echo "BBOX=$BBOX"
 
-BBOXFILE="${SHARE}/${AREA}.bbox"
+BBOXFILE="${SHARE}/Perpi-ville.bbox"
 if [[ ! -f $BBOXFILE ]] ;then
    echo "Datei $BBOXFILE nicht gefunden"
    exit
@@ -170,7 +170,32 @@ fi
 LAYERS="Itin Chemins Routes Base"
 for LAYER in $LAYERS;do
       TMP=`mktemp`
-      awk -v DB=$DB '{if($1=="\"dbname\":"){printf "        "$1" \""DB"\"";if(substr($2,length($2),1)==","){print ","}else{print ""}}else{print $0}}' $TILEMILL_DATA/project/CarteVelo${LAYER}/project.mml > $TMP
+      awk -v DB=$DB '{\
+          if($1=="\"dbname\":"){\
+             printf "        "$1" \""DB"\"";
+             if(substr($2,length($2),1)==","){\
+                print ","\
+             }else{\
+                print ""\
+             }\
+           }else if($1=="\"extent_cache\":"){\
+               printf "        "$1" \"dynamic\"";\
+               if(substr($2,length($2),1)==","){\
+                  print ","\
+               }else{\
+                  print ""\
+               }\
+           }else if($1=="\"extent\":" and substr($2,1,1)=="\"){\
+               printf "        "$1" \"\"";\
+               if(substr($2,length($2),1)==","){\
+                  print ","\
+               }else{\
+                  print ""\
+               }\
+           }else{\
+              print $0
+           }\
+        }' $TILEMILL_DATA/project/CarteVelo${LAYER}/project.mml > $TMP
       mv -f $TMP $TILEMILL_DATA/project/CarteVelo${LAYER}/project.mml
 done
 
@@ -207,7 +232,7 @@ if [[ $BASE -eq 1 ]];then
       echo $cmd >> $LOG
       eval $cmd 2>> $LOG
    done
-
+   exit
    rm -rf CarteVeloBase_zoom_high
    rm -rf CarteVeloBase
 

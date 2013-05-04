@@ -13,7 +13,6 @@ $db = $_GET['db'];
 	$sql = "SELECT * FROM tiles WHERE zoom_level = $zoom AND tile_column = $column AND tile_row = $row";
 	$q = $conn->prepare($sql);
 	$q->execute();
-
 	$q->bindColumn(1, $zoom_level);
 	$q->bindColumn(2, $tile_column);
 	$q->bindColumn(3, $tile_row);
@@ -28,7 +27,7 @@ $db = $_GET['db'];
          $data= fread($fh, 99999);
          fclose($fh);
       }	
-      //header("HTTP/1.0 404 Not Found");
+      //data = header("HTTP/1.0 404 Not Found");
       //echo "###";
    }
    header("Content-Type: image/png");

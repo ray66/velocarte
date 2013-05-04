@@ -12,7 +12,7 @@
   ],
   "format": "png8 z=9",
   "interactivity": false,
-  "minzoom": 12,
+  "minzoom": 11,
   "maxzoom": 18,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
@@ -28,7 +28,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-"dbname": "$DB",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -50,7 +50,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-"dbname": "$DB",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -65,13 +65,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_outline",
-      "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.055185283155737,
-        43.24007555980199
-      ]
+      "name": "road_outline"
     },
     {
       "geometry": "linestring",
@@ -81,7 +75,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-"dbname": "$DB",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -103,7 +97,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-"dbname": "$DB",
+        "dbname": "osm"
       },
       "id": "cycleroute",
       "class": "",

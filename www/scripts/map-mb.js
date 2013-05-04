@@ -26,28 +26,19 @@ OpenLayers.Lang["fr"] = OpenLayers.Util.applyDefaults({
     'S': "S"
    });
 
-function GetOsmUrl (bounds) {
-   var res = this.map.getResolution();
-   var x = Math.round ((bounds.left - this.maxExtent.left) / (res * this.tileSize.w));
-   var y = Math.round ((this.maxExtent.top - bounds.top) / (res * this.tileSize.h));
-   var z = this.map.getZoom();
-   z = z+zOffset;
-   var limit = Math.pow(2, z);
-   if (y < 0 || y >= limit)
-   {
-      return null;
-   } else {
-      var url = this.url + z + "/" + x + "/" + y + "." + this.type;
-      return this.url + z + "/" + x + "/" + y + "." + this.type;
-   }
-}
 
 function mbtilesURLBase (bounds) {
-   var db = "CarteVeloBase.mbtiles";
+   
+   var z = this.map.getZoom()+zOffset;
+   if (z < 17) {
+      var db = "CarteVeloBase_zoom_low.mbtiles";
+   }else{
+      var db = "CarteVeloBase_zoom_high.mbtiles";
+   }
+      
    var res = this.map.getResolution();
    var x = Math.round ((bounds.left - this.maxExtent.left) / (res * this.tileSize.w));
    var y = Math.round ((this.maxExtent.top - bounds.top) / (res * this.tileSize.h));
-   var z = this.map.getZoom()+zOffset;
 
    //return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+((1 << z) - y - 1);
    return this.url+"?db="+db+"&z="+z+"&x="+x+"&y="+y;
@@ -268,10 +259,10 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    // create TMS layer using MBTiles sqlite database
    var layerBase = new OpenLayers.Layer.OSM(
       "Carte Vélo", 
-      "mbtiles.php?db=CarteVeloBase.mbtiles&z=${z}&x=${x}&y=${y}", 
-      //"mbtiles.php", 
+      //"mbtiles.php?db=CarteVeloBase.mbtiles&z=${z}&x=${x}&y=${y}", 
+      "mbtiles.php", 
       {
-         //getURL: mbtilesURLBase,
+         getURL: mbtilesURLBase,
          transitionEffect: "resize",
          maxResolution : maxRes,
          zoomOffset :    zOffset,
