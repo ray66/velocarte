@@ -1,0 +1,9 @@
+/home/rainer/bin/osmosis --read-pbf /data/OSM/Maps/osm/midi-pyrenees.osm.pbf --bounding-polygon file=/tmp/tmp.vaUYKOmwRh completeWays=yes --write-pbf omitmetadata=false file=midi-pyrenees.osm_bb.pbf
+06.05.2013 11:17:12 org.openstreetmap.osmosis.core.Osmosis run
+INFO: Osmosis Version 0.43.1
+06.05.2013 11:17:13 org.openstreetmap.osmosis.core.Osmosis run
+INFO: Preparing pipeline.
+06.05.2013 11:17:13 org.openstreetmap.osmosis.core.Osmosis run
+INFO: Launching pipeline execution.
+06.05.2013 11:17:13 org.openstreetmap.osmosis.core.Osmosis run
+INFO: Pipeline executing, waiting for completion.

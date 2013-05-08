@@ -19,7 +19,7 @@ MYPATH=`dirname $MYPATH`
 echo $MYPATH
 
 SHARE="$MYPATH/../data/"
-TILEMILL="/home/rainer/appli/node.js/node_modules/.bin//tilemill"
+TILEMILL="/home/rainer/appli/node.js/tilemill/index.js"
 TILEMILL_DATA="/home/rainer/Dokumente/OSM/Render/CarteVelo"
 
 AREA="PyreneesOrientales"
@@ -110,12 +110,12 @@ fi
 BBOX=`cat $BBOXFILE | awk -F',' '{if(substr($1,1,1)!="#"){print $0;exit}}'`
 echo "BBOX=$BBOX"
 
-BBOXFILE="${SHARE}/Perpi-ville.bbox"
-if [[ ! -f $BBOXFILE ]] ;then
-   echo "Datei $BBOXFILE nicht gefunden"
+BBOXFILE_DETAIL="${SHARE}/Perpi-ville.bbox"
+if [[ ! -f $BBOXFILE_DETAIL ]] ;then
+   echo "Datei $BBOXFILE_DETAIL nicht gefunden"
    exit
 fi
-BBOX_DETAIL=`cat $BBOXFILE | awk -F',' '{if(substr($1,1,1)!="#"){print $0;exit}}'`
+BBOX_DETAIL=`cat $BBOXFILE_DETAIL | awk -F',' '{if(substr($1,1,1)!="#"){print $0;exit}}'`
 echo "BBOX_DETAIL=$BBOX_DETAIL"
 
 if [[ $IMPORT -eq 1 ]];then
@@ -147,9 +147,9 @@ if [[ $IMPORT -eq 1 ]];then
       if [[ $LIGHT -eq 1 ]];then
          cmd="$cmd -b"
       fi
-      cmd="$cmd -y -s /data/OSM/Maps/osm/languedoc-roussillon.osm.pbf -s /data/OSM/Maps/osm/midi-pyrenees.osm.pbf -s /data/OSM/Maps/osm/andorra.osm.pbf -s /data/OSM/Maps/osm/spain.osm.pbf -p $BBOXFILE"
-      echo $cmd | tee>> $LOG
-      eval $cmd 2>> $LOG
+      cmd="$cmd -y -s /data/OSM/Maps/osm/languedoc-roussillon.osm.pbf -s /data/OSM/Maps/osm/midi-pyrenees.osm.pbf -s /data/OSM/Maps/osm/andorra.osm.pbf -s /data/OSM/Maps/osm/spain.osm.pbf -p $BBOXFILE "
+      echo $cmd | tee >> $LOG
+      eval $cmd 2>&1 | tee -a $LOG
    fi
    export PGPASS="osm"
    # PostGis-Datenbank erstellen
@@ -185,7 +185,7 @@ for LAYER in $LAYERS;do
                }else{\
                   print ""\
                }\
-           }else if($1=="\"extent\":" and substr($2,1,1)=="\"){\
+           }else if($1=="\"extent\":" && substr($2,1,1)=="\""){\
                printf "        "$1" \"\"";\
                if(substr($2,length($2),1)==","){\
                   print ","\
@@ -208,8 +208,8 @@ if [[ $OVERLAY -eq 1 ]];then
       rm -f CarteVelo${LAYER}.mbtiles
       cmd="$TILEMILL export $TMOPTS --minzoom=11 --maxzoom=18 CarteVelo${LAYER} CarteVelo${LAYER}.mbtiles"
       echo $LAYER | tee -a  $LOG
-      echo $cmd >> $LOG
-      eval $cmd 2>> $LOG
+      echo $cmd | tee -a $LOG
+      eval $cmd 2>&1 | tee -a $LOG
    done
 fi
 
@@ -221,35 +221,35 @@ if [[ $BASE -eq 1 ]];then
       cmd="$cmd --minzoom=17 --maxzoom=18"
       cmd="$cmd CarteVelo${LAYER} CarteVelo${LAYER}_zoom_high.mbtiles"
       echo CarteVelo${LAYER}_zoom_high | tee -a  $LOG
-      echo $cmd >> $LOG
-      eval $cmd 2>> $LOG
+      echo $cmd | tee -a $LOG
+      eval $cmd 2>&1 | tee -a $LOG
       
       rm -f CarteVelo${LAYER}_zoom_low.mbtiles
       cmd="$TILEMILL export --format=mbtiles --files=$TILEMILL_DATA --bbox=$BBOX --metatile=8"
       cmd="$cmd --minzoom=11 --maxzoom=16"
       cmd="$cmd CarteVelo${LAYER} CarteVelo${LAYER}_zoom_low.mbtiles"
       echo CarteVelo${LAYER}_zoom_low | tee -a  $LOG
-      echo $cmd >> $LOG
-      eval $cmd 2>> $LOG
+      echo $cmd | tee -a $LOG
+      eval $cmd 2>&1 | tee -a $LOG
    done
    exit
    rm -rf CarteVeloBase_zoom_high
    rm -rf CarteVeloBase
 
    cmd="mb-util CarteVeloBase_zoom_high.mbtiles CarteVeloBase_zoom_high"
-   echo $cmd >> $LOG
-   eval $cmd 2>> $LOG
+   echo $cmd | tee -a $LOG
+   eval $cmd 2>&1 | tee -a $LOG
    cmd="mb-util CarteVeloBase_zoom_low.mbtiles CarteVeloBase"
-   echo $cmd >> $LOG
-   eval $cmd 2>> $LOG
+   echo $cmd | tee -a $LOG
+   eval $cmd 2>&1 | tee -a $LOG
 
    cp -rf CarteVeloBase_zoom_high/* CarteVeloBase
 
    rm -f CarteVeloBase.mbtiles
 
    cmd="mb-util CarteVeloBase CarteVeloBase.mbtiles"
-   echo $cmd >> $LOG
-   eval $cmd 2>> $LOG
+   echo $cmd | tee -a $LOG
+   eval $cmd 2>&1 | tee -a $LOG
 fi
 
 # rm -f CarteVeloBase_zoom*

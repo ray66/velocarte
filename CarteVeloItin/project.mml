@@ -22,110 +22,56 @@
     {
       "geometry": "linestring",
       "extent": [
-        2.037795253854207,
-        42.32786924392634,
-        3.0381616695325016,
-        42.94197522000124
+        2.8395523348827614,
+        42.67536085696792,
+        2.8808103389148596,
+        42.69067037604512
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(select id,way,ref,route_name from cycleroutes where route='bicycle' and network = 'ncn') as cycleroute",
-        "key_field": "id",
+        "table": "(select id,way,network,ref,route_name from cycleroutes where route='bicycle' and network in ('ncn','rcn','lcn')) as cycleroute",
+        "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
         "extent": "",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "id": "cycleroute_ncn",
         "project": "CarteVeloItin",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
-      "id": "cycleroute_ncn",
-      "class": "cycleroute ncn line",
+      "id": "cycleroute_line",
+      "class": "cycleroute line",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cycleroute_ncn"
+      "name": "cycleroute_line"
     },
     {
       "geometry": "linestring",
       "extent": [
-        2.037795253854207,
-        42.32786924392634,
-        3.0381616695325016,
-        42.94197522000124
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(select id,way,ref,route_name from cycleroutes where route='bicycle' and network = 'rcn') as cycleroute",
-        "key_field": "id",
-        "geometry_field": "way",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "osm",
-        "id": "cycleroute_rcn",
-        "project": "CarteVeloItin",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-      },
-      "id": "cycleroute_rcn",
-      "class": "cycleroute rcn line",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "cycleroute_rcn"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        2.037795253854207,
-        42.32786924392634,
-        3.0381616695325016,
-        42.94197522000124
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(select id,way,ref,route_name from cycleroutes where route='bicycle' and network = 'lcn') as cycleroute",
-        "key_field": "id",
-        "geometry_field": "way",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "osm",
-        "id": "cycleroute",
-        "project": "CarteVeloItin",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-      },
-      "id": "cycleroute_lcn",
-      "class": "cycleroute lcn line",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "cycleroute_lcn"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        1.855320290527952,
-        42.32786924392634,
-        3.0381616695325016,
-        42.94199705252705
+        2.8395523348827614,
+        42.67536085696792,
+        2.8808103389148596,
+        42.69067037604512
       ],
       "Datasource": {
         "type": "postgis",
         "table": "(select id,way,\"network\",ref,route_name,ref_length from cycleroutes where route='bicycle' and network in ('ncn','rcn','lcn')) as cycleroute",
-        "key_field": "id",
+        "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
         "extent": "",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "id": "cycleroute_ncn_shield",
         "project": "CarteVeloItin",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
-      "id": "cycleroute_ncn_shield",
-      "class": "cycleroute ncn shield",
+      "id": "cycleroute_shield",
+      "class": "cycleroute shield",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cycleroute_ncn_shield"
+      "name": "cycleroute_shield"
     }
   ],
   "scale": 1,

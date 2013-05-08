@@ -1,0 +1,2 @@
+/home/rainer/bin/mk_carte_velo.sh 
+osm_extract.sh -y -s /data/OSM/Maps/osm/languedoc-roussillon.osm.pbf -s /data/OSM/Maps/osm/midi-pyrenees.osm.pbf -s /data/OSM/Maps/osm/andorra.osm.pbf -s /data/OSM/Maps/osm/spain.osm.pbf -p /home/rainer/Dokumente/OSM/Render/CarteVelo/project/scripts/../data//Perpi-ville.bbox

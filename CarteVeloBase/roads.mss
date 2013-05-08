@@ -14,12 +14,13 @@
     text-halo-fill: #fff;
     text-max-char-angle-delta: 40;
     text-placement-type: dummy;
-	text-comp-op: src-in; /*requires mapnik 2.1 */
+	/*text-comp-op: src-in; requires mapnik 2.1 */
     text-min-distance: 400;
   	text-avoid-edges: false;
     text-spacing: 0;
     text-wrap-width: 40;
     text-dy: 1;
+  /*text-allow-overlap: true;*/
 	/*text-clip: false;*/
 }
 .road.label.major[zoom>=14]
@@ -414,9 +415,6 @@
 
 
 
-.road.outline[zoom>=11][highway='primary'],
-
-
 /* all repeated from above but applicable to bridges specifically 
 .road.inline { outline-color: #d2d2d2; }
 .road.inline[highway='tertiary'] { outline-color: #c3c3c3; }
@@ -634,25 +632,32 @@
  * Oneway arrows
 /**===================================================================================*/
 
-#road_access[zoom>=15]["cycleway:left"!='opposite'][oneway='yes'][highway!='motorway'][highway!='trunk'][highway!='motorway_link'][highway!='trunk_link']
+#road_marker[zoom>=15]["cycleway:left"!='opposite'][oneway='yes'][highway!='motorway'][highway!='trunk'][highway!='motorway_link'][highway!='trunk_link']
 {
-    line-pattern-file: url('img/oneway-arrow.png');
+    marker-file: url('img/oneway-arrow.svg');
+  marker-placement: line;
+  marker-transform: 'scale(0.2)';
+  [zoom>=17]{marker-transform: 'scale(0.25)';}
+  [zoom>=18]{marker-transform: 'scale(0.3)';}
+  marker-spacing: 120;
+  marker-max-error: 0.9;
+  marker-ignore-placement: true;
+  marker-allow-overlap: false;
 }
 
 /* Vélos à contresens */
 
-#road_access[zoom>=15]["cycleway:left"='opposite']{
-    line-pattern-file: url('img/arrow_contresens_mini.png');
-  
-}
-
-#road_access[zoom>=19]["cycleway:left"='opposite']
-{
-    line-pattern-file: url('img/arrow_contresens_small.png');
-}
-#road_access[zoom=20]["cycleway:left"='opposite']
-{
-    line-pattern-file: url('img/arrow_contresens_medium.png');
+#road_marker[zoom>=15]["cycleway:left"='opposite']{
+  marker-file: url('img/arrow-contresens.svg');
+  marker-placement: line;
+  marker-transform: 'scale(0.4)';
+  [zoom>=17]{marker-transform: 'scale(0.5)';}
+  [zoom>=18]{marker-transform: 'scale(0.6)';}
+  marker-spacing: 80;
+  marker-max-error: 0.9;
+  marker-ignore-placement: false;
+  marker-allow-overlap: false;
+  /*marker-comp-op:src-over;*/
 }
 
 /*===================================================================================*/

@@ -8,19 +8,19 @@ Map {
 /*===================================================================================*/
 /* Bicycle Routes
 /*===================================================================================*/
-.cycleroute .ncn .line{
-  [zoom>=13]{
-    text-name:"[route_name]";
-
-    text-face-name: "DejaVu Sans Bold";
-    text-fill: @color-ncn;
-    text-halo-fill: #fff;
-    text-halo-radius: 1;
-	text-size: 10;
-  	text-dy: 10;
-    text-placement: line;
-    text-max-char-angle-delta: 40;
-  }
+#cycleroute_line{
+  ::nat[network='ncn']{
+    [zoom>=13]{
+      text-name:"[route_name]";
+      text-face-name: "DejaVu Sans Bold";
+      text-fill: @color-ncn;
+      text-halo-fill: #fff;
+      text-halo-radius: 1;
+	  text-size: 10;
+  	  text-dy: 10;
+      text-placement: line;
+      text-max-char-angle-delta: 40;
+    }
     line-cap: round;
     line-join: round;
     line-color: @color-ncn;
@@ -31,20 +31,19 @@ Map {
 	[zoom>=16]{ line-width: 11;  	}
 	[zoom>=17]{ line-width: 13;  	}
 	[zoom>=18]{ line-width: 15;  	}
-}
-
-.cycleroute .rcn .line {
-  [zoom>=13]{
-    text-name:"[route_name]";
-    text-face-name: "DejaVu Sans Bold";
-    text-fill: @color-rcn;
-    text-halo-fill: #fff;
-    text-halo-radius: 1;
-	text-size: 10;
-  	text-dy: 10;
-    text-placement: line;
-    text-max-char-angle-delta: 40;
   }
+  ::reg[network='rcn']{
+    [zoom>=13]{
+      text-name:"[route_name]";
+      text-face-name: "DejaVu Sans Bold";
+      text-fill: @color-rcn;
+      text-halo-fill: #fff;
+      text-halo-radius: 1;
+	  text-size: 10;
+  	  text-dy: 10;
+      text-placement: line;
+      text-max-char-angle-delta: 40;
+    }
     line-cap: round;
     line-join: round;
     line-color: @color-rcn;
@@ -55,9 +54,9 @@ Map {
 	[zoom>=16]{ line-width: 6;  	}
 	[zoom>=17]{ line-width: 7;  	}
 	[zoom>=18]{ line-width: 8;  	}
+  }
 }
-
-.cycleroute .shield{
+#cycleroute_shield{
   ::ncn["network"='ncn'],
   ::rcn["network"='rcn'],
   ::lcn["network"='lcn'] {

@@ -43,7 +43,7 @@
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "password": "osm",
         "port": "5432",
@@ -73,7 +73,7 @@
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -103,7 +103,7 @@
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -129,17 +129,17 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,name,waterway,round(way_area) as size  FROM planet_osm_polygon   WHERE landuse IN ('reservoir', 'water','basin')      OR (\"natural\" = 'water' and way_area>200)      OR \"natural\" IN ('lake', 'land')      OR waterway IN ('canal',  'river','riverbank','stream')   ORDER BY z_order ASC) AS water",
+        "table": "(SELECT osm_id,way,name,waterway,coalesce(tunnel,'') as tunnel,round(way_area) as size  FROM planet_osm_polygon   WHERE landuse IN ('reservoir', 'water','basin')      OR (\"natural\" = 'water' and way_area>200)      OR \"natural\" IN ('lake', 'land')      OR waterway IN ('canal',  'river','riverbank','stream')   ORDER BY z_order ASC) AS water",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
         "password": "osm",
         "id": "water_area",
-        "project": "CarteVelo",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
         "extent": ""
       },
@@ -151,27 +151,28 @@
       "name": "water_area",
       "geometry": "unknown",
       "extent": [
-        1.4829800138645184,
-        42.214180138428716,
-        3.332957484408641,
-        43.029895864611994
+        2.791363648770624,
+        42.53808647998357,
+        3.0027969730903417,
+        42.73220195902792
       ]
     },
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,name,waterway,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway FROM planet_osm_line   WHERE \"natural\" = 'water' OR waterway IN ('canal', 'riverbank', 'river','stream')   ORDER BY z_order ASC) AS water",
+        "table": "(SELECT osm_id,way,name,waterway,coalesce(tunnel,'') as tunnel FROM planet_osm_line   WHERE \"natural\" = 'water' OR waterway IN ('canal', 'riverbank', 'river','stream')   ORDER BY z_order ASC) AS water",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
         "password": "osm",
         "id": "water_line",
-        "project": "CarteVelo",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "project": "CarteVeloBase",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "water_line",
       "class": "water line",
@@ -179,7 +180,13 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "water_line",
-      "geometry": "linestring"
+      "geometry": "linestring",
+      "extent": [
+        2.5444990628461928,
+        42.645092868023944,
+        2.9614945922832074,
+        42.74763758135027
+      ]
     },
     {
       "Datasource": {
@@ -188,7 +195,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -209,7 +216,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -230,7 +237,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -238,7 +245,7 @@
         "id": "road_outline",
         "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": "246321.29,5153999.86,383829.6,5348585.48"
+        "extent": ""
       },
       "id": "road_outline",
       "class": "road outline",
@@ -261,7 +268,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -292,7 +299,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -316,7 +323,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -340,7 +347,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -364,7 +371,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -372,7 +379,7 @@
         "id": "road_inline",
         "project": "CarteVelo",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": "246321.29,5153999.86,383829.6,5348585.48"
+        "extent": ""
       },
       "id": "road_inline",
       "class": "road inline",
@@ -395,7 +402,7 @@
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -403,7 +410,7 @@
         "id": "road_access",
         "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": "246321.29,5153999.86,383829.6,5348585.48"
+        "extent": ""
       },
       "id": "road_access",
       "class": "road inline access",
@@ -426,7 +433,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -447,7 +454,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -468,7 +475,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "password": "osm",
         "port": "5432",
@@ -498,7 +505,7 @@
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -530,7 +537,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -561,7 +568,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -587,35 +594,49 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,name,waterway,round(way_area) as size  FROM planet_osm_polygon   WHERE landuse IN ('reservoir', 'water','basin')      OR (\"natural\" = 'water' and way_area>200)      OR \"natural\" IN ('lake', 'land')      OR waterway IN ('canal',  'river','riverbank','stream')   ORDER BY z_order ASC) AS water",
-        "key_field": "osm_id",
+        "table": "(SELECT osm_id,way,name,waterway,coalesce(tunnel,'') as tunnel,round(way_area) as size  FROM planet_osm_polygon   WHERE landuse IN ('reservoir', 'water','basin')      OR (\"natural\" = 'water' and way_area>200)      OR \"natural\" IN ('lake', 'land')      OR waterway IN ('canal',  'river','riverbank','stream')   ORDER BY z_order ASC) AS water",
+        "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm"
+        "dbname": "osm_test",
+        "extent": ""
       },
       "id": "water_area_label",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "water_area_label"
+      "name": "water_area_label",
+      "extent": [
+        2.791363648770624,
+        42.53808647998357,
+        3.0027969730903417,
+        42.73220195902792
+      ]
     },
     {
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,name,waterway,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway FROM planet_osm_line   WHERE \"natural\" = 'water' OR waterway IN ('canal', 'riverbank', 'river','stream')   ORDER BY z_order ASC) AS water",
-        "key_field": "osm_id",
+        "table": "(SELECT osm_id,way,name,waterway,coalesce(tunnel,'') as tunnel FROM planet_osm_line   WHERE \"natural\" = 'water' OR waterway IN ('canal', 'riverbank', 'river','stream')   ORDER BY z_order ASC) AS water",
+        "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm"
+        "dbname": "osm_test",
+        "extent": ""
       },
       "id": "water_line_label",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "water_line_label"
+      "name": "water_line_label",
+      "extent": [
+        2.5444990628461928,
+        42.645092868023944,
+        2.9614945922832074,
+        42.74763758135027
+      ]
     },
     {
       "geometry": "linestring",
@@ -625,7 +646,7 @@
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -633,7 +654,7 @@
         "id": "cycleway",
         "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "extent": "246321.29,5153999.86,383829.6,5348585.48"
+        "extent": ""
       },
       "id": "cycleway",
       "class": "cycleway",
@@ -655,7 +676,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -687,7 +708,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -718,7 +739,7 @@
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -742,7 +763,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -766,7 +787,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -790,13 +811,37 @@
       ]
     },
     {
+      "geometry": "linestring",
+      "extent": [
+        2.5444990628461928,
+        42.645092868023944,
+        2.9614945922832074,
+        42.74763758135027
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way,osm_id,\nCASE WHEN highway='track' and coalesce(tracktype,'')='' then 'grade3' \n           WHEN highway='track' THEN tracktype \n           ELSE highway END as highway,\nname,cycleway,\"cycleway:left\",oneway,tunnel\n FROM planet_osm_line where coalesce(highway, '') not IN ('','footpath', 'footway', 'steps', 'path')  and not(highway='service' and service='parking_aisle')\n               ORDER BY z_order ASC, priority DESC) as marker",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm_test"
+      },
+      "id": "road_marker",
+      "class": "road marker",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "road_marker"
+    },
+    {
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT *, st_length(way) AS length, CHAR_LENGTH(name) AS label_length,\n               (CASE WHEN highway IN ('motorway', 'motorway_link') THEN 0 \n                WHEN highway = 'tertiary' THEN 1 \n                WHEN highway IN ('residential', 'unclassified') THEN 2 \n                WHEN highway = 'service' THEN 3\n                ELSE 4 \n                END\n               ) AS priority \n               FROM planet_osm_polygon\n               WHERE highway IN ('residential', 'unclassified', 'service', 'minor', 'road', 'tertiary', 'pedestrian','aeroway') and (service is null or service != 'parking_aisle')\n               ORDER BY priority ASC, z_order ASC, length DESC) AS road_area",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -821,7 +866,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -852,7 +897,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "host": "localhost",
         "password": "osm",
         "port": "5432",
@@ -876,7 +921,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "id": "transport_point",
         "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
@@ -902,7 +947,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "id": "cycleway_bridge",
         "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
@@ -929,7 +974,7 @@
         "geometry_field": "way",
         "extent_cache": "dynamic",
         "extent": "",
-        "dbname": "osm",
+        "dbname": "osm_test",
         "id": "barrier",
         "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
@@ -956,7 +1001,7 @@
         "geometry_field": "way",
         "extent_cache": "dynamic",
         "extent": "",
-        "dbname": "osm"
+        "dbname": "osm_test"
       },
       "id": "admin",
       "class": "",
@@ -967,7 +1012,7 @@
     }
   ],
   "scale": 1,
-  "metatile": 1,
+  "metatile": 8,
   "name": "Carte Vélo Base",
   "description": "",
   "attribution": ""
