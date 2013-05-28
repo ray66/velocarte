@@ -39,11 +39,11 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": " (SELECT way,osm_id,landuse,name,poi_type,religion\n                 FROM planet_osm_polygon\n                 WHERE (building IS NULL or building = '')\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','sports_centre','theatre')\n                        OR landuse IN ('industrial', 'commercial', 'residential','retail')\n                        OR aeroway !='' OR power != '')\n                 ORDER BY z_order ASC, way_area DESC) AS citylike_area",
+        "table": " (SELECT way,osm_id,landuse,name,poi_type,religion\n                 FROM planet_osm_polygon\n                 WHERE (building IS NULL or building = '')\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','sports_centre','theatre','bus_station')\n                        OR landuse IN ('industrial', 'commercial', 'residential','retail')\n                        OR aeroway !='' OR power != '')\n                 ORDER BY z_order ASC, way_area DESC) AS citylike_area",
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "password": "osm",
         "port": "5432",
@@ -60,10 +60,10 @@
       "advanced": {},
       "name": "citylike_area",
       "extent": [
-        1.4829800138645184,
-        42.214180138428716,
-        3.332957484408641,
-        43.029895864611994
+        2.791363648770624,
+        42.53808647998357,
+        3.0027969730903417,
+        42.73220195902792
       ]
     },
     {
@@ -73,7 +73,7 @@
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -99,11 +99,11 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,poi_category,religion,(CASE WHEN poi_category='historic' THEN 'historic' ELSE poi_type END) as poi_type,round(way_area) as size FROM planet_osm_polygon WHERE     building !=''   ORDER BY z_order ASC, way_area DESC) AS building_area",
+        "table": "(SELECT osm_id,way,poi_category,relevance,religion,(CASE WHEN poi_category='historic' THEN 'historic' ELSE poi_type END) as poi_type,round(way_area) as size FROM planet_osm_polygon WHERE     building !=''   ORDER BY z_order ASC, way_area DESC) AS building_area",
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -120,11 +120,38 @@
       "advanced": {},
       "name": "building_area",
       "extent": [
-        1.4829800138645184,
-        42.214180138428716,
-        3.332957484408641,
-        43.029895864611994
+        2.791363648770624,
+        42.53808647998357,
+        3.0027969730903417,
+        42.73220195902792
       ]
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        2.5444990628461928,
+        42.645092868023944,
+        2.9614945922832074,
+        42.74763758135027
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select way,name, barrier from planet_osm_line \nwhere coalesce(barrier,'') != '') as barrier_lines\n",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm",
+        "id": "barrier_line",
+        "project": "CarteVeloBase",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "barrier_line",
+      "class": "barrier line",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "barrier_line"
     },
     {
       "Datasource": {
@@ -133,7 +160,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -164,7 +191,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -195,7 +222,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -216,7 +243,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -237,7 +264,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -268,7 +295,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -299,7 +326,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -323,7 +350,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -347,7 +374,7 @@
         "key_field": "id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -371,7 +398,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -402,7 +429,7 @@
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -433,7 +460,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -454,7 +481,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -475,7 +502,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "password": "osm",
         "port": "5432",
@@ -505,7 +532,7 @@
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -537,7 +564,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -568,7 +595,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -598,7 +625,7 @@
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "extent": ""
       },
       "id": "water_area_label",
@@ -622,7 +649,7 @@
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "extent": ""
       },
       "id": "water_line_label",
@@ -646,7 +673,7 @@
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -672,11 +699,11 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,name,poi_category,poi_type,religion,\"capacity:disabled\",wheelchair,\nround(way_area) as size ,\ncase when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom\n FROM planet_osm_polygon\n                 WHERE name is not null and building = ''\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','theatre')\n                       OR leisure IN ('park','sports_centre')\n                        OR landuse IN ('industrial', 'commercial', 'cemetery')\n                        OR aeroway != '' OR power !='')\n                 ORDER BY z_order ASC, way_area DESC) as ground_label",
+        "table": "(SELECT osm_id,way,name,poi_category,poi_type,religion,\"capacity:disabled\",wheelchair,\nround(way_area) as size ,\ncase when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom\n FROM planet_osm_polygon\n                 WHERE name is not null and building = ''\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','theatre','bus_station')\n                       OR leisure IN ('park','sports_centre')\n                        OR landuse IN ('industrial', 'commercial', 'cemetery')\n                        OR aeroway != '' OR power !='')\n                 ORDER BY z_order ASC, way_area DESC) as ground_label",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -694,10 +721,10 @@
       "name": "ground_label",
       "geometry": "unknown",
       "extent": [
-        1.7224746415349763,
-        42.332754975741686,
-        3.8347919754030575,
-        43.56466715142901
+        2.791363648770624,
+        42.53808647998357,
+        3.0027969730903417,
+        42.73220195902792
       ]
     },
     {
@@ -708,7 +735,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -739,7 +766,7 @@
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -757,37 +784,68 @@
     },
     {
       "geometry": "linestring",
+      "extent": [
+        2.8538487531349377,
+        42.645092868023944,
+        2.9327028687749497,
+        42.74763758135027
+      ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,highway,name,priority, cycleway,oneway, junction,st_length(way) AS length, CASE WHEN ref is not null THEN CHAR_LENGTH(ref) ELSE 0 END AS ref_length,\n\t                        (CASE WHEN CHAR_LENGTH(ref) BETWEEN 2 AND 9 THEN ref ELSE NULL END) AS ref_content,\n                      CHAR_LENGTH(name)  as label_length\n\t                 FROM planet_osm_line WHERE highway IN ('secondary', 'trunk', 'primary', 'motorway', 'motorway_link') \n\t                 ORDER BY priority ASC, z_order ASC, length DESC) AS major_roads",
-        "key_field": "osm_id",
+        "table": "(SELECT way,\n           highway,\n           st_length(way) AS length, \n           CHAR_LENGTH(name)  as label_length,\n           st_length(way) /  CHAR_LENGTH(name) as ratio,\n           name,\"cycleway:left\",oneway\n FROM oneways \n where coalesce(oneway,'')='yes' and \n              coalesce(highway, '') IN ('living_street','residential','service','unclassified',\n                                     'tertiary','secondary','primary', 'primary_link')  \n               ) as marker",
+        "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "extent": "",
+        "dbname": "osm"
+      },
+      "id": "road_marker_lowz",
+      "class": "road marker lowz",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "road_marker_lowz"
+    },
+    {
+      "geometry": "linestring",
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT  way,highway,name,\ncase when coalesce(short_name,'')!='' then short_name\nwhen substring(name from 1 for 4)='Rue ' then  'R. '||substring(name from 5)\nwhen substring(name from 1 for 7)='Avenue ' then 'Av. '||substring(name from 8)\nwhen substring(name from 1 for 10)='Boulevard ' then 'Bd. '||substring(name from 11)\nwhen substring(name from 1 for 8)='Impasse ' then 'Imp. '||substring(name from 9)\n         else name\n         end as short_name,\npriority,\"cycleway:left\",oneway, st_length(way) AS length,  st_length(way) /  CHAR_LENGTH(name) as ratio,\n                      CHAR_LENGTH(name)  as label_length\n\t                 FROM streets WHERE highway IN ('secondary', 'trunk', 'primary', 'motorway', 'motorway_link') and (coalesce(name ,'')!='' or coalesce(oneway,'')!='')\n\t                 ORDER BY priority ASC, z_order ASC, length DESC) AS major_roads",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
         "password": "osm",
         "id": "road_label_major",
         "project": "CarteVeloBase",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+        "extent": ""
       },
       "id": "road_label_major",
       "class": "road label major",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "road_label_major"
+      "name": "road_label_major",
+      "extent": [
+        2.5444990628461928,
+        42.645092868023944,
+        2.9614945922832074,
+        42.74763758135027
+      ]
     },
     {
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,osm_id,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway,name,priority, oneway,junction,\n                      st_length(way) AS length, \n                      CHAR_LENGTH(name)  as label_length\n                      FROM planet_osm_line \n                      WHERE highway IN ('residential', 'pedestrian', 'unclassified', 'service', 'minor', 'road', 'tertiary') \n          ORDER BY priority ASC, z_order ASC, length desc     ) AS road_label_minor",
-        "key_field": "osm_id",
+        "table": "(SELECT way,highway,name,\n\"cycleway:left\",oneway,\ncase when coalesce(short_name,'')!='' then short_name\nwhen substring(name from 1 for 4)='Rue ' then  'R. '||substring(name from 5)\nwhen substring(name from 1 for 7)='Avenue ' then 'Av. '||substring(name from 8)\nwhen substring(name from 1 for 10)='Boulevard ' then 'Bd. '||substring(name from 11)\nwhen substring(name from 1 for 8)='Impasse ' then 'Imp. '||substring(name from 9)\n         else name\n         end as short_name,\n                      st_length(way) AS length, \n                      CHAR_LENGTH(name)  as label_length,\n                      st_length(way) /  CHAR_LENGTH(name) as ratio\n                      FROM streets \n                      WHERE highway IN ('residential', 'pedestrian', 'living_street','unclassified', 'service', 'minor', 'road', 'tertiary') \n and coalesce(name ,'')!=''  ORDER BY length desc     ) AS road_label_minor",
+        "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -804,35 +862,11 @@
       "advanced": {},
       "name": "road_label_minor",
       "extent": [
-        2.2127417961103704,
-        42.364436574697045,
-        3.055185283155737,
-        43.24007555980199
-      ]
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
         2.5444990628461928,
         42.645092868023944,
         2.9614945922832074,
         42.74763758135027
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way,osm_id,\nCASE WHEN highway='track' and coalesce(tracktype,'')='' then 'grade3' \n           WHEN highway='track' THEN tracktype \n           ELSE highway END as highway,\nname,cycleway,\"cycleway:left\",oneway,tunnel\n FROM planet_osm_line where coalesce(highway, '') not IN ('','footpath', 'footway', 'steps', 'path')  and not(highway='service' and service='parking_aisle')\n               ORDER BY z_order ASC, priority DESC) as marker",
-        "key_field": "",
-        "geometry_field": "way",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "osm_test"
-      },
-      "id": "road_marker",
-      "class": "road marker",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "road_marker"
+      ]
     },
     {
       "Datasource": {
@@ -841,7 +875,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -860,13 +894,40 @@
     },
     {
       "geometry": "linestring",
+      "extent": [
+        2.8538487531349377,
+        42.645092868023944,
+        2.9327028687749497,
+        42.74763758135027
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way,\n           highway,\n           st_length(way) AS length, \n           CHAR_LENGTH(name)  as label_length,\n           st_length(way) /  CHAR_LENGTH(name) as ratio,\n           name,\"cycleway:left\",oneway\n FROM oneways \n where coalesce(oneway,'')='yes' and \n              coalesce(highway, '') IN ('living_street','residential','service','unclassified',\n                                     'tertiary','secondary','primary', 'primary_link') \n               ) as marker",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "osm",
+        "id": "road_marker_highz",
+        "project": "CarteVeloBase",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "road_marker_highz",
+      "class": "road marker highz",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "road_marker_highz"
+    },
+    {
+      "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way,osm_id,highway,name, priority, cycleway,oneway, st_length(way) AS length, CHAR_LENGTH(ref) as ref_length,\n\t                        (CASE WHEN CHAR_LENGTH(ref) BETWEEN 2 AND 9 THEN ref ELSE NULL END) AS ref_content,\n                      CHAR_LENGTH(name)  as label_length\n\t                 FROM planet_osm_line WHERE highway is not null and highway != '' and ref is not null\n\t                 ORDER BY priority ASC, z_order ASC, length DESC) AS major_roads",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "port": "5432",
         "user": "rainer",
@@ -897,7 +958,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "host": "localhost",
         "password": "osm",
         "port": "5432",
@@ -921,7 +982,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "id": "transport_point",
         "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
@@ -947,7 +1008,7 @@
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "id": "cycleway_bridge",
         "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
@@ -962,19 +1023,19 @@
     {
       "geometry": "point",
       "extent": [
-        0.8296293998845146,
-        41.834413595214635,
-        3.4479999995200363,
-        43.24007559512768
+        2.859651199601932,
+        42.65214859516319,
+        2.9194549995936065,
+        42.740042495157766
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(select angles.osm_id, barriers.barrier,angles.way, angles.angle_diff, angles.angle from (select osm_id, ST_GeometryN(st_union(way),1) as way, max(angle)-min(angle) as angle_diff, avg(angle) as angle from\n  (select p.osm_id, p.way as way, cast(90+degrees(ST_Azimuth(st_line_interpolate_point(ST_Intersection(st_buffer(p.way,0.1), h.way),0),st_line_interpolate_point(ST_Intersection(st_buffer(p.way,0.1), h.way),1))) as integer) % 180 as angle\n   from planet_osm_point  p join planet_osm_line h on (ST_DWithin(h.way,p.way,0.1) and h.highway is not null and h.highway != '' )\n   where GeometryType(ST_Intersection(st_buffer(p.way,0.1), h.way)) = 'LINESTRING' and (p.barrier is not null and p.barrier not in ('entrance','toll_booth')) and p.way && !bbox!) as crossing group by osm_id ) as angles,\n(select osm_id,barrier from planet_osm_point) as barriers where way && !bbox! and barriers.osm_id=angles.osm_id\n) as highway_crossings",
+        "table": "(select angles.osm_id, barriers.barrier,angles.way, angles.angle_diff, angles.angle from (select osm_id, st_union(way) as way, max(angle)-min(angle) as angle_diff, avg(angle) as angle from\n  (select p.osm_id, p.way as way, cast(90+degrees(ST_Azimuth(st_line_interpolate_point(ST_Intersection(st_buffer(p.way,0.1), h.way),0),st_line_interpolate_point(ST_Intersection(st_buffer(p.way,0.1), h.way),1))) as integer) % 180 as angle\n   from planet_osm_point  p join planet_osm_line h on (ST_DWithin(h.way,p.way,0.1) and h.highway is not null and h.highway != '' )\n   where GeometryType(ST_Intersection(st_buffer(p.way,0.1), h.way)) = 'LINESTRING' and (p.barrier is not null and p.barrier not in ('entrance','toll_booth')) and p.way && !bbox!) as crossing group by osm_id ) as angles,\n(select osm_id,barrier from planet_osm_point) as barriers where way && !bbox! and barriers.osm_id=angles.osm_id\n) as highway_crossings",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
         "extent": "",
-        "dbname": "osm_test",
+        "dbname": "osm",
         "id": "barrier",
         "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
@@ -1001,7 +1062,7 @@
         "geometry_field": "way",
         "extent_cache": "dynamic",
         "extent": "",
-        "dbname": "osm_test"
+        "dbname": "osm"
       },
       "id": "admin",
       "class": "",

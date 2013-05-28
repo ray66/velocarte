@@ -14,7 +14,7 @@
    id="svg3889"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="barrier.svg">
+   sodipodi:docname="lift-gate.svg">
   <defs
      id="defs3891" />
   <sodipodi:namedview
@@ -31,11 +31,11 @@
      showgrid="true"
      inkscape:grid-bbox="true"
      inkscape:document-units="px"
-     inkscape:window-width="597"
-     inkscape:window-height="728"
-     inkscape:window-x="720"
-     inkscape:window-y="72"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1672"
+     inkscape:window-height="990"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata3894">
     <rdf:RDF>
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -52,6 +52,35 @@
      id="layer1"
      inkscape:label="Layer 1"
      inkscape:groupmode="layer">
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:2.71339345;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 8.2440598,13.16417 0,-18.8602391"
+       id="path3817"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:2.71339345;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 8.3792083,-5.6960691 0,0.7113542"
+       id="path3869-8-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:2.71339345;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 8.2440598,0.1070826 0,0.711354"
+       id="path3869-8-3-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:2.71339345;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 8.2440598,5.9102327 0,0.7113542"
+       id="path3869-8-3-8"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:2.71339345;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 8.2440598,11.713382 0,0.711357"
+       id="path3869-8-3-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <path
        transform="matrix(0,0.58671011,-0.63280876,0,13.087681,10.972859)"
        sodipodi:open="true"
@@ -65,14 +94,6 @@
        id="path3003"
        style="fill:#505050;fill-opacity:1;stroke:none"
        sodipodi:type="arc"
-       inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/CarteVelo/project/CarteVeloBase/img/gate-medium.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path3789"
-       d="M 8.4474929,0.06945079 C 8.310923,14.955411 8.310923,14.955411 8.310923,14.955411"
-       style="fill:none;stroke:#505050;stroke-width:1.23198092;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:3.79999995;stroke-opacity:1;stroke-dasharray:none"
        inkscape:export-filename="/home/rainer/Dokumente/OSM/Render/CarteVelo/project/CarteVeloBase/img/gate-medium.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />

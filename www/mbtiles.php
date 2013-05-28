@@ -7,6 +7,16 @@ $db = $_GET['db'];
   try
   {
     // Open the database
+    //echo $db;
+    if($db == "CarteVeloBase.mbtiles"){
+       if($zoom<17){
+          $db="CarteVeloBase_zoom_low.mbtiles";
+       }else{
+          $db="CarteVeloBase_zoom_high.mbtiles";
+       }
+    }
+    //echo $db;
+    //return;
     $conn = new PDO("sqlite:$db");
 
     // Query the tiles view and echo out the returned image

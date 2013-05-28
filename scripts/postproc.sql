@@ -107,8 +107,8 @@ Update planet_osm_line SET "cycleway:right" =
                            'lane'::text 
                        WHEN  cycleway = 'share_busway' or "cycleway:right" = 'share_busway' THEN
                            'share_busway'::text  
-                       WHEN (access='no' and (psv='yes' or bus='yes') or access='psv') and bicycle='yes' THEN
-                           'share_busway'
+                       --WHEN (access='no' and (psv='yes' or bus='yes') or access='psv') and bicycle='yes' THEN
+                       --    'share_busway'  
                        ELSE 
                            ''::text
                        END
@@ -117,34 +117,67 @@ Update planet_osm_line SET "cycleway:right" =
  /*--- Set bicycle_access ---*/
 Update planet_osm_line SET bicycle_access =
                   CASE WHEN highway='cycleway' THEN 'designated'
-                       WHEN bicycle!='' THEN bicycle
-                       WHEN highway in ('path', 'footway') and bicycle = '' THEN 'no'
-                       WHEN access IN ('', 'yes', 'vehicle') and vehicle in ('', 'yes', 'designated', 'destination') THEN 'yes'
-                       WHEN access ='no' and vehicle in ('yes', 'designated', 'destination') THEN 'yes'
+                       WHEN coalesce(bicycle,'')!='' THEN bicycle
+                       WHEN highway in ('path', 'footway') and coalesce(bicycle,'') = '' THEN 'no'
+                       WHEN highway IN ('motorway', 'motorway_link', 'trunk','trunk_link') THEN 'no'                   
+                       WHEN coalesce(vehicle,'') in ('yes', 'designated', 'destination','permissive') THEN 'yes'
+                       WHEN coalesce(access,'') IN ('','yes', 'designated', 'destination','permissive') THEN 'yes'
                        ELSE 'no'
                   END
          WHERE coalesce(highway,'') != '';
-                  
-Update planet_osm_line SET bicycle_access = 'yes' where bicycle_access=''          WHERE coalesce(highway,'') != '';
 
-Update planet_osm_line SET bicycle_shared =
-                  CASE WHEN highway in ('path', 'footway')
-                       THEN 'no'
-                       WHEN coalesce(access,'yes') in ('','yes','designated', 'destination', 'vehicle','motor_vehicle','motorcar','motorcycle')
-                            and coalesce(motor_vehicle,'yes') != 'no' 
-                            and coalesce(motorcar,'yes')      != 'no' 
-                            and coalesce(motorcycle,'yes')    != 'no'
-                       THEN 'motor_vehicle'
-                        WHEN    motor_vehicle not in ('', 'no') 
-                             or motorcar      not in ('', 'no') 
-                             or motorcycle    not in ('', 'no') 
-                       THEN 'motor_vehicle'
-                       WHEN access='agricultural' or agricultural='yes'
-                       THEN 'agricultural'
-                       WHEN access='psv' or access='no' and psv='yes'
-                       THEN 'psv'
-                       ELSE 'no'
-                   END
+Update planet_osm_line SET bicycle_access = 'yes'
+   where bicycle_access 
+                  
+Update planet_osm_line SET bicycle_access = 'yes' where bicycle_access not in ('no','yes','designated');
+
+CREATE or REPLACE FUNCTION access_motor(highway text, access text, vehicle text, motor_vehicle text, motorcar text, motorcycle text, agricultural text, psv text) RETURNS text  
+AS $$
+  DECLARE
+     s       text;
+  BEGIN
+   
+   s = 'no';
+   if highway not in ('path', 'footway', 'pedestrian', 'cycleway','bridleway') then
+      if coalesce(access,'') = '' then
+         access = 'yes';
+      end if;
+      if coalesce(vehicle, '') = '' then
+         vehicle = access;
+      end if;
+      if coalesce(motor_vehicle, '') = '' then
+         motor_vehicle = vehicle;
+      end if;
+      if coalesce(motorcar, '') = '' then
+         motorcar = motor_vehicle;
+      end if;
+      if coalesce(motorcycle, '') = '' then
+         motorcycle = motor_vehicle;
+      end if;
+
+      if    motor_vehicle in ('yes','permissive','designated','private','destination')
+         or motorcar      in ('yes','permissive','designated','private','destination')
+         or motorcycle    in ('yes','permissive','designated','private','destination') then
+         s = 'yes';
+      else
+         if motor_vehicle='agricultural' or motorcar='agricultural' or motorcycle='agricultural' then
+            s = 'agricultural';
+         else
+            if motor_vehicle='forestry' or motorcar='forestry' or motorcycle='forestry' then
+               s = 'forestry';
+            else
+               if motor_vehicle='psv' or motorcar='psv' or motorcycle='psv' then
+                  s = 'psv';
+               end if;
+            end if;
+         end if;
+      end if;
+   end if;
+   RETURN s;
+  END;
+$$ LANGUAGE plpgsql;
+
+Update planet_osm_line SET bicycle_shared = access_motor(highway,access,vehicle, motor_vehicle, motorcar, motorcycle,agricultural,psv)
          WHERE coalesce(highway,'') != '';
 
 ALTER TABLE planet_osm_line DROP IF EXISTS in_agglo;
@@ -174,6 +207,14 @@ create table cycleways (id bigserial PRIMARY KEY,
                         oneway text,
                         priority integer,
                         z_order integer);
+insert into cycleways (cycleway_right, cycleway_left, way, highway, oneway) 
+                      (SELECT "cycleway:right", "cycleway:left",
+                              way,
+                              highway,
+                              oneway 
+                         FROM planet_osm_line 
+                         WHERE "cycleway:right" !='' or "cycleway:left" !='');
+/*
 insert into cycleways (cycleway_right, way, highway, oneway) 
                       (SELECT "cycleway:right", 
                               ST_Linemerge(ST_union(way)),
@@ -190,8 +231,107 @@ insert into cycleways (cycleway_left, way, highway, oneway)
                          FROM planet_osm_line 
                          WHERE "cycleway:left" !='' 
                          GROUP BY "cycleway:left",highway,oneway);
+*/
 /*------------------------------------------------------------------------------
- * Join connected cycleways with identical attributes
+ * Join connected streets with identical name + oneway attributes
+ *------------------------------------------------------------------------------*/
+CREATE OR REPLACE FUNCTION joinOneways() RETURNS SETOF planet_osm_line AS
+$BODY$
+DECLARE a record;
+DECLARE b record;
+DECLARE c integer;    
+BEGIN
+    drop table if exists pool;
+    create table pool as select * from planet_osm_line where coalesce(oneway,'') not in ('','no');
+    LOOP
+      select count(*) from pool into c;
+      if c = 0 then
+         RETURN;
+      end if;
+      raise notice '%',c;
+      FOR a IN EXECUTE 'select * from pool;'
+      LOOP
+         --raise notice '%', a.osm_id;
+         FOR b IN SELECT * FROM pool
+         LOOP
+            --raise notice '   %', b.osm_id;
+            if st_touches(a.way,b.way) and (st_startpoint(a.way)=st_endpoint(b.way)  or st_startpoint(b.way)=st_endpoint(a.way))
+               and a.name=b.name and a.oneway=b.oneway and a."cycleway:left"=b."cycleway:left"  then
+               a.way = st_linemerge(st_union(a.way,b.way));
+               raise notice 'delete %', b.osm_id;
+               EXECUTE 'delete from pool where osm_id=$1' USING b.osm_id;
+            end if;            
+         END LOOP;
+         EXECUTE 'delete from pool where pool.osm_id=$1' USING a.osm_id;
+         return next a; 
+         EXIT;
+      END LOOP;
+    end loop;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql' ;
+
+
+drop table if exists oneways;
+CREATE TABLE oneways as select * from joinOneways();
+
+/*
+create table oneways (id bigserial PRIMARY KEY, 
+                        oneway text,"cycleway:left" text,way geometry, 
+                        name text,
+                        highway text);
+insert into oneways (oneway,"cycleway:left", way, name, highway) 
+                      (SELECT oneway,"cycleway:left", 
+                              way,
+                              name,
+                              highway
+                         FROM planet_osm_line 
+                         WHERE ("cycleway:left" ='opposite' or oneway = 'yes') and not(highway='service' and service='parking_aisle'));
+
+insert into oneways (oneway,"cycleway:left", way, name, highway) 
+                      (SELECT oneway,"cycleway:left", 
+                              ST_Linemerge(ST_union(way)),
+                              name,
+                              highway
+                         FROM planet_osm_line 
+                         WHERE ("cycleway:left" ='opposite' or oneway = 'yes') and not(highway='service' and service='parking_aisle') 
+                         GROUP BY "cycleway:left",name,oneway,highway);
+
+create table oneways 
+   as select a.highway,a.name,a.oneway, a."cycleway:left",st_linemerge(st_union(a.way,b.way)) as way 
+       from planet_osm_line a, planet_osm_line b 
+       WHERE st_touches(a.way,b.way) and st_startpoint(a.way)=st_endpoint(b.way) and a.oneway=b.oneway and a."cycleway:left"=b."cycleway:left" 
+             and a.highway=b.highway and a.name=b.name
+   UNION select a.highway,a.name,a.oneway, a."cycleway:left",a.way 
+            from planet_osm_line a 
+            where not exists (select * from planet_osm_line b 
+                                 WHERE st_touches(a.way,b.way) 
+                                       and (st_startpoint(a.way)=st_endpoint(b.way) or st_startpoint(b.way)=st_endpoint(a.way)) 
+                                       and a.oneway=b.oneway and a."cycleway:left"=b."cycleway:left" and a.highway=b.highway and a.name=b.name);
+*/
+
+/*------------------------------------------------------------------------------
+ * Join connected streets with identical name
+ *------------------------------------------------------------------------------*/
+drop table if exists streets;
+create table streets (id bigserial PRIMARY KEY, 
+                              way geometry, 
+                        name text,"cycleway:left" text,oneway text,
+                        short_name text,
+                        highway text, priority text, z_order integer);
+insert into streets ( way, name, short_name, highway,"cycleway:left",oneway,priority,z_order ) 
+                      (SELECT ST_Linemerge(ST_union(way)),
+                              name,short_name,
+                              highway,
+                              "cycleway:left",
+                              oneway, priority,z_order
+                         FROM planet_osm_line 
+                         WHERE coalesce(name,'') != ''
+                         GROUP BY name,short_name,highway,"cycleway:left",oneway,priority,z_order);
+
+/*------------------------------------------------------------------------------
+ * Join connected cycleroutes with identical attributes
  *------------------------------------------------------------------------------*/
 drop table if exists cycleroutes;
 create table cycleroutes (id bigserial PRIMARY KEY, 

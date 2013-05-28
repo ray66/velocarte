@@ -150,7 +150,8 @@ body {
 }
 #sidebar div.content{
 	margin: 3px;
-	}
+   clear: both;
+}
 #sidebar div.right{
 	float: right;
 	font-size: 0.8em;
@@ -172,7 +173,7 @@ body {
     margin-bottom: 0px;
     padding: 5px;
     /*text-shadow: 0 1px 0 #FFFFFF;*/
-    width: 320px;	
+    width: 380px;	
     text-align: left;
     font-size: 0.85em;
     font-weight: bold; 
@@ -204,7 +205,7 @@ body {
     padding: 1px;
     width: 100%;
     margin: 0;
-    font-size: 0.77em;
+    font-size: 0.7em;
  }
 .toggle_container p{
 	margin-top: 0; 
@@ -242,18 +243,26 @@ body {
 #sidebar li{
 
 }
+#sidebar .legende_item{
+   clear: left;
+   float: left;
+   margin-top: .8em;
+}   
 #sidebar .legende_img{
 	clear: left;
 	float: left;
-	margin-top: 0em;
-	
+	margin-top: 0.3em;
+    vertical-align: top;
+}
+#sidebar .legende_img img{
+   vertical-align: top;
 }
 #sidebar .legende_img_text{
 	float: left;
-		font-size: 0.77em;
 	margin-left: 1em;
-	margin-top: 0.3em;
+	margin-top: 0em;
    max-width: 250px;
+   vertical-align: top;
 }
 #sidebar .pre{
    font-family: courier new;
@@ -307,6 +316,7 @@ div.checkbox-text{
     background-color: white;
     
 }
+/*
 #page .content{
     border-style: none;
     border-width: 0;
@@ -367,7 +377,7 @@ div.checkbox-text{
 	margin-top: 0.3em;
    max-width: 500px;
 }
-
+*/
 
 #noscript{
    max-width: 450px;
@@ -376,7 +386,7 @@ div.checkbox-text{
 /*-----------------------------------------------------------*/
 /* Divers, (non utilisés actuellement)
 /*-----------------------------------------------------------*/
-        
+/*        
         #divPoi {
            float:left;
            clear:right;
@@ -405,7 +415,7 @@ div.checkbox-text{
         #streetSelect {
          width: 90%;
         }        
-/*        #searchresult {   echo "</div>";
+       #searchresult {   echo "</div>";
 
              clear:both;
              float:left;
@@ -416,4 +426,6 @@ div.checkbox-text{
             border-width: 1px; 
              height: 415px;
              overflow: scroll
-        }*/
+        }
+        
+        */

@@ -55,17 +55,17 @@
     }
 }
 
-.building .area{
+#building_area{
    [zoom>=13]{
       polygon-fill: @color-building;
       line-color:  darken(@color-building,5%);
       line-width: 0;
-   }
-   [zoom=15]{
-      [poi_type='place_of_worship'],
-      [poi_type='townhall'],
-      [poi_type='historic']{
+      [relevance='high'],
+      [relevance='medium']{
          polygon-fill: #ababab;
+		 [zoom>=17]{
+        	polygon-fill: lighten(#ababab,10%);
+         }
       }
    }
 	[zoom=16]{
@@ -75,7 +75,32 @@
    	  line-width: 1;
     }  
 }
-
+/* ------------------------------------------------------------------ */
+/* Barrier lines
+/* ------------------------------------------------------------------ */
+#barrier_line{
+  [barrier='city_wall'][zoom>=13]{
+    line-width: 1;
+	[zoom>=15]{ line-width: 1.5;}
+	[zoom>=16]{ line-width: 1.5;}
+	[zoom>=17]{ line-width: 3;}
+    line-color: #ababab;
+		 [zoom>=17]{
+        	line-color: lighten(#ababab,10%);
+         }
+    line-smooth: 0.1;
+  }
+  [barrier='fence'][zoom>=16]{
+    ::out{
+      line-width: 2;
+      line-offset: 1;
+      line-dasharray: 2,15;
+      line-color: #004400;
+    }
+    line-width: 1;
+    line-color: #004400;
+  }
+ } 
 /* ------------------------------------------------------------------ */
 /* Place labels
 /* ------------------------------------------------------------------ */
@@ -202,41 +227,43 @@
 /* ------------------------------------------------------------------ */
 /* "Ground" labels
 /* ------------------------------------------------------------------ */
-.ground.label[size>80000][zoom=15][poi_category!='leisure'][poi_type!='school'] ,
-.ground.label[size>80000][zoom=15][poi_type='park'] ,
-.ground.label[size>25000][zoom=16][poi_category!='leisure'] ,
-.ground.label[size>25000][zoom=16][poi_type='park'] ,
-.ground.label[size>25000][zoom=16][poi_type='sports_centre']{
-    text-name: "[name_low_zoom]";
-    text-wrap-width: 40;
-    text-face-name: "DejaVu Sans Book";
-    text-fill: #000;
-    text-halo-fill: #fff;
-    text-halo-radius: 1;
-    text-avoid-edges: false;
-  	text-placement: interior;
-    text-placement-type: simple;
-  	text-size: 12;
-    text-placements: 'X,N,E,S,W,12,11,10';
-    text-dy: -5;
-    text-line-spacing: 0;
-}
+#ground_label{
+  	[size>80000][zoom=15][poi_category!='leisure'][poi_type!='school'] ,
+	[size>80000][zoom=15][poi_type='park'] ,
+	[size>25000][zoom=16][poi_category!='leisure'] ,
+	[size>25000][zoom=16][poi_type='park'] ,
+	[size>25000][zoom=16][poi_type='sports_centre']{
+    	text-name: "[name_low_zoom]";
+    	text-wrap-width: 40;
+    	text-face-name: "DejaVu Sans Book";
+    	text-fill: #000;
+    	text-halo-fill: #fff;
+    	text-halo-radius: 1;
+    	text-avoid-edges: false;
+  		text-placement: interior;
+    	text-placement-type: simple;
+  		text-size: 12;
+    	text-placements: 'X,N,E,S,W,12,11,10';
+    	text-dy: -5;
+    	text-line-spacing: 0;
+	}
 
-.ground.label[zoom>=17]{
-    text-name:"[name]";
-    text-wrap-width: 40;
-    text-face-name: "DejaVu Sans Book";
-    text-fill: #000;
-    text-halo-fill: #fff;
-    text-halo-radius: 1;
-    text-avoid-edges: false;
-  	text-placement: interior;
-    text-placement-type: simple;
-  	text-size: 12;
-    text-placements: 'X,N,E,S,W,12,11,10';
-    text-dy: -5;
-    text-line-spacing: 0;
-}
+	[zoom>=17]{
+    	text-name:"[name]";
+    	text-wrap-width: 40;
+    	text-face-name: "DejaVu Sans Book";
+    	text-fill: #000;
+    	text-halo-fill: #fff;
+    	text-halo-radius: 1;
+    	text-avoid-edges: false;
+  		text-placement: interior;
+    	text-placement-type: simple;
+  		text-size: 12;
+    	text-placements: 'X,N,E,S,W,12,11,10';
+    	text-dy: -5;
+    	text-line-spacing: 0;
+	}
+  }
 /* ------------------------------------------------------------------ */
 /* Boundaries
 /* ------------------------------------------------------------------ */

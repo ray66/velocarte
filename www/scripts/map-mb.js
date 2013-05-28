@@ -30,11 +30,12 @@ OpenLayers.Lang["fr"] = OpenLayers.Util.applyDefaults({
 function mbtilesURLBase (bounds) {
    
    var z = this.map.getZoom()+zOffset;
-   if (z < 17) {
+/* if (z < 17) {
       var db = "CarteVeloBase_zoom_low.mbtiles";
    }else{
       var db = "CarteVeloBase_zoom_high.mbtiles";
-   }
+   }*/
+   var db = "CarteVeloBase.mbtiles";
       
    var res = this.map.getResolution();
    var x = Math.round ((bounds.left - this.maxExtent.left) / (res * this.tileSize.w));
@@ -259,10 +260,10 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    // create TMS layer using MBTiles sqlite database
    var layerBase = new OpenLayers.Layer.OSM(
       "Carte Vélo", 
-      //"mbtiles.php?db=CarteVeloBase.mbtiles&z=${z}&x=${x}&y=${y}", 
-      "mbtiles.php", 
+      "mbtiles.php?db=CarteVeloBase.mbtiles&z=${z}&x=${x}&y=${y}", 
+      //"mbtiles.php", 
       {
-         getURL: mbtilesURLBase,
+         //getURL: mbtilesURLBase,
          transitionEffect: "resize",
          maxResolution : maxRes,
          zoomOffset :    zOffset,
@@ -589,7 +590,9 @@ function setMarkerPoi (poi, checked){
    //console.log(layers);
    if (!checked){
       if (layers[0]){
+         destroyOverlay(layername);
          layers[0].destroy();
+         
       }
    }else{
       if (!layers[0]){

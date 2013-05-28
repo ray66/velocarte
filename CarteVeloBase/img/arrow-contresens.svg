@@ -96,8 +96,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.197802"
-     inkscape:cx="29.8646"
-     inkscape:cy="2.3783573"
+     inkscape:cx="31.152542"
+     inkscape:cy="-0.57627085"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:grid-bbox="true"
@@ -118,8 +118,8 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="13.8646px"
-       originy="-13.621643px" />
+       originx="15.152542px"
+       originy="-16.576271px" />
   </sodipodi:namedview>
   <metadata
      id="metadata2990">
@@ -129,7 +129,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -137,10 +137,10 @@
      id="layer1"
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     transform="translate(13.8646,0.04537158)">
+     transform="translate(15.152542,2.9999997)">
     <g
        id="g5780"
-       transform="matrix(0.50847458,0,0,0.50847458,9.7459558,-2.0792699)">
+       transform="matrix(-0.50847458,0,0,0.50847458,6.7118645,-5.033898)">
       <path
          inkscape:connector-curvature="0"
          id="path4957"
@@ -154,7 +154,7 @@
     </g>
     <g
        id="g5780-7"
-       transform="matrix(-0.50847458,0,0,0.50847458,8.2540442,5.9207301)"
+       transform="matrix(0.50847458,0,0,0.50847458,8.2037761,2.966102)"
        style="fill:#414141;fill-opacity:1;stroke:#404040;stroke-opacity:1">
       <path
          inkscape:connector-curvature="0"

@@ -66,15 +66,19 @@
 	[zoom>=17]{
 		text-name:"[name]";
 	    text-wrap-width: 40;
-    	text-face-name: "DejaVu Sans Book";
-	    text-fill: #000;
+      	text-face-name: "DejaVu Sans Book";
+	    text-fill: #2f4f4f;
     	text-halo-fill: #fff;
 	    text-halo-radius: 0;
 	    text-avoid-edges: false;
 	    text-placement: line;
-	  	text-size: 13;
-	  	text-placement-type: simple;
-	    text-placements: 'X,E,S,W,13,13,12,11,10,9,8';
+	  	text-size: 10;
+        [zoom>=16] {	text-size: 11;}
+        [zoom>=17] {	
+           text-size: 12;
+	  	   text-placement-type: simple;
+	       text-placements: 'X,E,S,W,12,13,12,11,10,9,8';
+        }
 	  	text-min-distance: 400;
     	/*text-clip: false;*/
     }

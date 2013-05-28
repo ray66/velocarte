@@ -44,62 +44,15 @@
       <div class="left"><a id="openSidebar" href="#"><img src="img/openSidebar.png" alt=">>" title="Ouvrir la barre d'outils"></a></div>
    </div>
    <div id="sidebar">
+      <div class="right"> <a id="closeSidebar" href="#">Fermer</a></div>
       <div class="content">
-   	   <div class="right"> <a id="closeSidebar" href="#">Fermer</a></div>
          <!--<div class="trigger trigger_active">Légende</div>-->
          <div class="trigger">Légende</div>
 						<div class="toggle_container">
-        							<div>
-           						 <div class='legende_img'><img src="img/piste_cyclable.png" alt=""></div>
-            					 <div class='legende_img_text'>Piste cyclable</div>
-       						 </div>
-        						 <div>
-            					<div class='legende_img'><img src="img/bande_cyclable.png" alt=""></div>
-           						 <div class='legende_img_text'>Bande cyclable</div>
-        						</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/voie_bus_velo.png" alt=""></div>
-         					   <div class='legende_img_text'>Voie bus-vélo</div>
-         					</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/double_sens.png" alt=""></div>
-         					   <div class='legende_img_text'>Double-sens cyclable</div>
-         					</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/aire_pietonne.png" alt=""></div>
-         					   <div class='legende_img_text'>Aire piétonne</div>
-         					</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/route_bitume.png" alt=""></div>
-         					   <div class='legende_img_text'>Route bitumée</div>
-         					</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/grade2.png" alt=""></div>
-         					   <div class='legende_img_text'>Chemin non bitumée à revêtement compact, généralement  praticable avec le VTC par tout temps</div>
-         					</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/grade3.png" alt=""></div>
-         					   <div class='legende_img_text'>Chemin avec surface en terre ou gravier, généralement praticable avec un VTC par temps sec</div>
-         					</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/grade4.png" alt=""></div>
-         					   <div class='legende_img_text'>Chemin avec surface en terre ou gravier, généralement praticable avec un VTT</div>
-          					  <div class='legende_img'><img src="img/voies_vertes.png" alt=""></div>
-         					  <div class='legende_img_text'>Itinéraires de tourisme à vélo: voies vertes, véloroutes, EuroVélo</div>
-         					</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/parking_bicycle.p.20.png" alt=""></div>
-         					   <div class='legende_img_text'>Parking vélos</div>
-         					</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/rental_bicycle.p.20.png" alt=""></div>
-         					   <div class='legende_img_text'>Location vélos</div>
-         					</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/zone_detail.png" alt=""></div>
-         					   <div class='legende_img_text'>Zone détaillée de la carte</div>
-         					</div>
-                     <div class="toggle-container-bottom"></div>
+            <?php
+               require($DOCUMENT_ROOT . "legende.html");
+            ?>                     
+         <div class="toggle-container-bottom"></div>
 						</div>
               <div class="trigger">Points d'interêt</div>
 						<div class="toggle_container">

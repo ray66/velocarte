@@ -49,20 +49,21 @@
 /*===================================================================================*/
 /* Rail
 /*===================================================================================*/
-
-
-.rail[zoom>=11]
+.rail
 {
-  ::bridge-out[bridge='yes'][zoom>=13]{
+  [bridge='yes'][zoom>=13]{
+     ::bridge_out{
       		/*line-color: k#d2d2d2;*/
       		line-color: #6f6f6f;
     		line-width: 7;
       	}
-  ::bridge-in[bridge='yes'][zoom>=13]{
+  ::bridge_in{
       		/*line-color: k#d2d2d2;*/
       		line-color: white;
     		line-width: 5;
       	}
+    }
+  [zoom>=11]{
   ::outline{
    		line-join: round;
    		line-color: darken(#999999,15%);
@@ -72,14 +73,13 @@
    		line-width: 3;
    }
    line-join: round;
-   line-color: #fff;
+   line-color: white;
    line-width: 1;
    line-dasharray: 0,11,8,1;
    [zoom=11]{
       line-dasharray: 0,5,4,1;
    }
-   
-    
+    }
 }
 
 /*===================================================================================*/

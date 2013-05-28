@@ -1,12 +1,13 @@
 /**===================================================================================*/
-/** Global properties
+/** Street names
 /**===================================================================================*/
 
-
-.road.label.major[zoom>=14],
-.road.label.minor[zoom>=15],
-{
-    text-name:"[name]";
+#road_label_minor[zoom>=14],
+#road_label_major[zoom>=15]{
+   	text-name:"[name]";
+    [zoom<18][ratio<7]{
+    	text-name:"[short_name]";
+    }
     text-face-name: "DejaVu Sans Book";
     text-fill: #000;
     text-placement: line;
@@ -14,50 +15,56 @@
     text-halo-fill: #fff;
     text-max-char-angle-delta: 40;
     text-placement-type: dummy;
-	/*text-comp-op: src-in; requires mapnik 2.1 */
+    /*text-comp-op: src-in; requires mapnik 2.1 */
     text-min-distance: 400;
-  	text-avoid-edges: false;
+    text-avoid-edges: false;
     text-spacing: 0;
     text-wrap-width: 40;
-    text-dy: 1;
-  /*text-allow-overlap: true;*/
-	/*text-clip: false;*/
-}
-.road.label.major[zoom>=14]
-{
-    text-size: 11;
-    /*[junction!='roundabout']{text-dy: 12;}*/
-  	text-placement-type: simple;
-  	text-placements: 'X,11,10';
-}
-.road.label.major[zoom>=16][highway!='trunk'][highway!='motorway']
-{
-   text-size: 12;
-    /*[junction!='roundabout']{text-dy: 12;}*/
-  	text-placement-type: simple;
-  	text-placements: 'X,12,11,10';
-}
-.road.label.minor[zoom>=15],
-{
-    text-size: 10;
-    /*[junction!='roundabout']{text-dy: 9;}*/
-    /*[highway='pedestrian'][junction!='roundabout']{text-dy: 7;}*/
-   text-placement-type: simple;
-  text-placements: 'X,10';
-}
-.road.label.minor[zoom=17],
-{
-    text-size: 11;
-    /*[junction!='roundabout']{text-dy: 12;}*/
-}
-.road.label.minor[zoom>=18],
-{
-    text-size: 13;
-    /*[junction!='roundabout']{text-dy: 12;}*/
-    text-placement-type: simple;
-  text-placements: 'X,S,12,11,10,9,8'
-}
+    text-dy: 0;
+    /*text-allow-overlap: true;*/
+	 /*text-clip: false;*/
+ 	.major{
+   		[zoom>=14]{
+      		text-size: 11;
+     		/*[junction!='roundabout']{text-dy: 12;}*/
+      		text-placement-type: simple;
+      		text-placements: 'X,11,10';
+   		}
+   		[zoom>=16][highway!='trunk'][highway!='motorway']{
+      		text-size: 12;
+      		/*[junction!='roundabout']{text-dy: 12;}*/
+      		text-placement-type: simple;
+      		text-placements: 'X,12,11,10';
+   		}
+	}
+ 	.minor{
+	  	[zoom>=15]{
+   			text-size: 10;
+    		text-dy: 0;
+    		text-min-distance: 400;
+   			/*[junction!='roundabout']{text-dy: 9;}*/
+   			/*[highway='pedestrian'][junction!='roundabout']{text-dy: 7;}*/
+   			text-placement-type: simple;
+   			text-placements: 'X,10';
+   	  	}
+   		[zoom>=17]{
+      		text-size: 11;
+      		/*[junction!='roundabout']{text-dy: 12;}*/
+   		}
+   		[zoom>=18]{
+      		text-size: 12;
+      		/*[junction!='roundabout']{text-dy: 12;}*/
+      		text-placement-type: simple;
+      		text-placements: 'N,12,11,10,9,8';
+     	 	text-allow-overlap: false;
+      		["cycleway:left"='opposite'],
+      		[oneway='yes']{
+      			[ratio<5]{text-dy: -12;text-allow-overlap:true;}
+      		}
+      	}
+    }
 
+}
 
 /**===================================================================================*/
 /** Tunnels
@@ -121,7 +128,7 @@
    [highway='motorway_link'],[highway='trunk_link'],[highway='primary'],[highway='secondary']  { line-width: 2;}
    [highway='tertiary'],[highway='primary_link'],[highway='secondary_link']   { line-width: 2; }
    [highway='tertiary_link'],[highway='residential'],[highway='unclassified'],[highway='grade1'],[highway='service']     { line-width: 0; }
-   [highway='pedestrian'] { line-width: 0; }
+   [highway='pedestrian'],[highway='living_street'] { line-width: 0; }
 }
 .road.outline[zoom>=11]{
    [highway='trunk'],[highway='motorway']    { line-width: 6;}
@@ -132,7 +139,7 @@
     [highway='residential'],
     [highway='grade1'],
     [highway='service']     { line-width: 0.5; }
-   [highway='pedestrian'] { line-width: 0; }
+   [highway='pedestrian'],[highway='living_street'] { line-width: 0; }
 }
 
 .road.inline[zoom=13]{
@@ -140,7 +147,7 @@
    [highway='motorway_link'],[highway='trunk_link'],[highway='primary'],[highway='secondary']  { line-width: 2;}
    [highway='tertiary'],[highway='primary_link'],[highway='secondary_link']   { line-width: 2; }
    [highway='tertiary_link'],[highway='residential'],[highway='unclassified'],[highway='grade1'],[highway='service']     { line-width: 1.5; }
-   [highway='pedestrian'] { line-width: 1; }
+   [highway='pedestrian'],[highway='living_street'] { line-width: 1; }
 }
 .road.outline[zoom=13]{
    [highway='trunk'],[highway='motorway']    { line-width: 8;}
@@ -151,7 +158,7 @@
     [highway='unclassified'],
     [highway='grade1'],
     [highway='service']     { line-width: 3; }
-   [highway='pedestrian'] { line-width: 3; }
+   [highway='pedestrian'],[highway='living_street'] { line-width: 3; }
 }
 
 .road.inline[zoom=14]{
@@ -169,7 +176,7 @@
     [highway='unclassified'] { line-width: 2; }
     [highway='grade1'],
     [highway='service']     { line-width: 2; }
-   [highway='pedestrian'] { line-width: 2; }
+   [highway='pedestrian'],[highway='living_street'] { line-width: 2; }
 }
 .lane[zoom=14],
 .road.outline[zoom=14]{
@@ -187,7 +194,7 @@
     [highway='unclassified']{ line-width: 4; }
     [highway='grade1'],
     [highway='service']     { line-width: 4 }
-   [highway='pedestrian'] { line-width: 2.5; }
+   [highway='pedestrian'],[highway='living_street'] { line-width: 2.5; }
 }
   
 .road.inline[zoom=15]{
@@ -205,7 +212,7 @@
     [highway='unclassified']{ line-width: 4; }
     [highway='grade1'],
     [highway='service']     { line-width: 3; }
-   [highway='pedestrian'] { line-width: 4; }
+   [highway='pedestrian'],[highway='living_street'] { line-width: 4; }
 }
 .lane[zoom=15],
 .road.outline[zoom=15]{
@@ -223,7 +230,7 @@
     [highway='unclassified'] { line-width: 6; }
     [highway='grade1'],
     [highway='service']     { line-width: 5; }
-   [highway='pedestrian'] { line-width: 6; }
+   [highway='pedestrian'],[highway='living_street'] { line-width: 6; }
 }
   
 .road.inline[zoom>=16]{
@@ -241,7 +248,7 @@
    [highway='unclassified']    { line-width: 6; }
    [highway='grade1'],
    [highway='service']         { line-width: 4; }
-   [highway='pedestrian']      { line-width: 4; }
+   [highway='pedestrian'],[highway='living_street']      { line-width: 4; }
 }
 .lane[zoom>=16],
 .road.outline[zoom>=16]{
@@ -259,7 +266,7 @@
    [highway='unclassified']   {line-width: 8; }
    [highway='grade1'],
    [highway='service']         { line-width: 6; }
-   [highway='pedestrian']      { line-width: 6; line-cap:butt;}
+   [highway='pedestrian'],[highway='living_street']      { line-width: 6; line-cap:butt;}
 }
 
   
@@ -280,7 +287,7 @@
    [highway='unclassified']    { line-width: 9; }
    [highway='grade1'],
    [highway='service']         { line-width: 5; }
-   [highway='pedestrian']      { line-width: 7; }
+   [highway='pedestrian'],[highway='living_street']      { line-width: 7; }
 }
 .lane[zoom=17],
 .road.outline[zoom=17]{
@@ -300,7 +307,7 @@
    [highway='unclassified']    { line-width: 11; }
    [highway='grade1'],
    [highway='service']         { line-width: 7; }
-   [highway='pedestrian']      { line-width: 10; }
+   [highway='pedestrian'],[highway='living_street']      { line-width: 10; }
 }
 
 .road.inline[zoom=18]{
@@ -320,7 +327,7 @@
     [highway='unclassified']{ line-width: 11; }
     [highway='grade1'],
     [highway='service']     { line-width: 7; }
-   [highway='pedestrian'] { line-width: 8; }
+   [highway='pedestrian'],[highway='living_street'] { line-width: 8; }
 }
 .lane[zoom=18],
 .road.outline[zoom=18]{
@@ -340,7 +347,7 @@
     [highway='unclassified']    { line-width: 13; }
     [highway='grade1'],
     [highway='service']     { line-width: 9; }
-   [highway='pedestrian'] { line-width: 12; }
+   [highway='pedestrian'],[highway='living_street'] { line-width: 12; }
 }
 
 .road.outline[highway='construction']{
@@ -458,11 +465,17 @@
 .road.inline[zoom>=13][highway='pedestrian'] {  line-color: #fff;}
 .road.outline[zoom>=13][highway='pedestrian'] {  line-color: #7B84FF;}
 
+.road.inline[zoom>=13][highway='living_street']  {  line-color: #fff;}
+.road.outline[zoom>=13][highway='living_street'] {
+  line-color: #7B84FF;
+  line-dasharray: 12,3;
+}
+
 /**===================================================================================
  * Cycleways
 /**===================================================================================*/
-
-.cycleway[bicycle_access='designated']{
+#cycleway{
+ [bicycle_access='designated'][bicycle_shared='no']{
     line-cap: round;
     line-join: round;
     line-color: @color_cycleway;
@@ -473,67 +486,78 @@
 	[zoom>=16]{line-width: 3;}
 	[zoom>=17]{line-width: 4;}
 	[zoom>=18]{line-width: 5;}
-}
-/** Path Colors **/
-
-.cycleway[bicycle_access='yes'][bicycle_shared='agricultural']{
+ }
+ 
+ [bicycle_access='yes'][bicycle_shared='agricultural'],
+ [bicycle_access='designated'][bicycle_shared!='no']{
 	line-color: @color_cycleway;
     line-opacity: 1;
     line-cap: butt;
     [zoom>=11] {line-width: 2;}
 	[zoom>=14] {line-width: 2;}
-	[zoom>=16]{line-width: 3;}
+	[zoom>=16]{line-width: 2;}
 	[zoom>=17]{line-width: 4;}
 	[zoom>=18]{line-width: 5;}
     line-dasharray: 2,1;
 	[zoom>=13]{	line-dasharray: 3,2;}
-  	[zoom>=14]{ line-dasharray: 6,3;}
-	[zoom>=16]{ line-dasharray: 8,4;}
-}
-.cycleway[bicycle_access='yes'][bicycle_shared='psv']{
+  	[zoom>=16]{ line-dasharray: 4,2;}
+	[zoom>=17]{ line-dasharray: 8,4;}
+ }
+ [bicycle_access='yes'][bicycle_shared='psv']{
 	::outline{
          line-color: black;
          line-cap: butt;
-     }        
+    	[zoom>=11] {line-width: 2;}
+		[zoom>=14] {line-width: 3;}
+		[zoom>=16]{line-width: 3;}
+		[zoom>=17]{line-width: 4;}
+		[zoom>=18]{line-width: 5;}
+    }        
 	line-color: @color_cycleway;
     line-opacity: 1;
     line-cap: butt;
     line-dasharray: 4,2;
     [zoom>=11] {line-width: 2;}
 	[zoom>=14] {line-width: 3;}
-	[zoom>=16]{line-width: 3;}
+	[zoom>=16]{line-width: 3;line-dasharray: 4,2;}
 	[zoom>=17]{line-width: 4;}
 	[zoom>=18]{line-width: 5;}
 	[zoom>=15]{	line-dasharray: 8,4;}
 	[zoom>=14]{ line-dasharray: 12,6;}
-}
-
-.cycleway[bicycle_access='yes'][bicycle_shared='no']{
+ }
+/**-----------------------------------------------------------------
+ ** Für Radfahrer zugelassen, ohne motorisiertem Verkehr
+ **-----------------------------------------------------------------*/
+ [bicycle_access='yes'][bicycle_shared='no'][highway!='pedestrian']{
 	line-color: @color_cycleway;
     line-opacity: 1;
-    line-cap: round;
+    line-cap: butt;
     [zoom>=11] {
     	line-width: 2;
    		line-dasharray: .1,3;
     }
 	[zoom>=13] {
-    	line-width: 3;
-    	line-dasharray: 1,4;
+    	line-width: 1;
+    	line-dasharray: 0,8;
   	}
 	[zoom>=15]{
-    	line-width: 4;
+    	line-width: 3;
     	line-dasharray: .1,7;
+        line-cap: round;
   	}
 	[zoom>=16] {
-    	line-width: 4.5;
-    	line-dasharray: .5,10;
+    	line-width: 3.5;
+    	line-dasharray: .1,7;
   	}
 	[zoom>=17]{
     	line-width: 4.5;
+    	line-dasharray: .2,10;
   	}
 	[zoom>=18]{
     	line-width: 5;
+    	line-dasharray: .2,12;
   	}
+ }
 }
 /**===================================================================================
  * Paths & steps
@@ -631,35 +655,63 @@
 /**===================================================================================
  * Oneway arrows
 /**===================================================================================*/
-
-#road_marker[zoom>=15]["cycleway:left"!='opposite'][oneway='yes'][highway!='motorway'][highway!='trunk'][highway!='motorway_link'][highway!='trunk_link']
-{
-    marker-file: url('img/oneway-arrow.svg');
-  marker-placement: line;
-  marker-transform: 'scale(0.2)';
-  [zoom>=17]{marker-transform: 'scale(0.25)';}
-  [zoom>=18]{marker-transform: 'scale(0.3)';}
-  marker-spacing: 120;
-  marker-max-error: 0.9;
-  marker-ignore-placement: true;
-  marker-allow-overlap: false;
+#road_marker_lowz[zoom>=15][zoom<=17]{
+      ["cycleway:left"='opposite']{
+         marker-file: url('img/arrow-contresens.svg');
+      }
+      ["cycleway:left"!='opposite'][oneway='yes']{
+         marker-file: url('img/oneway-arrow.svg');
+      }
+         marker-placement: line;
+         marker-transform: 'scale(0.3)';
+         [zoom>=16]{marker-transform: 'scale(0.35)';}
+         [zoom>=17]{marker-transform: 'scale(0.4)';}
+         marker-spacing: 120;
+         marker-max-error: 0.99;
+         marker-ignore-placement: true;
+   		 [length<150.0]{
+ 	  			marker-spacing: 60;
+      			marker-transform: 'scale(0.3)';
+         }
+    	 [length<50]{
+   	  			marker-spacing: 30;
+      			marker-transform: 'scale(0.4)';
+    			/*marker-comp-op:src-atop;*/
+      	  }
+	      marker-allow-overlap:true;
 }
-
-/* Vélos à contresens */
-
-#road_marker[zoom>=15]["cycleway:left"='opposite']{
-  marker-file: url('img/arrow-contresens.svg');
-  marker-placement: line;
-  marker-transform: 'scale(0.4)';
-  [zoom>=17]{marker-transform: 'scale(0.5)';}
-  [zoom>=18]{marker-transform: 'scale(0.6)';}
-  marker-spacing: 80;
-  marker-max-error: 0.9;
-  marker-ignore-placement: false;
-  marker-allow-overlap: false;
-  /*marker-comp-op:src-over;*/
+#road_marker_highz[zoom=18]{
+      	["cycleway:left"='opposite']{
+         	marker-file: url('img/arrow-contresens.svg');
+      	}
+      	["cycleway:left"!='opposite'][oneway='yes']{
+         	marker-file: url('img/oneway-arrow.svg');
+      	}
+      	["cycleway:left"='opposite'],
+      	[oneway='yes']{
+    		marker-placement: line;
+   	 		marker-transform: 'scale(0.5)';
+    		marker-spacing: 100;
+    		marker-max-error: 0.99;
+   	 		marker-allow-overlap: false;
+    		marker-ignore-placement: true;
+       		[ratio<5]{
+   				marker-allow-overlap: true;
+   			}
+   			[length<150][ratio>=5]{
+ 	  			marker-spacing: 60;
+      			marker-transform: 'scale(0.4)';
+            }
+   			[length<120][ratio>=5]{
+ 	  			marker-spacing: 30;
+      			marker-transform: 'scale(0.4)';
+            }
+    		[length<50]{
+   	  			marker-spacing: 30;
+      			marker-transform: 'scale(0.3)';
+      		}
+      	}
 }
-
 /*===================================================================================*/
 /* Tracks
 /*===================================================================================*/
@@ -891,7 +943,6 @@
 /**===================================================================================*/
 /** Cycle lanes
 /**===================================================================================*/
-
 .lane.right[zoom>=14] {line-offset: -1.5;}
 .lane.right[zoom>=15] {line-offset: -2;}
 .lane.right[zoom>=16] {line-offset: -2.25;}
@@ -978,7 +1029,7 @@
      [vehicle='no'],
      [vehicle='private'] {
          line-opacity:   1;
-         line-color:     #efa9a9;
+         line-color:     lightgrey;
          line-cap:       butt;
          line-dasharray: 5,3;
       }
@@ -1041,12 +1092,6 @@
       }
     }
   [barrier='gate']{
-     [zoom>=16]{
-         point-file: url('img/gate.svg');
-         point-ignore-placement: true;
-         point-allow-overlap: true;
-      	 point-transform: 'rotate([angle]) scale(0.75)';
-      }
      [zoom>=18]{
          point-file: url('img/gate.svg');
       	 point-transform: 'rotate([angle])';
@@ -1059,31 +1104,19 @@
          point-allow-overlap: true;
       	 point-transform: 'rotate([angle]) scale(0.75)';
       }
-     [zoom>=17]{
+     [zoom>=18]{
          point-file: url('img/lift-gate.svg');
       	 point-transform: 'rotate([angle])';
       }
     }
   [barrier='bollard']{
-     [zoom>=16]{
-         point-file: url('img/bollard.svg');
-         point-ignore-placement: true;
-         point-allow-overlap: true;
-      	 point-transform: 'scale(0.75)';
-      }
-     [zoom>=17]{
+     [zoom>=18]{
          point-file: url('img/bollard.svg');
          point-transform: 'scale(1)';
       }
     }
   [barrier='block']{
-     [zoom>=16]{
-         point-file: url('img/barrier.svg');
-         point-ignore-placement: true;
-         point-allow-overlap: true;
-      	 point-transform: 'rotate([angle]) scale(0.75)';
-      }
-     [zoom>=17]{
+     [zoom>=18]{
          point-file: url('img/barrier.svg');
       	 point-transform: 'rotate([angle])';
       }

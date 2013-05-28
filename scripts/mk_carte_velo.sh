@@ -153,6 +153,7 @@ if [[ $IMPORT -eq 1 ]];then
    fi
    export PGPASS="osm"
    # PostGis-Datenbank erstellen
+   psql -d $DB -c 'drop function if exists joinOneways() '
    cmd="osm2pgsql -k -c -m -s -d $DB -U rainer -H localhost $OSMFILE -S $MYPATH/osm2pgsql.style"
    echo $cmd >> $LOG
    eval $cmd 2>&1 | tee -a $LOG
