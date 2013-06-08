@@ -669,7 +669,7 @@
       "geometry": "linestring",
       "Datasource": {
         "type": "postgis",
-        "table": "(select osm_id,way,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway, bicycle_access, bicycle_shared,tunnel\n          from planet_osm_line\n          where way && !bbox! \n              and (   highway = 'cycleway'\n                        or bicycle_access = 'designated'\n                        or (((highway='path' and surface in ('paved','aspalt','compacted','cobblestone','concrete','compacted')) \n                               or highway='footway'\n                               or (highway='track' \n                                      and (tracktype='grade1' \n                                            or surface in ('paved','aspalt','compacted','cobblestone','concrete','compacted')))\n                               or (highway in ('pedestrian','unclassified','service','residential')))\n                             and bicycle_access != '')\n                    )\n          order by z_order\n         ) as cycleways",
+        "table": "(select osm_id,way,(CASE WHEN highway='track' THEN tracktype ELSE highway END) as highway, bicycle_access, bicycle_shared,tunnel\n          from planet_osm_line\n          where way && !bbox! \n              and (   highway = 'cycleway'\n                        or (bicycle_access = 'designated' and highway not in ('construction','proposed'))\n                        or (((highway='path' and surface in ('paved','aspalt','compacted','cobblestone','concrete','compacted')) \n                               or highway='footway'\n                               or (highway='track' \n                                      and (tracktype='grade1' \n                                            or surface in ('paved','aspalt','compacted','cobblestone','concrete','compacted')))\n                               or (highway in ('pedestrian','unclassified','service','residential')))\n                             and bicycle_access != '')\n                    )\n          order by z_order\n         ) as cycleways",
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -691,9 +691,9 @@
       "name": "cycleway",
       "extent": [
         2.2127417961103704,
-        41.953388749791365,
-        3.4479999617748223,
-        43.24007555980199
+        42.495165869656354,
+        3.039710365082324,
+        42.82292402773798
       ]
     },
     {
