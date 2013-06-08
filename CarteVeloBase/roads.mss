@@ -121,6 +121,7 @@
     line-gamma-method: power;
     line-width: 0;
   line-smooth: 0;
+  [junction='roundabout']{line-smooth: 0.5}
 }
 
 .road.inline[zoom>=11]{

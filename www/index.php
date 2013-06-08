@@ -266,17 +266,9 @@
                   Comme les fichiers .mbtiles sont plus compactes que les tuiles extraites, j'ai opté pour la première solution.
                </li>
             </ul>
-            <p>Vous trouvez des informations plus détaillées sur quelques points spécifiques, en particulier le traitement des données PostGis, sur <a href="http://www.mr-unseld.de" target="_blank">mon 
+            <p>Vous trouvez des informations plus détaillées sur quelques points spécifiques, en particulier le traitement des données PostGis, sur <a href="http://blog.velocarte66.fr" target="_blank">mon 
                blog</a> (en allemand pour l'instant)</p>
-        <p>Fichiers configuration et style: <a href="files/cartevelo.tgz">cartevelo.tgz</a>.
-        Cet archive contient les fichiers suivants:</p>
-        <ul>
-           <li>osm2pgsql.style: Fichier style pour l'import des données OSM avec osm2pgsql.style</li>
-           <li>postproc.sql: postproc.sql: fichier de commande sql pour le post-traitement de la base de données PostGis</li>
-           <li>CarteVeloBase/*: Fichiers projet et style pour la carte de base. À copier dans le répertoire "project' de Tilemill</li>
-           <li>CarteVeloChemins/*": Fichiers projet et style pour le calque "petites routes et chemins". À copier dans le répertoire "project' de Tilemill</li>
-        </ul>
-
+        <p>Tous les fichiers utiliés pour générer et publier la carte sont disponibles sur <a href="https://github.com/ray66/velocarte" target="_blank">GitHub</a>.</p>
               </div>
               <div class="trigger">Conditions d'utilisations, licences, remerciements</div>
               <div class="toggle_container">

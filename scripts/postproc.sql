@@ -79,7 +79,7 @@ Update planet_osm_line SET  access = (case when access in ('yes','true','1') the
 /*--- Set priority ---*/
 Update planet_osm_line 
    SET priority = (CASE WHEN highway IN ('motorway', 'motorway_link') THEN 0 
-                        WHEN highway IN ('trunk', 'primary','trunk_link', 'primary_link','trunk_link', 'primary_link') THEN 1 
+                        WHEN highway IN ('trunk', 'primary','trunk_link', 'primary_link') THEN 1 
                         WHEN highway = 'secondary' THEN 2 
                         WHEN highway = 'tertiary' THEN 3 
                         WHEN highway IN ('residential', 'unclassified','service') THEN 4
