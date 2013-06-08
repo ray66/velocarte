@@ -50,7 +50,17 @@
     }
 	[ground='pitch']{
   		polygon-fill: #DCF5D7;
-   		line-width: 1;
+   		line-width: 0.5;
+    	[zoom>=17]{line-width: 1;}
+    	line-color: darken(#DCF5D7,20%);
+    }
+	[ground='track']{
+        //[sport='athletics']{
+      	//	polygon-fill: lighten(#bb2244,20%);
+        //}
+  		polygon-fill: darken(#DCF5D7,5%);
+   		line-width: 0.5;
+    	[zoom>=17]{line-width: 1;}
     	line-color: darken(#DCF5D7,20%);
     }
 }
@@ -235,7 +245,7 @@
 	[size>25000][zoom=16][poi_type='sports_centre']{
     	text-name: "[name_low_zoom]";
     	text-wrap-width: 40;
-    	text-face-name: "DejaVu Sans Book";
+    	text-face-name: "DejaVu Sans Oblique";
     	text-fill: #000;
     	text-halo-fill: #fff;
     	text-halo-radius: 1;
@@ -251,7 +261,7 @@
 	[zoom>=17]{
     	text-name:"[name]";
     	text-wrap-width: 40;
-    	text-face-name: "DejaVu Sans Book";
+    	text-face-name: "DejaVu Sans Oblique";
     	text-fill: #000;
     	text-halo-fill: #fff;
     	text-halo-radius: 1;

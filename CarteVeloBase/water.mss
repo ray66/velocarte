@@ -1,15 +1,28 @@
 #water_area[tunnel='']
 {
-    [size>10000],
-	[size>5000][zoom>=15],
-	[zoom>=16],
-	{
-  		line-width: 0;
-    	line-color: #7eaac1;
-    	/*polygon-fill: #8cb6d3;*/
-  		polygon-fill:   #7eaac1;
-    	polygon-smooth: 0.5;
-    }
+  	[basin!='detention']{
+       	[size>10000],
+		[size>5000][zoom>=15],
+		[zoom>=16]{
+  			line-width: 0;
+    		line-color: #7eaac1;
+    		/*polygon-fill: #8cb6d3;*/
+  			polygon-fill:   #7eaac1;
+    		polygon-smooth: 0.5;
+		}
+  	}
+   	[basin='detention']{
+		[size>5000][zoom>=16]{
+  			/*line-width: .5;*/
+  			polygon-fill:   transparent;
+    		/*line-color: #7eaac1;*/
+	    	polygon-pattern-file: url('img/basin.png');
+        	[zoom<16]{
+           		polygon-opacity: 0.5;
+           		polygon-pattern-opacity: 0.5;
+    		}
+      	}
+   	}  
 }
 #water_area_label[tunnel='']
 { 

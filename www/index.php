@@ -37,7 +37,12 @@
 		<table>
 		<tr><td class="left"></td>
 		<td class="center"><h1 class="titre">Vélocarte des Pyrénées-Orientales</h1></td>
-		<td class="right"><a id="contact" href="mailto:cvp66@sfr.fr">Contact</a></td></tr>
+      <td id="right">
+         <ul class="menu">
+             <li class="menuitem"><a id="contact" href="mailto:cvp66@sfr.fr">Contact</a></li>
+              <li class="menuitem"><a id="blog" href="http://blog.velocarte66.fr" target="_blank">Blog</a></li>
+          </ul>
+      </td></tr>
 		</table>
    </div>
    <div id="sidebarMini">
@@ -65,37 +70,11 @@
               		</div>
               <div class="trigger">Itinéraires  </div>
               <div class="toggle_container">
-						<p>Quand on circule à vélo, il faut parfois chercher longtemps un itinéraire pour traverser 
-         	         une autoroute, une route dangereuse, emmener des enfants avec soi. Voici quelques itinéraires
-         	         qui empruntent de très petites routes ou des pistes, et qui devraient vous aider à rejoindre 
-         	         à bicyclette, et souvent avec le plaisir d'une balade,des endroits parfois difficiles à 
-         	         atteindre en toute sécurité<br>Une partie de ces itinéraires a été repris des "Astuces cyclables" de 
-         	         l'association <a href="http://veloentet.free.fr/spip.php?breve55&amp;var_recherche=astuces" target="_blank">Vélo En Tet</a>
-         	       </p>
-         	         <form id="circuitSelect">
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanCanet" data-color="blue"></div>
-         	            <div class="checkbox-text"> <h3>Perpignan - Canet par le Mas LLaro</h3></div>
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanCanetParJardinsStJacques" data-color="brown"></div>
-         	            <div class="checkbox-text"> <h3>Perpignan - Canet par les Jardins St.Jacques</h3> </div>
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="PerpignanMillas" data-color="darkmagenta"></div>
-         	            <div class="checkbox-text"> <h3>Perpignan - Millas</h3> </div>
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="AlenyaStNazaire" data-color="darkcyan"></div>
-         	            <div class="checkbox-text"> <h3>Perpignan - Alenya / St.Nazaire</h3> 
-									<p>Itinéraires presque sans prendre de route pour rejoindre Alenya et St.Nazaire. 
-									   Attention certaines parties sont un peu caillouteuses, mais le VTC passe partout.</p>
-         	            </div>
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="Arcades" data-color="DeepPink"></div>
-         	            <div class="checkbox-text"> <h3>Le Serrat d'en Vaquer par l'aqueduc des Arcades</h3> 
-									<p>Voici un chemin calme à deux pas de la bruyante Avenue d'Espagne, le long du Canal de Perpignan et <a href="http://www.culture.gouv.fr/public/mistral/merimee_fr?ACTION=CHERCHER&amp;FIELD_1=REF&amp;VALUE_1=PA00104064" target=_blank>l'aqueduc des Arcades</a> 
-									 </p>
-         	            </div>
-         	            <div class="checkbox"><input type="checkbox" class="overlay" id="ThuirParLeCanal" data-color="MidnightBlue"></div>
-         	            <div class="checkbox-text"> <h3>Las Canals - De Perpignan à Thuir le long du Canal de Perpignan</h3> 
-         	            <p>Au début ce chemin qui longe le Canal de Perpignan est assez cahoteux à cause des racines des chênes. </p>
-         	            </div>
-                   	   <div class="toggle-container-bottom"></div>
-                  	</form>
-              		</div>
+            <?php
+               require($DOCUMENT_ROOT . "itineraires.html");
+            ?>                     
+                	   <div class="toggle-container-bottom"></div>
+              </div>
               <div class="trigger">Propositions d'aménagement</div>
               <div class="toggle_container">
                 <p>Vous trouvez ici quelques propositions d'aménagements cyclables faites par 

@@ -131,7 +131,7 @@ Update planet_osm_line SET bicycle_access = 'yes'
                   
 Update planet_osm_line SET bicycle_access = 'yes' where bicycle_access not in ('no','yes','designated');
 
-CREATE or REPLACE FUNCTION access_motor(highway text, access text, vehicle text, motor_vehicle text, motorcar text, motorcycle text, agricultural text, psv text, tags hstore) RETURNS text  
+CREATE or REPLACE FUNCTION access_motor(highway text, access text, vehicle text, motor_vehicle text, motorcar text, motorcycle text, agricultural text, psv text) RETURNS text  
 AS $$
   DECLARE
      s       text;
@@ -160,13 +160,13 @@ AS $$
          or motorcycle    in ('yes','permissive','designated','private','destination') then
          s = 'yes';
       else
-         if agricultural='yes' or motor_vehicle='agricultural' or motorcar='agricultural' or motorcycle='agricultural' then
+         if motor_vehicle='agricultural' or motorcar='agricultural' or motorcycle='agricultural' then
             s = 'agricultural';
          else
-            if tags->'forestry'='yes' or motor_vehicle='forestry' or motorcar='forestry' or motorcycle='forestry' then
+            if motor_vehicle='forestry' or motorcar='forestry' or motorcycle='forestry' then
                s = 'forestry';
             else
-               if psv='yes' or motor_vehicle='psv' or motorcar='psv' or motorcycle='psv' then
+               if motor_vehicle='psv' or motorcar='psv' or motorcycle='psv' then
                   s = 'psv';
                end if;
             end if;
@@ -177,7 +177,7 @@ AS $$
   END;
 $$ LANGUAGE plpgsql;
 
-Update planet_osm_line SET bicycle_shared = access_motor(highway,access,vehicle, motor_vehicle, motorcar, motorcycle,agricultural,psv,tags)
+Update planet_osm_line SET bicycle_shared = access_motor(highway,access,vehicle, motor_vehicle, motorcar, motorcycle,agricultural,psv)
          WHERE coalesce(highway,'') != '';
 
 ALTER TABLE planet_osm_line DROP IF EXISTS in_agglo;
@@ -248,17 +248,17 @@ BEGIN
       if c = 0 then
          RETURN;
       end if;
-      --raise notice '%',c;
-      FOR a IN EXECUTE 'select * from pool  order by st_length(way) DESC;'
+      raise notice '%',c;
+      FOR a IN EXECUTE 'select * from pool;'
       LOOP
          --raise notice '%', a.osm_id;
-         FOR b IN SELECT *  FROM pool  order by st_length(way) DESC
+         FOR b IN SELECT * FROM pool
          LOOP
             --raise notice '   %', b.osm_id;
             if st_touches(a.way,b.way) and (st_startpoint(a.way)=st_endpoint(b.way)  or st_startpoint(b.way)=st_endpoint(a.way))
                and a.name=b.name and a.oneway=b.oneway and a."cycleway:left"=b."cycleway:left"  then
                a.way = st_linemerge(st_union(a.way,b.way));
-               --raise notice 'merge % (%) - % (%)', a.osm_id, st_length(a.way), b.osm_id, st_length(b.way);
+               raise notice 'delete %', b.osm_id;
                EXECUTE 'delete from pool where osm_id=$1' USING b.osm_id;
             end if;            
          END LOOP;

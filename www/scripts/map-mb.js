@@ -400,8 +400,9 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    }
 
    map.addControl(new OpenLayers.Control.LayerSwitcher());
-   map.setCenter(new OpenLayers.LonLat((bBoxDetail[2] + bBoxDetail[0])/2, (bBoxDetail[3]+bBoxDetail[1])/2).transform(proj4326, proj900913));
-
+   if (!map.getCenter()) {
+      map.setCenter(new OpenLayers.LonLat((bBoxDetail[2] + bBoxDetail[0])/2, (bBoxDetail[3]+bBoxDetail[1])/2).transform(proj4326, proj900913));
+   }
    if (!map.getCenter()) {
       map.zoomToMaxExtent();
    }
@@ -757,7 +758,7 @@ function addTracklayer(overlay, track, trackcolor){
                                                        graphicYOffset: -16,
                                                        externalGraphic: "img/iconInfo.png",
                                                        strokeDashstyle: "solid",
-                                                       strokeOpacity:   0.6}),
+                                                       strokeOpacity:   0.7}),
                               strategies: [new OpenLayers.Strategy.Fixed()],
                               'displayInLayerSwitcher':false,
                               projection: new OpenLayers.Projection("EPSG:4326")

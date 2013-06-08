@@ -69,7 +69,7 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,name,amenity,landuse,leisure,\ncase when amenity='park' then amenity\nwhen landuse != '' then landuse\nwhen \"natural\" != '' then \"natural\"\nwhen leisure != '' then leisure\nelse '' end as ground \n\t                 FROM planet_osm_polygon\nwhere amenity='park' or landuse != '' or \"natural\" != '' or leisure != '' \n\t                 ORDER BY z_order ASC, way_area DESC) AS parklike",
+        "table": "(SELECT osm_id,way,name,amenity,landuse,leisure,sport,\ncase when amenity='park' then amenity\nwhen landuse != '' then landuse\nwhen \"natural\" != '' then \"natural\"\nwhen leisure != '' then leisure\nelse '' end as ground \n\t                 FROM planet_osm_polygon\nwhere amenity='park' or landuse != '' or \"natural\" != '' or leisure != '' \n\t                 ORDER BY z_order ASC, way_area DESC) AS parklike",
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -79,7 +79,7 @@
         "user": "rainer",
         "password": "osm",
         "id": "parklike_area",
-        "project": "CarteVelo",
+        "project": "CarteVeloBase",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
         "extent": ""
       },
@@ -90,10 +90,10 @@
       "advanced": {},
       "name": "parklike_area",
       "extent": [
-        1.4829800138645184,
-        42.214180138428716,
-        3.332957484408641,
-        43.029895864611994
+        2.568210274433584,
+        42.53808647998357,
+        3.0181674170962114,
+        42.78656312548298
       ]
     },
     {
@@ -156,7 +156,7 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,name,waterway,coalesce(tunnel,'') as tunnel,round(way_area) as size  FROM planet_osm_polygon   WHERE landuse IN ('reservoir', 'water','basin')      OR (\"natural\" = 'water' and way_area>200)      OR \"natural\" IN ('lake', 'land')      OR waterway IN ('canal',  'river','riverbank','stream')   ORDER BY z_order ASC) AS water",
+        "table": "(SELECT osm_id,way,name,waterway,coalesce(tunnel,'') as tunnel,coalesce(tags->'basin','') as basin,round(way_area) as size  FROM planet_osm_polygon   WHERE landuse IN ('reservoir', 'water','basin')      OR (\"natural\" = 'water' and way_area>200)      OR \"natural\" IN ('lake', 'land')      OR waterway IN ('canal',  'river','riverbank','stream')   ORDER BY z_order ASC) AS water",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -178,10 +178,10 @@
       "name": "water_area",
       "geometry": "unknown",
       "extent": [
-        2.791363648770624,
+        2.568210274433584,
         42.53808647998357,
-        3.0027969730903417,
-        42.73220195902792
+        3.0181674170962114,
+        42.78656312548298
       ]
     },
     {
@@ -699,7 +699,7 @@
     {
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT osm_id,way,name,poi_category,poi_type,religion,\"capacity:disabled\",wheelchair,\nround(way_area) as size ,\ncase when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom\n FROM planet_osm_polygon\n                 WHERE name is not null and building = ''\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','theatre','bus_station')\n                       OR leisure IN ('park','sports_centre')\n                        OR landuse IN ('industrial', 'commercial', 'cemetery')\n                        OR aeroway != '' OR power !='')\n                 ORDER BY z_order ASC, way_area DESC) as ground_label",
+        "table": "(SELECT osm_id,way,name,poi_category,poi_type,religion,\"capacity:disabled\",wheelchair,\nround(way_area) as size ,\ncase when CHAR_LENGTH(name) >20 and short_name is not null and short_name!='' then short_name else name end as name_low_zoom\n FROM planet_osm_polygon\n                 WHERE name is not null and building = ''\n                   AND (poi_type IN ('school', 'college', 'university', 'library', 'hospital', 'police', 'fire_station','theatre','bus_station')\n                       OR leisure IN ('park','sports_centre')\n                        OR landuse IN ('industrial', 'commercial', 'cemetery','forest')\n                        OR aeroway != '' OR power !='')\n                 ORDER BY z_order ASC, way_area DESC) as ground_label",
         "key_field": "osm_id",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -721,10 +721,10 @@
       "name": "ground_label",
       "geometry": "unknown",
       "extent": [
-        2.791363648770624,
+        2.568210274433584,
         42.53808647998357,
-        3.0027969730903417,
-        42.73220195902792
+        3.0181674170962114,
+        42.78656312548298
       ]
     },
     {
@@ -785,14 +785,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        2.8538487531349377,
-        42.645092868023944,
-        2.9327028687749497,
-        42.74763758135027
+        2.736495269868831,
+        42.62338329828387,
+        3.0024030618382547,
+        42.77205241180048
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,\n           highway,\n           st_length(way) AS length, \n           CHAR_LENGTH(name)  as label_length,\n           st_length(way) /  CHAR_LENGTH(name) as ratio,\n           name,\"cycleway:left\",oneway\n FROM oneways \n where coalesce(oneway,'')='yes' and \n              coalesce(highway, '') IN ('living_street','residential','service','unclassified',\n                                     'tertiary','secondary','primary', 'primary_link')  \n               ) as marker",
+        "table": "(SELECT way,\n           highway,\n           st_length(way) AS length, \n           CHAR_LENGTH(name)  as label_length,\n           st_length(way) /  CHAR_LENGTH(name) as ratio,\n           name,\"cycleway:left\",oneway\n FROM oneways \n where coalesce(oneway,'')='yes' and \n              coalesce(highway, '') IN ('living_street','residential','service','unclassified',\n                                     'tertiary','secondary','primary', 'primary_link')  and coalesce(service,'')!='parking_aisle'\n               ) as marker",
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
@@ -895,14 +895,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        2.8538487531349377,
-        42.645092868023944,
-        2.9327028687749497,
-        42.74763758135027
+        2.736495269868831,
+        42.62338329828387,
+        3.0024030618382547,
+        42.77205241180048
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way,\n           highway,\n           st_length(way) AS length, \n           CHAR_LENGTH(name)  as label_length,\n           st_length(way) /  CHAR_LENGTH(name) as ratio,\n           name,\"cycleway:left\",oneway\n FROM oneways \n where coalesce(oneway,'')='yes' and \n              coalesce(highway, '') IN ('living_street','residential','service','unclassified',\n                                     'tertiary','secondary','primary', 'primary_link') \n               ) as marker",
+        "table": "(SELECT way,\n           highway,\n           st_length(way) AS length, \n           CHAR_LENGTH(name)  as label_length,\n           st_length(way) /  CHAR_LENGTH(name) as ratio,\n           name,\"cycleway:left\",oneway\n FROM oneways \n where coalesce(oneway,'')='yes' and \n              coalesce(highway, '') IN ('living_street','residential','service','unclassified',\n                                     'tertiary','secondary','primary', 'primary_link') and coalesce(service,'')!='parking_aisle'\n               ) as marker",
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "dynamic",
