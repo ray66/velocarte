@@ -1,6 +1,9 @@
 lat	lon	title	description	icon	iconSize	iconOffset	id
-5263489.73	322580.28	Magasin vélo	Atelier Vélo<br>Énergie citoyenne	img/bicycle_shop.png	21,25	-10,-25	103
-5261895.37	322589.47	Magasin vélo	Véloland<br>	img/bicycle_shop.png	21,25	-10,-25	103
-5266969.52	321577.1	Magasin vélo	Cycles Mirloret<br>	img/bicycle_shop.png	21,25	-10,-25	103
-5265434.06	321729.36	Magasin vélo	Bouticycle<br>	img/bicycle_shop.png	21,25	-10,-25	103
-5236148.77	307134.58	Magasin vélo	<br>	img/bicycle_shop.png	21,25	-10,-25	103
+5254797.25	272033.86	Magasin vélo	Conflent Cycles<br>	img/bicycle_shop.png	21,25	-10,-25	103
+5261895.37129997	322589.479531893	Magasin vélo	Véloland<br>	img/bicycle_shop.png	21,25	-10,-25	103
+5265434.06976042	321729.369486399	Magasin vélo	Bouticycle<br>	img/bicycle_shop.png	21,25	-10,-25	103
+5226080.74182997	215731.451305507	Magasin vélo	<br>	img/bicycle_shop.png	21,25	-10,-25	103
+5263489.73177156	322580.284541955	Magasin vélo	Atelier Vélo<br>Énergie citoyenne	img/bicycle_shop.png	21,25	-10,-25	103
+5276886.23976699	319607.052262772	Magasin vélo	Cylces Moreno<br>	img/bicycle_shop.png	21,25	-10,-25	103
+5236148.7797336	307134.582745099	Magasin vélo	<br>	img/bicycle_shop.png	21,25	-10,-25	103
+5266969.52799474	321577.106686913	Magasin vélo	Cycles Mirloret<br>	img/bicycle_shop.png	21,25	-10,-25	103

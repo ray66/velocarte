@@ -127,22 +127,77 @@
     [place='locality'][zoom>=14][zoom<=17]
     {
 		text-name:"[name]";
-   		text-face-name: "DejaVu Sans Bold";
+		text-face-name: "DejaVu Sans Book";
     	text-halo-radius: 1;
     	text-fill: #000;
 		text-placement-type: simple;
     }
-	[place='city'][zoom<16]{ 
+
+    [place='city']{
+       [zoom<16]{ 
   		text-size: 15;   	
+   		text-face-name: "DejaVu Sans Bold";
   		text-placements: 'X,E,W,15,14,13,12,10';
-	}
-	[place='town'][zoom<17]{ 
+       }
+	   [zoom<11]{ 
+  		text-size: 12;   
+       }
+    }
+
+    [place='town']{
+       [zoom<17]{ 
     	text-wrap-width: 20;
 	  	text-size: 12;
-  		text-placements: 'X,E,W,12,11,10';
+     	text-face-name: "DejaVu Sans Bold";
+		text-placements: 'X,E,W,12,11,10';
+        }
+       [zoom<11]{ 
+	  	text-size: 10;
+		text-face-name: "DejaVu Sans Book";
+       }
 	}
 
-    .major[place='mountain_pass'][zoom>=13]{
+	
+  /*text-allow-overlap: true;*/
+	[place='village'][zoom>=11][zoom<=16],
+	[place='suburb'][zoom=14][zoom<=16],
+  	[place='neighbourhood'][zoom>=12][zoom<=16],
+    [place='hamlet'][zoom>=14][zoom<=17],
+    [place='isolated_dwelling'][zoom>=14][zoom<=17],
+    [place='farm'][zoom>=14][zoom<=17]
+	{
+	    text-wrap-character: '-';
+    	text-wrap-width: 45;
+    }
+	[place='village'][zoom>=11][zoom<=16],
+	[place='suburb'][zoom=14][zoom<=16]{
+  		text-placements: 'X,E,W,11,10,9,8';
+	}
+  	[place='village'][zoom=11]            { text-size: 10; }
+  	[place='village'][zoom>=12][zoom<=13]  { text-size: 11; }
+	[place='village'][zoom>=14][zoom<=16]  { text-size: 13; }
+	[place='suburb'][zoom=14]  			   { text-size: 12; }
+	[place='suburb'][zoom>=15][zoom<=16]   { text-size: 14; }
+
+    [place='neighbourhood'][zoom>=12][zoom<=16],
+    [place='hamlet'][zoom>=14][zoom<=17]
+	{
+	    text-face-name: "DejaVu Sans Oblique";
+	  	text-size: 11;
+    	text-placement: interior;
+  		text-placements: 'X,E,W,11,10,9,8';
+    }
+    [place='isolated_dwelling'][zoom>=14][zoom<=17],
+    [place='farm'][zoom>=14][zoom<=17],
+    [place='locality'][zoom>=14][zoom<=17]
+	{
+	    text-face-name: "DejaVu Sans Oblique";
+	  	text-size: 10;
+    	text-placement: interior;
+  		text-placements: 'X,E,W,10,10,9,8';
+    }
+  
+   .major[place='mountain_pass'][zoom>=13]{
         	point-file: url('img/poi_mountain_pass.p.12.png');
         	[zoom>=17]{point-file: url('img/poi_mountain_pass.p.16.png');}
             point-allow-overlap: true;
@@ -193,46 +248,8 @@
         		ele/text-size: 9;
           	}
          
-    }	
-  /*text-allow-overlap: true;*/
-	[place='village'][zoom>=11][zoom<=16],
-	[place='suburb'][zoom=14][zoom<=16],
-  	[place='neighbourhood'][zoom>=12][zoom<=16],
-    [place='hamlet'][zoom>=14][zoom<=17],
-    [place='isolated_dwelling'][zoom>=14][zoom<=17],
-    [place='farm'][zoom>=14][zoom<=17]
-	{
-	    text-wrap-character: '-';
-    	text-wrap-width: 45;
-    }
-	[place='village'][zoom>=11][zoom<=16],
-	[place='suburb'][zoom=14][zoom<=16]{
-		text-face-name: "DejaVu Sans Book";
-  		text-placements: 'X,E,W,11,10,9,8';
-	}
-  	[place='village'][zoom=11]            { text-size: 10; }
-  	[place='village'][zoom>=12][zoom<=13]  { text-size: 11; }
-	[place='village'][zoom>=14][zoom<=16]  { text-size: 13; }
-	[place='suburb'][zoom=14]  			   { text-size: 12; }
-	[place='suburb'][zoom>=15][zoom<=16]   { text-size: 14; }
-
-    [place='neighbourhood'][zoom>=12][zoom<=16],
-    [place='hamlet'][zoom>=14][zoom<=17]
-	{
-	    text-face-name: "DejaVu Sans Oblique";
-	  	text-size: 11;
-    	text-placement: interior;
-  		text-placements: 'X,E,W,11,10,9,8';
-    }
-    [place='isolated_dwelling'][zoom>=14][zoom<=17],
-    [place='farm'][zoom>=14][zoom<=17],
-    [place='locality'][zoom>=14][zoom<=17]
-	{
-	    text-face-name: "DejaVu Sans Oblique";
-	  	text-size: 10;
-    	text-placement: interior;
-  		text-placements: 'X,E,W,10,10,9,8';
-    }
+    }  
+  
 }
 /* ------------------------------------------------------------------ */
 /* "Ground" labels

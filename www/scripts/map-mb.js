@@ -1,5 +1,3 @@
-   var deployed = true;
-
    var layerMarkers;
    var layerPois;
    var marker;
@@ -208,27 +206,16 @@ if (userAgent.indexOf('msie 10.0') > -1 ) {
    proj4326 = new OpenLayers.Projection("EPSG:4326");
    proj900913 = new OpenLayers.Projection("EPSG:900913");
 
-   if (deployed){
-      maxRes = 76.43702827453613;
-      zoomLevels = 8;
-      zOffset = 11;
-      restrExtent  = new OpenLayers.Bounds.fromArray(bBox).transform(proj4326, proj900913);
-      //detailExtent     = new OpenLayers.Bounds(2.86,42.68,2.92,42.71).transform(proj4326, proj900913);
-      detailExtent     = new OpenLayers.Bounds.fromArray(bBoxDetail).transform(proj4326, proj900913);
-      if (bBoxDetail[0] <= bBox[0] || bBoxDetail[1] <= bBox[1] || bBoxDetail[2] >= bBox[2] || bBoxDetail[3] >= bBox[3]){
-         detailExtent     = null;
-      }
-      detailZoom = 17;
-   }else{
-   //            resolutionLevels = [76.43702827453613, 38.218514137268066, 19.1092570678711, 
-   //                                9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834];
-      maxRes = 76.43702827453613;
-      zOffset = 11;
-      zoomLevels = 8;
-      restrExtent  = new OpenLayers.Bounds.fromArray(bBox).transform(proj4326, proj900913);
-      detailExtent     = restrExtent;
-      detailZoom = 11;
+   maxRes = 76.43702827453613;
+   zoomLevels = 8;
+   zOffset = 11;
+   restrExtent  = new OpenLayers.Bounds.fromArray(bBox).transform(proj4326, proj900913);
+   //detailExtent     = new OpenLayers.Bounds(2.86,42.68,2.92,42.71).transform(proj4326, proj900913);
+   detailExtent     = new OpenLayers.Bounds.fromArray(bBoxDetail).transform(proj4326, proj900913);
+   if (bBoxDetail[0] <= bBox[0] || bBoxDetail[1] <= bBox[1] || bBoxDetail[2] >= bBox[2] || bBoxDetail[3] >= bBox[3]){
+      detailExtent     = null;
    }
+   detailZoom = 17;
    
 
    map = new OpenLayers.Map(
@@ -371,6 +358,12 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
       }
    );   
    layerContour.setVisibility(false);
+
+               layerGoogle = new OpenLayers.Layer.Google(
+                "Google Satellite",
+                {type: google.maps.MapTypeId.SATELLITE, zoomOffset : zOffset, numZoomLevels: 22}
+            )
+   
    if (detailExtent != null){
       var layerBoxes  = new OpenLayers.Layer.Boxes( "Boxes" );
       box = new OpenLayers.Marker.Box(detailExtent,"red",1);         
@@ -389,14 +382,10 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    
    map.restrictedExtent = restrExtent;
    
-   if (deployed){
-      if (detailExtent != null){
-         map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerItin, layerRoutes, layerChemins, layerContour, layerBoxes ]);
-      }else{
-         map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerItin, layerRoutes, layerChemins, layerContour ]);
-      }
+   if (detailExtent != null){
+      map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerGoogle,  layerItin, layerRoutes, layerChemins, layerContour, layerBoxes ]);
    }else{
-      map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerBingAerial, layerRoutes, layerChemins, layerContour, layerBoxes ]);
+      map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerItin, layerRoutes, layerChemins, layerContour ]);
    }
 
    map.addControl(new OpenLayers.Control.LayerSwitcher());
@@ -580,7 +569,8 @@ $(document).ready(function(){
       $("#basicMap").css("left", "170px");
 
     });
-   
+
+    
 })
 //------------------------------------------------------------------------------
 function setMarkerPoi (poi, checked){
@@ -692,7 +682,8 @@ function createOverlay (overlay, id, color) {
       
    // This function creates a popup window. In this case, the popup is a cloud containing the "name" and "desc" elements from the GPX file.
    function createPopup(feature) {
-      empty=true; 
+      empty=true;
+      //console.log(feature.attributes);
       content = '<div>';
       if (feature.layer.name.substr(0,3) == "poi"){
          if (feature.attributes.title){
@@ -709,7 +700,19 @@ function createOverlay (overlay, id, color) {
             empty = false;
          }
          if (feature.attributes.cmt){
-              content = content + '<p>' + feature.attributes.cmt + '</p>'
+              cmt = feature.attributes.cmt;
+              p1 = cmt.indexOf('[img ');
+              if (p1 >= 0){
+                 img = cmt.slice(p1);
+                 p2 = img.indexOf(']');
+                 if (p2 >= 0){
+                    img = img.slice(5,p2);
+                    cmt = cmt.slice(0,p1) + '<a href="files/tracks/images/' + img + '" target="_blank" rel="lightbox"><img src="files/tracks/thumbs/' 
+                                          + img + '"></a>' + cmt.slice(p1+p2+1);
+                    //console.log(cmt);
+                 }
+              }
+              content = content + '<p>' + cmt + '</p>'
               empty = false;
          }
       }

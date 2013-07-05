@@ -1,0 +1,1015 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:rmc="urn:net:trekbuddy:1.0:nmea:rmc" creator="QLandkarteGT 1.6.0 http://www.qlandkarte.org/" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.qlandkarte.org/xmlschemas/v1.1 http://www.qlandkarte.org/xmlschemas/v1.1/ql-extensions.xsd" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:ql="http://www.qlandkarte.org/xmlschemas/v1.1">
+ <metadata>
+  <time>2013-06-09T16:52:39Z</time>
+ </metadata>
+ <wpt lon="2.87843776" lat="42.66795349">
+  <ele>64.8416</ele>
+  <time>2013-06-09T05:54:59Z</time>
+  <name>img_2761.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370757299img_2761.jpg1</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.87803149" lat="42.66748428">
+  <ele>61.4557</ele>
+  <time>2013-06-09T05:55:40Z</time>
+  <name>img_2762.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370757340img_2762.jpg2</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.87814379" lat="42.66728210">
+  <ele>60.563</ele>
+  <time>2013-06-09T05:56:05Z</time>
+  <name>img_2763.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370757365img_2763.jpg3</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.87589502" lat="42.66508484">
+  <ele>59.9527</ele>
+  <time>2013-06-09T05:57:54Z</time>
+  <name>img_2764.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370757474img_2764.jpg4</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.87332487" lat="42.66270447">
+  <ele>60.2197</ele>
+  <time>2013-06-09T06:01:11Z</time>
+  <name>img_2765.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370757671img_2765.jpg5</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.86704850" lat="42.66120148">
+  <ele>60.2197</ele>
+  <time>2013-06-09T06:04:15Z</time>
+  <name>img_2766.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370757855img_2766.jpg6</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.86175060" lat="42.65850449">
+  <ele>66.4683</ele>
+  <time>2013-06-09T06:07:09Z</time>
+  <name>img_2767.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758029img_2767.jpg7</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.86201954" lat="42.65823746">
+  <ele>69.8329</ele>
+  <time>2013-06-09T06:07:37Z</time>
+  <name>img_2768.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758057img_2768.jpg8</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.85987091" lat="42.65787888">
+  <ele>69.4896</ele>
+  <time>2013-06-09T06:08:37Z</time>
+  <name>img_2769.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758117img_2769.jpg9</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.85986233" lat="42.65787125">
+  <ele>69.4887</ele>
+  <time>2013-06-09T06:08:46Z</time>
+  <name>img_2770.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758126img_2770.jpg10</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.85982633" lat="42.65439606">
+  <ele>70.7484</ele>
+  <time>2013-06-09T06:11:20Z</time>
+  <name>img_2771.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758280img_2771.jpg11</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.85714436" lat="42.65177917">
+  <ele>67.8302</ele>
+  <time>2013-06-09T06:12:51Z</time>
+  <name>img_2772.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758371img_2772.jpg12</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.85595059" lat="42.65075684">
+  <ele>67.9637</ele>
+  <time>2013-06-09T06:14:00Z</time>
+  <name>img_2773.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758440img_2773.jpg13</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.85561514" lat="42.65037155">
+  <ele>66.949</ele>
+  <time>2013-06-09T06:14:25Z</time>
+  <name>img_2774.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758465img_2774.jpg14</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.85557365" lat="42.65032578">
+  <ele>66.8654</ele>
+  <time>2013-06-09T06:14:31Z</time>
+  <name>img_2775.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758471img_2775.jpg15</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.85160851" lat="42.65132141">
+  <ele>66.6532</ele>
+  <time>2013-06-09T06:15:56Z</time>
+  <name>img_2776.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758556img_2776.jpg16</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.85154247" lat="42.65130997">
+  <ele>66.7888</ele>
+  <time>2013-06-09T06:16:14Z</time>
+  <name>img_2777.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758574img_2777.jpg17</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.85150933" lat="42.65130234">
+  <ele>66.8589</ele>
+  <time>2013-06-09T06:16:20Z</time>
+  <name>img_2778.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758580img_2778.jpg18</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84941888" lat="42.64337540">
+  <ele>69.6655</ele>
+  <time>2013-06-09T06:19:11Z</time>
+  <name>img_2779.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758751img_2779.jpg19</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84742212" lat="42.64051437">
+  <ele>56.5</ele>
+  <time>2013-06-09T06:20:14Z</time>
+  <name>img_2780.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758814img_2780.jpg20</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84742188" lat="42.64051437">
+  <ele>56.5835</ele>
+  <time>2013-06-09T06:20:18Z</time>
+  <name>img_2781.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758818img_2781.jpg21</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84619498" lat="42.63843155">
+  <ele>63.1036</ele>
+  <time>2013-06-09T06:21:53Z</time>
+  <name>img_2782.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370758913img_2782.jpg22</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84676433" lat="42.63285828">
+  <ele>68.8182</ele>
+  <time>2013-06-09T06:24:48Z</time>
+  <name>img_2783.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759088img_2783.jpg23</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84780669" lat="42.63161469">
+  <ele>66.949</ele>
+  <time>2013-06-09T06:25:56Z</time>
+  <name>img_2784.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759156img_2784.jpg24</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84783220" lat="42.63160324">
+  <ele>66.949</ele>
+  <time>2013-06-09T06:26:07Z</time>
+  <name>img_2785.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759167img_2785.jpg25</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84783721" lat="42.63159943">
+  <ele>66.949</ele>
+  <time>2013-06-09T06:26:12Z</time>
+  <name>img_2786.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759172img_2786.jpg26</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84609771" lat="42.62884521">
+  <ele>69.5583</ele>
+  <time>2013-06-09T06:27:45Z</time>
+  <name>img_2787.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759265img_2787.jpg27</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84610558" lat="42.62897110">
+  <ele>69.8329</ele>
+  <time>2013-06-09T06:28:15Z</time>
+  <name>img_2788.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759295img_2788.jpg28</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84630489" lat="42.62875748">
+  <ele>69.0099</ele>
+  <time>2013-06-09T06:28:41Z</time>
+  <name>img_2789.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759321img_2789.jpg29</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84738040" lat="42.62866592">
+  <ele>68.8716</ele>
+  <time>2013-06-09T06:29:19Z</time>
+  <name>img_2790.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759359img_2790.jpg30</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84629583" lat="42.62709045">
+  <ele>59.1382</ele>
+  <time>2013-06-09T06:31:11Z</time>
+  <name>img_2791.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759471img_2791.jpg31</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84606194" lat="42.62680817">
+  <ele>58.709</ele>
+  <time>2013-06-09T06:31:40Z</time>
+  <name>img_2792.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759500img_2792.jpg32</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84527493" lat="42.62567902">
+  <ele>59.5873</ele>
+  <time>2013-06-09T06:32:29Z</time>
+  <name>img_2793.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759549img_2793.jpg33</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84526229" lat="42.62566757">
+  <ele>59.3849</ele>
+  <time>2013-06-09T06:32:33Z</time>
+  <name>img_2794.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759553img_2794.jpg34</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84388542" lat="42.62445450">
+  <ele>60.4119</ele>
+  <time>2013-06-09T06:33:26Z</time>
+  <name>img_2795.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759606img_2795.jpg35</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84396267" lat="42.62384415">
+  <ele>58.7776</ele>
+  <time>2013-06-09T06:33:52Z</time>
+  <name>img_2796.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759632img_2796.jpg36</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84346771" lat="42.62274170">
+  <ele>63.0395</ele>
+  <time>2013-06-09T06:34:49Z</time>
+  <name>img_2797.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759689img_2797.jpg37</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84292269" lat="42.62231064">
+  <ele>68.3222</ele>
+  <time>2013-06-09T06:35:38Z</time>
+  <name>img_2798.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759738img_2798.jpg38</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84100485" lat="42.62057495">
+  <ele>72.7169</ele>
+  <time>2013-06-09T06:37:17Z</time>
+  <name>img_2799.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759837img_2799.jpg39</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83926582" lat="42.61954117">
+  <ele>75.8516</ele>
+  <time>2013-06-09T06:38:29Z</time>
+  <name>img_2800.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370759909img_2800.jpg40</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83112812" lat="42.61431122">
+  <ele>88.098</ele>
+  <time>2013-06-09T06:42:59Z</time>
+  <name>img_2801.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370760179img_2801.jpg41</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83333778" lat="42.61086655">
+  <ele>86.656</ele>
+  <time>2013-06-09T06:44:43Z</time>
+  <name>img_2802.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370760283img_2802.jpg42</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83803797" lat="42.59973145">
+  <ele>89.0593</ele>
+  <time>2013-06-09T06:49:50Z</time>
+  <name>img_2803.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370760590img_2803.jpg43</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83801293" lat="42.59964752">
+  <ele>89.0593</ele>
+  <time>2013-06-09T06:50:08Z</time>
+  <name>img_2804.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370760608img_2804.jpg44</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83792329" lat="42.59931564">
+  <ele>86.1753</ele>
+  <time>2013-06-09T06:50:39Z</time>
+  <name>img_2805.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370760639img_2805.jpg45</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83816552" lat="42.59736252">
+  <ele>75.6514</ele>
+  <time>2013-06-09T06:52:08Z</time>
+  <name>img_2806.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370760728img_2806.jpg46</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83950901" lat="42.59630966">
+  <ele>73.5821</ele>
+  <time>2013-06-09T06:53:14Z</time>
+  <name>img_2807.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370760794img_2807.jpg47</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83923650" lat="42.59608841">
+  <ele>74.5194</ele>
+  <time>2013-06-09T06:53:36Z</time>
+  <name>img_2808.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370760816img_2808.jpg48</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83793092" lat="42.58943939">
+  <ele>82.456</ele>
+  <time>2013-06-09T06:57:41Z</time>
+  <name>img_2809.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761061img_2809.jpg49</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83645773" lat="42.59015656">
+  <ele>81.3688</ele>
+  <time>2013-06-09T06:59:00Z</time>
+  <name>img_2810.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761140img_2810.jpg50</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83435440" lat="42.59003067">
+  <ele>80.4075</ele>
+  <time>2013-06-09T07:00:02Z</time>
+  <name>img_2811.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761202img_2811.jpg51</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83354330" lat="42.58982468">
+  <ele>81.8494</ele>
+  <time>2013-06-09T07:00:35Z</time>
+  <name>img_2812.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761235img_2812.jpg52</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83251357" lat="42.58938980">
+  <ele>83.7319</ele>
+  <time>2013-06-09T07:01:20Z</time>
+  <name>img_2813.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761280img_2813.jpg53</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83197761" lat="42.58925247">
+  <ele>84.0925</ele>
+  <time>2013-06-09T07:01:51Z</time>
+  <name>img_2814.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761311img_2814.jpg54</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83187366" lat="42.58917999">
+  <ele>83.8321</ele>
+  <time>2013-06-09T07:02:04Z</time>
+  <name>img_2815.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761324img_2815.jpg55</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83160925" lat="42.58912659">
+  <ele>84.184</ele>
+  <time>2013-06-09T07:02:12Z</time>
+  <name>img_2816.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761332img_2816.jpg56</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83013225" lat="42.58932877">
+  <ele>83.8407</ele>
+  <time>2013-06-09T07:02:49Z</time>
+  <name>img_2817.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761369img_2817.jpg57</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82880378" lat="42.58908081">
+  <ele>85.4886</ele>
+  <time>2013-06-09T07:03:29Z</time>
+  <name>img_2818.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761409img_2818.jpg58</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82867527" lat="42.58903503">
+  <ele>85.6946</ele>
+  <time>2013-06-09T07:03:32Z</time>
+  <name>img_2819.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761412img_2819.jpg59</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82844853" lat="42.58886719">
+  <ele>85.6946</ele>
+  <time>2013-06-09T07:03:40Z</time>
+  <name>img_2820.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761420img_2820.jpg60</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82816052" lat="42.58874512">
+  <ele>88.1461</ele>
+  <time>2013-06-09T07:04:02Z</time>
+  <name>img_2821.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761442img_2821.jpg61</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82765961" lat="42.58877945">
+  <ele>90.108</ele>
+  <time>2013-06-09T07:04:20Z</time>
+  <name>img_2822.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761460img_2822.jpg62</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82710338" lat="42.58880234">
+  <ele>91.4091</ele>
+  <time>2013-06-09T07:04:38Z</time>
+  <name>img_2823.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761478img_2823.jpg63</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82538199" lat="42.58932495">
+  <ele>95.2824</ele>
+  <time>2013-06-09T07:05:52Z</time>
+  <name>img_2824.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761552img_2824.jpg64</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82507753" lat="42.58961487">
+  <ele>98.1919</ele>
+  <time>2013-06-09T07:07:14Z</time>
+  <name>img_2825.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761634img_2825.jpg65</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82457447" lat="42.58950043">
+  <ele>95.9901</ele>
+  <time>2013-06-09T07:07:41Z</time>
+  <name>img_2826.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761661img_2826.jpg66</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82355976" lat="42.58943176">
+  <ele>97.3106</ele>
+  <time>2013-06-09T07:08:07Z</time>
+  <name>img_2827.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761687img_2827.jpg67</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82342434" lat="42.58878708">
+  <ele>94.8752</ele>
+  <time>2013-06-09T07:08:43Z</time>
+  <name>img_2828.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761723img_2828.jpg68</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82247567" lat="42.58837509">
+  <ele>96.6698</ele>
+  <time>2013-06-09T07:09:07Z</time>
+  <name>img_2829.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370761747img_2829.jpg69</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82141185" lat="42.58797455">
+  <ele>99.1531</ele>
+  <time>2013-06-09T07:14:24Z</time>
+  <name>img_2830.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370762064img_2830.jpg70</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.81914926" lat="42.58818817">
+  <ele>93.8658</ele>
+  <time>2013-06-09T07:16:08Z</time>
+  <name>img_2831.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370762168img_2831.jpg71</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.81868243" lat="42.58885574">
+  <ele>89.1967</ele>
+  <time>2013-06-09T07:17:06Z</time>
+  <name>img_2832.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370762226img_2832.jpg72</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.81852794" lat="42.58903122">
+  <ele>88.9901</ele>
+  <time>2013-06-09T07:17:26Z</time>
+  <name>img_2833.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370762246img_2833.jpg73</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.81884289" lat="42.58926392">
+  <ele>91.9432</ele>
+  <time>2013-06-09T07:17:57Z</time>
+  <name>img_2834.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370762277img_2834.jpg74</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.81800413" lat="42.59024811">
+  <ele>94.3466</ele>
+  <time>2013-06-09T07:18:47Z</time>
+  <name>img_2835.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370762327img_2835.jpg75</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.81800413" lat="42.59026337">
+  <ele>92.9045</ele>
+  <time>2013-06-09T07:18:49Z</time>
+  <name>img_2836.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370762329img_2836.jpg76</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.81904149" lat="42.59134674">
+  <ele>91.5266</ele>
+  <time>2013-06-09T07:20:02Z</time>
+  <name>img_2837.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370762402img_2837.jpg77</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.81991529" lat="42.59194565">
+  <ele>90.5025</ele>
+  <time>2013-06-09T07:20:34Z</time>
+  <name>img_2838.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370762434img_2838.jpg78</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.82047582" lat="42.59436798">
+  <ele>91.6374</ele>
+  <time>2013-06-09T07:21:50Z</time>
+  <name>img_2839.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370762510img_2839.jpg79</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.80762053" lat="42.61046600">
+  <ele>93.8658</ele>
+  <time>2013-06-09T07:30:40Z</time>
+  <name>img_2840.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763040img_2840.jpg80</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.80631924" lat="42.61133575">
+  <ele>87.6172</ele>
+  <time>2013-06-09T07:31:17Z</time>
+  <name>img_2841.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763077img_2841.jpg81</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.80063629" lat="42.61364365">
+  <ele>110.208</ele>
+  <time>2013-06-09T07:34:12Z</time>
+  <name>img_2842.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763252img_2842.jpg82</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.79790998" lat="42.61659622">
+  <ele>109.728</ele>
+  <time>2013-06-09T07:35:46Z</time>
+  <name>img_2843.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763346img_2843.jpg83</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.79829741" lat="42.61684799">
+  <ele>109.291</ele>
+  <time>2013-06-09T07:35:56Z</time>
+  <name>img_2844.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763356img_2844.jpg84</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.79837465" lat="42.61691666">
+  <ele>110.99</ele>
+  <time>2013-06-09T07:36:08Z</time>
+  <name>img_2845.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763368img_2845.jpg85</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.79836774" lat="42.61714554">
+  <ele>109.591</ele>
+  <time>2013-06-09T07:36:33Z</time>
+  <name>img_2846.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763393img_2846.jpg86</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.79809141" lat="42.61857605">
+  <ele>108.723</ele>
+  <time>2013-06-09T07:37:27Z</time>
+  <name>img_2847.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763447img_2847.jpg87</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.79752946" lat="42.61920547">
+  <ele>107.108</ele>
+  <time>2013-06-09T07:38:32Z</time>
+  <name>img_2848.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763512img_2848.jpg88</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.79919505" lat="42.62438202">
+  <ele>104.44</ele>
+  <time>2013-06-09T07:42:18Z</time>
+  <name>img_2849.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763738img_2849.jpg89</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.79988313" lat="42.62521362">
+  <ele>104.48</ele>
+  <time>2013-06-09T07:43:06Z</time>
+  <name>img_2850.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763786img_2850.jpg90</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.80218244" lat="42.62397003">
+  <ele>112.955</ele>
+  <time>2013-06-09T07:44:56Z</time>
+  <name>img_2851.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370763896img_2851.jpg91</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.80348182" lat="42.62313843">
+  <ele>130.289</ele>
+  <time>2013-06-09T07:46:53Z</time>
+  <name>img_2852.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370764013img_2852.jpg92</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.80756187" lat="42.62147903">
+  <ele>117.899</ele>
+  <time>2013-06-09T07:52:40Z</time>
+  <name>img_2853.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370764360img_2853.jpg93</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83606434" lat="42.60595703">
+  <ele>103.731</ele>
+  <time>2013-06-09T08:05:36Z</time>
+  <name>img_2854.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370765136img_2854.jpg94</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.83814025" lat="42.60598755">
+  <ele>100.069</ele>
+  <time>2013-06-09T08:06:31Z</time>
+  <name>img_2855.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370765191img_2855.jpg95</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84222722" lat="42.60871887">
+  <ele>89.6467</ele>
+  <time>2013-06-09T08:09:14Z</time>
+  <name>img_2856.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370765354img_2856.jpg96</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84194446" lat="42.60883331">
+  <ele>91.1879</ele>
+  <time>2013-06-09T08:09:57Z</time>
+  <name>img_2857.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370765397img_2857.jpg97</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84194160" lat="42.60884094">
+  <ele>91.2336</ele>
+  <time>2013-06-09T08:10:04Z</time>
+  <name>img_2858.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370765404img_2858.jpg98</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84247398" lat="42.61026382">
+  <ele>89.1724</ele>
+  <time>2013-06-09T08:12:30Z</time>
+  <name>img_2859.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370765550img_2859.jpg99</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.84988880" lat="42.61283112">
+  <ele>78.5534</ele>
+  <time>2013-06-09T08:19:32Z</time>
+  <name>img_2860.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370765972img_2860.jpg100</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.86359882" lat="42.62254715">
+  <ele>65.5071</ele>
+  <time>2013-06-09T08:26:51Z</time>
+  <name>img_2861.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370766411img_2861.jpg101</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.86495757" lat="42.62713623">
+  <ele>63.6531</ele>
+  <time>2013-06-09T08:29:47Z</time>
+  <name>img_2862.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370766587img_2862.jpg102</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.86495852" lat="42.62714386">
+  <ele>63.7446</ele>
+  <time>2013-06-09T08:29:51Z</time>
+  <name>img_2863.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370766591img_2863.jpg103</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.86677384" lat="42.63162613">
+  <ele>65.507</ele>
+  <time>2013-06-09T08:32:53Z</time>
+  <name>img_2864.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370766773img_2864.jpg104</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.89187574" lat="42.63468933">
+  <ele>33.6232</ele>
+  <time>2013-06-09T08:43:57Z</time>
+  <name>img_2865.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370767437img_2865.jpg105</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.89194942" lat="42.63457108">
+  <ele>32.8223</ele>
+  <time>2013-06-09T08:44:15Z</time>
+  <name>img_2866.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370767455img_2866.jpg106</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.90910816" lat="42.64086914">
+  <ele>30.4606</ele>
+  <time>2013-06-09T08:54:50Z</time>
+  <name>img_2867.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370768090img_2867.jpg107</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.90910769" lat="42.64086914">
+  <ele>30.5442</ele>
+  <time>2013-06-09T08:54:54Z</time>
+  <name>img_2868.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370768094img_2868.jpg108</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.90910721" lat="42.64086914">
+  <ele>30.6069</ele>
+  <time>2013-06-09T08:54:57Z</time>
+  <name>img_2869.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370768097img_2869.jpg109</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.90890169" lat="42.65090942">
+  <ele>33.399</ele>
+  <time>2013-06-09T08:59:59Z</time>
+  <name>img_2870.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370768399img_2870.jpg110</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.89270616" lat="42.65829468">
+  <ele>48.2034</ele>
+  <time>2013-06-09T09:08:33Z</time>
+  <name>img_2871.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370768913img_2871.jpg111</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.89187670" lat="42.66703796">
+  <ele>68.9437</ele>
+  <time>2013-06-09T09:17:16Z</time>
+  <name>img_2872.jpg</name>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1370769436img_2872.jpg112</ql:key>
+  </extensions>
+ </wpt>
+ <extensions/>
+</gpx>

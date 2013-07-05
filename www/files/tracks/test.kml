@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+ <Document>
+  <name>2013-06-09</name>
+  <description><![CDATA[Created with kmlexport <a href="http://www.digikam.org/">kipi-plugin</a>]]></description>
+  <Placemark>
+   <name>img_2838_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.82120419,42.59294510,90.50130000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:20:34Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2838_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2838_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2839_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.81959748,42.59560776,98.67250000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:21:50Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2839_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2839_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2840_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.80630136,42.61136627,88.57870000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:30:40Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2840_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2840_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2841_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.80542278,42.61195755,90.50130000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:31:17Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2841_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2841_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2842_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.79914141,42.61500931,110.20800000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:34:12Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2842_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2842_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2843_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.79844475,42.61706543,109.24700000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:35:46Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2843_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2843_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2844_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.79833698,42.61717987,109.72800000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:35:56Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2844_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2844_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2845_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.79822087,42.61736298,108.76600000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:36:08Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2845_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2845_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2846_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.79833841,42.61830521,107.80500000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:36:33Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2846_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2846_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2847_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.79752421,42.61920929,106.36300000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:37:27Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2847_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2847_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2848_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.79752731,42.61920166,107.32400000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:38:32Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2848_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2848_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+  <Placemark>
+   <name>img_2849_jpg.jpeg</name>
+   <Point>
+    <coordinates>2.79983544,42.62518692,105.40200000 </coordinates>
+    <altitudeMode>clampToGround</altitudeMode>
+    <extrude>1</extrude>
+    <TimeStamp>
+     <when>2013-06-09T09:42:18Z</when>
+    </TimeStamp>
+   </Point>
+   <description>&lt;img src="images/img_2849_jpg.jpeg">&lt;br/></description>
+   <Style>
+    <IconStyle>
+     <Icon>
+      <href>images/thumb_img_2849_jpg.jpeg</href>
+     </Icon>
+    </IconStyle>
+    <BalloonStyle>
+     <text>$[description]</text>
+    </BalloonStyle>
+   </Style>
+  </Placemark>
+ </Document>
+</kml>

@@ -14,14 +14,16 @@
 ?>
 </title>
 <link href="css/style.css" type="text/css" rel="stylesheet" />
+<link href="css/lightbox.css" rel="stylesheet" />
+<!--     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+  <script src="js/jquery-1.7.2.min.js"></script> 
+   <script src="js/lightbox.js"></script>   
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
+        <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
     <script src="scripts/OpenLayers.js"></script>
      <script src="scripts/map-mb.js"></script>
     <script src="scripts/OpenStreetMap.js"></script>
-
-   <link rel="canonical" href="http://velocarte66.fr" />
+   <script src="google-v3.js"></script>
    <META NAME="description" CONTENT="Carte cycliste de Perpignan et ses environs. La vélocarte est une carte qui s'adresse particulièrement à ceux qui favorisent le vélo comme moyen de transport dans le quotidien et pour les loisirs.">
    <META NAME="revisit-after" CONTENT="After 7 days">
    <META NAME="Keywords" CONTENT="openstreetmap, carte, velocarte, map, karte, velo, cyclisme, cycliste, bicycle, perpignan, roussillon, pyrenees, orientales, 66">
@@ -294,7 +296,7 @@
           </div>
        </div>
 
-          <div id="basicMap"> 
+       <div id="basicMap"> 
 
              <noscript>
       			<div style="position: absolute;top: 15px;left: 15px;z-index: 20000000;" id="noscript">
@@ -308,7 +310,6 @@
 
 </div>
 
-      
       
   </body>
 </html>

@@ -1,28 +1,31 @@
 lat	lon	title	description	icon	iconSize	iconOffset	id
-5266358.57	322648.07	 	Parking vélo<br>Capacité: 2<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
-5266860.79	322668.53	 	Parking vélo<br>Capacité: 10<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5264036.62	322710.23	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5266227.93	322427.66	 	Parking vélo<br>Capacité: 8<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
-5266322.61	322212.6	 	Parking vélo<br>Capacité: 4<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5265130.34	324349.95	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5266711.33	322722.98	 	Parking vélo<br>Capacité: 4<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5263914.5	322915.66	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5242678.48	339729.36	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5254786.21	336148.5	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5254485.67	336388.27	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5266400.82	322164.78	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5257694.32	319955.18	 	Parking vélo<br>Capacité: 3<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
-5266448.15	321644.58	 	Parking vélo<br>Capacité: 8<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
-5264838.6	324646.8	 	Parking vélo<br>Capacité: 5<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
-5265927.4	321518.01	 	Parking vélo<br>Capacité: 12<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5266132.69	322505.98	 	Parking vélo<br>Capacité: 8<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5266032.17	321095.42	 	Parking vélo<br>Capacité: 2<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5257604.54	320048.25	 	Parking vélo<br>Capacité: 5<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
-5266459.56	322439.04	 	Parking vélo<br>Capacité: 6<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
-5266036.82	321109.11	 	Parking vélo<br>Capacité: 2<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5255048.56	336384.8	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5267524.78	321838.66	 	Parking vélo<br>Capacité: 8<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
-5265839.71	320353.78	 	Parking vélo<br>Capacité: 6<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
-5265143.79	324363.51	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
-5266647.31	322393.11	 	Parking vélo<br>Capacité: 10<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
-5264720.59	324417.14	 	Parking vélo<br>Capacité: 4<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5267524.78484534	321838.662962445	 	Parking vélo<br>Capacité: 8<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5266032.17660495	321095.427250318	 	Parking vélo<br>Capacité: 2<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5264838.60583688	324646.808436805	 	Parking vélo<br>Capacité: 5<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5266400.82287371	322164.784542627	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5265130.34316118	324349.952750748	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5266448.15811352	321644.588562223	 	Parking vélo<br>Capacité: 8<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5266322.61800586	322212.607395865	 	Parking vélo<br>Capacité: 4<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5266133.19012241	321382.887571353	 	Parking vélo<br>Capacité: 4<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5265927.4078455	321518.018301208	 	Parking vélo<br>Capacité: 12<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5264720.59889491	324417.145195381	 	Parking vélo<br>Capacité: 4<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5266227.93388115	322427.665520099	 	Parking vélo<br>Capacité: 8<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5257694.3269522	319955.181706281	 	Parking vélo<br>Capacité: 3<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5263914.50508037	322915.66790377	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5254485.6753984	336388.276254387	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5265143.79210197	324363.511464724	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5266229.64548781	320474.84335313	 	Parking vélo<br>Capacité: 4<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5266647.31711794	322393.111950161	 	Parking vélo<br>Capacité: 10<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5266459.56404853	322439.042372056	 	Parking vélo<br>Capacité: 6<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5242678.48712517	339729.363790846	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5266860.79516959	322668.538634244	 	Parking vélo<br>Capacité: 10<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5255048.56251381	336384.803086275	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5265839.71015708	320353.783406909	 	Parking vélo<br>Capacité: 6<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5264036.6209237	322710.238915489	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5266358.57732008	322648.078111839	 	Parking vélo<br>Capacité: 2<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5257604.54192315	320048.25593252	 	Parking vélo<br>Capacité: 5<br>Type: Râteliers	img/bicycle_parking.png	21,25	-10,-25	103
+5266132.69027777	322505.98991381	 	Parking vélo<br>Capacité: 8<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5216431.68354606	195913.398209627	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5266711.33124393	322722.984997183	 	Parking vélo<br>Capacité: 4<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5266036.82662609	321109.119547683	 	Parking vélo<br>Capacité: 2<br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
+5254786.21453626	336148.505203201	 	Parking vélo<br>Capacité: <br>Type: 	img/bicycle_parking.png	21,25	-10,-25	103
