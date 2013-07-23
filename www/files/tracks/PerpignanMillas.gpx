@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:rmc="urn:net:trekbuddy:1.0:nmea:rmc" creator="QLandkarteGT 1.6.0 http://www.qlandkarte.org/" xmlns:wptx1="http://www.garmin.com/xmlschemas/WaypointExtension/v1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.garmin.com/xmlschemas/WaypointExtension/v1 http://www.garmin.com/xmlschemas/WaypointExtensionv1.xsd http://www.qlandkarte.org/xmlschemas/v1.1 http://www.qlandkarte.org/xmlschemas/v1.1/ql-extensions.xsd" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:ql="http://www.qlandkarte.org/xmlschemas/v1.1">
  <metadata>
-  <time>2013-05-14T10:44:36Z</time>
+  <time>2013-07-22T13:18:53Z</time>
  </metadata>
  <wpt lon="2.70358181" lat="42.70036316">
   <time>2013-02-15T16:11:53Z</time>
@@ -10,6 +10,15 @@
   <sym>Flag, Red</sym>
   <extensions>
    <ql:key>1360944713P15</ql:key>
+  </extensions>
+ </wpt>
+ <wpt lon="2.70691657" lat="42.70078278">
+  <time>2013-02-15T16:13:38Z</time>
+  <name>P3</name>
+  <desc>Passage à gué</desc>
+  <sym>Flag, Red</sym>
+  <extensions>
+   <ql:key>1360944818P37</ql:key>
   </extensions>
  </wpt>
  <wpt lon="2.70833325" lat="42.69931793">
@@ -21,29 +30,9 @@
    <ql:key>1360944763P26</ql:key>
   </extensions>
  </wpt>
- <wpt lon="2.70691657" lat="42.70078278">
-  <time>2013-02-15T16:13:38Z</time>
-  <name>P3</name>
-  <cmt></cmt>
-  <desc>Passage à gué</desc>
-  <sym>Flag, Red</sym>
-  <extensions>
-   <ql:key>1360944818P37</ql:key>
-  </extensions>
- </wpt>
- <wpt lon="2.70915961" lat="42.69499207">
-  <time>2013-02-15T16:14:13Z</time>
-  <name>P4</name>
-  <desc>option hors D614: piste en très mauvais état</desc>
-  <sym>Flag, Red</sym>
-  <extensions>
-   <ql:key>1360944853option hors D614: piste en très mauvais état8</ql:key>
-  </extensions>
- </wpt>
  <wpt lon="2.70791674" lat="42.69716644">
   <time>2013-05-14T10:40:41Z</time>
   <name>P5</name>
-  <cmt></cmt>
   <desc>Chemin privé, accès interdit </desc>
   <sym>Flag, Red</sym>
   <extensions>
@@ -58,361 +47,15 @@
    <ql:key>1368528182P68</ql:key>
   </extensions>
  </wpt>
- <trk>
-  <name>Variante</name>
+ <wpt lon="2.70915961" lat="42.69499207">
+  <time>2013-02-15T16:14:13Z</time>
+  <name>P4</name>
+  <desc>option hors D614: piste en très mauvais état</desc>
+  <sym>Flag, Red</sym>
   <extensions>
-   <gpxx:TrackExtension>
-    <gpxx:DisplayColor>DarkBlue</gpxx:DisplayColor>
-   </gpxx:TrackExtension>
-   <ql:key>1368527748Variante_23</ql:key>
+   <ql:key>1360944853option hors D614: piste en très mauvais état8</ql:key>
   </extensions>
-  <trkseg>
-   <trkpt lon="2.72903132" lat="42.69697189">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:01.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72897744" lat="42.69690704">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:02.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72883368" lat="42.69665527">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:03.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72879767" lat="42.69661331">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:04.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72877979" lat="42.69645691">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:05.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72868991" lat="42.69626999">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:06.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72863603" lat="42.69579315">
-    <ele>88</ele>
-    <time>1970-01-01T00:00:07.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72860003" lat="42.69568634">
-    <ele>88</ele>
-    <time>1970-01-01T00:00:08.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72852826" lat="42.69557953">
-    <ele>88</ele>
-    <time>1970-01-01T00:00:09.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72809696" lat="42.69515610">
-    <ele>86</ele>
-    <time>1970-01-01T00:00:10.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72794437" lat="42.69492340">
-    <ele>86</ele>
-    <time>1970-01-01T00:00:11.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72829461" lat="42.69379044">
-    <ele>85</ele>
-    <time>1970-01-01T00:00:12.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72832155" lat="42.69367218">
-    <ele>85</ele>
-    <time>1970-01-01T00:00:13.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72821379" lat="42.69329453">
-    <ele>85</ele>
-    <time>1970-01-01T00:00:14.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72821379" lat="42.69321442">
-    <ele>85</ele>
-    <time>1970-01-01T00:00:15.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72799826" lat="42.69289780">
-    <ele>84</ele>
-    <time>1970-01-01T00:00:16.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72794437" lat="42.69285583">
-    <ele>84</ele>
-    <time>1970-01-01T00:00:17.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72524929" lat="42.69331360">
-    <ele>86</ele>
-    <time>1970-01-01T00:00:18.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72166514" lat="42.69379044">
-    <ele>86</ele>
-    <time>1970-01-01T00:00:19.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72161126" lat="42.69335556">
-    <ele>87</ele>
-    <time>1970-01-01T00:00:20.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72020984" lat="42.69357300">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:21.000Z</time>
-   </trkpt>
-   <trkpt lon="2.72018290" lat="42.69359207">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:22.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71826959" lat="42.69371796">
-    <ele>87</ele>
-    <time>1970-01-01T00:00:23.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71782041" lat="42.69375229">
-    <ele>88</ele>
-    <time>1970-01-01T00:00:24.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71718240" lat="42.69377899">
-    <ele>88</ele>
-    <time>1970-01-01T00:00:25.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71685910" lat="42.69373322">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:26.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71662545" lat="42.69366455">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:27.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71656275" lat="42.69355774">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:28.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71653581" lat="42.69341278">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:29.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71653581" lat="42.69330215">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:30.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71645498" lat="42.69326019">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:31.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71636510" lat="42.69324112">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:32.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71621227" lat="42.69328308">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:33.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71596074" lat="42.69334793">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:34.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71563745" lat="42.69341278">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:35.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71505356" lat="42.69355774">
-    <ele>88</ele>
-    <time>1970-01-01T00:00:36.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71477509" lat="42.69358063">
-    <ele>88</ele>
-    <time>1970-01-01T00:00:37.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71447849" lat="42.69364548">
-    <ele>88</ele>
-    <time>1970-01-01T00:00:38.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71413732" lat="42.69362640">
-    <ele>88</ele>
-    <time>1970-01-01T00:00:39.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71375084" lat="42.69373322">
-    <ele>88</ele>
-    <time>1970-01-01T00:00:40.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71357131" lat="42.69383621">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:41.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71340060" lat="42.69392395">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:42.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71338272" lat="42.69393158">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:43.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71334124" lat="42.69368744">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:44.000Z</time>
-   </trkpt>
-   <trkpt lon="2.71334124" lat="42.69368744">
-    <ele>89</ele>
-    <time>1970-01-01T00:00:45.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70939326" lat="42.69474030">
-    <ele>91</ele>
-    <time>1970-01-01T00:00:46.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70864773" lat="42.69490814">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:47.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70817590" lat="42.69497681">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:48.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70798278" lat="42.69506073">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:49.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70787501" lat="42.69516754">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:50.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70742583" lat="42.69557571">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:51.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70725083" lat="42.69572449">
-    <ele>90</ele>
-    <time>1970-01-01T00:00:52.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70693636" lat="42.69610596">
-    <ele>92</ele>
-    <time>1970-01-01T00:00:53.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70688248" lat="42.69606781">
-    <ele>92</ele>
-    <time>1970-01-01T00:00:54.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70677471" lat="42.69606781">
-    <ele>92</ele>
-    <time>1970-01-01T00:00:55.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70666695" lat="42.69609451">
-    <ele>92</ele>
-    <time>1970-01-01T00:00:56.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70666242" lat="42.69609451">
-    <ele>92</ele>
-    <time>1970-01-01T00:00:57.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70658350" lat="42.69617844">
-    <ele>92</ele>
-    <time>1970-01-01T00:00:58.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70634556" lat="42.69619751">
-    <ele>92</ele>
-    <time>1970-01-01T00:00:59.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70499349" lat="42.69654465">
-    <ele>93</ele>
-    <time>1970-01-01T00:01:00.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70394254" lat="42.69679642">
-    <ele>93</ele>
-    <time>1970-01-01T00:01:01.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70392013" lat="42.69684219">
-    <ele>93</ele>
-    <time>1970-01-01T00:01:02.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70394254" lat="42.69690704">
-    <ele>93</ele>
-    <time>1970-01-01T00:01:03.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70422101" lat="42.69729233">
-    <ele>92</ele>
-    <time>1970-01-01T00:01:04.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70422101" lat="42.69733429">
-    <ele>92</ele>
-    <time>1970-01-01T00:01:05.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70418072" lat="42.69735718">
-    <ele>92</ele>
-    <time>1970-01-01T00:01:06.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70364165" lat="42.69757462">
-    <ele>94</ele>
-    <time>1970-01-01T00:01:07.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70364165" lat="42.69761276">
-    <ele>94</ele>
-    <time>1970-01-01T00:01:08.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70368648" lat="42.69768143">
-    <ele>94</ele>
-    <time>1970-01-01T00:01:09.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70361924" lat="42.69772720">
-    <ele>94</ele>
-    <time>1970-01-01T00:01:10.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70325089" lat="42.69785309">
-    <ele>94</ele>
-    <time>1970-01-01T00:01:11.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70293641" lat="42.69798279">
-    <ele>93</ele>
-    <time>1970-01-01T00:01:12.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70267606" lat="42.69800568">
-    <ele>96</ele>
-    <time>1970-01-01T00:01:13.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70239735" lat="42.69810867">
-    <ele>96</ele>
-    <time>1970-01-01T00:01:14.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70202923" lat="42.69821548">
-    <ele>95</ele>
-    <time>1970-01-01T00:01:15.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70177770" lat="42.69826126">
-    <ele>95</ele>
-    <time>1970-01-01T00:01:16.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70117569" lat="42.69828415">
-    <ele>94</ele>
-    <time>1970-01-01T00:01:17.000Z</time>
-   </trkpt>
-   <trkpt lon="2.70051098" lat="42.69828415">
-    <ele>94</ele>
-    <time>1970-01-01T00:01:18.000Z</time>
-   </trkpt>
-   <trkpt lon="2.69997191" lat="42.69828415">
-    <ele>96</ele>
-    <time>1970-01-01T00:01:19.000Z</time>
-   </trkpt>
-   <trkpt lon="2.69964862" lat="42.69830322">
-    <ele>96</ele>
-    <time>1970-01-01T00:01:20.000Z</time>
-   </trkpt>
-   <trkpt lon="2.69937015" lat="42.69830322">
-    <ele>94</ele>
-    <time>1970-01-01T00:01:21.000Z</time>
-   </trkpt>
-   <trkpt lon="2.69918156" lat="42.69727707">
-    <ele>96</ele>
-    <time>1970-01-01T00:01:22.000Z</time>
-   </trkpt>
-   <trkpt lon="2.69913650" lat="42.69725037">
-    <ele>96</ele>
-    <time>1970-01-01T00:01:23.000Z</time>
-   </trkpt>
-   <trkpt lon="2.69844484" lat="42.69733429">
-    <ele>94</ele>
-    <time>1970-01-01T00:01:24.000Z</time>
-   </trkpt>
-   <trkpt lon="2.69795084" lat="42.69748688">
-    <ele>94</ele>
-    <time>1970-01-01T00:01:25.000Z</time>
-   </trkpt>
-   <trkpt lon="2.69703460" lat="42.69781113">
-    <ele>97</ele>
-    <time>1970-01-01T00:01:26.000Z</time>
-   </trkpt>
-  </trkseg>
- </trk>
+ </wpt>
  <trk>
   <name>Perpignan - Millas</name>
   <extensions>
@@ -2836,616 +2479,360 @@
    </trkpt>
   </trkseg>
  </trk>
- <extensions>
-  <ql:overlays>
-   <ql:distance>
-    <ql:name>Perpignan - Millas</ql:name>
-    <ql:comment>Von einem Track abgeleitet.</ql:comment>
-    <ql:speed>0</ql:speed>
-    <ql:point lon="2.89242721" lat="42.70432663"/>
-    <ql:point lon="2.89240050" lat="42.70431900"/>
-    <ql:point lon="2.89204741" lat="42.70424652"/>
-    <ql:point lon="2.89113998" lat="42.70405579"/>
-    <ql:point lon="2.89006901" lat="42.70381165"/>
-    <ql:point lon="2.88903379" lat="42.70357513"/>
-    <ql:point lon="2.88802075" lat="42.70335770"/>
-    <ql:point lon="2.88696766" lat="42.70312500"/>
-    <ql:point lon="2.88682032" lat="42.70309448"/>
-    <ql:point lon="2.88667583" lat="42.70306396"/>
-    <ql:point lon="2.88652754" lat="42.70303726"/>
-    <ql:point lon="2.88595700" lat="42.70290375"/>
-    <ql:point lon="2.88588548" lat="42.70288849"/>
-    <ql:point lon="2.88568044" lat="42.70284271"/>
-    <ql:point lon="2.88517785" lat="42.70273590"/>
-    <ql:point lon="2.88450909" lat="42.70259476"/>
-    <ql:point lon="2.88341165" lat="42.70234680"/>
-    <ql:point lon="2.88254404" lat="42.70216751"/>
-    <ql:point lon="2.88184786" lat="42.70202637"/>
-    <ql:point lon="2.88086486" lat="42.70207596"/>
-    <ql:point lon="2.88011718" lat="42.70213699"/>
-    <ql:point lon="2.87945843" lat="42.70226669"/>
-    <ql:point lon="2.87899995" lat="42.70248413"/>
-    <ql:point lon="2.87879634" lat="42.70257187"/>
-    <ql:point lon="2.87852430" lat="42.70268250"/>
-    <ql:point lon="2.87820244" lat="42.70277786"/>
-    <ql:point lon="2.87816429" lat="42.70281982"/>
-    <ql:point lon="2.87795830" lat="42.70298767"/>
-    <ql:point lon="2.87736154" lat="42.70318604"/>
-    <ql:point lon="2.87657523" lat="42.70348358"/>
-    <ql:point lon="2.87621331" lat="42.70353317"/>
-    <ql:point lon="2.87613463" lat="42.70351791"/>
-    <ql:point lon="2.87585711" lat="42.70355988"/>
-    <ql:point lon="2.87572455" lat="42.70369339"/>
-    <ql:point lon="2.87564921" lat="42.70384598"/>
-    <ql:point lon="2.87539887" lat="42.70410156"/>
-    <ql:point lon="2.87505651" lat="42.70421982"/>
-    <ql:point lon="2.87436938" lat="42.70435715"/>
-    <ql:point lon="2.87403011" lat="42.70436096"/>
-    <ql:point lon="2.87385726" lat="42.70437622"/>
-    <ql:point lon="2.87326956" lat="42.70442581"/>
-    <ql:point lon="2.87242484" lat="42.70450974"/>
-    <ql:point lon="2.87185025" lat="42.70460129"/>
-    <ql:point lon="2.87100744" lat="42.70476913"/>
-    <ql:point lon="2.87016392" lat="42.70505905"/>
-    <ql:point lon="2.86997747" lat="42.70513916"/>
-    <ql:point lon="2.86947918" lat="42.70534897"/>
-    <ql:point lon="2.86922932" lat="42.70537949"/>
-    <ql:point lon="2.86917138" lat="42.70535660"/>
-    <ql:point lon="2.86906910" lat="42.70525742"/>
-    <ql:point lon="2.86896729" lat="42.70512009"/>
-    <ql:point lon="2.86885309" lat="42.70496368"/>
-    <ql:point lon="2.86871243" lat="42.70480728"/>
-    <ql:point lon="2.86861777" lat="42.70473099"/>
-    <ql:point lon="2.86850739" lat="42.70466995"/>
-    <ql:point lon="2.86811876" lat="42.70452499"/>
-    <ql:point lon="2.86783934" lat="42.70447540"/>
-    <ql:point lon="2.86770320" lat="42.70445633"/>
-    <ql:point lon="2.86711884" lat="42.70439911"/>
-    <ql:point lon="2.86651492" lat="42.70442581"/>
-    <ql:point lon="2.86587620" lat="42.70452499"/>
-    <ql:point lon="2.86525178" lat="42.70461655"/>
-    <ql:point lon="2.86520338" lat="42.70462418"/>
-    <ql:point lon="2.86510563" lat="42.70463943"/>
-    <ql:point lon="2.86414337" lat="42.70477676"/>
-    <ql:point lon="2.86409497" lat="42.70478821"/>
-    <ql:point lon="2.86372209" lat="42.70484924"/>
-    <ql:point lon="2.86366653" lat="42.70486069"/>
-    <ql:point lon="2.86350083" lat="42.70485306"/>
-    <ql:point lon="2.86342716" lat="42.70479202"/>
-    <ql:point lon="2.86337709" lat="42.70471573"/>
-    <ql:point lon="2.86330938" lat="42.70459366"/>
-    <ql:point lon="2.86328244" lat="42.70455551"/>
-    <ql:point lon="2.86326075" lat="42.70451355"/>
-    <ql:point lon="2.86320925" lat="42.70443726"/>
-    <ql:point lon="2.86314321" lat="42.70436478"/>
-    <ql:point lon="2.86310220" lat="42.70433044"/>
-    <ql:point lon="2.86301756" lat="42.70427322"/>
-    <ql:point lon="2.86291933" lat="42.70421600"/>
-    <ql:point lon="2.86278486" lat="42.70413208"/>
-    <ql:point lon="2.86274385" lat="42.70410538"/>
-    <ql:point lon="2.86270308" lat="42.70408249"/>
-    <ql:point lon="2.86257577" lat="42.70399857"/>
-    <ql:point lon="2.86247754" lat="42.70395279"/>
-    <ql:point lon="2.86200237" lat="42.70378494"/>
-    <ql:point lon="2.86183095" lat="42.70375824"/>
-    <ql:point lon="2.86157823" lat="42.70373154"/>
-    <ql:point lon="2.86092377" lat="42.70362091"/>
-    <ql:point lon="2.86002922" lat="42.70347214"/>
-    <ql:point lon="2.85988331" lat="42.70343781"/>
-    <ql:point lon="2.85968447" lat="42.70338058"/>
-    <ql:point lon="2.85961986" lat="42.70336914"/>
-    <ql:point lon="2.85880423" lat="42.70326614"/>
-    <ql:point lon="2.85873437" lat="42.70326233"/>
-    <ql:point lon="2.85835958" lat="42.70323944"/>
-    <ql:point lon="2.85735846" lat="42.70338058"/>
-    <ql:point lon="2.85646343" lat="42.70351028"/>
-    <ql:point lon="2.85587859" lat="42.70375824"/>
-    <ql:point lon="2.85527992" lat="42.70412064"/>
-    <ql:point lon="2.85485220" lat="42.70433426"/>
-    <ql:point lon="2.85435557" lat="42.70439148"/>
-    <ql:point lon="2.85407162" lat="42.70452118"/>
-    <ql:point lon="2.85386658" lat="42.70481110"/>
-    <ql:point lon="2.85373592" lat="42.70500565"/>
-    <ql:point lon="2.85370183" lat="42.70507431"/>
-    <ql:point lon="2.85321331" lat="42.70473099"/>
-    <ql:point lon="2.85287929" lat="42.70461655"/>
-    <ql:point lon="2.85248232" lat="42.70458221"/>
-    <ql:point lon="2.85171461" lat="42.70456314"/>
-    <ql:point lon="2.85148096" lat="42.70456314"/>
-    <ql:point lon="2.85118437" lat="42.70458603"/>
-    <ql:point lon="2.85052752" lat="42.70455170"/>
-    <ql:point lon="2.85020995" lat="42.70454788"/>
-    <ql:point lon="2.84947658" lat="42.70452881"/>
-    <ql:point lon="2.84915948" lat="42.70451736"/>
-    <ql:point lon="2.84902501" lat="42.70446777"/>
-    <ql:point lon="2.84896278" lat="42.70443726"/>
-    <ql:point lon="2.84868050" lat="42.70451736"/>
-    <ql:point lon="2.84849095" lat="42.70458221"/>
-    <ql:point lon="2.84829640" lat="42.70464706"/>
-    <ql:point lon="2.84789968" lat="42.70486832"/>
-    <ql:point lon="2.84751248" lat="42.70518112"/>
-    <ql:point lon="2.84692836" lat="42.70563507"/>
-    <ql:point lon="2.84684443" lat="42.70568848"/>
-    <ql:point lon="2.84663486" lat="42.70563507"/>
-    <ql:point lon="2.84634113" lat="42.70541763"/>
-    <ql:point lon="2.84616613" lat="42.70532608"/>
-    <ql:point lon="2.84604096" lat="42.70527267"/>
-    <ql:point lon="2.84591317" lat="42.70521545"/>
-    <ql:point lon="2.84585452" lat="42.70518112"/>
-    <ql:point lon="2.84518147" lat="42.70483780"/>
-    <ql:point lon="2.84500670" lat="42.70476151"/>
-    <ql:point lon="2.84433365" lat="42.70450592"/>
-    <ql:point lon="2.84422541" lat="42.70445251"/>
-    <ql:point lon="2.84413600" lat="42.70439148"/>
-    <ql:point lon="2.84402680" lat="42.70426941"/>
-    <ql:point lon="2.84391713" lat="42.70410156"/>
-    <ql:point lon="2.84370518" lat="42.70380783"/>
-    <ql:point lon="2.84367466" lat="42.70376587"/>
-    <ql:point lon="2.84348702" lat="42.70354843"/>
-    <ql:point lon="2.84327269" lat="42.70330429"/>
-    <ql:point lon="2.84307361" lat="42.70286560"/>
-    <ql:point lon="2.84275961" lat="42.70252609"/>
-    <ql:point lon="2.84251595" lat="42.70241928"/>
-    <ql:point lon="2.84235978" lat="42.70232391"/>
-    <ql:point lon="2.84232402" lat="42.70219803"/>
-    <ql:point lon="2.84236813" lat="42.70202637"/>
-    <ql:point lon="2.84238672" lat="42.70198822"/>
-    <ql:point lon="2.84230995" lat="42.70182037"/>
-    <ql:point lon="2.84220695" lat="42.70176697"/>
-    <ql:point lon="2.84202218" lat="42.70171738"/>
-    <ql:point lon="2.84190059" lat="42.70167923"/>
-    <ql:point lon="2.84178710" lat="42.70164108"/>
-    <ql:point lon="2.84172583" lat="42.70162582"/>
-    <ql:point lon="2.84157562" lat="42.70156097"/>
-    <ql:point lon="2.84150767" lat="42.70143127"/>
-    <ql:point lon="2.84147191" lat="42.70135117"/>
-    <ql:point lon="2.84141445" lat="42.70121765"/>
-    <ql:point lon="2.84125471" lat="42.70108032"/>
-    <ql:point lon="2.84112811" lat="42.70104218"/>
-    <ql:point lon="2.84034157" lat="42.70087433"/>
-    <ql:point lon="2.84016514" lat="42.70079803"/>
-    <ql:point lon="2.83993483" lat="42.70069122"/>
-    <ql:point lon="2.83981252" lat="42.70062637"/>
-    <ql:point lon="2.83953357" lat="42.70053864"/>
-    <ql:point lon="2.83897471" lat="42.70050430"/>
-    <ql:point lon="2.83862805" lat="42.70058823"/>
-    <ql:point lon="2.83844328" lat="42.70075989"/>
-    <ql:point lon="2.83823895" lat="42.70096588"/>
-    <ql:point lon="2.83796811" lat="42.70104218"/>
-    <ql:point lon="2.83751488" lat="42.70093155"/>
-    <ql:point lon="2.83713508" lat="42.70081711"/>
-    <ql:point lon="2.83707881" lat="42.70080948"/>
-    <ql:point lon="2.83696365" lat="42.70079803"/>
-    <ql:point lon="2.83685327" lat="42.70077515"/>
-    <ql:point lon="2.83681011" lat="42.70075607"/>
-    <ql:point lon="2.83651066" lat="42.70052338"/>
-    <ql:point lon="2.83604121" lat="42.70013809"/>
-    <ql:point lon="2.83585978" lat="42.70005035"/>
-    <ql:point lon="2.83569217" lat="42.69997025"/>
-    <ql:point lon="2.83523941" lat="42.69970703"/>
-    <ql:point lon="2.83519697" lat="42.69968033"/>
-    <ql:point lon="2.83511782" lat="42.69962692"/>
-    <ql:point lon="2.83507872" lat="42.69959641"/>
-    <ql:point lon="2.83484983" lat="42.69944000"/>
-    <ql:point lon="2.83473015" lat="42.69931793"/>
-    <ql:point lon="2.83454442" lat="42.69915771"/>
-    <ql:point lon="2.83443618" lat="42.69909668"/>
-    <ql:point lon="2.83422232" lat="42.69903183"/>
-    <ql:point lon="2.83407712" lat="42.69906998"/>
-    <ql:point lon="2.83399439" lat="42.69908905"/>
-    <ql:point lon="2.83385062" lat="42.69899368"/>
-    <ql:point lon="2.83382416" lat="42.69889450"/>
-    <ql:point lon="2.83366060" lat="42.69867706"/>
-    <ql:point lon="2.83327222" lat="42.69842148"/>
-    <ql:point lon="2.83321714" lat="42.69838333"/>
-    <ql:point lon="2.83311987" lat="42.69829941"/>
-    <ql:point lon="2.83280587" lat="42.69807816"/>
-    <ql:point lon="2.83228898" lat="42.69776154"/>
-    <ql:point lon="2.83210206" lat="42.69771194"/>
-    <ql:point lon="2.83197260" lat="42.69766617"/>
-    <ql:point lon="2.83150935" lat="42.69749451"/>
-    <ql:point lon="2.83137488" lat="42.69743729"/>
-    <ql:point lon="2.83124018" lat="42.69739151"/>
-    <ql:point lon="2.83077812" lat="42.69721222"/>
-    <ql:point lon="2.83017516" lat="42.69706345"/>
-    <ql:point lon="2.82972670" lat="42.69699478"/>
-    <ql:point lon="2.82888913" lat="42.69689560"/>
-    <ql:point lon="2.82865930" lat="42.69686508"/>
-    <ql:point lon="2.82835293" lat="42.69681931"/>
-    <ql:point lon="2.82804823" lat="42.69677353"/>
-    <ql:point lon="2.82722259" lat="42.69659424"/>
-    <ql:point lon="2.82698369" lat="42.69654083"/>
-    <ql:point lon="2.82623625" lat="42.69638062"/>
-    <ql:point lon="2.82585382" lat="42.69627380"/>
-    <ql:point lon="2.82560563" lat="42.69620895"/>
-    <ql:point lon="2.82514191" lat="42.69607925"/>
-    <ql:point lon="2.82482982" lat="42.69607925"/>
-    <ql:point lon="2.82459784" lat="42.69611740"/>
-    <ql:point lon="2.82414961" lat="42.69619370"/>
-    <ql:point lon="2.82362533" lat="42.69640350"/>
-    <ql:point lon="2.82340980" lat="42.69663239"/>
-    <ql:point lon="2.82332993" lat="42.69694138"/>
-    <ql:point lon="2.82314849" lat="42.69740677"/>
-    <ql:point lon="2.82308674" lat="42.69750214"/>
-    <ql:point lon="2.82304049" lat="42.69759750"/>
-    <ql:point lon="2.82301641" lat="42.69763947"/>
-    <ql:point lon="2.82297921" lat="42.69766998"/>
-    <ql:point lon="2.82275581" lat="42.69765854"/>
-    <ql:point lon="2.82239676" lat="42.69748688"/>
-    <ql:point lon="2.82162309" lat="42.69717789"/>
-    <ql:point lon="2.82081389" lat="42.69686127"/>
-    <ql:point lon="2.82019329" lat="42.69659042"/>
-    <ql:point lon="2.81983566" lat="42.69645691"/>
-    <ql:point lon="2.81961775" lat="42.69637299"/>
-    <ql:point lon="2.81861496" lat="42.69614410"/>
-    <ql:point lon="2.81793404" lat="42.69602585"/>
-    <ql:point lon="2.81763864" lat="42.69596481"/>
-    <ql:point lon="2.81756115" lat="42.69595337"/>
-    <ql:point lon="2.81628060" lat="42.69577789"/>
-    <ql:point lon="2.81535745" lat="42.69566345"/>
-    <ql:point lon="2.81459022" lat="42.69556808"/>
-    <ql:point lon="2.81391740" lat="42.69545364"/>
-    <ql:point lon="2.81377101" lat="42.69541931"/>
-    <ql:point lon="2.81362343" lat="42.69538116"/>
-    <ql:point lon="2.81287742" lat="42.69519043"/>
-    <ql:point lon="2.81207490" lat="42.69495773"/>
-    <ql:point lon="2.81193542" lat="42.69491959"/>
-    <ql:point lon="2.81179976" lat="42.69487762"/>
-    <ql:point lon="2.81158638" lat="42.69481659"/>
-    <ql:point lon="2.81133199" lat="42.69474792"/>
-    <ql:point lon="2.81074810" lat="42.69459152"/>
-    <ql:point lon="2.81061983" lat="42.69455719"/>
-    <ql:point lon="2.81049061" lat="42.69451904"/>
-    <ql:point lon="2.80993462" lat="42.69439697"/>
-    <ql:point lon="2.80938292" lat="42.69432449"/>
-    <ql:point lon="2.80917168" lat="42.69430161"/>
-    <ql:point lon="2.80834317" lat="42.69422531"/>
-    <ql:point lon="2.80812025" lat="42.69419098"/>
-    <ql:point lon="2.80746412" lat="42.69403839"/>
-    <ql:point lon="2.80689979" lat="42.69377899"/>
-    <ql:point lon="2.80657864" lat="42.69363785"/>
-    <ql:point lon="2.80618358" lat="42.69349670"/>
-    <ql:point lon="2.80577207" lat="42.69322968"/>
-    <ql:point lon="2.80537510" lat="42.69304657"/>
-    <ql:point lon="2.80526876" lat="42.69299698"/>
-    <ql:point lon="2.80476952" lat="42.69274902"/>
-    <ql:point lon="2.80438566" lat="42.69255829"/>
-    <ql:point lon="2.80434728" lat="42.69253540"/>
-    <ql:point lon="2.80432558" lat="42.69242859"/>
-    <ql:point lon="2.80440164" lat="42.69229507"/>
-    <ql:point lon="2.80430365" lat="42.69204712"/>
-    <ql:point lon="2.80429101" lat="42.69201279"/>
-    <ql:point lon="2.80419135" lat="42.69171906"/>
-    <ql:point lon="2.80399179" lat="42.69147491"/>
-    <ql:point lon="2.80363584" lat="42.69131470"/>
-    <ql:point lon="2.80292392" lat="42.69097137"/>
-    <ql:point lon="2.80272007" lat="42.69084549"/>
-    <ql:point lon="2.80240321" lat="42.69069672"/>
-    <ql:point lon="2.80215383" lat="42.69056320"/>
-    <ql:point lon="2.80206990" lat="42.69046783"/>
-    <ql:point lon="2.80194950" lat="42.69031906"/>
-    <ql:point lon="2.80159068" lat="42.68991852"/>
-    <ql:point lon="2.80133748" lat="42.68978500"/>
-    <ql:point lon="2.80103755" lat="42.68973923"/>
-    <ql:point lon="2.80092144" lat="42.68973541"/>
-    <ql:point lon="2.80069065" lat="42.68975830"/>
-    <ql:point lon="2.80022907" lat="42.68984604"/>
-    <ql:point lon="2.79939890" lat="42.68997955"/>
-    <ql:point lon="2.79925632" lat="42.68999863"/>
-    <ql:point lon="2.79877734" lat="42.69006729"/>
-    <ql:point lon="2.79802990" lat="42.69020462"/>
-    <ql:point lon="2.79692650" lat="42.69033813"/>
-    <ql:point lon="2.79666066" lat="42.69036102"/>
-    <ql:point lon="2.79653502" lat="42.69038010"/>
-    <ql:point lon="2.79640818" lat="42.69039536"/>
-    <ql:point lon="2.79580498" lat="42.69038773"/>
-    <ql:point lon="2.79513717" lat="42.69038773"/>
-    <ql:point lon="2.79429078" lat="42.69021988"/>
-    <ql:point lon="2.79351377" lat="42.69004822"/>
-    <ql:point lon="2.79262614" lat="42.68983841"/>
-    <ql:point lon="2.79205036" lat="42.68970490"/>
-    <ql:point lon="2.79180527" lat="42.68964386"/>
-    <ql:point lon="2.79142261" lat="42.68954849"/>
-    <ql:point lon="2.79119182" lat="42.68941116"/>
-    <ql:point lon="2.79104829" lat="42.68922806"/>
-    <ql:point lon="2.79101634" lat="42.68920135"/>
-    <ql:point lon="2.79082584" lat="42.68898010"/>
-    <ql:point lon="2.79063582" lat="42.68881989"/>
-    <ql:point lon="2.79004908" lat="42.68852234"/>
-    <ql:point lon="2.78988957" lat="42.68844223"/>
-    <ql:point lon="2.78980994" lat="42.68838501"/>
-    <ql:point lon="2.78968453" lat="42.68830490"/>
-    <ql:point lon="2.78949404" lat="42.68825912"/>
-    <ql:point lon="2.78904343" lat="42.68803406"/>
-    <ql:point lon="2.78824234" lat="42.68764877"/>
-    <ql:point lon="2.78753185" lat="42.68730927"/>
-    <ql:point lon="2.78747678" lat="42.68728638"/>
-    <ql:point lon="2.78721833" lat="42.68721771"/>
-    <ql:point lon="2.78710556" lat="42.68711472"/>
-    <ql:point lon="2.78673959" lat="42.68678284"/>
-    <ql:point lon="2.78664947" lat="42.68671799"/>
-    <ql:point lon="2.78654051" lat="42.68664169"/>
-    <ql:point lon="2.78627825" lat="42.68646622"/>
-    <ql:point lon="2.78598118" lat="42.68629074"/>
-    <ql:point lon="2.78578281" lat="42.68624496"/>
-    <ql:point lon="2.78516531" lat="42.68629456"/>
-    <ql:point lon="2.78491330" lat="42.68632889"/>
-    <ql:point lon="2.78471327" lat="42.68632507"/>
-    <ql:point lon="2.78464198" lat="42.68631744"/>
-    <ql:point lon="2.78378296" lat="42.68619919"/>
-    <ql:point lon="2.78335524" lat="42.68613815"/>
-    <ql:point lon="2.78307247" lat="42.68609619"/>
-    <ql:point lon="2.78283143" lat="42.68604660"/>
-    <ql:point lon="2.78255606" lat="42.68598175"/>
-    <ql:point lon="2.78199649" lat="42.68592834"/>
-    <ql:point lon="2.78139305" lat="42.68596649"/>
-    <ql:point lon="2.78115392" lat="42.68602371"/>
-    <ql:point lon="2.78103018" lat="42.68604279"/>
-    <ql:point lon="2.78082132" lat="42.68597412"/>
-    <ql:point lon="2.78072143" lat="42.68594742"/>
-    <ql:point lon="2.78018403" lat="42.68595123"/>
-    <ql:point lon="2.78001833" lat="42.68597794"/>
-    <ql:point lon="2.77969241" lat="42.68614960"/>
-    <ql:point lon="2.77919126" lat="42.68630981"/>
-    <ql:point lon="2.77907944" lat="42.68634415"/>
-    <ql:point lon="2.77894664" lat="42.68647385"/>
-    <ql:point lon="2.77890563" lat="42.68661499"/>
-    <ql:point lon="2.77872109" lat="42.68696594"/>
-    <ql:point lon="2.77870297" lat="42.68727875"/>
-    <ql:point lon="2.77868986" lat="42.68775558"/>
-    <ql:point lon="2.77867103" lat="42.68820572"/>
-    <ql:point lon="2.77858949" lat="42.68844986"/>
-    <ql:point lon="2.77858710" lat="42.68849945"/>
-    <ql:point lon="2.77860141" lat="42.68871307"/>
-    <ql:point lon="2.77859855" lat="42.68881607"/>
-    <ql:point lon="2.77841353" lat="42.68896103"/>
-    <ql:point lon="2.77819276" lat="42.68900299"/>
-    <ql:point lon="2.77796245" lat="42.68904114"/>
-    <ql:point lon="2.77764225" lat="42.68907928"/>
-    <ql:point lon="2.77743030" lat="42.68911362"/>
-    <ql:point lon="2.77724934" lat="42.68927383"/>
-    <ql:point lon="2.77719331" lat="42.68943405"/>
-    <ql:point lon="2.77717710" lat="42.68965912"/>
-    <ql:point lon="2.77706313" lat="42.68985748"/>
-    <ql:point lon="2.77688146" lat="42.68997955"/>
-    <ql:point lon="2.77641702" lat="42.69031525"/>
-    <ql:point lon="2.77627277" lat="42.69057465"/>
-    <ql:point lon="2.77597952" lat="42.69116974"/>
-    <ql:point lon="2.77592921" lat="42.69127655"/>
-    <ql:point lon="2.77575660" lat="42.69158173"/>
-    <ql:point lon="2.77559400" lat="42.69177628"/>
-    <ql:point lon="2.77531362" lat="42.69198608"/>
-    <ql:point lon="2.77472901" lat="42.69242477"/>
-    <ql:point lon="2.77448869" lat="42.69259262"/>
-    <ql:point lon="2.77396035" lat="42.69300079"/>
-    <ql:point lon="2.77380514" lat="42.69315720"/>
-    <ql:point lon="2.77374864" lat="42.69324112"/>
-    <ql:point lon="2.77366090" lat="42.69337082"/>
-    <ql:point lon="2.77346849" lat="42.69347382"/>
-    <ql:point lon="2.77339888" lat="42.69346619"/>
-    <ql:point lon="2.77270341" lat="42.69347382"/>
-    <ql:point lon="2.77181315" lat="42.69356918"/>
-    <ql:point lon="2.77080417" lat="42.69369888"/>
-    <ql:point lon="2.77073407" lat="42.69371414"/>
-    <ql:point lon="2.77034426" lat="42.69384003"/>
-    <ql:point lon="2.77010870" lat="42.69387817"/>
-    <ql:point lon="2.76986980" lat="42.69382095"/>
-    <ql:point lon="2.76966643" lat="42.69383621"/>
-    <ql:point lon="2.76922154" lat="42.69391251"/>
-    <ql:point lon="2.76907897" lat="42.69398880"/>
-    <ql:point lon="2.76892018" lat="42.69414520"/>
-    <ql:point lon="2.76879001" lat="42.69421387"/>
-    <ql:point lon="2.76868010" lat="42.69417572"/>
-    <ql:point lon="2.76819396" lat="42.69399643"/>
-    <ql:point lon="2.76796174" lat="42.69395065"/>
-    <ql:point lon="2.76770878" lat="42.69395065"/>
-    <ql:point lon="2.76709366" lat="42.69396591"/>
-    <ql:point lon="2.76696968" lat="42.69401169"/>
-    <ql:point lon="2.76672816" lat="42.69409561"/>
-    <ql:point lon="2.76638961" lat="42.69412613"/>
-    <ql:point lon="2.76592040" lat="42.69412231"/>
-    <ql:point lon="2.76572108" lat="42.69413757"/>
-    <ql:point lon="2.76527357" lat="42.69417191"/>
-    <ql:point lon="2.76514482" lat="42.69414520"/>
-    <ql:point lon="2.76514769" lat="42.69413757"/>
-    <ql:point lon="2.76514363" lat="42.69415283"/>
-    <ql:point lon="2.76513505" lat="42.69415665"/>
-    <ql:point lon="2.76474166" lat="42.69414139"/>
-    <ql:point lon="2.76453853" lat="42.69411469"/>
-    <ql:point lon="2.76447511" lat="42.69410706"/>
-    <ql:point lon="2.76424646" lat="42.69414902"/>
-    <ql:point lon="2.76430464" lat="42.69430923"/>
-    <ql:point lon="2.76439881" lat="42.69438553"/>
-    <ql:point lon="2.76475787" lat="42.69486618"/>
-    <ql:point lon="2.76485229" lat="42.69510269"/>
-    <ql:point lon="2.76490521" lat="42.69528198"/>
-    <ql:point lon="2.76485872" lat="42.69548035"/>
-    <ql:point lon="2.76477432" lat="42.69559479"/>
-    <ql:point lon="2.76443934" lat="42.69555664"/>
-    <ql:point lon="2.76400876" lat="42.69559097"/>
-    <ql:point lon="2.76384115" lat="42.69560242"/>
-    <ql:point lon="2.76297355" lat="42.69567871"/>
-    <ql:point lon="2.76170135" lat="42.69578552"/>
-    <ql:point lon="2.76071501" lat="42.69586563"/>
-    <ql:point lon="2.76008630" lat="42.69595718"/>
-    <ql:point lon="2.75996590" lat="42.69601440"/>
-    <ql:point lon="2.75973582" lat="42.69609833"/>
-    <ql:point lon="2.75912189" lat="42.69609070"/>
-    <ql:point lon="2.75860119" lat="42.69613266"/>
-    <ql:point lon="2.75825191" lat="42.69622040"/>
-    <ql:point lon="2.75807595" lat="42.69629288"/>
-    <ql:point lon="2.75788927" lat="42.69631577"/>
-    <ql:point lon="2.75770473" lat="42.69629288"/>
-    <ql:point lon="2.75730467" lat="42.69621658"/>
-    <ql:point lon="2.75655246" lat="42.69618607"/>
-    <ql:point lon="2.75531197" lat="42.69622040"/>
-    <ql:point lon="2.75425386" lat="42.69624710"/>
-    <ql:point lon="2.75300121" lat="42.69628525"/>
-    <ql:point lon="2.75261807" lat="42.69628525"/>
-    <ql:point lon="2.75182199" lat="42.69630814"/>
-    <ql:point lon="2.75093746" lat="42.69626617"/>
-    <ql:point lon="2.75016618" lat="42.69618607"/>
-    <ql:point lon="2.74972653" lat="42.69615173"/>
-    <ql:point lon="2.74929643" lat="42.69606781"/>
-    <ql:point lon="2.74896622" lat="42.69602585"/>
-    <ql:point lon="2.74770451" lat="42.69589233"/>
-    <ql:point lon="2.74671483" lat="42.69578171"/>
-    <ql:point lon="2.74580622" lat="42.69569397"/>
-    <ql:point lon="2.74513364" lat="42.69567108"/>
-    <ql:point lon="2.74408007" lat="42.69577026"/>
-    <ql:point lon="2.74316812" lat="42.69589233"/>
-    <ql:point lon="2.74209428" lat="42.69602966"/>
-    <ql:point lon="2.74045777" lat="42.69622040"/>
-    <ql:point lon="2.74027586" lat="42.69624329"/>
-    <ql:point lon="2.73916292" lat="42.69639587"/>
-    <ql:point lon="2.73818135" lat="42.69652557"/>
-    <ql:point lon="2.73715973" lat="42.69664001"/>
-    <ql:point lon="2.73652864" lat="42.69671249"/>
-    <ql:point lon="2.73575497" lat="42.69680405"/>
-    <ql:point lon="2.73520589" lat="42.69684982"/>
-    <ql:point lon="2.73504138" lat="42.69686127"/>
-    <ql:point lon="2.73473310" lat="42.69670105"/>
-    <ql:point lon="2.73465157" lat="42.69658661"/>
-    <ql:point lon="2.73456335" lat="42.69632721"/>
-    <ql:point lon="2.73445654" lat="42.69602966"/>
-    <ql:point lon="2.73439360" lat="42.69577026"/>
-    <ql:point lon="2.73439360" lat="42.69562149"/>
-    <ql:point lon="2.73336244" lat="42.69555664"/>
-    <ql:point lon="2.73323035" lat="42.69557571"/>
-    <ql:point lon="2.73314857" lat="42.69566345"/>
-    <ql:point lon="2.73282170" lat="42.69600677"/>
-    <ql:point lon="2.73209214" lat="42.69617844"/>
-    <ql:point lon="2.73183441" lat="42.69620132"/>
-    <ql:point lon="2.73065853" lat="42.69626236"/>
-    <ql:point lon="2.73057032" lat="42.69626236"/>
-    <ql:point lon="2.73044467" lat="42.69628525"/>
-    <ql:point lon="2.73024964" lat="42.69637299"/>
-    <ql:point lon="2.73012400" lat="42.69645691"/>
-    <ql:point lon="2.73007989" lat="42.69649887"/>
-    <ql:point lon="2.72990394" lat="42.69662857"/>
-    <ql:point lon="2.72975302" lat="42.69677734"/>
-    <ql:point lon="2.72971582" lat="42.69684219"/>
-    <ql:point lon="2.72973728" lat="42.69686127"/>
-    <ql:point lon="2.72988558" lat="42.69705582"/>
-    <ql:point lon="2.72995019" lat="42.69712067"/>
-    <ql:point lon="2.73001504" lat="42.69720840"/>
-    <ql:point lon="2.73011994" lat="42.69735718"/>
-    <ql:point lon="2.72974277" lat="42.69754791"/>
-    <ql:point lon="2.72941661" lat="42.69765854"/>
-    <ql:point lon="2.72941399" lat="42.69765854"/>
-    <ql:point lon="2.72932768" lat="42.69763565"/>
-    <ql:point lon="2.72926307" lat="42.69763565"/>
-    <ql:point lon="2.72924948" lat="42.69761276"/>
-    <ql:point lon="2.72904205" lat="42.69726944"/>
-    <ql:point lon="2.72883034" lat="42.69734955"/>
-    <ql:point lon="2.72867775" lat="42.69744873"/>
-    <ql:point lon="2.72859693" lat="42.69755554"/>
-    <ql:point lon="2.72844410" lat="42.69772720"/>
-    <ql:point lon="2.72827339" lat="42.69791794"/>
-    <ql:point lon="2.72825551" lat="42.69800568"/>
-    <ql:point lon="2.72812510" lat="42.69804382"/>
-    <ql:point lon="2.72794557" lat="42.69810867"/>
-    <ql:point lon="2.72785568" lat="42.69813538"/>
-    <ql:point lon="2.72771192" lat="42.69815063"/>
-    <ql:point lon="2.72751427" lat="42.69821548"/>
-    <ql:point lon="2.72724485" lat="42.69828415"/>
-    <ql:point lon="2.72692156" lat="42.69837570"/>
-    <ql:point lon="2.72661614" lat="42.69845581"/>
-    <ql:point lon="2.72593331" lat="42.69865417"/>
-    <ql:point lon="2.72564578" lat="42.69866562"/>
-    <ql:point lon="2.72548413" lat="42.69871902"/>
-    <ql:point lon="2.72507095" lat="42.69877243"/>
-    <ql:point lon="2.72485542" lat="42.69876099"/>
-    <ql:point lon="2.72455001" lat="42.69871902"/>
-    <ql:point lon="2.72428036" lat="42.69869232"/>
-    <ql:point lon="2.72359776" lat="42.69869232"/>
-    <ql:point lon="2.72349000" lat="42.69869232"/>
-    <ql:point lon="2.72332811" lat="42.69871902"/>
-    <ql:point lon="2.72304082" lat="42.69886398"/>
-    <ql:point lon="2.72070503" lat="42.69842529"/>
-    <ql:point lon="2.72017956" lat="42.69843674"/>
-    <ql:point lon="2.71949244" lat="42.69847488"/>
-    <ql:point lon="2.71923637" lat="42.69849396"/>
-    <ql:point lon="2.71900725" lat="42.69847488"/>
-    <ql:point lon="2.71869731" lat="42.69849396"/>
-    <ql:point lon="2.71846843" lat="42.69849396"/>
-    <ql:point lon="2.71811795" lat="42.69854355"/>
-    <ql:point lon="2.71732306" lat="42.69858551"/>
-    <ql:point lon="2.71713424" lat="42.69858551"/>
-    <ql:point lon="2.71690536" lat="42.69856262"/>
-    <ql:point lon="2.71668959" lat="42.69854355"/>
-    <ql:point lon="2.71640658" lat="42.69856262"/>
-    <ql:point lon="2.71600246" lat="42.69862366"/>
-    <ql:point lon="2.71557117" lat="42.69864273"/>
-    <ql:point lon="2.71527481" lat="42.69864273"/>
-    <ql:point lon="2.71511316" lat="42.69867325"/>
-    <ql:point lon="2.71492457" lat="42.69867325"/>
-    <ql:point lon="2.71466851" lat="42.69867325"/>
-    <ql:point lon="2.71426415" lat="42.69873428"/>
-    <ql:point lon="2.71404862" lat="42.69864273"/>
-    <ql:point lon="2.71379256" lat="42.69856262"/>
-    <ql:point lon="2.71355009" lat="42.69860458"/>
-    <ql:point lon="2.71318626" lat="42.69867325"/>
-    <ql:point lon="2.71278191" lat="42.69875336"/>
-    <ql:point lon="2.71235085" lat="42.69882202"/>
-    <ql:point lon="2.71206784" lat="42.69882202"/>
-    <ql:point lon="2.71181178" lat="42.69882202"/>
-    <ql:point lon="2.71144795" lat="42.69882202"/>
-    <ql:point lon="2.71116495" lat="42.69882202"/>
-    <ql:point lon="2.71086860" lat="42.69882202"/>
-    <ql:point lon="2.71054530" lat="42.69880295"/>
-    <ql:point lon="2.71007347" lat="42.69880295"/>
-    <ql:point lon="2.70992541" lat="42.69877243"/>
-    <ql:point lon="2.70908999" lat="42.69903183"/>
-    <ql:point lon="2.70859146" lat="42.69921112"/>
-    <ql:point lon="2.70787716" lat="42.69941711"/>
-    <ql:point lon="2.70782328" lat="42.69944000"/>
-    <ql:point lon="2.70756721" lat="42.69980621"/>
-    <ql:point lon="2.70739198" lat="42.69993591"/>
-    <ql:point lon="2.70724392" lat="42.70019531"/>
-    <ql:point lon="2.70713615" lat="42.70040131"/>
-    <ql:point lon="2.70700145" lat="42.70053101"/>
-    <ql:point lon="2.70692039" lat="42.70079041"/>
-    <ql:point lon="2.70679927" lat="42.70085907"/>
-    <ql:point lon="2.70670485" lat="42.70085907"/>
-    <ql:point lon="2.70634103" lat="42.70085907"/>
-    <ql:point lon="2.70485878" lat="42.70062256"/>
-    <ql:point lon="2.70470930" lat="42.70067038"/>
-    <ql:point lon="2.70470930" lat="42.70067038"/>
-    <ql:point lon="2.70457455" lat="42.70063062"/>
-    <ql:point lon="2.70446675" lat="42.70061075"/>
-    <ql:point lon="2.70376606" lat="42.70039209"/>
-    <ql:point lon="2.70344267" lat="42.70031258"/>
-    <ql:point lon="2.70336182" lat="42.70029271"/>
-    <ql:point lon="2.70233774" lat="42.69995479"/>
-    <ql:point lon="2.70166401" lat="42.69977589"/>
-    <ql:point lon="2.70158316" lat="42.69975601"/>
-    <ql:point lon="2.70144841" lat="42.69971626"/>
-    <ql:point lon="2.70117892" lat="42.69965662"/>
-    <ql:point lon="2.70099027" lat="42.69965662"/>
-    <ql:point lon="2.70066688" lat="42.69963674"/>
-    <ql:point lon="2.69953500" lat="42.69963674"/>
-    <ql:point lon="2.69861872" lat="42.69963674"/>
-    <ql:point lon="2.69821448" lat="42.69961687"/>
-    <ql:point lon="2.69799888" lat="42.69959699"/>
-    <ql:point lon="2.69783718" lat="42.69957711"/>
-    <ql:point lon="2.69775634" lat="42.69959699"/>
-    <ql:point lon="2.69764854" lat="42.69959699"/>
-    <ql:point lon="2.69754074" lat="42.69959699"/>
-    <ql:point lon="2.69748684" lat="42.69959699"/>
-    <ql:point lon="2.69737904" lat="42.69959699"/>
-    <ql:point lon="2.69737904" lat="42.69959699"/>
-    <ql:point lon="2.69705026" lat="42.69928093"/>
-    <ql:point lon="2.69663164" lat="42.69330005"/>
-    <ql:point lon="2.69662266" lat="42.69317415"/>
-    <ql:point lon="2.69662266" lat="42.69298197"/>
-    <ql:point lon="2.69660470" lat="42.69272353"/>
-    <ql:point lon="2.69657775" lat="42.69265727"/>
-    <ql:point lon="2.69654181" lat="42.69257112"/>
-    <ql:point lon="2.69643402" lat="42.69231931"/>
-    <ql:point lon="2.69632622" lat="42.69210063"/>
-    <ql:point lon="2.69619147" lat="42.69181568"/>
-   </ql:distance>
-  </ql:overlays>
- </extensions>
+ <trk>
+  <name>Variante</name>
+  <extensions>
+   <gpxx:TrackExtension>
+    <gpxx:DisplayColor>DarkBlue</gpxx:DisplayColor>
+   </gpxx:TrackExtension>
+   <ql:key>1368527748Variante_23</ql:key>
+  </extensions>
+  <trkseg>
+   <trkpt lon="2.72903132" lat="42.69697189">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:01.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72897744" lat="42.69690704">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:02.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72883368" lat="42.69665527">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:03.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72879767" lat="42.69661331">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:04.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72877979" lat="42.69645691">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:05.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72868991" lat="42.69626999">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:06.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72863603" lat="42.69579315">
+    <ele>88</ele>
+    <time>1970-01-01T00:00:07.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72860003" lat="42.69568634">
+    <ele>88</ele>
+    <time>1970-01-01T00:00:08.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72852826" lat="42.69557953">
+    <ele>88</ele>
+    <time>1970-01-01T00:00:09.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72809696" lat="42.69515610">
+    <ele>86</ele>
+    <time>1970-01-01T00:00:10.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72794437" lat="42.69492340">
+    <ele>86</ele>
+    <time>1970-01-01T00:00:11.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72829461" lat="42.69379044">
+    <ele>85</ele>
+    <time>1970-01-01T00:00:12.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72832155" lat="42.69367218">
+    <ele>85</ele>
+    <time>1970-01-01T00:00:13.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72821379" lat="42.69329453">
+    <ele>85</ele>
+    <time>1970-01-01T00:00:14.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72821379" lat="42.69321442">
+    <ele>85</ele>
+    <time>1970-01-01T00:00:15.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72799826" lat="42.69289780">
+    <ele>84</ele>
+    <time>1970-01-01T00:00:16.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72794437" lat="42.69285583">
+    <ele>84</ele>
+    <time>1970-01-01T00:00:17.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72524929" lat="42.69331360">
+    <ele>86</ele>
+    <time>1970-01-01T00:00:18.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72166514" lat="42.69379044">
+    <ele>86</ele>
+    <time>1970-01-01T00:00:19.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72161126" lat="42.69335556">
+    <ele>87</ele>
+    <time>1970-01-01T00:00:20.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72020984" lat="42.69357300">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:21.000Z</time>
+   </trkpt>
+   <trkpt lon="2.72018290" lat="42.69359207">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:22.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71826959" lat="42.69371796">
+    <ele>87</ele>
+    <time>1970-01-01T00:00:23.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71782041" lat="42.69375229">
+    <ele>88</ele>
+    <time>1970-01-01T00:00:24.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71718240" lat="42.69377899">
+    <ele>88</ele>
+    <time>1970-01-01T00:00:25.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71685910" lat="42.69373322">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:26.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71662545" lat="42.69366455">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:27.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71656275" lat="42.69355774">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:28.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71653581" lat="42.69341278">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:29.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71653581" lat="42.69330215">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:30.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71645498" lat="42.69326019">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:31.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71636510" lat="42.69324112">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:32.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71621227" lat="42.69328308">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:33.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71596074" lat="42.69334793">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:34.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71563745" lat="42.69341278">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:35.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71505356" lat="42.69355774">
+    <ele>88</ele>
+    <time>1970-01-01T00:00:36.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71477509" lat="42.69358063">
+    <ele>88</ele>
+    <time>1970-01-01T00:00:37.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71447849" lat="42.69364548">
+    <ele>88</ele>
+    <time>1970-01-01T00:00:38.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71413732" lat="42.69362640">
+    <ele>88</ele>
+    <time>1970-01-01T00:00:39.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71375084" lat="42.69373322">
+    <ele>88</ele>
+    <time>1970-01-01T00:00:40.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71357131" lat="42.69383621">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:41.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71340060" lat="42.69392395">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:42.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71338272" lat="42.69393158">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:43.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71334124" lat="42.69368744">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:44.000Z</time>
+   </trkpt>
+   <trkpt lon="2.71334124" lat="42.69368744">
+    <ele>89</ele>
+    <time>1970-01-01T00:00:45.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70939326" lat="42.69474030">
+    <ele>91</ele>
+    <time>1970-01-01T00:00:46.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70864773" lat="42.69490814">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:47.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70817590" lat="42.69497681">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:48.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70798278" lat="42.69506073">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:49.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70787501" lat="42.69516754">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:50.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70742583" lat="42.69557571">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:51.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70725083" lat="42.69572449">
+    <ele>90</ele>
+    <time>1970-01-01T00:00:52.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70693636" lat="42.69610596">
+    <ele>92</ele>
+    <time>1970-01-01T00:00:53.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70688248" lat="42.69606781">
+    <ele>92</ele>
+    <time>1970-01-01T00:00:54.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70677471" lat="42.69606781">
+    <ele>92</ele>
+    <time>1970-01-01T00:00:55.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70666695" lat="42.69609451">
+    <ele>92</ele>
+    <time>1970-01-01T00:00:56.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70666242" lat="42.69609451">
+    <ele>92</ele>
+    <time>1970-01-01T00:00:57.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70658350" lat="42.69617844">
+    <ele>92</ele>
+    <time>1970-01-01T00:00:58.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70634556" lat="42.69619751">
+    <ele>92</ele>
+    <time>1970-01-01T00:00:59.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70499349" lat="42.69654465">
+    <ele>93</ele>
+    <time>1970-01-01T00:01:00.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70394254" lat="42.69679642">
+    <ele>93</ele>
+    <time>1970-01-01T00:01:01.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70392013" lat="42.69684219">
+    <ele>93</ele>
+    <time>1970-01-01T00:01:02.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70394254" lat="42.69690704">
+    <ele>93</ele>
+    <time>1970-01-01T00:01:03.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70422101" lat="42.69729233">
+    <ele>92</ele>
+    <time>1970-01-01T00:01:04.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70422101" lat="42.69733429">
+    <ele>92</ele>
+    <time>1970-01-01T00:01:05.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70418072" lat="42.69735718">
+    <ele>92</ele>
+    <time>1970-01-01T00:01:06.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70364165" lat="42.69757462">
+    <ele>94</ele>
+    <time>1970-01-01T00:01:07.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70364165" lat="42.69761276">
+    <ele>94</ele>
+    <time>1970-01-01T00:01:08.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70368648" lat="42.69768143">
+    <ele>94</ele>
+    <time>1970-01-01T00:01:09.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70361924" lat="42.69772720">
+    <ele>94</ele>
+    <time>1970-01-01T00:01:10.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70325089" lat="42.69785309">
+    <ele>94</ele>
+    <time>1970-01-01T00:01:11.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70293641" lat="42.69798279">
+    <ele>93</ele>
+    <time>1970-01-01T00:01:12.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70267606" lat="42.69800568">
+    <ele>96</ele>
+    <time>1970-01-01T00:01:13.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70239735" lat="42.69810867">
+    <ele>96</ele>
+    <time>1970-01-01T00:01:14.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70202923" lat="42.69821548">
+    <ele>95</ele>
+    <time>1970-01-01T00:01:15.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70177770" lat="42.69826126">
+    <ele>95</ele>
+    <time>1970-01-01T00:01:16.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70117569" lat="42.69828415">
+    <ele>94</ele>
+    <time>1970-01-01T00:01:17.000Z</time>
+   </trkpt>
+   <trkpt lon="2.70051098" lat="42.69828415">
+    <ele>94</ele>
+    <time>1970-01-01T00:01:18.000Z</time>
+   </trkpt>
+   <trkpt lon="2.69997191" lat="42.69828415">
+    <ele>96</ele>
+    <time>1970-01-01T00:01:19.000Z</time>
+   </trkpt>
+   <trkpt lon="2.69964862" lat="42.69830322">
+    <ele>96</ele>
+    <time>1970-01-01T00:01:20.000Z</time>
+   </trkpt>
+   <trkpt lon="2.69937015" lat="42.69830322">
+    <ele>94</ele>
+    <time>1970-01-01T00:01:21.000Z</time>
+   </trkpt>
+   <trkpt lon="2.69918156" lat="42.69727707">
+    <ele>96</ele>
+    <time>1970-01-01T00:01:22.000Z</time>
+   </trkpt>
+   <trkpt lon="2.69913650" lat="42.69725037">
+    <ele>96</ele>
+    <time>1970-01-01T00:01:23.000Z</time>
+   </trkpt>
+   <trkpt lon="2.69844484" lat="42.69733429">
+    <ele>94</ele>
+    <time>1970-01-01T00:01:24.000Z</time>
+   </trkpt>
+   <trkpt lon="2.69795084" lat="42.69748688">
+    <ele>94</ele>
+    <time>1970-01-01T00:01:25.000Z</time>
+   </trkpt>
+   <trkpt lon="2.69703460" lat="42.69781113">
+    <ele>97</ele>
+    <time>1970-01-01T00:01:26.000Z</time>
+   </trkpt>
+  </trkseg>
+ </trk>
+ <extensions/>
 </gpx>

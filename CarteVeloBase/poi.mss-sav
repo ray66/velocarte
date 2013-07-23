@@ -1,0 +1,167 @@
+/* ------------------------------------------------------------------ */
+/* Icons
+/* ------------------------------------------------------------------ */
+.building.label[zoom>=16][relevance='high'][label_length<=40],
+.poi.label[zoom>=16][relevance='high'][label_length<=40],
+.building.label[zoom>=17][relevance='medium'][label_length<=50],
+.poi.label[zoom>=17][relevance='medium'][label_length<=50],
+.building.label[zoom>=18][relevance='low'][label_length<=30],
+.poi.label[zoom>=18][relevance='low'][label_length<=30],
+{
+	text-name:"[name]";
+    text-wrap-width: 40;
+    text-fill: #000;
+    [poi_category='historic']{
+    	text-fill: brown;
+    }
+    text-face-name: "DejaVu Sans Book";
+    text-halo-fill: #fff;
+    text-halo-radius: 0;
+    text-avoid-edges: false;
+   [poi_type='bicycle_rental'],
+   [poi_type='bicycle_parking'],
+   [poi_type='toilets'],
+   [poi_type='place_of_worship'][religion='christian'],
+   [poi_type='school'],
+   [poi_type='kindergarten'],
+   [poi_type='post_office'],
+   [poi_type='townhall'],
+   [poi_type='police'],
+   [poi_type='courthouse'],
+   [poi_type='bicycle'],
+   [poi_type='picnic_site'],
+   [poi_type='castle']{
+    text-dy: 8;
+   }
+   [zoom>=16][relevance='high']{
+      text-size: 11;
+      text-placement-type: simple;
+      text-placements: 'X,E,W,10,9,8';
+   }
+   [zoom>=17][relevance='medium']{
+      text-size: 10;
+      text-placement-type: simple;
+      text-placements: 'X,E,W,10,9,8';
+   }
+   [zoom>=18][relevance='low']{
+      text-size: 10;
+      text-placement-type: simple;
+      text-placements: 'X,E,W,10,9,8';
+   }
+}
+
+
+
+.building.label,
+.ground.label,
+.poi.point{
+   [poi_type='bicycle_rental']{
+      [zoom>=16]{
+         point-file: url('img/rental_bicycle.p.20.png');
+         point-allow-overlap: true;
+         point-ignore-placement: false;
+      }
+   }
+   [poi_type='bicycle_parking']{
+      [zoom>=15]{
+         point-file: url('img/parking_bicycle.p.20.png');
+         point-allow-overlap: true;
+         point-ignore-placement: false;
+      }
+   }
+   [poi_type='parking_space']["capacity:disabled"!='0'],
+   [poi_type='parking_space'][wheelchair='yes'] {
+      [zoom>=17]{
+         /*point-file: url('img/parking_wheelchair_only_12.png');*/
+      	 point-file: url('img/parking_disabled.png');
+         point-allow-overlap: true;
+         point-ignore-placement: false;
+      }
+      [zoom>=18]{
+         point-file: url('img/parking_disabled.png');
+      }
+   }
+   [poi_type='toilets']{
+      [zoom>=16]{
+         point-file: url('img/amenity_toilets.p.24.png');
+         point-allow-overlap: true;
+         point-ignore-placement: true;
+      }
+   }
+   [poi_type='place_of_worship'][religion='christian']{
+      [zoom>=15]{
+         point-file: url('img/christian3.p.14.png');
+         point-ignore-placement: true;
+      }
+   }
+   [poi_type='school'],
+   [poi_type='kindergarten']{
+      [zoom>=17]{
+         point-file: url('img/education_school.p.16.png');
+         point-ignore-placement: true;
+      }
+      [zoom>=18]{
+         point-file: url('img/education_school.p.20.png');
+      }
+   }
+   [poi_type='post_office']{
+      [zoom>=16]{
+         point-file: url('img/amenity_post_office.p.12.png');
+         point-ignore-placement: false;
+         point-allow-overlap: false; 
+      }
+      [zoom>=17]{point-file: url('img/amenity_post_office.p.16.png');}
+      [zoom>=18]{point-file: url('img/amenity_post_office.p.20.png');}
+   }
+   [poi_type='townhall']{
+      [zoom>=16]{
+         point-file: url('img/congress.png');
+         point-ignore-placement: true;
+         point-allow-overlap: false;
+      }
+   }
+   [poi_type='police']{
+      [zoom>=17]{
+         point-file: url('img/police.png');
+         point-ignore-placement: true;
+         point-allow-overlap: false;
+      }
+   }
+
+   [poi_type='courthouse']{
+      [zoom>=17]{
+         point-file: url('img/amenity_court.p.16.png');
+         point-ignore-placement: true;
+         point-allow-overlap: false;
+      }
+   }
+   [poi_type='bicycle']{
+      [zoom>=15]{
+         point-file: url('img/shopping_bicycle.p.20.png');
+         point-allow-overlap: true;
+         point-ignore-placement: true;
+      }
+      [zoom>=16]{
+         point-file: url('img/shopping_bicycle.p.24.png');
+      }
+   }
+   [poi_type='picnic_site']{
+      [zoom>=14]{
+         point-file: url('img/tourist_picnic.p.16.png');
+      }
+      [zoom>=17]{
+         point-file: url('img/tourist_picnic.p.20.png');
+      }
+   }
+   [poi_type='castle']{
+      [zoom>=15]{
+         point-file: url('img/citywalls_18.png');
+         point-ignore-placement: true;
+         point-allow-overlap: false;
+      }
+      [zoom>=17]{
+         point-file: url('img/citywalls_22.png');
+      }
+   }
+} 
+

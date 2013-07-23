@@ -207,7 +207,7 @@ if [[ $OVERLAY -eq 1 ]];then
    LAYERS="Itin Chemins Routes"
    for LAYER in $LAYERS;do
       rm -f CarteVelo${LAYER}.mbtiles
-      cmd="$TILEMILL export $TMOPTS --minzoom=11 --maxzoom=18 CarteVelo${LAYER} CarteVelo${LAYER}.mbtiles"
+      cmd="$TILEMILL export $TMOPTS --minzoom=9 --maxzoom=18 CarteVelo${LAYER} CarteVelo${LAYER}.mbtiles"
       echo $LAYER | tee -a  $LOG
       echo $cmd | tee -a $LOG
       eval $cmd 2>&1 | tee -a $LOG
@@ -227,7 +227,7 @@ if [[ $BASE -eq 1 ]];then
       
       rm -f CarteVelo${LAYER}_zoom_low.mbtiles
       cmd="$TILEMILL export --format=mbtiles --files=$TILEMILL_DATA --bbox=$BBOX --metatile=8"
-      cmd="$cmd --minzoom=11 --maxzoom=16"
+      cmd="$cmd --minzoom=10 --maxzoom=16"
       cmd="$cmd CarteVelo${LAYER} CarteVelo${LAYER}_zoom_low.mbtiles"
       echo CarteVelo${LAYER}_zoom_low | tee -a  $LOG
       echo $cmd | tee -a $LOG

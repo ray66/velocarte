@@ -8,7 +8,9 @@
     		line-color: #7eaac1;
     		/*polygon-fill: #8cb6d3;*/
   			polygon-fill:   #7eaac1;
-    		polygon-smooth: 0.5;
+            [leisure != 'swimming_pool']{
+    		   polygon-smooth: 0.5;
+            }
 		}
   	}
    	[basin='detention']{

@@ -1,38 +1,36 @@
-.citylike.area
+#ground
 {
-    polygon-fill: darken(#eeeeee,0%);
-    line-color: darken(#eeeeee,10%);
-}
+    //polygon-fill: darken(#eeeeee,0%);
+    //line-color: darken(#eeeeee,10%);
+    polygon-fill: @color_lu_industrial;
+    [power='generator'],
+    [power='station'], 
+    [power='sub_station']{
+    	polygon-fill: gainsboro;
+    }
+	[poi_type='school'],
+	[poi_type='college'],
+	[poi_type='university']{
+    	polygon-fill: lighten(#d2caba,15%);
+    	line-color: lighten(#d2caba,5%);
+	}
 
-.citylike.area[poi_type='school'],
-.citylike.area[poi_type='college'],
-.citylike.area[poi_type='university']
-{
-    polygon-fill: lighten(#d2caba,15%);
-    line-color: lighten(#d2caba,5%);
-}
-
-.citylike.area[landuse='residential']
-{
-   [zoom>=12]{polygon-fill: darken(#F0ECE5,7%);line-width: 0.5; }
-   [zoom>=13]{polygon-fill: darken(#F0ECE5,5%);}
-   [zoom>=16]{polygon-fill: darken(#F0ECE5,5%);line-width: 1; }
-   line-color: darken(#F0ECE5,17%);
-}
-
-.parklike.area{
+	[landuse='residential']{
+	   //[zoom>=12]{polygon-fill: darken(#F0ECE5,7%);line-width: 0.5; }
+   		//[zoom>=13]{polygon-fill: darken(#F0ECE5,5%);}
+   		//[zoom>=16]{polygon-fill: darken(#F0ECE5,5%);line-width: 1; }
+   		//line-color: darken(#F0ECE5,17%);
+  		polygon-fill: @color_lu_residential;
+	}
   	[ground='forest']{
     	polygon-fill: #CBD8C3;
   	}
-
   	[ground='scrub']{
     	polygon-fill: lighten(#CBD8C3,5%);
   	}
-
   	[ground='vineyard']{
     	polygon-fill: lighten(#CBD8C3,10%);
   	}
-
   	[ground='orchard']{
     	polygon-fill: lighten(#CBD8C3,10%);
   	}
@@ -42,18 +40,25 @@
     	line-color: lighten(#DCF5D7,15%);
     }
 	[ground='park'],
-	[ground='village_green']{
+	[ground='village_green'],
+    [ground='camp_site']{
     	polygon-fill: #B5D29C;
+       	line-color: darken(#B5D29C,15%);
 	}
 	[ground='cemetery']{
     	polygon-fill: #94b580;
     }
-	[ground='pitch']{
-  		polygon-fill: #DCF5D7;
+	[ground='stadium']{
+  		polygon-fill: #91DCAA;
    		line-width: 0.5;
-    	[zoom>=17]{line-width: 1;}
-    	line-color: darken(#DCF5D7,20%);
     }
+   [ground='pitch']{
+        polygon-fill: #DCF5D7;
+        line-width: 0.5;
+        [zoom>=17]{line-width: 1;}
+        line-color: darken(#DCF5D7,20%);
+    }
+  
 	[ground='track']{
         //[sport='athletics']{
       	//	polygon-fill: lighten(#bb2244,20%);
@@ -68,7 +73,8 @@
 #building_area{
    [zoom>=13]{
       polygon-fill: @color-building;
-      line-color:  darken(@color-building,5%);
+      //line-color:  darken(@color-building,5%);
+      line-color:  @color_building_line;
       line-width: 0;
       [relevance='high'],
       [relevance='medium']{
@@ -78,8 +84,12 @@
          }
       }
    }
+	[zoom=15]{
+  	  line-width: 0.8;
+    }
 	[zoom=16]{
-  	  line-width: 0.5;
+  	  //line-width: 0.5;
+  	  line-width: 1;
     }
 	[zoom>=17]{
    	  line-width: 1;
@@ -251,46 +261,7 @@
     }  
   
 }
-/* ------------------------------------------------------------------ */
-/* "Ground" labels
-/* ------------------------------------------------------------------ */
-#ground_label{
-  	[size>80000][zoom=15][poi_category!='leisure'][poi_type!='school'] ,
-	[size>80000][zoom=15][poi_type='park'] ,
-	[size>25000][zoom=16][poi_category!='leisure'] ,
-	[size>25000][zoom=16][poi_type='park'] ,
-	[size>25000][zoom=16][poi_type='sports_centre']{
-    	text-name: "[name_low_zoom]";
-    	text-wrap-width: 40;
-    	text-face-name: "DejaVu Sans Oblique";
-    	text-fill: #000;
-    	text-halo-fill: #fff;
-    	text-halo-radius: 1;
-    	text-avoid-edges: false;
-  		text-placement: interior;
-    	text-placement-type: simple;
-  		text-size: 12;
-    	text-placements: 'X,N,E,S,W,12,11,10';
-    	text-dy: -5;
-    	text-line-spacing: 0;
-	}
 
-	[zoom>=17]{
-    	text-name:"[name]";
-    	text-wrap-width: 40;
-    	text-face-name: "DejaVu Sans Oblique";
-    	text-fill: #000;
-    	text-halo-fill: #fff;
-    	text-halo-radius: 1;
-    	text-avoid-edges: false;
-  		text-placement: interior;
-    	text-placement-type: simple;
-  		text-size: 12;
-    	text-placements: 'X,N,E,S,W,12,11,10';
-    	text-dy: -5;
-    	text-line-spacing: 0;
-	}
-  }
 /* ------------------------------------------------------------------ */
 /* Boundaries
 /* ------------------------------------------------------------------ */

@@ -107,6 +107,12 @@ function zoomendListener (event) {
 
    //console.log("zoomend", map.baseLayer.name, map.getZoom(),map.baseLayer.zoomOffset);
    currentZoom = map.getZoom();
+   if (currentZoom <= 10 && map.baseLayer.name == "Carte Vélo"){
+      var controls = map.getControlsByClass('OpenLayers.Control.Attribution')
+      map.baseLayer.attribution = " © MapQuest, données cartographiques:les contributeurs d’<a href='http://www.openstreetmap.org'>OpenStreetMap</a>, <a href='http://opendatacommons.org/licenses/odbl/'>ODbL</a>.";
+      controls[0].updateAttribution;
+
+   }   
 }
 function moveendListener (event) {
    var lastCenter;
@@ -115,6 +121,7 @@ function moveendListener (event) {
    //}
 
    map.events.un({'moveend': moveendListener});
+
 
    var zLevel = map.getZoom() + zOffset;     
    if( restricted && zLevel == detailZoom-1)
@@ -206,9 +213,12 @@ if (userAgent.indexOf('msie 10.0') > -1 ) {
    proj4326 = new OpenLayers.Projection("EPSG:4326");
    proj900913 = new OpenLayers.Projection("EPSG:900913");
 
-   maxRes = 76.43702827453613;
-   zoomLevels = 8;
-   zOffset = 11;
+   //maxRes = 76.43702827453613;
+  maxRes = 152.87405654907226;
+    //maxRes = 305.74811309814452
+
+   zoomLevels =  9;
+   zOffset    = 10;
    restrExtent  = new OpenLayers.Bounds.fromArray(bBox).transform(proj4326, proj900913);
    //detailExtent     = new OpenLayers.Bounds(2.86,42.68,2.92,42.71).transform(proj4326, proj900913);
    detailExtent     = new OpenLayers.Bounds.fromArray(bBoxDetail).transform(proj4326, proj900913);
@@ -238,7 +248,7 @@ if (userAgent.indexOf('msie 10.0') > -1 ) {
             })
       ],
       displayProjection : proj4326,
-      resolutions: [76.43702827453613, 38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
+      resolutions: [305.74811309814452,152.87405654907226, 76.43702827453613, 38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
       projection : proj900913}
    );
 
@@ -263,7 +273,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    );
 
    layerBase.transitionEffect = "resize";
-   layerBase.attribution = "Données cartographiques: © les contributeurs d’<a href='http://www.openstreetmap.org'>OpenStreetMap</a>";
+   layerBase.attribution = "© MapQuest, données cartographiques: les contributeurs d’<a href='http://www.openstreetmap.org'>OpenStreetMap</a>, <a href='http://opendatacommons.org/licenses/odbl/'>ODbL</a>.";
 
    layerOsmMapnik = new OpenLayers.Layer.OSM( 
                   "Openstreetmap Mapnik",
@@ -293,7 +303,36 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
                      tileOptions: {crossOriginKeyword: null}
                   }
    ); 
-      
+
+    layerOpenMapQuest = new OpenLayers.Layer.OSM(
+               "Open MapQuest",
+               "http://otile1.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png",
+                  {
+                     maxResolution : maxRes,
+                        //resolutions: [38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
+                     zoomOffset : zOffset,
+                     numZoomLevels: zoomLevels,
+                     isBaseLayer: true,
+                     transitionEffect: "resize",
+                     tileOptions: {crossOriginKeyword: null}
+                  }
+   ); 
+    
+    
+    layerOpenMapSurfer = new OpenLayers.Layer.OSM(
+               "OpenMapSurfer",
+               "http://129.206.74.245:8001/tms_r.ashx?x=${x}&y=${y}&z=${z}",
+                  {
+                     maxResolution : maxRes,
+                        //resolutions: [38.218514137268066, 19.1092570678711, 9.55462853393555,4.77731426696777,2.3886571335,1.1943285667,0.5971642834],
+                     zoomOffset : zOffset,
+                     numZoomLevels: zoomLevels,
+                     isBaseLayer: true,
+                     transitionEffect: "resize",
+                     tileOptions: {crossOriginKeyword: null}
+                  }
+   ); 
+     
    /*
    var layerBingAerial = new OpenLayers.Layer.Bing({
          name: "Bing Aerial",
@@ -312,6 +351,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          maxResolution : maxRes,
          zoomOffset : zOffset,
          numZoomLevels: zoomLevels,
+         attribution : '',
          isBaseLayer: false
       }
       
@@ -326,6 +366,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          maxResolution : maxRes,
          zoomOffset : zOffset,
          numZoomLevels: zoomLevels,
+         attribution : '',
          isBaseLayer: false
       }
       
@@ -340,6 +381,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          maxResolution : maxRes,
          zoomOffset : zOffset,
          numZoomLevels: zoomLevels,
+         attribution : '',
          isBaseLayer: false
       }
       
@@ -354,6 +396,7 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
          maxResolution : maxRes,
          zoomOffset : zOffset,
          numZoomLevels: zoomLevels-2,
+         attribution : '',
          isBaseLayer: false
       }
    );   
@@ -376,14 +419,14 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
       //map.events.on({'movestart': moveendListener});
       map.events.on({"mousemove": mousemoveListener});
    }
-   //map.events.on({'zoomend': zoomendListener});
+   map.events.on({'zoomend': zoomendListener});
    
    //map.events.on({"changelayer": changelayerListener});
    
    map.restrictedExtent = restrExtent;
    
    if (detailExtent != null){
-      map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerGoogle,  layerItin, layerRoutes, layerChemins, layerContour, layerBoxes ]);
+      map.addLayers([layerBase, /*layerOpenMapSurfer,*/ layerOsmMapnik, layerOpenMapQuest, layerOsmCycle, layerGoogle,  layerItin, layerRoutes, layerChemins, layerContour, layerBoxes ]);
    }else{
       map.addLayers([layerBase, layerOsmMapnik, layerOsmCycle, layerItin, layerRoutes, layerChemins, layerContour ]);
    }
@@ -395,7 +438,11 @@ OpenLayers.Util.onImageLoadError = function() {this.src = '../img/empty.png';};
    if (!map.getCenter()) {
       map.zoomToMaxExtent();
    }
-
+   $("input[type=checkbox][class=poi]").each( 
+      function() { 
+      setMarkerPoi($(this).attr('id'),true);
+     } 
+    );
 }
 //------------------------------------------------------------------------------
 // jQuery Stuff
@@ -453,7 +500,7 @@ $(document).ready(function(){
    //--------------------------------------------------------    
    $("input[type=checkbox][class=poi]").each( 
       function() { 
-      $(this).attr('checked', false);  
+      $(this).attr('checked', true);  
      } 
     );
    $('#poiSelect').click(function(){
@@ -575,7 +622,6 @@ $(document).ready(function(){
 //------------------------------------------------------------------------------
 function setMarkerPoi (poi, checked){
 //------------------------------------------------------------------------------
-
    layername = 'poi_' + poi;
    var layers = map.getLayersByName(layername);
    //console.log(layers);

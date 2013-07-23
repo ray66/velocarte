@@ -234,10 +234,13 @@ border: 0;
    margin: 0 2px 5px;
 }
 .toggle_container h2{
-   font-size: 1.2em;
+    color: #063D5B;
+   font-size: 1.1em;
    font-weight: bold;
    clear: left;
-     padding-top: 0.5em;
+     padding-top: 1em;
+     padding-bottom: 0;
+     margin-bottom: 0.35em;
 }
 .toggle_container form{
 	clear: both;
@@ -249,7 +252,7 @@ border: 0;
 }
 
 #sidebar h3{
-	font-size: 1.0em;
+	font-size: 1.1em;
 	font-weight: bold;
     color: #063D5B;
 }
@@ -260,7 +263,7 @@ border: 0;
    font-weight: bold;
    margin-top: 0.5em;
    margin-bottom: 0.2em;
-   font-size: 1.1em;
+   font-size: 1.0em;
     color: #063D5B;
 }
 #sidebar dd{
@@ -300,9 +303,10 @@ border: 0;
  * Checkboxen
  *--------------------------------------------------------------------------------*/
 div.checkbox{
-   width: 25px;
+   width: 20px;
    clear: left;
    float:left;
+   margin-left: 15px;
 }
 div.checkbox-text{
    width: 85%;
@@ -310,18 +314,29 @@ div.checkbox-text{
    text-align: left;
    padding-top: 0px;
 }
-.checkbox-text h3{
-   margin-top: 0;
-}
 .checkbox-text h4{
    margin-top: 0px;
    margin-bottom: 0px;
    font-weight: normal;
 }
+#sidebar .checkbox-text h3{
+   margin-top: 0;
+   font-size: 1.0em;
+   font-weight: bold;
+    color: #063D5B;
+}
+#sidebar .checkbox-text img{
+   margin-top: 0;
+    margin-left: 5px;
+    vertical-align: top;
+}
+
 .checkbox-text p{
    margin-top: 0px;
 }
-
+.checkbox input{
+   margin: 0;
+}
 /*----------------------------------------------------------------------------------
  * Map Frame
  *--------------------------------------------------------------------------------*/

@@ -54,15 +54,22 @@
       <div class="right"> <a id="closeSidebar" href="#">Fermer</a></div>
       <div class="content">
          <!--<div class="trigger trigger_active">Légende</div>-->
+         <div class="trigger">Actualité</div>
+         <div class="toggle_container">
+            <?php
+               require($DOCUMENT_ROOT . "actualite.html");
+            ?>                     
+            <div class="toggle-container-bottom"></div>
+         </div>
          <div class="trigger">Légende</div>
-						<div class="toggle_container">
+         <div class="toggle_container">
             <?php
                require($DOCUMENT_ROOT . "legende.html");
             ?>                     
-         <div class="toggle-container-bottom"></div>
-						</div>
-              <div class="trigger">Points d'interêt</div>
-						<div class="toggle_container">
+            <div class="toggle-container-bottom"></div>
+         </div>
+         <div class="trigger">Points d'interêt</div>
+            <div class="toggle_container">
 	                  <form id="poiSelect">
          	            <div class="checkbox"><input type="checkbox" class="poi" id="parkings"></div><div class="checkbox-text"> <h3>Parkings vélo</h3></div>
             	         <div class="checkbox"><input type="checkbox" class="poi" id="locations"></div><div class="checkbox-text"> <h3>Location vélo</h3></div>
@@ -70,26 +77,18 @@
                   	</form>
               <div class="toggle-container-bottom"></div>
               		</div>
-              <div class="trigger">Itinéraires  </div>
-              <div class="toggle_container">
+         <div class="trigger" id="itineraires">Itinéraires  </div>
+         <div class="toggle_container">
             <?php
                require($DOCUMENT_ROOT . "itineraires.html");
             ?>                     
-                	   <div class="toggle-container-bottom"></div>
-              </div>
-              <div class="trigger">Propositions d'aménagement</div>
-              <div class="toggle_container">
-                <p>Vous trouvez ici quelques propositions d'aménagements cyclables faites par 
-                   l'association <a href="http://veloentet.free.fr" target="_blank">Vélo En Tet</a>
-                </p>
-         	        <form id="propositionsSelect">
-             	         <div class="checkbox"><input type="checkbox" class="overlay" id="RecDelMoli" data-color="blue"></div>
-            	         <div class="checkbox-text"> <h3>Le Rec del Molí</h3>
-            	                      <p>Le “Rec del Molí” est un ancien canal d’irrigation qui prend son eau dans la Basse, et la mène jusqu’à Canet-en-Roussillon. 
-                                        Vélo en Têt propose qu’il soit aménagé en itinéraire piéton et cyclable du centre de Perpignan jusqu’au littoral. 
-       											 </p>
-       											 <p>Plus d'informations sur le site de <a href=http://veloentet.free.fr/spip.php?article200 target=_blank>Vélo en Têt</a>.</p>
-       						</div>
+            <div class="toggle-container-bottom"></div>
+         </div>
+         <div class="trigger">Propositions d'aménagement</div>
+         <div class="toggle_container">
+            <?php
+               require($DOCUMENT_ROOT . "propositions.html");
+            ?>
                    	   <div class="toggle-container-bottom"></div>
                   	</form>
               	</div>
@@ -113,7 +112,7 @@
        						</div>
              	         <div class="checkbox"><input type="checkbox" class="overlay" id="Pirinexus" data-color="darkcyan"></div>
             	         <div class="checkbox-text"> <h3>Pirinexus</h3>
-            	                      <p>Itinéraire cyclotouristique transfronatlier de 353 km</p>
+            	                      <p>Itinéraire cyclotouristique transfrontalier de 353 km</p>
        						</div>
                    	   
                    	   <div class="toggle-container-bottom"></div>
@@ -149,23 +148,6 @@
         					<dt>Calques "Routes" et "Chemins"</dt>
 							<dd><p>Ce calque met en valeur des routes mineures et des chemins agricoles et forestiers  
         								qui se prêtent particulièrement pour une utilisation avec le vélo.</p>
-        							<div>
-           						 <div class='legende_img'><img src="img/pr_unclassified.png" alt=""></div>
-            					 <div class='legende_img_text'>Route communale ou intercommunale, chemin agricole ou forestier à revêtement bitumé ou très compact</div>
-       						 </div>
-        						 <div>
-            					<div class='legende_img'><img src="img/pr_track1.png" alt=""></div>
-           						 <div class='legende_img_text'>
-                 					 Piste agricole ou forestière, non goudronnée avec un revêtement compact en gravier ou en terre/sable, généralement praticable en VTC.
-            					</div>
-        						</div>
-        						<div>
-          					  <div class='legende_img'><img src="img/pr_track2.png" alt=""></div>
-         					   <div class='legende_img_text'>
-          					        Chemin rural, agricole ou forestier, revêtement peu compact, praticable en VTT.  
-         				   	</div>
-      				 	 </div>
-						  	 <div style='clear: both;'></div>
 						 </dd>
 						 <dt>Calque "Courbes de niveau"</dt>
         				<dd><p>Ce calque a été créé avec les données 
@@ -272,8 +254,8 @@
                blog</a> (en allemand pour l'instant)</p>
         <p>Tous les fichiers utiliés pour générer et publier la carte sont disponibles sur <a href="https://github.com/ray66/velocarte" target="_blank">GitHub</a>.</p>
               </div>
-              <div class="trigger">Conditions d'utilisations, licences, remerciements</div>
-              <div class="toggle_container">
+       <div class="trigger">Conditions d'utilisations, licences, remerciements</div>
+       <div class="toggle_container">
                <h3>Licences</h3>
          	      <p>Données de la carte de base et des calques "Routes" et "Chemins" : © les contributeurs d’<a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, disponibles sous la licence ODbL </p>
 				      <p>Données SRTM (courbes de niveau) : <a href="http://www2.jpl.nasa.gov/srtm/" target="_blank">© NASA SRTM</a> et <a href="http://www.viewfinderpanoramas.org/" target="_blank">viewfinderpanoramas.org</a></p>
@@ -282,12 +264,16 @@
         			<p>Les tuiles de la carte vélo, du calque "OpenStreetMap Mapnik" et du calque "OpenCycleMap" sont disponibles sous la licence 
           			 <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">Creative Commons paternité – partage à l’identique 2.0</a> (CC-BY-SA).
         			</p>
+        <br/>
         <h3>Remerciements</h3>
-        <p>Cette carte a été inspiré des cartes des associations <a href="http://carte.apicy.fr/" target="_blank">APiCy</a>, 
+        <p>Cette carte a été inspiré des cartes des associations <a href="http://carte.apicy.fr/" target="_blank">APiCy</a>,
            <a href="http://carte.velobesancon.info/" target="_blank">AVB</a> et 
            <a href="http://carte.lavilleavelo.org/" target="_blank">La Ville à Vélo</a> et 
            du <a href ="http://wiki.openstreetmap.org/wiki/File:L%C3%BCbeckerFahrradStadtplan-Ausschnitt.jpg" target="_blank">plan de ville de l'ADFC de Lübeck</a>. 
         </p>
+        <p>Certains icônes proviennet de <a href="http://mapicons.nicolasmollet.com">Mapicons Collection</a> de Nicolas Mollet sous license <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+           CC BY SA 3.0</a>. Des elements du style de la carte, les couleurs du terrain et des bâtiments en particulier, ont été inspirés de la carte 
+           <a href="http://openmapsurfer.uni-hd.de/">OpenMapSurfer</a>, merci à à Maxim Rylov pour l'autorisation.
         <p>L'association <a href="http://veloentet.free.fr/" target="_blank">Vélo en Têt</a> et ses adhérents fournissent des informations
         précieuses sur l'état des aménagements cyclables de Perpignan et ses environs et permettent ainsi d'améliorer les données du projet OpenStreetMap
         et de cette carte.                

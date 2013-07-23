@@ -98,3 +98,48 @@
     point-file: url('img/icons/12x12/symbol/transport/amenity=airport.png');
     text-dy: 18;
 }
+/*===================================================================================*/
+/* Power Lines
+/*===================================================================================*/
+#power_line{
+  [zoom>=14]{
+  	line-color: grey;
+    line-width: 0.2;
+  }
+  [zoom>=15]{
+  	line-color: darkgrey;
+    line-width: 0.3;
+  }
+  [zoom>=16]{
+    line-width: 0.5;
+  }
+}
+#power_point{
+  [power='tower']{
+    [zoom>=14]{
+	  	point-file: url('img/power_tower.svg');
+        point-transform: 'scale(0.1)';
+    }
+    [zoom>=15]{
+      point-transform: 'scale(0.2)';
+    }
+    [zoom>=16]{
+      point-transform: 'scale(0.3)';
+    }
+  }
+
+  [power='generator']["generator:source"='wind']{
+    [zoom>=14]{
+	  	point-file: url('img/wind_generator.svg');
+        point-transform: 'scale(0.25)';
+    }
+    [zoom>=16]{
+        point-transform: 'scale(0.5)';
+    }
+
+    [zoom>=17]{
+        point-transform: 'scale(0.7)';
+    }
+  }
+}
+      

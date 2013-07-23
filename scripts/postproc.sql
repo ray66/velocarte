@@ -491,47 +491,51 @@ Update planet_osm_point Set poi_category =
            WHEN tourism != '' THEN 'tourism'
            WHEN aeroway != '' THEN 'aeroway'
            WHEN shop != '' THEN 'shop'
+           WHEN power   != '' THEN 'power'
            WHEN tags->'office' != '' THEN 'office'
            WHEN "natural" != '' THEN 'natural'
            ELSE ''
        END 
-    where name != '';
+   ;
 Update planet_osm_polygon Set poi_category = 
       CASE WHEN amenity != '' THEN 'amenity'
            WHEN leisure != '' THEN 'leisure'
            WHEN historic != '' THEN 'historic'
            WHEN tourism != '' THEN 'tourism'
            WHEN aeroway != '' THEN 'aeroway'
+           WHEN power   != '' THEN 'power'
            WHEN shop != '' THEN 'shop'
            WHEN tags->'office' != '' THEN 'office'
            WHEN "natural" != '' THEN 'natural'
            ELSE ''
        END
-    where name != '';
+    ;
 Update planet_osm_point Set poi_type = 
       CASE WHEN amenity != '' THEN amenity
            WHEN leisure != '' THEN leisure
            WHEN historic != '' THEN historic
            WHEN tourism != '' THEN tourism
            WHEN aeroway != '' THEN aeroway
+           WHEN "power"   != '' THEN "power"
            WHEN shop != '' THEN shop
            WHEN tags->'office' != '' THEN 'office'
            WHEN "natural" != '' THEN "natural"
            ELSE ''
        END
-    where name != '';
+    ;
 Update planet_osm_polygon Set poi_type = 
       CASE WHEN amenity != '' THEN amenity
            WHEN leisure != '' THEN leisure
            WHEN historic != '' THEN historic
            WHEN tourism != '' THEN tourism
            WHEN aeroway != '' THEN aeroway
+           WHEN "power"   != '' THEN "power"
            WHEN shop != '' THEN shop
            WHEN tags->'office' != '' THEN tags->'office'
            WHEN "natural" != '' THEN "natural"
            ELSE ''
        END
-    where name != '';
+    ;
       
 
 Update planet_osm_point Set relevance =
@@ -555,8 +559,8 @@ Update planet_osm_point Set relevance =
                                  'picnic_site',
                                  'viewpoint')
                   or leisure in ('sports_centre',
-                                 'picnic_table',
-                                 'stadium')
+                                 'picnic_table'
+                                 )
                   or (historic!='' and historic != 'memorial')
                   or (amenity='parking_space' and ("capacity:disabled"!='0' or wheelchair='yes'))
              Then 'high'
@@ -575,8 +579,8 @@ Update planet_osm_point Set relevance =
                            'school',
                            'telephone') 
                   or (amenity='recycling' and recycling_type='centre')
-                  or leisure in ('swimming_pool')
-                  or "power" in ('generator')
+                  or leisure in ('swimming_pool', 'stadium')
+                  or "power" in ('generator','sub_station')
                   or poi_type in ('ngo', 'administrative','foundation','government')
              Then 'medium'
              When amenity in ('cinema',
@@ -598,7 +602,7 @@ Update planet_osm_point Set relevance =
              Then 'low' 
              Else ''
              End
-    where name != '';
+    ;
 
 Update planet_osm_polygon Set relevance =
      CASE When amenity in (
@@ -621,8 +625,8 @@ Update planet_osm_polygon Set relevance =
                                  'picnic_site',
                                  'viewpoint')
                   or leisure in ('sports_centre',
-                                 'picnic_table',
-                                 'stadium')
+                                 'picnic_table'
+                                 )
                   or (historic!='' and historic != 'memorial')
                   or (amenity='parking_space' and ("capacity:disabled"!='0' or wheelchair='yes'))
              Then 'high'
@@ -643,7 +647,7 @@ Update planet_osm_polygon Set relevance =
                            ) 
                   or (amenity='recycling' and recycling_type='centre')
                   or leisure in ('swimming_pool')
-                  or "power" in ('generator')
+                  or "power" in ('generator','sub_station')
                   or poi_type in ('ngo', 'administrative','foundation','government')
              Then 'medium'
              When amenity in ('cinema',
@@ -663,7 +667,34 @@ Update planet_osm_polygon Set relevance =
              Then 'low' 
              Else ''
              End
-    where name != '';
+    ;
 
 Update planet_osm_polygon Set name = network where amenity = 'bicycle_rental';
 
+CREATE or REPLACE FUNCTION shorten(name text, short_name text, poi_type text, len integer) RETURNS text  
+AS $$
+  DECLARE
+     s       text;
+  BEGIN
+
+  if coalesce(short_name,'') = '' then
+     s = name;
+  else
+     s = short_name;
+  end if;
+  if char_length(s) < len then
+      return s;
+  end if;
+
+   if poi_type='place_of_worship' then
+      if substring(s from 1 for 12) = 'Église de l''' then
+         s = substring(s from 13);
+      else 
+         if substring(s from 1 for 14) = 'Église de la ' then
+            s = substring(s from 15);
+         end if;
+      end if;
+   end if;
+   RETURN s;
+  END;
+$$ LANGUAGE plpgsql; 

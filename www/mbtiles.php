@@ -1,15 +1,22 @@
 <?php
 $zoom = $_GET['z'];
 $column = $_GET['x'];
-$row = $_GET['y'];
-$row = (1 << $zoom) - $row -1;
+$row1 = $_GET['y'];
+$row = (1 << $zoom) - $row1 -1;
 $db = $_GET['db'];
   try
   {
     // Open the database
     //echo $db;
     if($db == "CarteVeloBase.mbtiles"){
-       if($zoom<17){
+       if($zoom<11){
+         $url = sprintf("http://otile1.mqcdn.com/tiles/1.0.0/map/%d/%d/%d.png",$zoom,$column,$row1);
+         //echo $url;
+         $data= file_get_contents($url);
+         header("Content-Type: image/png");
+         echo $data;
+         return;       
+       }else if($zoom<17){
           $db="CarteVeloBase_zoom_low.mbtiles";
        }else{
           $db="CarteVeloBase_zoom_high.mbtiles";

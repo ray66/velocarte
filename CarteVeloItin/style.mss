@@ -26,7 +26,7 @@ Map {
     line-color: @color-ncn;
     line-opacity: 0.7;
   	
-	[zoom>=11]{ line-width: 5; 	}
+	[zoom>=9]{ line-width: 5; 	}
 	[zoom>=14]{ line-width: 8;  	}
 	[zoom>=16]{ line-width: 11;  	}
 	[zoom>=17]{ line-width: 13;  	}
@@ -49,7 +49,7 @@ Map {
     line-color: @color-rcn;
     line-opacity: 0.7;
   	
-	[zoom>=11]{ line-width: 2; 	}
+	[zoom>=9]{ line-width: 2; 	}
 	[zoom>=14]{ line-width: 4;  	}
 	[zoom>=16]{ line-width: 6;  	}
 	[zoom>=17]{ line-width: 7;  	}
